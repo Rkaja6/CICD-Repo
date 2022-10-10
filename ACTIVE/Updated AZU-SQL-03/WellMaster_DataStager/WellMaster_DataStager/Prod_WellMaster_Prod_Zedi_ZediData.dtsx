@@ -1,0 +1,606 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/10/2022 8:22:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-852713J"
+  DTS:CreatorName="TLN\avogt"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{A8CA28CD-2F1B-478C-9A8B-8AAD5FC8C0D1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Prod_WellMaster_Prod_Zedi_ZediData"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{4F90DE47-0DF5-47ED-BA8B-932435B443D5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{11B000CE-58C9-4F69-B17C-9E2C562DE976}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-03;Initial Catalog=Prod_WellMaster;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9AB776C7-5D25-4F49-ADA4-4CF72C4C2BA2}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-03;Initial Catalog=Prod_Zedi;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{EBC8ABB9-BC8C-4DF1-86BF-6BFD60195BE1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - ZediData"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - ZediData"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Zedi].[ZediData]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - ZediData.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].Columns[location_id]"
+                      cachedDataType="i4"
+                      cachedName="location_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[location_id]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[location_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].Columns[location]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="location"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[location]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[location]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].Columns[readingtime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="readingtime"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[readingtime]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[readingtime]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].Columns[sensor]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sensor"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[sensor]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[sensor]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].Columns[sensor_id]"
+                      cachedDataType="i4"
+                      cachedName="sensor_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[sensor_id]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[sensor_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].Columns[unit]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="unit"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[unit]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[unit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].Columns[amount]"
+                      cachedDataType="r8"
+                      cachedName="amount"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[amount]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[amount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].Columns[amountstring]"
+                      cachedDataType="nText"
+                      cachedName="amountstring"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[amountstring]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[amountstring]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].Columns[amountdatetimeutc]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="amountdatetimeutc"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[amountdatetimeutc]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[amountdatetimeutc]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[location_id]"
+                      dataType="i4"
+                      name="location_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[location]"
+                      dataType="wstr"
+                      length="100"
+                      name="location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[readingtime]"
+                      dataType="dbTimeStamp"
+                      name="readingtime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[sensor]"
+                      dataType="wstr"
+                      length="100"
+                      name="sensor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[sensor_id]"
+                      dataType="i4"
+                      name="sensor_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[unit]"
+                      dataType="wstr"
+                      length="25"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[amount]"
+                      dataType="r8"
+                      name="amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[amountstring]"
+                      dataType="nText"
+                      name="amountstring" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input].ExternalColumns[amountdatetimeutc]"
+                      dataType="dbTimeStamp"
+                      name="amountdatetimeutc" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - ZediData.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - ZediData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - ZediData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - ZediData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - ZediData"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - ZediData"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ZediData]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - ZediData.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[location_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[location_id]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[location_id]"
+                      name="location_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[location]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[location]"
+                      length="100"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[location]"
+                      name="location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[readingtime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[readingtime]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[readingtime]"
+                      name="readingtime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[sensor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[sensor]"
+                      length="100"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[sensor]"
+                      name="sensor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[sensor_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[sensor_id]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[sensor_id]"
+                      name="sensor_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[unit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[unit]"
+                      length="25"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[unit]"
+                      name="unit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[amount]"
+                      name="amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[amountstring]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[amountstring]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[amountstring]"
+                      name="amountstring"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[amountdatetimeutc]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[amountdatetimeutc]"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].Columns[amountdatetimeutc]"
+                      name="amountdatetimeutc"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[location_id]"
+                      dataType="i4"
+                      name="location_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[location]"
+                      dataType="wstr"
+                      length="100"
+                      name="location" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[readingtime]"
+                      dataType="dbTimeStamp"
+                      name="readingtime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[sensor]"
+                      dataType="wstr"
+                      length="100"
+                      name="sensor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[sensor_id]"
+                      dataType="i4"
+                      name="sensor_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[unit]"
+                      dataType="wstr"
+                      length="25"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[amount]"
+                      dataType="r8"
+                      name="amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[amountstring]"
+                      dataType="nText"
+                      name="amountstring" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output].ExternalColumns[amountdatetimeutc]"
+                      dataType="dbTimeStamp"
+                      name="amountdatetimeutc" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[location_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[location_id]"
+                      name="location_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[location]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[location]"
+                      name="location" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[readingtime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[readingtime]"
+                      name="readingtime" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[sensor]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[sensor]"
+                      name="sensor" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[sensor_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[sensor_id]"
+                      name="sensor_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[unit]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[unit]"
+                      name="unit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[amount]"
+                      name="amount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[amountstring]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[amountstring]"
+                      name="amountstring" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[amountdatetimeutc]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[amountdatetimeutc]"
+                      name="amountdatetimeutc" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Destination - ZediData.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 1\Source - ZediData.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{B5330F82-408D-4797-BD66-0AA9196A8B92}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{11B000CE-58C9-4F69-B17C-9E2C562DE976}"
+          SQLTask:SqlStatementSource="/*IF NOT EXISTS(SELECT * FROM sys.schemas WHERE name = N'Zedi')&#xA;BEGIN&#xA;EXEC(N'CREATE SCHEMA [Zedi]')&#xA;END&#xA;CREATE TABLE [Zedi].[ZediData] (&#xA;[location_id] int,&#xA;[location] nvarchar(100),&#xA;[readingtime] datetime NOT NULL,&#xA;[sensor] nvarchar(100),&#xA;[sensor_id] int NOT NULL,&#xA;[unit] nvarchar(25),&#xA;[amount] float,&#xA;[amountstring] nvarchar(max),&#xA;[amountdatetimeutc] datetime&#xA;)&#xA;GO&#xA;*/&#xA;TRUNCATE TABLE Zedi.ZediData" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{81C2DAAB-F120-4B4B-AE32-ADD20BFBE37A\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{81C2DAAB-F120-4B4B-AE32-ADD20BFBE37A}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{81C2DAAB-F120-4B4B-AE32-ADD20BFBE37A}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="22,107.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{81C2DAAB-F120-4B4B-AE32-ADD20BFBE37A\}]"
+          TopLeft="104,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

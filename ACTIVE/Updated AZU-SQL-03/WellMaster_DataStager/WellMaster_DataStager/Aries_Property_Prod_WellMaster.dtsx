@@ -1,0 +1,2928 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/2/2022 7:09:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AZU-SQL-02"
+  DTS:CreatorName="TLN\avogt"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{C1FD049C-1E9B-41D8-A164-0EA7376C61AE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Aries_Property_Prod_WellMaster"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{D7347994-CB61-40C5-8863-D21A117FF16B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DEF35606-B00D-4C48-8B74-DB11A061A765}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=AZU-SQL-03;Initial Catalog=Prod_WellMaster;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-Aries_Property_Prod_WellMaster-{DEF35606-B00D-4C48-8B74-DB11A061A765}DestinationConnectionOLEDB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6D8A2854-CDC5-4AF1-9C0C-62032E428AA3}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=HOU-ARSQL-01;Initial Catalog=TPC_SQL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;Application Name=SSIS-Aries_Property_Prod_WellMaster-{6D8A2854-CDC5-4AF1-9C0C-62032E428AA3}SourceConnectionOLEDB;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{A352D771-8B60-48E9-B5DC-0F27C9E065DE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - AC_PROPERTY"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - AC_PROPERTY"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Aries].[AC_PROPERTY]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[DBSKEY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="DBSKEY"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[DBSKEY]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[DBSKEY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[PROPNUM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="PROPNUM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PROPNUM]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PROPNUM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[SEQNUM]"
+                      cachedDataType="i2"
+                      cachedName="SEQNUM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SEQNUM]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SEQNUM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[LEASE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LEASE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LEASE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LEASE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[PRIOR_YR_LEASE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="PRIOR_YR_LEASE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_YR_LEASE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_YR_LEASE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[WELL_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="WELL_NO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[WELL_NO]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[WELL_NO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[CLASS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="CLASS"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[CLASS]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[CLASS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[RSV_CAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="RSV_CAT"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[RSV_CAT]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[RSV_CAT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[REVISION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="REVISION"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[REVISION]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REVISION]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[REV_REMARK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="REV_REMARK"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[REV_REMARK]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REV_REMARK]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TYPE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[TYPE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TYPE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[ASSET]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ASSET"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ASSET]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ASSET]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[FIELD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="76"
+                      cachedName="FIELD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[FIELD]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FIELD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[RESERVOIR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="RESERVOIR"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[RESERVOIR]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[RESERVOIR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[OPERATOR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="48"
+                      cachedName="OPERATOR"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[OPERATOR]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[OPERATOR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[OPERATED]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="OPERATED"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[OPERATED]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[OPERATED]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[COUNTY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="COUNTY"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[COUNTY]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[COUNTY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[STATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="STATE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[STATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[STATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[MAJOR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="MAJOR"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[MAJOR]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[MAJOR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[API]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="34"
+                      cachedName="API"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[API]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[API]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[LOCATION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="LOCATION"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LOCATION]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LOCATION]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[SECTION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="SECTION"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SECTION]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SECTION]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[TWN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="TWN"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[TWN]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TWN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[RNG]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="RNG"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[RNG]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[RNG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[FIRST_PROD]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FIRST_PROD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[FIRST_PROD]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FIRST_PROD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[LAST_PROD]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LAST_PROD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LAST_PROD]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LAST_PROD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[PRIOR_OIL]"
+                      cachedDataType="r8"
+                      cachedName="PRIOR_OIL"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_OIL]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_OIL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[PRIOR_GAS]"
+                      cachedDataType="r8"
+                      cachedName="PRIOR_GAS"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_GAS]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_GAS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[PRIOR_WTR]"
+                      cachedDataType="r8"
+                      cachedName="PRIOR_WTR"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_WTR]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_WTR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[TD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="TD"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[TD]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[STATUS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="STATUS"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[STATUS]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[STATUS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[LATITUDE]"
+                      cachedDataType="r8"
+                      cachedName="LATITUDE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LATITUDE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LATITUDE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[LONGITUDE]"
+                      cachedDataType="r8"
+                      cachedName="LONGITUDE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LONGITUDE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LONGITUDE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[UNIQUEID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="UNIQUEID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[UNIQUEID]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[UNIQUEID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[GASGATH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="GASGATH"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[GASGATH]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[GASGATH]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[GASPURCHASER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="GASPURCHASER"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[GASPURCHASER]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[GASPURCHASER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[LATERAL_LENGTH]"
+                      cachedDataType="i4"
+                      cachedName="LATERAL_LENGTH"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LATERAL_LENGTH]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LATERAL_LENGTH]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[NS_TCGROUP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NS_TCGROUP"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NS_TCGROUP]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NS_TCGROUP]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[GIS_NUM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GIS_NUM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[GIS_NUM]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[GIS_NUM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[DDA_POOL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="DDA_POOL"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[DDA_POOL]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[DDA_POOL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[START_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="START_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[START_DATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[START_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[BOLO_ID]"
+                      cachedDataType="r8"
+                      cachedName="BOLO_ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[BOLO_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[BOLO_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[BOOK_DATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="BOOK_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[BOOK_DATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[BOOK_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[WI]"
+                      cachedDataType="r8"
+                      cachedName="WI"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[WI]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[WI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[NRI]"
+                      cachedDataType="r8"
+                      cachedName="NRI"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NRI]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NRI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[REVERSION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="REVERSION"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[REVERSION]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REVERSION]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[WI_REV]"
+                      cachedDataType="r8"
+                      cachedName="WI_REV"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[WI_REV]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[WI_REV]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[NRI_REV]"
+                      cachedDataType="r8"
+                      cachedName="NRI_REV"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NRI_REV]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NRI_REV]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[ENTITY_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="34"
+                      cachedName="ENTITY_ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ENTITY_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ENTITY_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[ACQ_YR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ACQ_YR"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ACQ_YR]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ACQ_YR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[SOLD_YR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="SOLD_YR"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SOLD_YR]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SOLD_YR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[PA_YR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="PA_YR"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PA_YR]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PA_YR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[AFE_NUM]"
+                      cachedDataType="i4"
+                      cachedName="AFE_NUM"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[AFE_NUM]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[AFE_NUM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[PRIOR_YR_RSV_CAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="PRIOR_YR_RSV_CAT"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_YR_RSV_CAT]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_YR_RSV_CAT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[NSAI_LEASE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NSAI_LEASE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NSAI_LEASE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NSAI_LEASE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[TPC_TC_AREA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="TPC_TC_AREA"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[TPC_TC_AREA]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TPC_TC_AREA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[FCST_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FCST_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[FCST_DATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FCST_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[LL_NEW]"
+                      cachedDataType="i4"
+                      cachedName="LL_NEW"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LL_NEW]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LL_NEW]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[LL_MUL]"
+                      cachedDataType="r8"
+                      cachedName="LL_MUL"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LL_MUL]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LL_MUL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[PAD_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="PAD_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PAD_NAME]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PAD_NAME]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[SPUD_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SPUD_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SPUD_DATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SPUD_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[COMPL_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="COMPL_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[COMPL_DATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[COMPL_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[REPORT_GRP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="REPORT_GRP"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[REPORT_GRP]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REPORT_GRP]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[CATEGORY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CATEGORY"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[CATEGORY]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[SOUR_GAS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SOUR_GAS"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SOUR_GAS]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SOUR_GAS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[AREA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AREA"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[AREA]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[AREA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[NSAI_RSV_CAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NSAI_RSV_CAT"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NSAI_RSV_CAT]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NSAI_RSV_CAT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[ENERSIGHT_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ENERSIGHT_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ENERSIGHT_NAME]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ENERSIGHT_NAME]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[FINANCE_GRP_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FINANCE_GRP_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[FINANCE_GRP_NAME]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FINANCE_GRP_NAME]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].Columns[ENERSIGHT_FACILITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ENERSIGHT_FACILITY"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ENERSIGHT_FACILITY]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ENERSIGHT_FACILITY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[DBSKEY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="DBSKEY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PROPNUM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="PROPNUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SEQNUM]"
+                      dataType="i2"
+                      name="SEQNUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LEASE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_YR_LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PRIOR_YR_LEASE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[WELL_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="WELL_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[CLASS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="CLASS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="RSV_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[REVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="REVISION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[REV_REMARK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="REV_REMARK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ASSET]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ASSET" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[FIELD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="76"
+                      name="FIELD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[RESERVOIR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="RESERVOIR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[OPERATOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="OPERATOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[OPERATED]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="OPERATED" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[COUNTY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="COUNTY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[MAJOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="MAJOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="34"
+                      name="API" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LOCATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="LOCATION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SECTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="SECTION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[TWN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TWN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[RNG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="RNG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[FIRST_PROD]"
+                      dataType="dbTimeStamp"
+                      name="FIRST_PROD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LAST_PROD]"
+                      dataType="dbTimeStamp"
+                      name="LAST_PROD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_OIL]"
+                      dataType="r8"
+                      name="PRIOR_OIL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_GAS]"
+                      dataType="r8"
+                      name="PRIOR_GAS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_WTR]"
+                      dataType="r8"
+                      name="PRIOR_WTR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[TD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="TD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LATITUDE]"
+                      dataType="r8"
+                      name="LATITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LONGITUDE]"
+                      dataType="r8"
+                      name="LONGITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[UNIQUEID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="UNIQUEID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[GASGATH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GASGATH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[GASPURCHASER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="GASPURCHASER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LATERAL_LENGTH]"
+                      dataType="i4"
+                      name="LATERAL_LENGTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NS_TCGROUP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NS_TCGROUP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[GIS_NUM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GIS_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[DDA_POOL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DDA_POOL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[BOLO_ID]"
+                      dataType="r8"
+                      name="BOLO_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[BOOK_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="BOOK_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[WI]"
+                      dataType="r8"
+                      name="WI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NRI]"
+                      dataType="r8"
+                      name="NRI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[REVERSION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="REVERSION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[WI_REV]"
+                      dataType="r8"
+                      name="WI_REV" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NRI_REV]"
+                      dataType="r8"
+                      name="NRI_REV" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ENTITY_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="34"
+                      name="ENTITY_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ACQ_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ACQ_YR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SOLD_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="SOLD_YR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PA_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PA_YR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[AFE_NUM]"
+                      dataType="i4"
+                      name="AFE_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PRIOR_YR_RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PRIOR_YR_RSV_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NSAI_LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NSAI_LEASE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[TPC_TC_AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TPC_TC_AREA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[FCST_DATE]"
+                      dataType="dbTimeStamp"
+                      name="FCST_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LL_NEW]"
+                      dataType="i4"
+                      name="LL_NEW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[LL_MUL]"
+                      dataType="r8"
+                      name="LL_MUL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[PAD_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PAD_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SPUD_DATE]"
+                      dataType="dbTimeStamp"
+                      name="SPUD_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[COMPL_DATE]"
+                      dataType="dbTimeStamp"
+                      name="COMPL_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[REPORT_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="REPORT_GRP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[CATEGORY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[SOUR_GAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SOUR_GAS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AREA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[NSAI_RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NSAI_RSV_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ENERSIGHT_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ENERSIGHT_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[FINANCE_GRP_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FINANCE_GRP_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input].ExternalColumns[ENERSIGHT_FACILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ENERSIGHT_FACILITY" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - AC_PROPERTY"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - AC_PROPERTY"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AC_PROPERTY]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[DBSKEY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[DBSKEY]"
+                      length="12"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[DBSKEY]"
+                      name="DBSKEY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PROPNUM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PROPNUM]"
+                      length="12"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PROPNUM]"
+                      name="PROPNUM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SEQNUM]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SEQNUM]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SEQNUM]"
+                      name="SEQNUM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LEASE]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LEASE]"
+                      name="LEASE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_YR_LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_YR_LEASE]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_YR_LEASE]"
+                      name="PRIOR_YR_LEASE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[WELL_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[WELL_NO]"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[WELL_NO]"
+                      name="WELL_NO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[CLASS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[CLASS]"
+                      length="8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[CLASS]"
+                      name="CLASS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[RSV_CAT]"
+                      length="8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[RSV_CAT]"
+                      name="RSV_CAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REVISION]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REVISION]"
+                      name="REVISION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REV_REMARK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REV_REMARK]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REV_REMARK]"
+                      name="REV_REMARK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TYPE]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TYPE]"
+                      name="TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ASSET]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ASSET]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ASSET]"
+                      name="ASSET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FIELD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FIELD]"
+                      length="76"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FIELD]"
+                      name="FIELD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[RESERVOIR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[RESERVOIR]"
+                      length="40"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[RESERVOIR]"
+                      name="RESERVOIR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[OPERATOR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[OPERATOR]"
+                      length="48"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[OPERATOR]"
+                      name="OPERATOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[OPERATED]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[OPERATED]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[OPERATED]"
+                      name="OPERATED"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[COUNTY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[COUNTY]"
+                      length="40"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[COUNTY]"
+                      name="COUNTY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[STATE]"
+                      name="STATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[MAJOR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[MAJOR]"
+                      length="8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[MAJOR]"
+                      name="MAJOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[API]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[API]"
+                      length="34"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[API]"
+                      name="API"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LOCATION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LOCATION]"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LOCATION]"
+                      name="LOCATION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SECTION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SECTION]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SECTION]"
+                      name="SECTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TWN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TWN]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TWN]"
+                      name="TWN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[RNG]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[RNG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[RNG]"
+                      name="RNG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FIRST_PROD]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FIRST_PROD]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FIRST_PROD]"
+                      name="FIRST_PROD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LAST_PROD]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LAST_PROD]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LAST_PROD]"
+                      name="LAST_PROD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_OIL]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_OIL]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_OIL]"
+                      name="PRIOR_OIL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_GAS]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_GAS]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_GAS]"
+                      name="PRIOR_GAS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_WTR]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_WTR]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_WTR]"
+                      name="PRIOR_WTR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TD]"
+                      length="5"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TD]"
+                      name="TD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                      length="12"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[STATUS]"
+                      name="STATUS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LATITUDE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LATITUDE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LATITUDE]"
+                      name="LATITUDE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LONGITUDE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LONGITUDE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LONGITUDE]"
+                      name="LONGITUDE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[UNIQUEID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[UNIQUEID]"
+                      length="40"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[UNIQUEID]"
+                      name="UNIQUEID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[GASGATH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[GASGATH]"
+                      length="25"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[GASGATH]"
+                      name="GASGATH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[GASPURCHASER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[GASPURCHASER]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[GASPURCHASER]"
+                      name="GASPURCHASER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LATERAL_LENGTH]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LATERAL_LENGTH]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LATERAL_LENGTH]"
+                      name="LATERAL_LENGTH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NS_TCGROUP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NS_TCGROUP]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NS_TCGROUP]"
+                      name="NS_TCGROUP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[GIS_NUM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[GIS_NUM]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[GIS_NUM]"
+                      name="GIS_NUM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[DDA_POOL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[DDA_POOL]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[DDA_POOL]"
+                      name="DDA_POOL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[START_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[START_DATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[START_DATE]"
+                      name="START_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[BOLO_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[BOLO_ID]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[BOLO_ID]"
+                      name="BOLO_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[BOOK_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[BOOK_DATE]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[BOOK_DATE]"
+                      name="BOOK_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[WI]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[WI]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[WI]"
+                      name="WI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NRI]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NRI]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NRI]"
+                      name="NRI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REVERSION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REVERSION]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REVERSION]"
+                      name="REVERSION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[WI_REV]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[WI_REV]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[WI_REV]"
+                      name="WI_REV"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NRI_REV]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NRI_REV]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NRI_REV]"
+                      name="NRI_REV"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ENTITY_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ENTITY_ID]"
+                      length="34"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ENTITY_ID]"
+                      name="ENTITY_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ACQ_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ACQ_YR]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ACQ_YR]"
+                      name="ACQ_YR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SOLD_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SOLD_YR]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SOLD_YR]"
+                      name="SOLD_YR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PA_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PA_YR]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PA_YR]"
+                      name="PA_YR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[AFE_NUM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[AFE_NUM]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[AFE_NUM]"
+                      name="AFE_NUM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_YR_RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_YR_RSV_CAT]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PRIOR_YR_RSV_CAT]"
+                      name="PRIOR_YR_RSV_CAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NSAI_LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NSAI_LEASE]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NSAI_LEASE]"
+                      name="NSAI_LEASE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TPC_TC_AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TPC_TC_AREA]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TPC_TC_AREA]"
+                      name="TPC_TC_AREA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FCST_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FCST_DATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FCST_DATE]"
+                      name="FCST_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LL_NEW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LL_NEW]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LL_NEW]"
+                      name="LL_NEW"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LL_MUL]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LL_MUL]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[LL_MUL]"
+                      name="LL_MUL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PAD_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PAD_NAME]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[PAD_NAME]"
+                      name="PAD_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SPUD_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SPUD_DATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SPUD_DATE]"
+                      name="SPUD_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[COMPL_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[COMPL_DATE]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[COMPL_DATE]"
+                      name="COMPL_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REPORT_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REPORT_GRP]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[REPORT_GRP]"
+                      name="REPORT_GRP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                      name="CATEGORY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SOUR_GAS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SOUR_GAS]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SOUR_GAS]"
+                      name="SOUR_GAS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[AREA]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[AREA]"
+                      name="AREA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NSAI_RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NSAI_RSV_CAT]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[NSAI_RSV_CAT]"
+                      name="NSAI_RSV_CAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ENERSIGHT_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ENERSIGHT_NAME]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ENERSIGHT_NAME]"
+                      name="ENERSIGHT_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FINANCE_GRP_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FINANCE_GRP_NAME]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[FINANCE_GRP_NAME]"
+                      name="FINANCE_GRP_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ENERSIGHT_FACILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ENERSIGHT_FACILITY]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[ENERSIGHT_FACILITY]"
+                      name="ENERSIGHT_FACILITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TELL_COM_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TELL_COM_GRP]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TELL_COM_GRP]"
+                      name="TELL_COM_GRP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SEV_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SEV_GRP]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[SEV_GRP]"
+                      name="SEV_GRP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TELL_TC_AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TELL_TC_AREA]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TELL_TC_AREA]"
+                      name="TELL_TC_AREA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TELL_LAT_LEN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TELL_LAT_LEN]"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].Columns[TELL_LAT_LEN]"
+                      name="TELL_LAT_LEN"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[DBSKEY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="DBSKEY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PROPNUM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="PROPNUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SEQNUM]"
+                      dataType="i2"
+                      name="SEQNUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LEASE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_YR_LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PRIOR_YR_LEASE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[WELL_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="WELL_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[CLASS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="CLASS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="RSV_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="REVISION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REV_REMARK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="REV_REMARK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ASSET]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ASSET" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FIELD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="76"
+                      name="FIELD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[RESERVOIR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="RESERVOIR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[OPERATOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="OPERATOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[OPERATED]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="OPERATED" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[COUNTY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="COUNTY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[MAJOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="MAJOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="34"
+                      name="API" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LOCATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="LOCATION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SECTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="SECTION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TWN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TWN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[RNG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="RNG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FIRST_PROD]"
+                      dataType="dbTimeStamp"
+                      name="FIRST_PROD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LAST_PROD]"
+                      dataType="dbTimeStamp"
+                      name="LAST_PROD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_OIL]"
+                      dataType="r8"
+                      name="PRIOR_OIL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_GAS]"
+                      dataType="r8"
+                      name="PRIOR_GAS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_WTR]"
+                      dataType="r8"
+                      name="PRIOR_WTR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="TD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LATITUDE]"
+                      dataType="r8"
+                      name="LATITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LONGITUDE]"
+                      dataType="r8"
+                      name="LONGITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[UNIQUEID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="UNIQUEID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[GASGATH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GASGATH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[GASPURCHASER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="GASPURCHASER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LATERAL_LENGTH]"
+                      dataType="i4"
+                      name="LATERAL_LENGTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NS_TCGROUP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NS_TCGROUP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[GIS_NUM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GIS_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[DDA_POOL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DDA_POOL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[BOLO_ID]"
+                      dataType="r8"
+                      name="BOLO_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[BOOK_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="BOOK_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[WI]"
+                      dataType="r8"
+                      name="WI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NRI]"
+                      dataType="r8"
+                      name="NRI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REVERSION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="REVERSION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[WI_REV]"
+                      dataType="r8"
+                      name="WI_REV" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NRI_REV]"
+                      dataType="r8"
+                      name="NRI_REV" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ENTITY_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="34"
+                      name="ENTITY_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ACQ_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ACQ_YR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SOLD_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="SOLD_YR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PA_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PA_YR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[AFE_NUM]"
+                      dataType="i4"
+                      name="AFE_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PRIOR_YR_RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PRIOR_YR_RSV_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NSAI_LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NSAI_LEASE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TPC_TC_AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TPC_TC_AREA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FCST_DATE]"
+                      dataType="dbTimeStamp"
+                      name="FCST_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LL_NEW]"
+                      dataType="i4"
+                      name="LL_NEW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[LL_MUL]"
+                      dataType="r8"
+                      name="LL_MUL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[PAD_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PAD_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SPUD_DATE]"
+                      dataType="dbTimeStamp"
+                      name="SPUD_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[COMPL_DATE]"
+                      dataType="dbTimeStamp"
+                      name="COMPL_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[REPORT_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="REPORT_GRP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SOUR_GAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SOUR_GAS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AREA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[NSAI_RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NSAI_RSV_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ENERSIGHT_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ENERSIGHT_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[FINANCE_GRP_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FINANCE_GRP_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[ENERSIGHT_FACILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ENERSIGHT_FACILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TELL_COM_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TELL_COM_GRP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[SEV_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SEV_GRP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TELL_TC_AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TELL_TC_AREA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output].ExternalColumns[TELL_LAT_LEN]"
+                      dataType="r8"
+                      name="TELL_LAT_LEN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[DBSKEY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[DBSKEY]"
+                      name="DBSKEY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PROPNUM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PROPNUM]"
+                      name="PROPNUM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SEQNUM]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SEQNUM]"
+                      name="SEQNUM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LEASE]"
+                      name="LEASE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_YR_LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_YR_LEASE]"
+                      name="PRIOR_YR_LEASE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[WELL_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[WELL_NO]"
+                      name="WELL_NO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[CLASS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[CLASS]"
+                      name="CLASS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[RSV_CAT]"
+                      name="RSV_CAT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REVISION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REVISION]"
+                      name="REVISION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REV_REMARK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REV_REMARK]"
+                      name="REV_REMARK" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TYPE]"
+                      name="TYPE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ASSET]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ASSET]"
+                      name="ASSET" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FIELD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="76"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FIELD]"
+                      name="FIELD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[RESERVOIR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[RESERVOIR]"
+                      name="RESERVOIR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[OPERATOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[OPERATOR]"
+                      name="OPERATOR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[OPERATED]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[OPERATED]"
+                      name="OPERATED" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[COUNTY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[COUNTY]"
+                      name="COUNTY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                      name="STATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[MAJOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[MAJOR]"
+                      name="MAJOR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="34"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[API]"
+                      name="API" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LOCATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LOCATION]"
+                      name="LOCATION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SECTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SECTION]"
+                      name="SECTION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TWN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TWN]"
+                      name="TWN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[RNG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[RNG]"
+                      name="RNG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FIRST_PROD]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FIRST_PROD]"
+                      name="FIRST_PROD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LAST_PROD]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LAST_PROD]"
+                      name="LAST_PROD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_OIL]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_OIL]"
+                      name="PRIOR_OIL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_GAS]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_GAS]"
+                      name="PRIOR_GAS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_WTR]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_WTR]"
+                      name="PRIOR_WTR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TD]"
+                      name="TD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                      name="STATUS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LATITUDE]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LATITUDE]"
+                      name="LATITUDE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LONGITUDE]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LONGITUDE]"
+                      name="LONGITUDE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[UNIQUEID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[UNIQUEID]"
+                      name="UNIQUEID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[GASGATH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[GASGATH]"
+                      name="GASGATH" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[GASPURCHASER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[GASPURCHASER]"
+                      name="GASPURCHASER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LATERAL_LENGTH]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LATERAL_LENGTH]"
+                      name="LATERAL_LENGTH" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NS_TCGROUP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NS_TCGROUP]"
+                      name="NS_TCGROUP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[GIS_NUM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[GIS_NUM]"
+                      name="GIS_NUM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[DDA_POOL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[DDA_POOL]"
+                      name="DDA_POOL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[START_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[START_DATE]"
+                      name="START_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[BOLO_ID]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[BOLO_ID]"
+                      name="BOLO_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[BOOK_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[BOOK_DATE]"
+                      name="BOOK_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[WI]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[WI]"
+                      name="WI" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NRI]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NRI]"
+                      name="NRI" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REVERSION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REVERSION]"
+                      name="REVERSION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[WI_REV]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[WI_REV]"
+                      name="WI_REV" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NRI_REV]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NRI_REV]"
+                      name="NRI_REV" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ENTITY_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="34"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ENTITY_ID]"
+                      name="ENTITY_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ACQ_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ACQ_YR]"
+                      name="ACQ_YR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SOLD_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SOLD_YR]"
+                      name="SOLD_YR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PA_YR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PA_YR]"
+                      name="PA_YR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[AFE_NUM]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[AFE_NUM]"
+                      name="AFE_NUM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_YR_RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PRIOR_YR_RSV_CAT]"
+                      name="PRIOR_YR_RSV_CAT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NSAI_LEASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NSAI_LEASE]"
+                      name="NSAI_LEASE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TPC_TC_AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TPC_TC_AREA]"
+                      name="TPC_TC_AREA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FCST_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FCST_DATE]"
+                      name="FCST_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LL_NEW]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LL_NEW]"
+                      name="LL_NEW" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LL_MUL]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[LL_MUL]"
+                      name="LL_MUL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PAD_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[PAD_NAME]"
+                      name="PAD_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SPUD_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SPUD_DATE]"
+                      name="SPUD_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[COMPL_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[COMPL_DATE]"
+                      name="COMPL_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REPORT_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[REPORT_GRP]"
+                      name="REPORT_GRP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                      name="CATEGORY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SOUR_GAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SOUR_GAS]"
+                      name="SOUR_GAS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[AREA]"
+                      name="AREA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NSAI_RSV_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[NSAI_RSV_CAT]"
+                      name="NSAI_RSV_CAT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ENERSIGHT_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ENERSIGHT_NAME]"
+                      name="ENERSIGHT_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FINANCE_GRP_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[FINANCE_GRP_NAME]"
+                      name="FINANCE_GRP_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ENERSIGHT_FACILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ENERSIGHT_FACILITY]"
+                      name="ENERSIGHT_FACILITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TELL_COM_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TELL_COM_GRP]"
+                      name="TELL_COM_GRP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SEV_GRP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[SEV_GRP]"
+                      name="SEV_GRP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TELL_TC_AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TELL_TC_AREA]"
+                      name="TELL_TC_AREA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TELL_LAT_LEN]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[TELL_LAT_LEN]"
+                      name="TELL_LAT_LEN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Destination - AC_PROPERTY.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 1\Source - AC_PROPERTY.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{5D82FC75-749C-40A1-B83B-1E06E03A8BF9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DEF35606-B00D-4C48-8B74-DB11A061A765}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Aries].[AC_PROPERTY]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{003B98D5-D120-43AD-BE67-BFF9ED4D820B\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{003B98D5-D120-43AD-BE67-BFF9ED4D820B}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{003B98D5-D120-43AD-BE67-BFF9ED4D820B}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="22,107.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{003B98D5-D120-43AD-BE67-BFF9ED4D820B\}]"
+          TopLeft="104,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Data Flow Task 1\Source - AC_PROPERTY"
+          TopLeft="16,5.5" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Data Flow Task 1\Destination - AC_PROPERTY"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+          TopLeft="118.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\Source - AC_PROPERTY">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

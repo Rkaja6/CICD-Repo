@@ -1,0 +1,1050 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/10/2022 8:14:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-852713J"
+  DTS:CreatorName="TLN\avogt"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{8FF384DA-199E-48D8-9564-D4A5D5B7EC6C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Prod_WellMaster_Kingdom_T_Well"
+  DTS:VersionGUID="{19E57266-D44B-41C8-8FCC-55F013883355}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D03A3369-B4F2-4664-BFFE-D8BAB7A2B403}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-03;Initial Catalog=Prod_WellMaster;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DDBA0702-FB0E-47A8-89E0-0BC48ED19A8C}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-03;Initial Catalog=Ark_La_Tx_2;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{5E2F6892-B876-4F83-8D9A-E6337AD2201A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - T_Well"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - T_Well"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Kingdom].[T_Well]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - T_Well.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[WellNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="WellNumber"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[WellNumber]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[WellNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[SurfaceLocX]"
+                      cachedDataType="r8"
+                      cachedName="SurfaceLocX"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[SurfaceLocX]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[SurfaceLocX]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[SurfaceLocY]"
+                      cachedDataType="r8"
+                      cachedName="SurfaceLocY"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[SurfaceLocY]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[SurfaceLocY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[KBElevation]"
+                      cachedDataType="r8"
+                      cachedName="KBElevation"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[KBElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[KBElevation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[SurfaceElevation]"
+                      cachedDataType="r8"
+                      cachedName="SurfaceElevation"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[SurfaceElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[SurfaceElevation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[LoadFormat]"
+                      cachedDataType="i4"
+                      cachedName="LoadFormat"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[LoadFormat]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LoadFormat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[TotalDepth]"
+                      cachedDataType="r8"
+                      cachedName="TotalDepth"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[TotalDepth]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[TotalDepth]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[Latitude]"
+                      cachedDataType="r8"
+                      cachedName="Latitude"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[Longitude]"
+                      cachedDataType="r8"
+                      cachedName="Longitude"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Longitude]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[CompletionBoreholeID]"
+                      cachedDataType="i4"
+                      cachedName="CompletionBoreholeID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CompletionBoreholeID]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CompletionBoreholeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[CountyId]"
+                      cachedDataType="i4"
+                      cachedName="CountyId"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CountyId]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CountyId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[StateId]"
+                      cachedDataType="i4"
+                      cachedName="StateId"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[StateId]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[StateId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[CountryId]"
+                      cachedDataType="i4"
+                      cachedName="CountryId"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CountryId]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CountryId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[DFElevation]"
+                      cachedDataType="r8"
+                      cachedName="DFElevation"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[DFElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[DFElevation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[ReferenceElevation]"
+                      cachedDataType="r8"
+                      cachedName="ReferenceElevation"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[ReferenceElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[ReferenceElevation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[Label]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Label"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[Label]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Label]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[CreateDate]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="CreateDate"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CreateDate]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CreateDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[CreateBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CreateBy"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CreateBy]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CreateBy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[LastModifyDate]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LastModifyDate"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[LastModifyDate]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LastModifyDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[LastModifyBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="LastModifyBy"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[LastModifyBy]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LastModifyBy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[RealKBElevation]"
+                      cachedDataType="r8"
+                      cachedName="RealKBElevation"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[RealKBElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[RealKBElevation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[CreateByID]"
+                      cachedDataType="i4"
+                      cachedName="CreateByID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CreateByID]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CreateByID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].Columns[LastModifyByID]"
+                      cachedDataType="i4"
+                      cachedName="LastModifyByID"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[LastModifyByID]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LastModifyByID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[WellNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="WellNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[SurfaceLocX]"
+                      dataType="r8"
+                      name="SurfaceLocX" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[SurfaceLocY]"
+                      dataType="r8"
+                      name="SurfaceLocY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[KBElevation]"
+                      dataType="r8"
+                      name="KBElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[SurfaceElevation]"
+                      dataType="r8"
+                      name="SurfaceElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[LoadFormat]"
+                      dataType="i4"
+                      name="LoadFormat" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[TotalDepth]"
+                      dataType="r8"
+                      name="TotalDepth" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CompletionBoreholeID]"
+                      dataType="i4"
+                      name="CompletionBoreholeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CountyId]"
+                      dataType="i4"
+                      name="CountyId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[StateId]"
+                      dataType="i4"
+                      name="StateId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CountryId]"
+                      dataType="i4"
+                      name="CountryId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[DFElevation]"
+                      dataType="r8"
+                      name="DFElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[ReferenceElevation]"
+                      dataType="r8"
+                      name="ReferenceElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[Label]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Label" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CreateDate]"
+                      dataType="dbTimeStamp2"
+                      name="CreateDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CreateBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CreateBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[LastModifyDate]"
+                      dataType="dbTimeStamp2"
+                      name="LastModifyDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[LastModifyBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LastModifyBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[RealKBElevation]"
+                      dataType="r8"
+                      name="RealKBElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[CreateByID]"
+                      dataType="i4"
+                      name="CreateByID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input].ExternalColumns[LastModifyByID]"
+                      dataType="i4"
+                      name="LastModifyByID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - T_Well.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - T_Well.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - T_Well.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - T_Well.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - T_Well"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - T_Well"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[T_Well]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - T_Well.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[WellNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[WellNumber]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[WellNumber]"
+                      name="WellNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[SurfaceLocX]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[SurfaceLocX]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[SurfaceLocX]"
+                      name="SurfaceLocX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[SurfaceLocY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[SurfaceLocY]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[SurfaceLocY]"
+                      name="SurfaceLocY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[KBElevation]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[KBElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[KBElevation]"
+                      name="KBElevation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[SurfaceElevation]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[SurfaceElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[SurfaceElevation]"
+                      name="SurfaceElevation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LoadFormat]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[LoadFormat]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LoadFormat]"
+                      name="LoadFormat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[TotalDepth]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[TotalDepth]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[TotalDepth]"
+                      name="TotalDepth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CompletionBoreholeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CompletionBoreholeID]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CompletionBoreholeID]"
+                      name="CompletionBoreholeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CountyId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CountyId]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CountyId]"
+                      name="CountyId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[StateId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[StateId]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[StateId]"
+                      name="StateId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CountryId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CountryId]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CountryId]"
+                      name="CountryId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[DFElevation]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[DFElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[DFElevation]"
+                      name="DFElevation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[ReferenceElevation]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[ReferenceElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[ReferenceElevation]"
+                      name="ReferenceElevation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Label]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[Label]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[Label]"
+                      name="Label"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                      name="CreateDate"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CreateBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CreateBy]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CreateBy]"
+                      name="CreateBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LastModifyDate]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[LastModifyDate]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LastModifyDate]"
+                      name="LastModifyDate"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LastModifyBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[LastModifyBy]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LastModifyBy]"
+                      name="LastModifyBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[RealKBElevation]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[RealKBElevation]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[RealKBElevation]"
+                      name="RealKBElevation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CreateByID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CreateByID]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[CreateByID]"
+                      name="CreateByID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LastModifyByID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[LastModifyByID]"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].Columns[LastModifyByID]"
+                      name="LastModifyByID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[WellNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="WellNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[SurfaceLocX]"
+                      dataType="r8"
+                      name="SurfaceLocX" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[SurfaceLocY]"
+                      dataType="r8"
+                      name="SurfaceLocY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[KBElevation]"
+                      dataType="r8"
+                      name="KBElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[SurfaceElevation]"
+                      dataType="r8"
+                      name="SurfaceElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[LoadFormat]"
+                      dataType="i4"
+                      name="LoadFormat" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[TotalDepth]"
+                      dataType="r8"
+                      name="TotalDepth" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      dataType="r8"
+                      name="Latitude" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      dataType="r8"
+                      name="Longitude" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CompletionBoreholeID]"
+                      dataType="i4"
+                      name="CompletionBoreholeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CountyId]"
+                      dataType="i4"
+                      name="CountyId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[StateId]"
+                      dataType="i4"
+                      name="StateId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CountryId]"
+                      dataType="i4"
+                      name="CountryId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[DFElevation]"
+                      dataType="r8"
+                      name="DFElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[ReferenceElevation]"
+                      dataType="r8"
+                      name="ReferenceElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[Label]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Label" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      dataType="dbTimeStamp2"
+                      name="CreateDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CreateBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CreateBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[LastModifyDate]"
+                      dataType="dbTimeStamp2"
+                      name="LastModifyDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[LastModifyBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LastModifyBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[RealKBElevation]"
+                      dataType="r8"
+                      name="RealKBElevation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[CreateByID]"
+                      dataType="i4"
+                      name="CreateByID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output].ExternalColumns[LastModifyByID]"
+                      dataType="i4"
+                      name="LastModifyByID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[WellNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[WellNumber]"
+                      name="WellNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[SurfaceLocX]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[SurfaceLocX]"
+                      name="SurfaceLocX" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[SurfaceLocY]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[SurfaceLocY]"
+                      name="SurfaceLocY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[KBElevation]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[KBElevation]"
+                      name="KBElevation" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[SurfaceElevation]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[SurfaceElevation]"
+                      name="SurfaceElevation" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[LoadFormat]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[LoadFormat]"
+                      name="LoadFormat" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[TotalDepth]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[TotalDepth]"
+                      name="TotalDepth" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      name="Latitude" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      name="Longitude" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CompletionBoreholeID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CompletionBoreholeID]"
+                      name="CompletionBoreholeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CountyId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CountyId]"
+                      name="CountyId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[StateId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[StateId]"
+                      name="StateId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CountryId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CountryId]"
+                      name="CountryId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[DFElevation]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[DFElevation]"
+                      name="DFElevation" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[ReferenceElevation]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[ReferenceElevation]"
+                      name="ReferenceElevation" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[Label]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[Label]"
+                      name="Label" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                      name="CreateDate"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CreateBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CreateBy]"
+                      name="CreateBy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[LastModifyDate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[LastModifyDate]"
+                      name="LastModifyDate"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[LastModifyBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[LastModifyBy]"
+                      name="LastModifyBy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[RealKBElevation]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[RealKBElevation]"
+                      name="RealKBElevation" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CreateByID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[CreateByID]"
+                      name="CreateByID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[LastModifyByID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[LastModifyByID]"
+                      name="LastModifyByID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Destination - T_Well.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 1\Source - T_Well.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{8FC81BFE-7405-4580-A281-80DF5418BE66}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D03A3369-B4F2-4664-BFFE-D8BAB7A2B403}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Kingdom].[T_Well]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{5F2FD185-32CF-4219-A9B4-338E33B3C7C3\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{2A8C7BC2-E3C0-49E1-B58A-DB81AA2236CB}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{2A8C7BC2-E3C0-49E1-B58A-DB81AA2236CB}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>
