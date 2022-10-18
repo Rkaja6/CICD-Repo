@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [StagePEAK_DW]
+    AUTHORIZATION [dbo];
+

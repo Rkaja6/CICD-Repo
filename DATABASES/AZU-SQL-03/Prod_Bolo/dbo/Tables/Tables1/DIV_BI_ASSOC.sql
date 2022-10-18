@@ -1,0 +1,24 @@
+﻿CREATE TABLE [dbo].[DIV_BI_ASSOC] (
+    [DIV_BI_ASSOC_ID]       VARCHAR (255)   NOT NULL,
+    [u2_id]                 VARCHAR (255)   NULL,
+    [ASSOC_DESC]            VARCHAR (30)    NULL,
+    [ASSOC_NET_FLAGS]       VARCHAR (4)     NULL,
+    [BUR_ASSOCS]            VARCHAR (6)     NULL,
+    [BUR_OWNER_ADDRESS1]    VARCHAR (20)    NULL,
+    [BUR_OWNER_ADDRESS2]    VARCHAR (15)    NULL,
+    [BUR_OWNER_CITY]        VARCHAR (15)    NULL,
+    [BUR_OWNER_NAME]        VARCHAR (20)    NULL,
+    [BUR_OWNER_NAME2]       VARCHAR (15)    NULL,
+    [BUR_OWNER_NAME3]       VARCHAR (15)    NULL,
+    [BUR_OWNER_STATE]       VARCHAR (15)    NULL,
+    [TOTAL_BURDENS]         NUMERIC (19, 8) NULL,
+    [TOTAL_BURDENS_ENTERED] NUMERIC (19, 8) NULL,
+    [time_stamp]            DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([DIV_BI_ASSOC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [DIV_BI_ASSOC_u2_id_in]
+    ON [dbo].[DIV_BI_ASSOC]([u2_id] ASC);
+

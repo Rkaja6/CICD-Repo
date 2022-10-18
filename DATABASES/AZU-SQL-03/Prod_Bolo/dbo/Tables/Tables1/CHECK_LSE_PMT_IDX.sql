@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CHECK_LSE_PMT_IDX] (
+    [CHECK_LSE_PMT_IDX_ID]    VARCHAR (255) NOT NULL,
+    [u2_id]                   VARCHAR (255) NULL,
+    [CREATED_LEASE_PMT_INDEX] VARCHAR (6)   NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CHECK_LSE_PMT_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CHECK_LSE_PMT_IDX_u2_id_in]
+    ON [dbo].[CHECK_LSE_PMT_IDX]([u2_id] ASC);
+

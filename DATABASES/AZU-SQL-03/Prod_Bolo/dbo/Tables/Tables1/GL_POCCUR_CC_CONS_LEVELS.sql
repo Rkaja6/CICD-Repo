@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[GL_POCCUR_CC_CONS_LEVELS] (
+    [GL_POCCUR_CC_CONS_LEVELS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                       VARCHAR (255) NULL,
+    [HIER_LEVEL_CODES]            VARCHAR (20)  NULL,
+    [time_stamp]                  DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([GL_POCCUR_CC_CONS_LEVELS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [GL_POCCUR_u2_id_59235]
+    ON [dbo].[GL_POCCUR_CC_CONS_LEVELS]([u2_id] ASC);
+

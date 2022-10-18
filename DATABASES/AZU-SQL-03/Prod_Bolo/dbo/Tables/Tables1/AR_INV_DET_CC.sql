@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[AR_INV_DET_CC] (
+    [AR_INV_DET_CC_ID] VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [COST_CENTER]      VARCHAR (10)  NULL,
+    [PROJECT]          VARCHAR (20)  NULL,
+    [REVALUE_STATUS]   VARCHAR (7)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AR_INV_DET_CC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AR_INV_DET_CC_u2_id_in]
+    ON [dbo].[AR_INV_DET_CC]([u2_id] ASC);
+

@@ -1,0 +1,222 @@
+﻿
+
+
+Create PROCEDURE [ARIES].[Proc_MonthlyProduction_v2] AS 
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	-- State Alias Temp Table
+	IF OBJECT_ID('tempdb..#Alias_State') IS NOT NULL
+    DROP TABLE #Alias_State;
+
+	CREATE TABLE #Alias_State
+		(Orig_String varchar(900),
+		New_String varchar(50));
+
+	INSERT into #Alias_State
+	select Orig_String, New_String 
+	from PEAK_DW.ETL.Alias
+	where type = 'state';
+
+	-- IHS Header Table
+	truncate table ARIES.IHS_Header_STG;
+	
+	INSERT INTO ARIES.IHS_Header_STG
+	SELECT DISTINCT
+		IPH.entity as EntityID,
+		IPH.api,
+		APGL.PROPNUM,
+		APGL.API10,
+		COALESCE(A_S.New_String, IPH.province_state_name) AS [State]
+	--FROM [ihs].[dbo].production_header IPH
+	FROM [AZU-SQL-01].IHSM_Meridian.dbo.T_PRODUCTION_PRODUCTION_HEADER IPH
+	INNER JOIN [TELL_DW].[dbo].[AC_PROPERTY] APGL
+		ON LEFT(IPH.api,10) = APGL.API10
+	INNER JOIN TELL_DW.dbo.AC_PROPERTY AP
+		ON APGL.PROPNUM = AP.PROPNUM
+		AND APGL.API10 = AP.API10
+	LEFT JOIN #Alias_State A_S
+		ON A_S.Orig_String = IPH.province_state_name
+		
+	-- Push table back to AZU-SQL-01
+	EXEC [AZU-SQL-01].IHSM_Meridian.sys.sp_executesql N'TRUNCATE TABLE [HOUSQL01].[IHS_Header_STG]';
+	INSERT INTO  [AZU-SQL-01].IHSM_Meridian.[HOUSQL01].[IHS_Header_STG] 
+	SELECT 
+		[ENTITYID]
+      ,[API]
+      ,[PROPNUM]
+      ,[API10]
+      ,[STATE]
+	FROM [ARIES].[IHS_Header_STG];
+	
+	-- IHS Monthly Prod Table
+	
+	TRUNCATE TABLE ARIES.IHS_Monthly_Prod_STG; 
+
+	INSERT INTO ARIES.IHS_Monthly_Prod_STG
+	SELECT * FROM OPENQUERY(
+		[AZU-SQL-01], 
+		'SELECT
+			IH.PROPNUM,
+			IH.[State],
+			(CONVERT(date,(IMP.[month] + '' 1 '') + CONVERT(varchar(4),IMP.[year]),(110))) as Month_StartDate,
+			SUM(IMP.liquid) AS Oil,
+			SUM(IMP.gas) AS Gas,
+			SUM(IMP.water) AS Water,
+			SUM(IMP.wells) AS NumOfWells
+		FROM IHSM_Meridian.[dbo].[T_PRODUCTION_MONTHLY_PRODUCTION] IMP
+		INNER JOIN IHSM_Meridian.[HOUSQL01].[IHS_Header_STG] IH
+			ON IMP.entity = IH.EntityID
+		GROUP BY
+			IH.PROPNUM,
+			IH.[State],
+			IMP.[month], 
+			IMP.[year]'
+		);
+	 
+	-- DI Header Table
+	truncate table ARIES.DI_Header_STG;
+
+	INSERT INTO ARIES.DI_Header_STG
+	SELECT DISTINCT
+		DPE.entityid,
+		DPE.ApiNo as API,
+		APGL.PROPNUM,
+		APGL.API10,
+		COALESCE(A_S.New_String, DPE.[State]) AS [State]
+	FROM [SQLDEV03.DATABASE.WINDOWS.NET].[DRILLINGINFO].[dbo].[ProducingEntities] DPE
+	INNER JOIN [TELL_DW].[dbo].AC_PROPERTY APGL
+		ON APGL.API10 = LEFT(DPE.ApiNo,10)
+	LEFT JOIN #Alias_State A_S
+		ON A_S.Orig_String = DPE.[State];
+
+-- Push table to Azure DB
+	
+	INSERT INTO  [SQLDEV03.DATABASE.WINDOWS.NET].[DRILLINGINFO].[HOUSQL01].[DI_Header_STG] 
+	SELECT 
+		[ENTITYID]
+      ,[API]
+      ,[PROPNUM]
+      ,[API10]
+      ,[STATE]
+	FROM [ARIES].[DI_Header_STG];
+	
+	-- DI Monthly Prod Table
+	
+	TRUNCATE TABLE ARIES.DI_Monthly_Prod_STG; 
+
+	INSERT INTO ARIES.DI_Monthly_Prod_STG
+	SELECT * FROM OPENQUERY(
+		[SQLDEV03.DATABASE.WINDOWS.NET], 
+		'SELECT 
+			DH.PROPNUM,
+			DH.[State],
+			CONVERT(date, DATEADD(day,1,EOMONTH(DMP.ProdDate,-1))) AS Month_StartDate,
+			SUM(DMP.Liq) AS Oil,
+			SUM(DMP.Gas) AS Gas,
+			SUM(DMP.Wtr) AS Water,
+			SUM(DMP.Wcnt) AS NumOfWells
+		FROM [DRILLINGINFO].[dbo].[ProducingEntityDetails] DMP
+		INNER JOIN [HOUSQL01].[DI_Header_STG] DH
+			ON DH.EntityId = DMP.EntityId
+		GROUP BY
+			DH.PROPNUM,
+			DH.[State],
+			CONVERT(date, DATEADD(day,1,EOMONTH(DMP.ProdDate,-1)))'
+		);
+	 
+
+-- Update State if State = Gulf of Mexico
+	UPDATE A
+	SET STATE = 'TEXAS'
+	from [ARIES].IHS_Monthly_Prod_STG A
+	left join ARiES.[IHS_Header_STG] b
+	on a.PROPNUM = b.PROPNUM
+	WHERE A.STATE = 'GULF OF MEXICO'
+	AND LEFT(B.API,2) = '42'
+	
+	UPDATE A
+	SET STATE = 'LOUISIANA'
+	from [ARIES].IHS_Monthly_Prod_STG A
+	left join ARiES.[IHS_Header_STG] b
+	on a.PROPNUM = b.PROPNUM
+	WHERE A.STATE = 'GULF OF MEXICO'
+	AND LEFT(B.API,2) = '17'
+
+	UPDATE A 
+	SET STATE = 'TEXAS'
+	from ARIES.DI_Monthly_Prod_STG A
+	left join [ARIES].[DI_Header_STG] B
+	on a.PROPNUM = b.PROPNUM
+	WHERE a.STATE = 'GULF OF MEXICO'
+	AND LEFT(b.API,2) = '42'
+
+	UPDATE A
+	SET STATE = 'LOUISIANA'
+	from ARIES.DI_Monthly_Prod_STG A
+	left join [ARIES].[DI_Header_STG] B
+	on a.PROPNUM = b.PROPNUM
+	WHERE a.STATE = 'GULF OF MEXICO'
+	AND LEFT(b.API,2) = '17'
+
+-- Return query results:
+	TRUNCATE TABLE ARIES.Monthly_Prod_STG;
+	INSERT INTO ARIES.Monthly_Prod_STG
+	SELECT
+		COALESCE(ihs.PROPNUM, DI.PROPNUM) AS PROPNUM,
+		--COALESCE(ihs.API10, DI.API10) AS API10,
+		COALESCE(ihs.[State], DI.[State]) AS [State],
+		EOMONTH(COALESCE(ihs.Month_StartDate, DI.Month_StartDate)) AS Month_StartDate,
+		CASE COALESCE(ihs.[State], DI.[State]) 
+			WHEN 'TEXAS' THEN COALESCE(IHS.Oil, DI.Oil)
+			WHEN 'LOUISIANA' THEN COALESCE(DI.Oil, IHS.Oil)
+			ELSE NULL
+		END AS Oil,
+		CASE COALESCE(ihs.[State], DI.[State]) 
+			WHEN 'TEXAS' THEN COALESCE(IHS.Gas, DI.Gas)
+			WHEN 'LOUISIANA' THEN COALESCE(DI.Gas, IHS.Gas)
+			ELSE NULL
+		END AS Gas,
+		CASE COALESCE(ihs.[State], DI.[State]) 
+			WHEN 'TEXAS' THEN COALESCE(IHS.Water, DI.Water)
+			WHEN 'LOUISIANA' THEN COALESCE(DI.Water, IHS.Water)
+			ELSE NULL
+		END AS Water,
+		CASE COALESCE(ihs.[State], DI.[State]) 
+			WHEN 'TEXAS' THEN CASE WHEN IHS.Oil IS NULL THEN 'DI' ELSE 'IHS' END
+			WHEN 'LOUISIANA' THEN CASE WHEN DI.Oil IS NULL THEN 'IHS' ELSE 'DI' END
+			ELSE NULL
+		END AS Oil_Source,
+		CASE COALESCE(ihs.[State], DI.[State]) 
+			WHEN 'TEXAS' THEN CASE WHEN IHS.Gas IS NULL THEN 'DI' ELSE 'IHS' END
+			WHEN 'LOUISIANA' THEN CASE WHEN DI.Gas IS NULL THEN 'IHS' ELSE 'DI' END
+			ELSE NULL
+		END AS Gas_Source,
+		CASE COALESCE(ihs.[State], DI.[State]) 
+			WHEN 'TEXAS' THEN CASE WHEN IHS.Water IS NULL THEN 'DI' ELSE 'IHS' END
+			WHEN 'LOUISIANA' THEN CASE WHEN DI.Water IS NULL THEN 'IHS' ELSE 'DI' END
+			ELSE NULL
+		END AS Water_Source,
+		IHS.Oil AS IHS_OIL,
+		IHS.Gas AS IHS_GAS,
+		IHS.Water AS IHS_WATER,
+		IHS.NumOfWells AS IHS_NumOfWells,
+		DI.Oil AS DI_OIL,
+		DI.Gas AS DI_GAS,
+		DI.Water AS DI_WATER,
+		DI.NumOfWells AS DI_NumOfWells
+	FROM
+	-- IHS Data
+		ARIES.IHS_Monthly_Prod_STG AS IHS
+	-- DrillingInfo Data
+	FULL OUTER JOIN
+		ARIES.DI_Monthly_Prod_STG AS DI
+		ON IHS.PROPNUM = DI.PROPNUM
+		AND IHS.Month_StartDate = DI.Month_StartDate;
+
+	IF OBJECT_ID('tempdb..#Alias_State') IS NOT NULL
+    DROP TABLE #Alias_State;
+
+END

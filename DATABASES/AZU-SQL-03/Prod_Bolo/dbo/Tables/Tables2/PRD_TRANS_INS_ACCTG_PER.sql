@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PRD_TRANS_INS_ACCTG_PER] (
+    [PRD_TRANS_INS_ACCTG_PER_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [INS_ACCTG_PERIODS]          DATETIME      NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PRD_TRANS_INS_ACCTG_PER_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRD_TRANS_u2_id_46925]
+    ON [dbo].[PRD_TRANS_INS_ACCTG_PER]([u2_id] ASC);
+

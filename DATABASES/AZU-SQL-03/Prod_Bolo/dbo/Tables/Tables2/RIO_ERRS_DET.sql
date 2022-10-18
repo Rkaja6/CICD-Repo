@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RIO_ERRS_DET] (
+    [RIO_ERRS_DET_ID] VARCHAR (255) NOT NULL,
+    [u2_id]           VARCHAR (255) NULL,
+    [ERRORS]          VARCHAR (30)  NULL,
+    [time_stamp]      DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RIO_ERRS_DET_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RIO_ERRS_DET_u2_id_in]
+    ON [dbo].[RIO_ERRS_DET]([u2_id] ASC);
+

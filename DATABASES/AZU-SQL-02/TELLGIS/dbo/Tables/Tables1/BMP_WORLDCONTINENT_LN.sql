@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[BMP_WORLDCONTINENT_LN] (
+    [OBJECTID]          INT              NOT NULL,
+    [BND_TYPE]          NVARCHAR (15)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R185_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g166_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S166_idx]
+    ON [dbo].[BMP_WORLDCONTINENT_LN] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = 20037507.0672, XMIN = -20037507.0672, YMAX = 18418385.2707, YMIN = -20602628.651),
+            CELLS_PER_OBJECT = 16
+          );
+

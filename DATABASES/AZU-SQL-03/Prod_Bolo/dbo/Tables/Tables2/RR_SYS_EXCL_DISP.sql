@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RR_SYS_EXCL_DISP] (
+    [subValueId]          VARCHAR (255) NOT NULL,
+    [RR_SYS_EXCLUSION_ID] VARCHAR (255) NULL,
+    [DISP_CODES]          VARCHAR (5)   NULL,
+    [time_stamp]          DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_SYS_EX_RR_SYS_EX_96737]
+    ON [dbo].[RR_SYS_EXCL_DISP]([RR_SYS_EXCLUSION_ID] ASC);
+

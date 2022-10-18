@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[GEO_MARKET_AREAS] (
+    [OBJECTID]          INT              NOT NULL,
+    [DEDICATI_1]        NVARCHAR (50)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R263_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g244_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S244_idx]
+    ON [dbo].[GEO_MARKET_AREAS] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10403636.5546, XMIN = -10468775.0329, YMAX = 3829211.3067, YMIN = 3731598.4286),
+            CELLS_PER_OBJECT = 16
+          );
+

@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[TPN_PROPOSEDPGAP] (
+    [OBJECTID]          INT              NOT NULL,
+    [Name]              NVARCHAR (255)   NULL,
+    [Miles]             NUMERIC (38, 8)  NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R242_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g223_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S223_idx]
+    ON [dbo].[TPN_PROPOSEDPGAP] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10359174.9155432, XMIN = -11475144.7783766, YMAX = 3689014.42784938, YMIN = 3552596.47176571),
+            CELLS_PER_OBJECT = 16
+          );
+

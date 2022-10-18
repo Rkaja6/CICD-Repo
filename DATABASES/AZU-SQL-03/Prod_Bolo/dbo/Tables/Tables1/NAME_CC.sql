@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[NAME_CC] (
+    [NAME_CC_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]       VARCHAR (255) NULL,
+    [CC_ATTR]     VARCHAR (10)  NULL,
+    [DFLT_ACCESS] VARCHAR (7)   NULL,
+    [EXC_CC_DATA] VARCHAR (9)   NULL,
+    [time_stamp]  DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([NAME_CC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NAME_CC_u2_id_in]
+    ON [dbo].[NAME_CC]([u2_id] ASC);
+

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[RR_SYS_XMP] (
+    [RR_SYS_XMP_ID]   VARCHAR (255) NOT NULL,
+    [u2_id]           VARCHAR (255) NULL,
+    [XMP_GRP_ASC]     VARCHAR (4)   NULL,
+    [XMP_TAX_CLASSES] VARCHAR (5)   NULL,
+    [XMP_WELL_TYPE]   VARCHAR (6)   NULL,
+    [time_stamp]      DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RR_SYS_XMP_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_SYS_XMP_u2_id_in]
+    ON [dbo].[RR_SYS_XMP]([u2_id] ASC);
+

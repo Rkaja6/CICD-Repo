@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RECEIPT_RV_VOU] (
+    [RECEIPT_RV_VOU_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [REV_VOUCHER]       VARCHAR (16)  NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RECEIPT_RV_VOU_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RECEIPT_RV_VOU_u2_id_in]
+    ON [dbo].[RECEIPT_RV_VOU]([u2_id] ASC);
+

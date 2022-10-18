@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[LINK_TYPE_IDX] (
+    [LINK_TYPE_IDX_ID]    VARCHAR (255) NOT NULL,
+    [u2_id]               VARCHAR (255) NULL,
+    [ATTRIBUTES]          VARCHAR (20)  NULL,
+    [ATTRIBUTE_REQ_FLAGS] VARCHAR (9)   NULL,
+    [BYPASS_FLAGS]        VARCHAR (6)   NULL,
+    [DB_UPDATE_FLAGS]     VARCHAR (8)   NULL,
+    [INDEX_FLAGS]         VARCHAR (5)   NULL,
+    [time_stamp]          DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([LINK_TYPE_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LINK_TYPE_IDX_u2_id_in]
+    ON [dbo].[LINK_TYPE_IDX]([u2_id] ASC);
+

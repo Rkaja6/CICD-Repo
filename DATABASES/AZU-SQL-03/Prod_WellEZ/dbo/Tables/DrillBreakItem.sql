@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[DrillBreakItem] (
+    [drillbreakitem_id] INT             IDENTITY (1, 1) NOT NULL,
+    [well_id]           BIGINT          NOT NULL,
+    [report_Date]       DATETIME        NOT NULL,
+    [line_number]       BIGINT          NOT NULL,
+    [job_number]        BIGINT          NOT NULL,
+    [ShowDepth]         DECIMAL (19, 9) NULL,
+    [reportTypeId]      BIGINT          NOT NULL,
+    [Remarks]           NVARCHAR (MAX)  NULL,
+    [ROPDuring]         DECIMAL (19, 9) NULL,
+    [ROPBefore]         DECIMAL (19, 9) NULL,
+    [ROPAfter]          DECIMAL (19, 9) NULL,
+    [MudDuring]         DECIMAL (19, 9) NULL,
+    [MudBefore]         DECIMAL (19, 9) NULL,
+    [MudAfter]          DECIMAL (19, 9) NULL,
+    [Heavies]           NVARCHAR (MAX)  NULL,
+    [GasDuring]         DECIMAL (19, 9) NULL,
+    [GasBefore]         DECIMAL (19, 9) NULL,
+    [GasAfter]          DECIMAL (19, 9) NULL,
+    [ClDuring]          DECIMAL (19, 9) NULL,
+    [ClBefore]          DECIMAL (19, 9) NULL,
+    [ClAfter]           DECIMAL (19, 9) NULL,
+    CONSTRAINT [PK_DrillBreakItem] PRIMARY KEY CLUSTERED ([drillbreakitem_id] ASC)
+);
+

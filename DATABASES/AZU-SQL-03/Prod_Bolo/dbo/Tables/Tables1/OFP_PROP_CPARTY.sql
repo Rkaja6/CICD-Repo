@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[OFP_PROP_CPARTY] (
+    [OFP_PROP_CPARTY_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [CPARTIES]           VARCHAR (8)   NULL,
+    [CPARTY_EFF_DATES]   DATETIME      NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OFP_PROP_CPARTY_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OFP_PROP_CPARTY_u2_id_in]
+    ON [dbo].[OFP_PROP_CPARTY]([u2_id] ASC);
+

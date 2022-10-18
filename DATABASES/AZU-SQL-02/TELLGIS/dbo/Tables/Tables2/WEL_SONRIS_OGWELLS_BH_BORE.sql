@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[WEL_SONRIS_OGWELLS_BH_BORE] (
+    [OBJECTID]            INT              NOT NULL,
+    [BHC_SEQ_NUM]         INT              NOT NULL,
+    [WELL_SERIAL_NUM]     INT              NULL,
+    [MEASURED_DEPTH]      INT              NULL,
+    [TRUE_VERTICAL_DEPTH] INT              NULL,
+    [HYPERLINK]           NVARCHAR (200)   NULL,
+    [Shape]               [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA]   VARBINARY (MAX)  NULL,
+    CONSTRAINT [R624_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g587_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S587_idx]
+    ON [dbo].[WEL_SONRIS_OGWELLS_BH_BORE] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -9881075.50784365, XMIN = -10469734.0278578, YMAX = 3897801.52373257, YMIN = 3361726.96175436),
+            CELLS_PER_OBJECT = 16
+          );
+

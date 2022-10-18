@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[AR_ADJ_APLD_AR_INV_IDX] (
+    [subValueId]           VARCHAR (255) NOT NULL,
+    [AR_ADJ_APLD_ID]       VARCHAR (255) NULL,
+    [APPLIED_AR_INV_INDEX] VARCHAR (23)  NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AR_ADJ_AP_AR_ADJ_AP_70236]
+    ON [dbo].[AR_ADJ_APLD_AR_INV_IDX]([AR_ADJ_APLD_ID] ASC);
+

@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[RR_LA_ST_LSE_DET] (
+    [subValueId]      VARCHAR (255) NOT NULL,
+    [RR_LA_ST_LSE_ID] VARCHAR (255) NULL,
+    [LSE_PART_DEC]    VARCHAR (8)   NULL,
+    [STATE_LEASE]     VARCHAR (20)  NULL,
+    [time_stamp]      DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_LA_ST__RR_LA_ST__51019]
+    ON [dbo].[RR_LA_ST_LSE_DET]([RR_LA_ST_LSE_ID] ASC);
+

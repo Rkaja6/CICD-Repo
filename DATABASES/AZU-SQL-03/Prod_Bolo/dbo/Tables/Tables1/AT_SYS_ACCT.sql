@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[AT_SYS_ACCT] (
+    [AT_SYS_ACCT_ID]   VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [ACCUM_DEPR_ACCTS] VARCHAR (10)  NULL,
+    [DEPR_EXP_ACCTS]   VARCHAR (10)  NULL,
+    [SOURCE_ACCTS]     VARCHAR (10)  NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_SYS_ACCT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_SYS_ACCT_u2_id_in]
+    ON [dbo].[AT_SYS_ACCT]([u2_id] ASC);
+

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[MEAS_PT_VOL_MKT] (
+    [subValueId]             VARCHAR (255)   NOT NULL,
+    [MEAS_PT_VOL_SALE_MO_ID] VARCHAR (255)   NULL,
+    [DELIVERED_AMTS]         NUMERIC (19, 2) NULL,
+    [DELIVERED_MMBTUS]       VARCHAR (10)    NULL,
+    [MARKETS]                VARCHAR (10)    NULL,
+    [time_stamp]             DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MEAS_PT_V_MEAS_PT_V_65861]
+    ON [dbo].[MEAS_PT_VOL_MKT]([MEAS_PT_VOL_SALE_MO_ID] ASC);
+

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[CDX_DETAIL_TRANS] (
+    [CDX_DETAIL_TRANS_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]               VARCHAR (255)   NULL,
+    [GROSS_CPT_AMTS]      NUMERIC (19, 2) NULL,
+    [OWNER_CPT_AMTS]      NUMERIC (19, 2) NULL,
+    [TRANS_CODES]         VARCHAR (5)     NULL,
+    [time_stamp]          DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([CDX_DETAIL_TRANS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CDX_DETAIL_TRANS_u2_id_in]
+    ON [dbo].[CDX_DETAIL_TRANS]([u2_id] ASC);
+

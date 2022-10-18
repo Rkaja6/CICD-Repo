@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[STATE_PBASE_PBASE_DET] (
+    [subValueId]           VARCHAR (255)   NOT NULL,
+    [STATE_PBASE_PBASE_ID] VARCHAR (255)   NULL,
+    [DTS_FACTR]            NUMERIC (19, 4) NULL,
+    [FACTR]                NUMERIC (19, 4) NULL,
+    [STD_FACTR]            NUMERIC (19, 4) NULL,
+    [TO_PBASE]             NUMERIC (19, 4) NULL,
+    [time_stamp]           DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [STATE_PBA_STATE_PBA_8774]
+    ON [dbo].[STATE_PBASE_PBASE_DET]([STATE_PBASE_PBASE_ID] ASC);
+

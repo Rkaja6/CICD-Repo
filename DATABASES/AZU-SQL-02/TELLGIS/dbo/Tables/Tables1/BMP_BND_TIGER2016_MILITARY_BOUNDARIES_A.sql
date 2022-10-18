@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[BMP_BND_TIGER2016_MILITARY_BOUNDARIES_A] (
+    [OBJECTID]          INT              NOT NULL,
+    [ANSICODE]          NVARCHAR (8)     NULL,
+    [AREAID]            NVARCHAR (22)    NULL,
+    [FULLNAME]          NVARCHAR (100)   NULL,
+    [MTFCC]             NVARCHAR (5)     NULL,
+    [ALAND]             NUMERIC (38, 8)  NULL,
+    [AWATER]            NUMERIC (38, 8)  NULL,
+    [INTPTLAT]          NVARCHAR (11)    NULL,
+    [INTPTLON]          NVARCHAR (12)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R270_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g251_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S251_idx]
+    ON [dbo].[BMP_BND_TIGER2016_MILITARY_BOUNDARIES_A] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = 19387317.661, XMIN = -18701930.2616, YMAX = 9763857.9585, YMIN = 1495797.5385),
+            CELLS_PER_OBJECT = 16
+          );
+

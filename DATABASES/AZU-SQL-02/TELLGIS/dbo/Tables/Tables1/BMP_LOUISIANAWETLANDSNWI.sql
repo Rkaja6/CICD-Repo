@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[BMP_LOUISIANAWETLANDSNWI] (
+    [OBJECTID]          INT              NOT NULL,
+    [ATTRIBUTE]         NVARCHAR (15)    NULL,
+    [WETLAND_TYPE]      NVARCHAR (50)    NULL,
+    [ACRES]             NUMERIC (38, 8)  NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R296_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g277_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S277_idx]
+    ON [dbo].[BMP_LOUISIANAWETLANDSNWI] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -9880607.5777, XMIN = -10477969.5028, YMAX = 3911928.2622, YMIN = 3359777.3607),
+            CELLS_PER_OBJECT = 16
+          );
+

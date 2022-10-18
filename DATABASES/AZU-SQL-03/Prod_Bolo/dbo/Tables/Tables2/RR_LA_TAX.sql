@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[RR_LA_TAX] (
+    [RR_LA_TAX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]        VARCHAR (255) NULL,
+    [TAX_CLASSES]  VARCHAR (5)   NULL,
+    [TEFF_DATES]   DATETIME      NULL,
+    [time_stamp]   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RR_LA_TAX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_LA_TAX_u2_id_in]
+    ON [dbo].[RR_LA_TAX]([u2_id] ASC);
+

@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[AT_DDA_DET_CALC_DATES] (
+    [AT_DDA_DET_CALC_DATES_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]                    VARCHAR (255)   NULL,
+    [ACCUM_BEGIN_QTR]          NUMERIC (19, 2) NULL,
+    [GROSS_BASIS_COSTS]        NUMERIC (19, 2) NULL,
+    [PRIOR_QTD_DDA]            NUMERIC (19, 2) NULL,
+    [UOP_ACCUM_DDA]            NUMERIC (19, 2) NULL,
+    [UOP_AT_DDA_RATE_ID]       VARCHAR (14)    NULL,
+    [UOP_CALC_DATES]           DATETIME        NULL,
+    [UOP_DDA_CATEGORY]         VARCHAR (5)     NULL,
+    [UOP_MO_EXPENSE]           NUMERIC (19, 2) NULL,
+    [UOP_QTD_EXPENSE]          NUMERIC (19, 2) NULL,
+    [time_stamp]               DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([AT_DDA_DET_CALC_DATES_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_DDA_DET_CALC_DATES_u2_id_in]
+    ON [dbo].[AT_DDA_DET_CALC_DATES]([u2_id] ASC);
+

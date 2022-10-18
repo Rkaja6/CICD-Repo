@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[RPT_COA_GRP_PGM] (
+    [RPT_COA_GRP_PGM_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [ACCT_GROUPS]        VARCHAR (15)  NULL,
+    [OBJECTS]            VARCHAR (22)  NULL,
+    [PGM_OBJECTS]        VARCHAR (15)  NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RPT_COA_GRP_PGM_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RPT_COA_GRP_PGM_u2_id_in]
+    ON [dbo].[RPT_COA_GRP_PGM]([u2_id] ASC);
+

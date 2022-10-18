@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[LEASE_SPC_PROV] (
+    [LEASE_SPC_PROV_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [SPC_PROV_DATES]    DATETIME      NULL,
+    [SPC_PROV_REMARKS]  TEXT          NULL,
+    [SPC_PROV_TYPES]    VARCHAR (10)  NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([LEASE_SPC_PROV_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LEASE_SPC_PROV_u2_id_in]
+    ON [dbo].[LEASE_SPC_PROV]([u2_id] ASC);
+

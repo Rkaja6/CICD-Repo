@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[OGP_PROP_MILES] (
+    [subValueId]                VARCHAR (255)  NOT NULL,
+    [OGP_PROP_INJ_ID]           VARCHAR (255)  NULL,
+    [INJ_PT_MILES]              NUMERIC (9, 1) NULL,
+    [INJ_PT_MILES_EFF_DATES]    DATETIME       NULL,
+    [INJ_PT_MILES_EXP_DATES]    DATETIME       NULL,
+    [INJ_PT_MILES_REMARKS]      VARCHAR (30)   NULL,
+    [INJ_PT_MILES_REMARK_DATES] DATETIME       NULL,
+    [time_stamp]                DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OGP_PROP__OGP_PROP__90246]
+    ON [dbo].[OGP_PROP_MILES]([OGP_PROP_INJ_ID] ASC);
+

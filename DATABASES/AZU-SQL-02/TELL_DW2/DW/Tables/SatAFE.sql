@@ -1,0 +1,22 @@
+﻿CREATE TABLE [DW].[SatAFE] (
+    [AFEHashKey]    CHAR (32)     NOT NULL,
+    [RecordSource]  VARCHAR (50)  NOT NULL,
+    [LoadDate]      DATETIME2 (7) CONSTRAINT [DF_SatAFE_LoadDate] DEFAULT (getdate()) NOT NULL,
+    [LoadEndDate]   DATETIME2 (7) NULL,
+    [AFE_CATEGORY]  VARCHAR (3)   NULL,
+    [AFE_DATE]      DATETIME      NULL,
+    [AFE_TYPE]      VARCHAR (4)   NULL,
+    [NAME]          VARCHAR (383) NULL,
+    [DESCRIPTION]   VARCHAR (812) NULL,
+    [STATUS]        VARCHAR (4)   NULL,
+    [APPR]          VARCHAR (8)   NULL,
+    [APPR_DATE]     DATETIME      NULL,
+    [BUDGET_YEAR]   VARCHAR (4)   NULL,
+    [COMPLETE_FLAG] VARCHAR (8)   NULL,
+    [EXP_DATE]      DATETIME      NULL,
+    [FORMATION]     VARCHAR (9)   NULL,
+    [MANAGER]       VARCHAR (20)  NULL,
+    [OPERATOR_AFE]  VARCHAR (16)  NULL,
+    CONSTRAINT [PK_SatAFE] PRIMARY KEY NONCLUSTERED ([AFEHashKey] ASC, [RecordSource] ASC, [LoadDate] ASC) WITH (STATISTICS_NORECOMPUTE = ON)
+);
+

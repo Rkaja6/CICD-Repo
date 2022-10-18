@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [ArcMap]
+    AUTHORIZATION [dbo];
+

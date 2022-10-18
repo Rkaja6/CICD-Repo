@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>PEAK_DW</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{90736939-910d-41b3-bc6d-6e092780f011}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>PEAK_DW</RootNamespace>
+    <AssemblyName>PEAK_DW</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="TEMP\" />
+    <Folder Include="TEMP\Tables\" />
+    <Folder Include="RPT\" />
+    <Folder Include="RPT\Tables\" />
+    <Folder Include="PEL\" />
+    <Folder Include="PEL\Tables\" />
+    <Folder Include="GIS\" />
+    <Folder Include="GIS\Tables\" />
+    <Folder Include="ETL\" />
+    <Folder Include="ETL\Tables\" />
+    <Folder Include="BOLO\" />
+    <Folder Include="BOLO\Tables\" />
+    <Folder Include="ARIES\" />
+    <Folder Include="ARIES\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="PEL\Views\" />
+    <Folder Include="KINGDOM\" />
+    <Folder Include="KINGDOM\Views\" />
+    <Folder Include="GIS\Views\" />
+    <Folder Include="BOLO\Views\" />
+    <Folder Include="ARIES\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="RPT\Functions\" />
+    <Folder Include="ETL\Functions\" />
+    <Folder Include="RPT\Stored Procedures\" />
+    <Folder Include="PEL\Stored Procedures\" />
+    <Folder Include="ETL\Stored Procedures\" />
+    <Folder Include="BOLO\Stored Procedures\" />
+    <Folder Include="ARIES\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\TELL_PDP_LATLONGS.sql" />
+    <Build Include="dbo\Tables\OWS_Backup.sql" />
+    <Build Include="dbo\Tables\OperatedWellSpreadsheet.sql" />
+    <Build Include="TEMP\Tables\ECOSTRM.sql" />
+    <Build Include="TEMP\Tables\ARSYSCOL.sql" />
+    <Build Include="TEMP\Tables\ARSYSTBL.sql" />
+    <Build Include="RPT\Tables\Worked_Hours_Detail.sql" />
+    <Build Include="RPT\Tables\Employee_Hours.sql" />
+    <Build Include="RPT\Tables\All_Workers.sql" />
+    <Build Include="RPT\Tables\Department_Head.sql" />
+    <Build Include="RPT\Tables\Office_Location.sql" />
+    <Build Include="RPT\Tables\TELL_Holidays.sql" />
+    <Build Include="RPT\Tables\Dates.sql" />
+    <Build Include="RPT\Tables\Stage_Employee_Hours.sql" />
+    <Build Include="RPT\Tables\Stage_All_Workers.sql" />
+    <Build Include="PEL\Tables\wvt_wvwelltesttransflowper_bkp20190730.sql" />
+    <Build Include="PEL\Tables\V_Monthly_Alloc_Prod_snapshot20190725.sql" />
+    <Build Include="PEL\Tables\V_Daily_Alloc_Prod_snapshot20190725.sql" />
+    <Build Include="GIS\Tables\TSP.sql" />
+    <Build Include="GIS\Tables\RXT_NG_METER_POINTS.sql" />
+    <Build Include="ETL\Tables\Hierarchy_COA.sql" />
+    <Build Include="ETL\Tables\WellView_COA.sql" />
+    <Build Include="ETL\Tables\Alias_Source.sql" />
+    <Build Include="ETL\Tables\Alias.sql" />
+    <Build Include="ETL\Tables\TempCOAFields.sql" />
+    <Build Include="ETL\Tables\Temp_Number.sql" />
+    <Build Include="ETL\Tables\Hierarchy_COA_bkp.sql" />
+    <Build Include="ETL\Tables\ActualVBudget_VolumesByWell.sql" />
+    <Build Include="ETL\Tables\ActualVBudgetByWell.sql" />
+    <Build Include="ETL\Tables\AFEvReturnCertificate.sql" />
+    <Build Include="ETL\Tables\AFEvActual.sql" />
+    <Build Include="ETL\Tables\ProdVSales.sql" />
+    <Build Include="ETL\Tables\Pipeline_Data_Lat_Long.sql" />
+    <Build Include="ETL\Tables\ActualVBudget.sql" />
+    <Build Include="ETL\Tables\Pipeline_Points_GIS.sql" />
+    <Build Include="BOLO\Tables\PROJ.sql" />
+    <Build Include="BOLO\Tables\COA.sql" />
+    <Build Include="BOLO\Tables\FIN_RPT_FMT_ROW.sql" />
+    <Build Include="BOLO\Tables\LOS_GRP_EXCL_ACCTS.sql" />
+    <Build Include="BOLO\Tables\LOS_GRP_INCL_ACCTS.sql" />
+    <Build Include="BOLO\Tables\GL_DET_ACCTG_PER.sql" />
+    <Build Include="BOLO\Tables\GL_DET.sql" />
+    <Build Include="BOLO\Tables\CO.sql" />
+    <Build Include="BOLO\Tables\GL_BUD_ACCTG_PER.sql" />
+    <Build Include="BOLO\Tables\Cost_Center.sql" />
+    <Build Include="BOLO\Tables\GL_BUD.sql" />
+    <Build Include="BOLO\Tables\JE.sql" />
+    <Build Include="BOLO\Tables\Budget_CC.sql" />
+    <Build Include="BOLO\Tables\NAME.sql" />
+    <Build Include="BOLO\Tables\AP_INV.sql" />
+    <Build Include="BOLO\Tables\TRANS.sql" />
+    <Build Include="ARIES\Tables\IHS_Header_STG.sql" />
+    <Build Include="ARIES\Tables\DI_Header_STG.sql" />
+    <Build Include="ARIES\Tables\DI_Monthly_Prod_STG.sql" />
+    <Build Include="ARIES\Tables\IHS_Monthly_Prod_STG.sql" />
+    <Build Include="ARIES\Tables\Monthly_Prod_STG.sql" />
+    <Build Include="ARIES\Tables\Monthly_Prod_STG_TMP.sql" />
+    <Build Include="dbo\Views\V_AC_PRODUCT_Prelim.sql" />
+    <Build Include="PEL\Views\V_Rockcliff_StimIntervals.sql" />
+    <Build Include="PEL\Views\V_Rockcliff_Daily_Ops.sql" />
+    <Build Include="PEL\Views\V_Rockcliff_StimPerf_Depths_Tableau.sql" />
+    <Build Include="PEL\Views\V_WellView_HoursWorked_LastWeek.sql" />
+    <Build Include="PEL\Views\V_WellView_HoursWorked.sql" />
+    <Build Include="PEL\Views\V_WellView_HoursWorkedDetail.sql" />
+    <Build Include="PEL\Views\V_SiteView_HoursWorked_LastWeek.sql" />
+    <Build Include="PEL\Views\V_SiteView_HoursWorkedDetail.sql" />
+    <Build Include="PEL\Views\V_SiteView_HoursWorked.sql" />
+    <Build Include="PEL\Views\V_Rockcliff_Perforations.sql" />
+    <Build Include="PEL\Views\V_Rockcliff_Perf_Interval.sql" />
+    <Build Include="PEL\Views\V_Rockcliff_Well.sql" />
+    <Build Include="PEL\Views\V_Monthly_Alloc_Prod.sql" />
+    <Build Include="PEL\Views\V_Daily_Alloc_Prod.sql" />
+    <Build Include="PEL\Views\V_WV_AFE_Cost_Tracker.sql" />
+    <Build Include="PEL\Views\V_WV_Daily_Ops.sql" />
+    <Build Include="PEL\Views\V_WV_AFE_Cost_Loader.sql" />
+    <Build Include="PEL\Views\V_Rockcliff_Combined_Frac_Data.sql" />
+    <Build Include="KINGDOM\Views\V_Well.sql" />
+    <Build Include="KINGDOM\Views\V_ZoneItems.sql" />
+    <Build Include="GIS\Views\V_Pipeline_Postings.sql" />
+    <Build Include="GIS\Views\V_Pipeline_Meter_Points.sql" />
+    <Build Include="BOLO\Views\V_GL_Row_Headings.sql" />
+    <Build Include="BOLO\Views\V_GL_Acctg_Periods.sql" />
+    <Build Include="BOLO\Views\V_GL_Cost_Centers.sql" />
+    <Build Include="BOLO\Views\V_AFE_Trans_with_Budget.sql" />
+    <Build Include="BOLO\Views\V_NET_LOS.sql" />
+    <Build Include="BOLO\Views\V_GROSS_LOS.sql" />
+    <Build Include="BOLO\Views\V_GL_Trans_Pivot.sql" />
+    <Build Include="BOLO\Views\V_GL_Trans.sql" />
+    <Build Include="BOLO\Views\V_TRANS.sql" />
+    <Build Include="BOLO\Views\V_AFE_Budget.sql" />
+    <Build Include="BOLO\Views\V_Production_V_Sales.sql" />
+    <Build Include="BOLO\Views\V_ActualVBudget_VolumesByWell.sql" />
+    <Build Include="BOLO\Views\V_ActualVBudget_ByWell.sql" />
+    <Build Include="BOLO\Views\V_AFEvReturnCertificate.sql" />
+    <Build Include="BOLO\Views\V_AFEvActual.sql" />
+    <Build Include="BOLO\Views\V_Actual_V_Budget.sql" />
+    <Build Include="ARIES\Views\V_AC_DAILY.sql" />
+    <Build Include="ARIES\Views\V_AC_PRODUCT.sql" />
+    <Build Include="ARIES\Views\EXT_V_TELL_DW.sql" />
+    <Build Include="Security\TLN_svc-powerbi.sql" />
+    <Build Include="Security\TLN_svc-datawh.sql" />
+    <Build Include="Security\TLN_rordonez.sql" />
+    <Build Include="Security\TLN_jlogbotche.sql" />
+    <Build Include="Security\TLN_Domain Users.sql" />
+    <Build Include="Security\TLN_CFLORES.sql" />
+    <Build Include="Security\TLN_bowen.sql" />
+    <Build Include="Security\TLN_avogt.sql" />
+    <Build Include="Security\pelotonspotfire.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="RPT\Functions\Func_Get_Department.sql" />
+    <Build Include="ETL\Functions\fn_FirstWord.sql" />
+    <Build Include="ETL\Functions\fn_ReplaceCharacters.sql" />
+    <Build Include="ETL\Functions\fn_SplitString.sql" />
+    <Build Include="RPT\Stored Procedures\Proc_Run_Worked_Hours_Report.sql" />
+    <Build Include="RPT\Stored Procedures\Proc_Populate_Dates_Tbl.sql" />
+    <Build Include="RPT\Stored Procedures\Proc_Update_All_Workers_Department.sql" />
+    <Build Include="RPT\Stored Procedures\Proc_Populate_All_Workers_Employee_Hours.sql" />
+    <Build Include="RPT\Stored Procedures\Proc_Update_Worked_Hours_Detail.sql" />
+    <Build Include="PEL\Stored Procedures\SP_Peloton_HoursWorked_Rpt.sql" />
+    <Build Include="ETL\Stored Procedures\Proc_Update_ETL_ActualVBudget.sql" />
+    <Build Include="ETL\Stored Procedures\Proc_Update_ETL_ProdVSales.sql" />
+    <Build Include="BOLO\Stored Procedures\Proc_SSRS_LOS_Subtotals.sql" />
+    <Build Include="BOLO\Stored Procedures\Proc_SSRS_LOS_Summary.sql" />
+    <Build Include="BOLO\Stored Procedures\Proc_SSRS_LOS_by_CC.sql" />
+    <Build Include="ARIES\Stored Procedures\Proc_UpdTellDWMonthlyProd.sql" />
+    <Build Include="ARIES\Stored Procedures\Proc_MonthlyProduction.sql" />
+    <Build Include="ARIES\Stored Procedures\Proc_MonthlyProduction_v2.sql" />
+    <Build Include="Security\TEMP.sql" />
+    <Build Include="Security\RPT.sql" />
+    <Build Include="Security\PEL.sql" />
+    <Build Include="Security\KINGDOM.sql" />
+    <Build Include="Security\GIS.sql" />
+    <Build Include="Security\ETL.sql" />
+    <Build Include="Security\BOLO.sql" />
+    <Build Include="Security\ARIES.sql" />
+  </ItemGroup>
+</Project>

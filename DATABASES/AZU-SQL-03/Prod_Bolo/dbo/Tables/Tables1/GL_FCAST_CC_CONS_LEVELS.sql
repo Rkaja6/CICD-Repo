@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[GL_FCAST_CC_CONS_LEVELS] (
+    [GL_FCAST_CC_CONS_LEVELS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [HIER_LEVEL_CODES]           VARCHAR (25)  NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([GL_FCAST_CC_CONS_LEVELS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [GL_FCAST__u2_id_57125]
+    ON [dbo].[GL_FCAST_CC_CONS_LEVELS]([u2_id] ASC);
+

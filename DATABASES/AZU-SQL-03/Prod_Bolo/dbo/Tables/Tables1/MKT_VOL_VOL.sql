@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[MKT_VOL_VOL] (
+    [MKT_VOL_VOL_ID]   VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [OWNER_VOL_INDEX]  VARCHAR (9)   NULL,
+    [OWNER_VOL_STATUS] VARCHAR (6)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([MKT_VOL_VOL_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MKT_VOL_VOL_u2_id_in]
+    ON [dbo].[MKT_VOL_VOL]([u2_id] ASC);
+

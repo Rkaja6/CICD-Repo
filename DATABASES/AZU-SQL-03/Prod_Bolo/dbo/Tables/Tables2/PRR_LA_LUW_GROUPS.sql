@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PRR_LA_LUW_GROUPS] (
+    [PRR_LA_LUW_GROUPS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                VARCHAR (255) NULL,
+    [GROUP_EFF_DATE]       DATETIME      NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PRR_LA_LUW_GROUPS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRR_LA_LUW_GROUPS_u2_id_in]
+    ON [dbo].[PRR_LA_LUW_GROUPS]([u2_id] ASC);
+

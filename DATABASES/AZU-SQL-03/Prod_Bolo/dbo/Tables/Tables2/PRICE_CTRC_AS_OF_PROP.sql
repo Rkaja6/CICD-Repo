@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[PRICE_CTRC_AS_OF_PROP] (
+    [PRICE_CTRC_AS_OF_PROP_ID]        VARCHAR (255)   NOT NULL,
+    [u2_id]                           VARCHAR (255)   NULL,
+    [AS_OF_PROP_GRP_PROP_COUNTY_NAME] VARCHAR (11)    NULL,
+    [AS_OF_PROP_GRP_PROP_NAME]        VARCHAR (35)    NULL,
+    [AS_OF_PROP_GRP_PROP_SULPHUR]     NUMERIC (19, 4) NULL,
+    [time_stamp]                      DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([PRICE_CTRC_AS_OF_PROP_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRICE_CTRC_AS_OF_PROP_u2_id_in]
+    ON [dbo].[PRICE_CTRC_AS_OF_PROP]([u2_id] ASC);
+

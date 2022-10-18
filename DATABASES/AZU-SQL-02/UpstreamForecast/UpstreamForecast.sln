@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "UpstreamForecast", "UpstreamForecast.sqlproj", "{2152AA5A-8E44-4752-AA49-826029FA525E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2152AA5A-8E44-4752-AA49-826029FA525E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2152AA5A-8E44-4752-AA49-826029FA525E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2152AA5A-8E44-4752-AA49-826029FA525E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2152AA5A-8E44-4752-AA49-826029FA525E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2152AA5A-8E44-4752-AA49-826029FA525E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2152AA5A-8E44-4752-AA49-826029FA525E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56E8808F-414D-42A1-8E34-FFC1DD0945C0}
+	EndGlobalSection
+EndGlobal

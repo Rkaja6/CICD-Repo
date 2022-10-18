@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[MEAS_PT_PENALTY_MEAS_PT] (
+    [MEAS_PT_PENALTY_MEAS_PT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [MEAS_PTS]                   VARCHAR (10)  NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([MEAS_PT_PENALTY_MEAS_PT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MEAS_PT_P_u2_id_2064]
+    ON [dbo].[MEAS_PT_PENALTY_MEAS_PT]([u2_id] ASC);
+

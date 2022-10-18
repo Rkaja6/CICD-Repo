@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[UPS_DFW_FERC_BOUNDARY] (
+    [OID]               INT              NOT NULL,
+    [Name]              NVARCHAR (60)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R761_pk] PRIMARY KEY CLUSTERED ([OID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g724_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S724_idx]
+    ON [dbo].[UPS_DFW_FERC_BOUNDARY] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10388998.300787, XMIN = -10391455.867723, YMAX = 3517047.80907086, YMIN = 3514157.51193201)
+          );
+

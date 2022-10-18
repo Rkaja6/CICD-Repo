@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PRICE_CTRC_REL_PR_METH] (
+    [subValueId]                     VARCHAR (255) NOT NULL,
+    [PRICE_CTRC_EFF_DT_ID]           VARCHAR (255) NULL,
+    [PRICE_PARAMS_REL_PRICE_METHODS] VARCHAR (7)   NULL,
+    [time_stamp]                     DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRICE_CTR_PRICE_CTR_7020]
+    ON [dbo].[PRICE_CTRC_REL_PR_METH]([PRICE_CTRC_EFF_DT_ID] ASC);
+

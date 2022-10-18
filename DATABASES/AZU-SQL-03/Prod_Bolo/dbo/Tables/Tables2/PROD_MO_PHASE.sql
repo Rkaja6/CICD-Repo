@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PROD_MO_PHASE] (
+    [subValueId]           VARCHAR (255) NOT NULL,
+    [PROD_MO_DISPS_ID]     VARCHAR (255) NULL,
+    [ALLOCATED_DISP_FLAGS] VARCHAR (9)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROD_MO_P_PROD_MO_D_49126]
+    ON [dbo].[PROD_MO_PHASE]([PROD_MO_DISPS_ID] ASC);
+

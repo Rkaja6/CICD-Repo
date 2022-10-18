@@ -1,0 +1,26 @@
+﻿CREATE TABLE [DW].[SatAddress] (
+    [RecordSource]      VARCHAR (50)  NOT NULL,
+    [LoadDate]          DATETIME2 (7) CONSTRAINT [DF_SatAddress_LoadDate] DEFAULT (getdate()) NOT NULL,
+    [LoadEndDate]       DATETIME2 (7) NULL,
+    [Address_Line_1]    VARCHAR (34)  NULL,
+    [Address_Line_2]    VARCHAR (30)  NULL,
+    [Address_Line_3]    VARCHAR (30)  NULL,
+    [City]              VARCHAR (33)  NULL,
+    [State]             VARCHAR (3)   NULL,
+    [Zip]               VARCHAR (12)  NULL,
+    [Country]           VARCHAR (6)   NULL,
+    [Name_Line_1]       VARCHAR (35)  NULL,
+    [Name_Line_2]       VARCHAR (35)  NULL,
+    [Name_Line_3]       VARCHAR (33)  NULL,
+    [Name_Control_1099] VARCHAR (7)   NULL,
+    [Residence_State]   VARCHAR (3)   NULL,
+    [Address_1099]      VARCHAR (40)  NULL,
+    [City_1099]         VARCHAR (27)  NULL,
+    [State_1099]        VARCHAR (5)   NULL,
+    [TIN_Type_1099]     VARCHAR (4)   NULL,
+    [Zip_1099]          VARCHAR (10)  NULL,
+    [TIN_2nd_Notice]    VARCHAR (6)   NULL,
+    [AddressHashKey]    BINARY (32)   NOT NULL,
+    CONSTRAINT [PK_SatAddress] PRIMARY KEY NONCLUSTERED ([AddressHashKey] ASC, [RecordSource] ASC, [LoadDate] ASC) WITH (STATISTICS_NORECOMPUTE = ON)
+);
+

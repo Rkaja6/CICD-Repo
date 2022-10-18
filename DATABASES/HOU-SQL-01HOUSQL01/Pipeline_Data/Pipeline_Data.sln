@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Pipeline_Data", "Pipeline_Data.sqlproj", "{61721753-4540-4E0A-825D-50F7B435018F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61721753-4540-4E0A-825D-50F7B435018F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61721753-4540-4E0A-825D-50F7B435018F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61721753-4540-4E0A-825D-50F7B435018F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{61721753-4540-4E0A-825D-50F7B435018F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61721753-4540-4E0A-825D-50F7B435018F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61721753-4540-4E0A-825D-50F7B435018F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FE911BF-92B6-4DA5-81F5-6B6CF782220D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Zedi]
+    AUTHORIZATION [dbo];
+

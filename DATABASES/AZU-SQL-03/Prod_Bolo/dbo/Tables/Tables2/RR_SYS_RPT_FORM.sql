@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RR_SYS_RPT_FORM] (
+    [subValueId]    VARCHAR (255) NOT NULL,
+    [RR_SYS_RPT_ID] VARCHAR (255) NULL,
+    [RPT_FORMS]     VARCHAR (4)   NULL,
+    [time_stamp]    DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_SYS_RP_RR_SYS_RP_94925]
+    ON [dbo].[RR_SYS_RPT_FORM]([RR_SYS_RPT_ID] ASC);
+

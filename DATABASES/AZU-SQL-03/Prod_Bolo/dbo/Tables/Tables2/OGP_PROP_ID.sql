@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OGP_PROP_ID] (
+    [subValueId]           VARCHAR (255) NOT NULL,
+    [OGP_PROP_CNV_INFO_ID] VARCHAR (255) NULL,
+    [CNV_IDS]              VARCHAR (6)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OGP_PROP__OGP_PROP__23453]
+    ON [dbo].[OGP_PROP_ID]([OGP_PROP_CNV_INFO_ID] ASC);
+

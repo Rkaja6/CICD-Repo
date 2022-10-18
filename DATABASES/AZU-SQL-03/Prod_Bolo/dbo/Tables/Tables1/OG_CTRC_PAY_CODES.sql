@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[OG_CTRC_PAY_CODES] (
+    [OG_CTRC_PAY_CODES_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                VARCHAR (255) NULL,
+    [PAY_CODES]            VARCHAR (4)   NULL,
+    [PAY_INTEREST_TYPES]   VARCHAR (4)   NULL,
+    [PAY_OWNERS]           VARCHAR (9)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OG_CTRC_PAY_CODES_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OG_CTRC_PAY_CODES_u2_id_in]
+    ON [dbo].[OG_CTRC_PAY_CODES]([u2_id] ASC);
+

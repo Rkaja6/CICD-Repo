@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[OG_CTRC_PRODUCTS] (
+    [OG_CTRC_PRODUCTS_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]               VARCHAR (255)   NULL,
+    [ACCRUAL_METHODS]     VARCHAR (7)     NULL,
+    [ACC_DIV_IDS]         VARCHAR (9)     NULL,
+    [DIV_IDS]             VARCHAR (6)     NULL,
+    [MMS_INDIAN_METHOD]   VARCHAR (6)     NULL,
+    [PRESSURE_BASES]      NUMERIC (19, 4) NULL,
+    [time_stamp]          DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([OG_CTRC_PRODUCTS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OG_CTRC_PRODUCTS_u2_id_in]
+    ON [dbo].[OG_CTRC_PRODUCTS]([u2_id] ASC);
+

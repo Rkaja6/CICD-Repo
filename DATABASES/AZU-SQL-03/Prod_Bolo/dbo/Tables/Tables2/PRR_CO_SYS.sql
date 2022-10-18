@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[PRR_CO_SYS] (
+    [u2_id]            VARCHAR (255) NOT NULL,
+    [AGENCY]           VARCHAR (2)   NULL,
+    [CONTACT_FAX]      VARCHAR (12)  NULL,
+    [CONTACT_NAME]     VARCHAR (30)  NULL,
+    [CONTACT_PHONE]    VARCHAR (12)  NULL,
+    [CONTACT_SITE]     VARCHAR (7)   NULL,
+    [CONTACT_TITLE]    VARCHAR (25)  NULL,
+    [EDI_FILE_NAME]    VARCHAR (35)  NULL,
+    [OGCC_OPERATOR_NO] VARCHAR (8)   NULL,
+    [OPERATOR_SUFFIX]  VARCHAR (4)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    [u2_checksum]      VARCHAR (25)  NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PRR_NM_MSV_ASSOC] (
+    [subValueId]         VARCHAR (255) NOT NULL,
+    [PRR_NM_MV_ASSOC_ID] VARCHAR (255) NULL,
+    [WELLS]              VARCHAR (12)  NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRR_NM_MS_PRR_NM_MV_62767]
+    ON [dbo].[PRR_NM_MSV_ASSOC]([PRR_NM_MV_ASSOC_ID] ASC);
+

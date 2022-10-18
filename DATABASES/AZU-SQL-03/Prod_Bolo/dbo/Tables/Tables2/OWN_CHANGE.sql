@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[OWN_CHANGE] (
+    [u2_id]                  VARCHAR (255)  NOT NULL,
+    [APPR]                   VARCHAR (4)    NULL,
+    [APPR_DATE]              DATETIME       NULL,
+    [CHANGE_DATE]            DATETIME       NULL,
+    [COMPANY]                VARCHAR (3)    NULL,
+    [DOCUMENT]               VARCHAR (1208) NULL,
+    [EFF_DATE]               DATETIME       NULL,
+    [IMPLEMENTATION_DATE]    DATETIME       NULL,
+    [INTEREST_CATEGORY]      VARCHAR (8)    NULL,
+    [NEW_PAY_CODE]           VARCHAR (5)    NULL,
+    [PAY_CODE_OPTION]        VARCHAR (6)    NULL,
+    [REASON]                 VARCHAR (513)  NULL,
+    [RECOURSE_FLAG]          VARCHAR (8)    NULL,
+    [SOURCE_OWNER]           VARCHAR (9)    NULL,
+    [SYSTEM_DATE]            DATETIME       NULL,
+    [SYSTEM_TIME]            VARCHAR (8)    NULL,
+    [SYSTEM_USER_ID]         VARCHAR (8)    NULL,
+    [TEMP_UPDATE_TRIAL_FLAG] VARCHAR (6)    NULL,
+    [TYPE]                   VARCHAR (3)    NULL,
+    [time_stamp]             DATETIME       NULL,
+    [u2_checksum]            VARCHAR (25)   NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

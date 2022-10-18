@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PROD_DAILY_THEO_TRANSFERS] (
+    [PROD_DAILY_THEO_TRANSFERS_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]                        VARCHAR (255)   NULL,
+    [TRANSFERS]                    NUMERIC (19, 2) NULL,
+    [time_stamp]                   DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([PROD_DAILY_THEO_TRANSFERS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROD_DAIL_u2_id_87416]
+    ON [dbo].[PROD_DAILY_THEO_TRANSFERS]([u2_id] ASC);
+

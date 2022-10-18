@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PROD_FAC_PRD_PROD_PERIODS] (
+    [PROD_FAC_PRD_PROD_PERIODS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                        VARCHAR (255) NULL,
+    [PROD_PERIODS]                 DATETIME      NULL,
+    [time_stamp]                   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PROD_FAC_PRD_PROD_PERIODS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROD_FAC__u2_id_8715]
+    ON [dbo].[PROD_FAC_PRD_PROD_PERIODS]([u2_id] ASC);
+

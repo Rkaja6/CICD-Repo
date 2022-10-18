@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[AT_TRANS_ASSET_DET_IDX] (
+    [AT_TRANS_ASSET_DET_IDX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                     VARCHAR (255) NULL,
+    [AT_ASSET_DET_INDEX]        VARCHAR (70)  NULL,
+    [time_stamp]                DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_TRANS_ASSET_DET_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_TRANS__u2_id_43587]
+    ON [dbo].[AT_TRANS_ASSET_DET_IDX]([u2_id] ASC);
+

@@ -1,0 +1,24 @@
+﻿CREATE TABLE [dbo].[LND_NATCHITOCHES_PARCELS] (
+    [OBJECTID]          INT              NOT NULL,
+    [PARCEL_NUM]        NVARCHAR (254)   NULL,
+    [OWNER_NAME]        NVARCHAR (254)   NULL,
+    [OWNER_ADDR]        NVARCHAR (254)   NULL,
+    [CTY_ST_ZIP]        NVARCHAR (254)   NULL,
+    [ACRES]             NUMERIC (38, 8)  NULL,
+    [LEGAL_DESC]        NVARCHAR (254)   NULL,
+    [Shape__Area]       NUMERIC (38, 8)  NULL,
+    [Shape__Length]     NUMERIC (38, 8)  NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R765_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g728_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S728_idx]
+    ON [dbo].[LND_NATCHITOCHES_PARCELS] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10320968.2761, XMIN = -10401838.187, YMAX = 3782802.88570001, YMIN = 3682088.80810001)
+          );
+

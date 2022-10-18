@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CC_LEVEL_CC_CAT] (
+    [CC_LEVEL_CC_CAT_ID]       VARCHAR (255) NOT NULL,
+    [u2_id]                    VARCHAR (255) NULL,
+    [DEFINITION_CC_CATEGORIES] VARCHAR (16)  NULL,
+    [time_stamp]               DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CC_LEVEL_CC_CAT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CC_LEVEL_CC_CAT_u2_id_in]
+    ON [dbo].[CC_LEVEL_CC_CAT]([u2_id] ASC);
+

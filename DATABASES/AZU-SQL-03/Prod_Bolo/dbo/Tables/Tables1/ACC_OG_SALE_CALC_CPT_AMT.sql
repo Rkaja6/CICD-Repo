@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[ACC_OG_SALE_CALC_CPT_AMT] (
+    [ACC_OG_SALE_CALC_CPT_AMT_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]                       VARCHAR (255)   NULL,
+    [CALC_AGENCY_CPT_AMTS]        NUMERIC (19, 2) NULL,
+    [CALC_GROSS_CPT_AMTS]         NUMERIC (19, 2) NULL,
+    [time_stamp]                  DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([ACC_OG_SALE_CALC_CPT_AMT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ACC_OG_SA_u2_id_24386]
+    ON [dbo].[ACC_OG_SALE_CALC_CPT_AMT]([u2_id] ASC);
+

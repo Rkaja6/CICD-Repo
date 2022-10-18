@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[XCG_EXPORT_TEMPLATE_EDIT] (
+    [subValueId]                    VARCHAR (255) NOT NULL,
+    [XCG_EXPORT_TEMPLATE_PARAMS_ID] VARCHAR (255) NULL,
+    [EDIT_CODES]                    VARCHAR (4)   NULL,
+    [EDIT_VALUES]                   VARCHAR (5)   NULL,
+    [time_stamp]                    DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [XCG_EXPOR_XCG_EXPOR_6591]
+    ON [dbo].[XCG_EXPORT_TEMPLATE_EDIT]([XCG_EXPORT_TEMPLATE_PARAMS_ID] ASC);
+

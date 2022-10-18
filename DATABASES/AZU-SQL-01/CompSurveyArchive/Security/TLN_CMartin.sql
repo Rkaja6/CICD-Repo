@@ -1,0 +1,2 @@
+﻿CREATE USER [TLN\CMartin] FOR LOGIN [TLN\CMartin];
+

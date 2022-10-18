@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[REMIT_FMT_REMITTER] (
+    [REMIT_FMT_REMITTER_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [REMITTERS]             VARCHAR (8)   NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([REMIT_FMT_REMITTER_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [REMIT_FMT_REMITTER_u2_id_in]
+    ON [dbo].[REMIT_FMT_REMITTER]([u2_id] ASC);
+

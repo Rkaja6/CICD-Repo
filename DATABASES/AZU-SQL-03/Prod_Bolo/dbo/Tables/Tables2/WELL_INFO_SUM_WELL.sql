@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[WELL_INFO_SUM_WELL] (
+    [WELL_INFO_SUM_WELL_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [SUM_WELL]              VARCHAR (8)   NULL,
+    [SUM_WELL_EFF_DATE]     DATETIME      NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([WELL_INFO_SUM_WELL_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [WELL_INFO_SUM_WELL_u2_id_in]
+    ON [dbo].[WELL_INFO_SUM_WELL]([u2_id] ASC);
+

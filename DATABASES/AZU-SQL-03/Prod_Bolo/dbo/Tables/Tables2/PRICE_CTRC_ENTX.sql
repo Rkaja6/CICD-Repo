@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[PRICE_CTRC_ENTX] (
+    [PRICE_CTRC_ENTX_ID]      VARCHAR (255) NOT NULL,
+    [u2_id]                   VARCHAR (255) NULL,
+    [CPTS]                    VARCHAR (6)   NULL,
+    [ENTX_EFF_DATES]          VARCHAR (8)   NULL,
+    [ENTX_PURCHASE_CONTRACTS] VARCHAR (10)  NULL,
+    [ENTX_RESALE_CONTRACTS]   VARCHAR (10)  NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PRICE_CTRC_ENTX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRICE_CTRC_ENTX_u2_id_in]
+    ON [dbo].[PRICE_CTRC_ENTX]([u2_id] ASC);
+

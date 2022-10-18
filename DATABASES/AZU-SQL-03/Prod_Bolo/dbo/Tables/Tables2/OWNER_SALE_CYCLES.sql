@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OWNER_SALE_CYCLES] (
+    [subValueId]              VARCHAR (255) NOT NULL,
+    [OWNER_SALE_CYCLE_PER_ID] VARCHAR (255) NULL,
+    [CYCLES]                  VARCHAR (6)   NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OWNER_SAL_OWNER_SAL_98637]
+    ON [dbo].[OWNER_SALE_CYCLES]([OWNER_SALE_CYCLE_PER_ID] ASC);
+

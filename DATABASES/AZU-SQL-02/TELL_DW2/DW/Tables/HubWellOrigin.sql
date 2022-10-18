@@ -1,0 +1,9 @@
+﻿CREATE TABLE [DW].[HubWellOrigin] (
+    [RecordSource]      VARCHAR (50)  NOT NULL,
+    [LoadDate]          DATETIME2 (7) CONSTRAINT [DF__HubWellOr__LoadD__7BB05806] DEFAULT (getdate()) NOT NULL,
+    [API10]             VARCHAR (20)  NOT NULL,
+    [WellOriginHashKey] BINARY (32)   NOT NULL,
+    CONSTRAINT [PK_HubWellOrigin] PRIMARY KEY CLUSTERED ([WellOriginHashKey] ASC) WITH (STATISTICS_NORECOMPUTE = ON),
+    CONSTRAINT [UK_HubWellOriginAPI10] UNIQUE NONCLUSTERED ([API10] ASC) WITH (STATISTICS_NORECOMPUTE = ON)
+);
+

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[AR_OG_SALES_IDX] (
+    [subValueId]               VARCHAR (255) NOT NULL,
+    [AR_OG_SALES_ACCTG_PER_ID] VARCHAR (255) NULL,
+    [ACCRUAL_INDEX]            VARCHAR (7)   NULL,
+    [ACTUAL_INDEX]             VARCHAR (8)   NULL,
+    [REVERSAL_INDEX]           VARCHAR (8)   NULL,
+    [time_stamp]               DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AR_OG_SAL_AR_OG_SAL_64319]
+    ON [dbo].[AR_OG_SALES_IDX]([AR_OG_SALES_ACCTG_PER_ID] ASC);
+

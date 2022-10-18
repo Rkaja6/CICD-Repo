@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[PROD_FAC_PRD_EQUIP_EFF_DATE] (
+    [PROD_FAC_PRD_EQUIP_EFF_DATE_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                          VARCHAR (255) NULL,
+    [EQUIP_EFF_DATES]                DATETIME      NULL,
+    [EQUIP_EXP_DATES]                DATETIME      NULL,
+    [UPSTREAM_EXP_DATES]             DATETIME      NULL,
+    [time_stamp]                     DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PROD_FAC_PRD_EQUIP_EFF_DATE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROD_FAC__u2_id_4904]
+    ON [dbo].[PROD_FAC_PRD_EQUIP_EFF_DATE]([u2_id] ASC);
+

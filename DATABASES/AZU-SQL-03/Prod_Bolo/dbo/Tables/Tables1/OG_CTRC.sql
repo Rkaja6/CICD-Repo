@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[OG_CTRC] (
+    [u2_id]             VARCHAR (255) NOT NULL,
+    [ACCRUAL_ANALYST]   VARCHAR (9)   NULL,
+    [ANALYST]           VARCHAR (9)   NULL,
+    [CNV_ID]            VARCHAR (40)  NULL,
+    [COMPANY]           VARCHAR (3)   NULL,
+    [CONTRACT]          VARCHAR (10)  NULL,
+    [CONTROL_DATE]      DATETIME      NULL,
+    [COST_CENTER]       VARCHAR (6)   NULL,
+    [CO_COST_CENTER]    VARCHAR (10)  NULL,
+    [CPT_COMPLETE_FLAG] VARCHAR (4)   NULL,
+    [DFLT_CPTS_FLAG]    VARCHAR (4)   NULL,
+    [MARKET]            VARCHAR (10)  NULL,
+    [MEAS_PT]           VARCHAR (10)  NULL,
+    [PRIMARY_PAYEE]     VARCHAR (9)   NULL,
+    [PROPERTY]          VARCHAR (12)  NULL,
+    [RECEIVABLE_FLAG]   VARCHAR (5)   NULL,
+    [REMIT_FMT_ID]      VARCHAR (10)  NULL,
+    [ROYALTY_PAYEE]     VARCHAR (9)   NULL,
+    [TAX_ALLOC_METHOD]  VARCHAR (3)   NULL,
+    [a88S_SUPP]         VARCHAR (4)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    [u2_checksum]       VARCHAR (25)  NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PPL_STMT_PPL_SALE_NGL_IDX] (
+    [PPL_STMT_PPL_SALE_NGL_IDX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                        VARCHAR (255) NULL,
+    [PPL_SALE_NGL_INDEX]           VARCHAR (12)  NULL,
+    [time_stamp]                   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PPL_STMT_PPL_SALE_NGL_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PPL_STMT__u2_id_93005]
+    ON [dbo].[PPL_STMT_PPL_SALE_NGL_IDX]([u2_id] ASC);
+

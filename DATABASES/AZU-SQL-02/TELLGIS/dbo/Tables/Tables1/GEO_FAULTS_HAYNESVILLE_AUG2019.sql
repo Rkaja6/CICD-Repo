@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[GEO_FAULTS_HAYNESVILLE_AUG2019] (
+    [OBJECTID_1]        INT              NOT NULL,
+    [OBJECTID]          INT              NULL,
+    [Shape_Leng]        NUMERIC (38, 8)  NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R456_pk] PRIMARY KEY CLUSTERED ([OBJECTID_1] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g419_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S419_idx]
+    ON [dbo].[GEO_FAULTS_HAYNESVILLE_AUG2019] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10352768.2734276, XMIN = -10544985.0084303, YMAX = 3826895.72880043, YMIN = 3674876.32064619),
+            CELLS_PER_OBJECT = 16
+          );
+

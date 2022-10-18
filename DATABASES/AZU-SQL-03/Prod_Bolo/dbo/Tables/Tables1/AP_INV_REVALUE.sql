@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[AP_INV_REVALUE] (
+    [AP_INV_REVALUE_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [REVALUE_STATUS]    VARCHAR (7)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AP_INV_REVALUE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AP_INV_REVALUE_u2_id_in]
+    ON [dbo].[AP_INV_REVALUE]([u2_id] ASC);
+

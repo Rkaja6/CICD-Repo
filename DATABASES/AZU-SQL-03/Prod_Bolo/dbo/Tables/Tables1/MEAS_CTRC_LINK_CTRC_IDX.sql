@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[MEAS_CTRC_LINK_CTRC_IDX] (
+    [MEAS_CTRC_LINK_CTRC_IDX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [CTRC_PART_INDEX]            VARCHAR (13)  NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([MEAS_CTRC_LINK_CTRC_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MEAS_CTRC_u2_id_4545]
+    ON [dbo].[MEAS_CTRC_LINK_CTRC_IDX]([u2_id] ASC);
+

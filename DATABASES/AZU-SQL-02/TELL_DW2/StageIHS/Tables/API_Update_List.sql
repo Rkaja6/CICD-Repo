@@ -1,0 +1,5 @@
+﻿CREATE TABLE [StageIHS].[API_Update_List] (
+    [API14] VARCHAR (20) NOT NULL,
+    PRIMARY KEY CLUSTERED ([API14] ASC)
+);
+

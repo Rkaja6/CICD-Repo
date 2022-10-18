@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[OG_SALE_PTD] (
+    [subValueId]     VARCHAR (255)   NOT NULL,
+    [OG_SALE_CPT_ID] VARCHAR (255)   NULL,
+    [PTD_CPTS]       VARCHAR (6)     NULL,
+    [PTD_CPT_AMTS]   NUMERIC (19, 2) NULL,
+    [time_stamp]     DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OG_SALE_PTD_OG_SALE_CPT_ID_in]
+    ON [dbo].[OG_SALE_PTD]([OG_SALE_CPT_ID] ASC);
+

@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[WorldPrimary] (
+    [REF_AREA]        VARCHAR (2)  NULL,
+    [TIME_PERIOD]     DATETIME     NULL,
+    [ENERGY_PRODUCT]  VARCHAR (10) NULL,
+    [FLOW_BREAKDOWN]  VARCHAR (8)  NULL,
+    [UNIT_MEASURE]    VARCHAR (7)  NULL,
+    [OBS_VALUE]       REAL         NULL,
+    [ASSESSMENT_CODE] SMALLINT     NULL
+);
+

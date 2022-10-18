@@ -1,0 +1,65 @@
+﻿CREATE TABLE [dbo].[UPS_2022BUDGETWELLS_HSVL_BORE] (
+    [OBJECTID_12]       INT              NOT NULL,
+    [OBJECTID_1]        INT              NULL,
+    [OBJECTID_2]        INT              NULL,
+    [OBJECTID]          INT              NULL,
+    [GISNO]             INT              NULL,
+    [SHL_Sec]           NVARCHAR (5)     NULL,
+    [BHL_Sec]           NVARCHAR (5)     NULL,
+    [SHLTwpRng]         NVARCHAR (20)    NULL,
+    [BHLTwpRng]         NVARCHAR (10)    NULL,
+    [Co_Par]            NVARCHAR (50)    NULL,
+    [RSV_CAT]           NVARCHAR (254)   NULL,
+    [PROPNUM]           NVARCHAR (254)   NULL,
+    [LEASE]             NVARCHAR (254)   NULL,
+    [WELL_NO]           NVARCHAR (254)   NULL,
+    [notes]             NVARCHAR (254)   NULL,
+    [Operated]          NVARCHAR (25)    NULL,
+    [Well_Statu]        NVARCHAR (50)    NULL,
+    [SHL_Lat]           NUMERIC (38, 8)  NULL,
+    [SHL_Long]          NUMERIC (38, 8)  NULL,
+    [BHL_Lat]           NUMERIC (38, 8)  NULL,
+    [BHL_Long]          NUMERIC (38, 8)  NULL,
+    [TC_Name]           NVARCHAR (10)    NULL,
+    [TC_Val]            NUMERIC (38, 8)  NULL,
+    [Deletes]           NVARCHAR (5)     NULL,
+    [Shape_Leng]        NUMERIC (38, 8)  NULL,
+    [TPC_TC]            NVARCHAR (50)    NULL,
+    [RSVCT_YE20]        NVARCHAR (50)    NULL,
+    [NEW_LL]            NUMERIC (38, 8)  NULL,
+    [PROP]              NVARCHAR (254)   NULL,
+    [WI_YE20]           NUMERIC (38, 8)  NULL,
+    [NRI_YE20]          NUMERIC (38, 8)  NULL,
+    [RSV_CHANGE]        NVARCHAR (50)    NULL,
+    [GISNOFORM]         NVARCHAR (10)    NULL,
+    [Drill_Orde]        NVARCHAR (5)     NULL,
+    [Pad_Wells]         NVARCHAR (5)     NULL,
+    [Well_No_Pa]        NVARCHAR (5)     NULL,
+    [OBJECTID_3]        INT              NULL,
+    [Drill_Or_1]        NUMERIC (38, 8)  NULL,
+    [Pad_Wells_]        NUMERIC (38, 8)  NULL,
+    [Well_Numbe]        NUMERIC (38, 8)  NULL,
+    [PROP_1]            NVARCHAR (254)   NULL,
+    [LEASE_1]           NVARCHAR (254)   NULL,
+    [PAD]               NVARCHAR (254)   NULL,
+    [GIS_Number]        NUMERIC (38, 8)  NULL,
+    [Formation]         NVARCHAR (254)   NULL,
+    [Shape_Le_1]        NUMERIC (38, 8)  NULL,
+    [Budget]            NVARCHAR (10)    NULL,
+    [MAP_LABEL]         NVARCHAR (50)    NULL,
+    [Well_Order]        NVARCHAR (5)     NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R641_pk] PRIMARY KEY CLUSTERED ([OBJECTID_12] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g604_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S604_idx]
+    ON [dbo].[UPS_2022BUDGETWELLS_HSVL_BORE] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10391510.771832, XMIN = -10404512.1398785, YMAX = 3786526.42096024, YMIN = 3756467.98330866),
+            CELLS_PER_OBJECT = 16
+          );
+

@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[AT_SYS_UOP_DDA] (
+    [AT_SYS_UOP_DDA_ID]        VARCHAR (255) NOT NULL,
+    [u2_id]                    VARCHAR (255) NULL,
+    [UOP_ACCUM_DDA_ACCTS]      VARCHAR (9)   NULL,
+    [UOP_BASIS_ACCT_GROUPS]    VARCHAR (8)   NULL,
+    [UOP_DDA_CATEGORIES]       VARCHAR (5)   NULL,
+    [UOP_DDA_EXPENSE_ACCTS]    VARCHAR (9)   NULL,
+    [UOP_UNDEV_RESERVES_FLAGS] VARCHAR (9)   NULL,
+    [time_stamp]               DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_SYS_UOP_DDA_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_SYS_UOP_DDA_u2_id_in]
+    ON [dbo].[AT_SYS_UOP_DDA]([u2_id] ASC);
+

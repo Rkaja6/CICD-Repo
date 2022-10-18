@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RV_OWNER_DFLT_PAY_CODE] (
+    [RV_OWNER_DFLT_PAY_CODE_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                     VARCHAR (255) NULL,
+    [DFLT_PAY_CODE]             VARCHAR (4)   NULL,
+    [time_stamp]                DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RV_OWNER_DFLT_PAY_CODE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RV_OWNER__u2_id_21558]
+    ON [dbo].[RV_OWNER_DFLT_PAY_CODE]([u2_id] ASC);
+

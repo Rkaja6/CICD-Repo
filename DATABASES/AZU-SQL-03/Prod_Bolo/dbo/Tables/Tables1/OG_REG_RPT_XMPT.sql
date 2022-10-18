@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[OG_REG_RPT_XMPT] (
+    [OG_REG_RPT_XMPT_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]              VARCHAR (255)   NULL,
+    [CPTS]               VARCHAR (6)     NULL,
+    [CPT_INTERESTS]      NUMERIC (19, 8) NULL,
+    [CPT_VALUES]         NUMERIC (19, 2) NULL,
+    [EXEMPT_CODES]       VARCHAR (7)     NULL,
+    [EXEMPT_DECIMALS]    NUMERIC (19, 8) NULL,
+    [EXEMPT_VALUES]      NUMERIC (19, 2) NULL,
+    [EXEMPT_VOLUMES]     NUMERIC (19, 2) NULL,
+    [PENALTY]            NUMERIC (19, 2) NULL,
+    [TAXABLE_VALUES]     NUMERIC (19, 2) NULL,
+    [TAXABLE_VOLUMES]    NUMERIC (19, 2) NULL,
+    [time_stamp]         DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([OG_REG_RPT_XMPT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OG_REG_RPT_XMPT_u2_id_in]
+    ON [dbo].[OG_REG_RPT_XMPT]([u2_id] ASC);
+

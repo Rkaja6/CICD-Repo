@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[UPS_GROGAN_FIELD_NAMES] (
+    [OID]               INT              NOT NULL,
+    [Name]              NVARCHAR (60)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R631_pk] PRIMARY KEY CLUSTERED ([OID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g594_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S594_idx]
+    ON [dbo].[UPS_GROGAN_FIELD_NAMES] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10379624.1605073, XMIN = -10409938.6422358, YMAX = 3790363.95061845, YMIN = 3723524.35434353),
+            CELLS_PER_OBJECT = 16
+          );
+

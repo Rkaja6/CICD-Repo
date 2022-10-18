@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[WELL_VOL_SALE_DT] (
+    [WELL_VOL_SALE_DT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]               VARCHAR (255) NULL,
+    [SALE_DATES]          DATETIME      NULL,
+    [time_stamp]          DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([WELL_VOL_SALE_DT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [WELL_VOL_SALE_DT_u2_id_in]
+    ON [dbo].[WELL_VOL_SALE_DT]([u2_id] ASC);
+

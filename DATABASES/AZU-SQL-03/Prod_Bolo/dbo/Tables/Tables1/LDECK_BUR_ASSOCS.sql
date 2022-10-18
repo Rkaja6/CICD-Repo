@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[LDECK_BUR_ASSOCS] (
+    [LDECK_BUR_ASSOCS_ID]   VARCHAR (255)   NOT NULL,
+    [u2_id]                 VARCHAR (255)   NULL,
+    [ASSOC_NET_FLAGS]       VARCHAR (3)     NULL,
+    [BUR_ASSOCS]            VARCHAR (8)     NULL,
+    [BUR_COMPLETE_FLAG]     VARCHAR (7)     NULL,
+    [BUR_DESCS]             VARCHAR (47)    NULL,
+    [TOTAL_BURDENS]         NUMERIC (19, 8) NULL,
+    [TOTAL_BURDENS_ENTERED] NUMERIC (19, 8) NULL,
+    [time_stamp]            DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([LDECK_BUR_ASSOCS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LDECK_BUR_ASSOCS_u2_id_in]
+    ON [dbo].[LDECK_BUR_ASSOCS]([u2_id] ASC);
+

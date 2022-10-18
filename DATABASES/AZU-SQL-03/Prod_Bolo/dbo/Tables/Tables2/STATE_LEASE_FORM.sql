@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[STATE_LEASE_FORM] (
+    [STATE_LEASE_FORM_ID] VARCHAR (255) NOT NULL,
+    [u2_id]               VARCHAR (255) NULL,
+    [FORM_REFS]           VARCHAR (9)   NULL,
+    [time_stamp]          DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([STATE_LEASE_FORM_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [STATE_LEASE_FORM_u2_id_in]
+    ON [dbo].[STATE_LEASE_FORM]([u2_id] ASC);
+

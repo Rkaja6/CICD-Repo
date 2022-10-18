@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CDX_CHECK_PROCESS_DTS] (
+    [CDX_CHECK_PROCESS_DTS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                    VARCHAR (255) NULL,
+    [PROCESS_DATES]            DATETIME      NULL,
+    [time_stamp]               DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CDX_CHECK_PROCESS_DTS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CDX_CHECK_PROCESS_DTS_u2_id_in]
+    ON [dbo].[CDX_CHECK_PROCESS_DTS]([u2_id] ASC);
+

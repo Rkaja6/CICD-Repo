@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [StagePLE]
+    AUTHORIZATION [dbo];
+

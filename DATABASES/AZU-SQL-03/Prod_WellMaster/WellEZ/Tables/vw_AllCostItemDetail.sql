@@ -1,0 +1,52 @@
+﻿CREATE TABLE [WellEZ].[vw_AllCostItemDetail] (
+    [well_id]               BIGINT          NULL,
+    [WellName]              NVARCHAR (MAX)  NULL,
+    [State]                 NVARCHAR (MAX)  NULL,
+    [County]                NVARCHAR (MAX)  NULL,
+    [LatitudeLocation]      NVARCHAR (MAX)  NULL,
+    [LongitudeLocation]     NVARCHAR (MAX)  NULL,
+    [AssetName]             NVARCHAR (MAX)  NULL,
+    [Area]                  NVARCHAR (MAX)  NULL,
+    [FieldName]             NVARCHAR (MAX)  NULL,
+    [Lease]                 NVARCHAR (MAX)  NULL,
+    [APINo]                 NVARCHAR (MAX)  NULL,
+    [Well Status]           NVARCHAR (MAX)  NULL,
+    [ARIES Propnum]         NVARCHAR (MAX)  NULL,
+    [Bolo Cost Center]      NVARCHAR (MAX)  NULL,
+    [StatePermitNo]         NVARCHAR (MAX)  NULL,
+    [NetRevenueInterest]    REAL            NULL,
+    [job_number]            BIGINT          NULL,
+    [job_status]            BIGINT          NULL,
+    [jobDescription]        NVARCHAR (MAX)  NULL,
+    [WorkingInterest]       REAL            NULL,
+    [WellEngineer]          NVARCHAR (MAX)  NULL,
+    [SubCode]               NVARCHAR (MAX)  NULL,
+    [StartDate]             DATETIME        NULL,
+    [SpudDate]              DATETIME        NULL,
+    [RigNumber]             NVARCHAR (MAX)  NULL,
+    [RigContractor]         NVARCHAR (MAX)  NULL,
+    [PermitNo]              NVARCHAR (MAX)  NULL,
+    [Operator]              NVARCHAR (MAX)  NULL,
+    [Objective]             NVARCHAR (MAX)  NULL,
+    [Category]              NVARCHAR (MAX)  NULL,
+    [AFE Number]            NVARCHAR (MAX)  NULL,
+    [AFEAmountC]            DECIMAL (19, 9) NULL,
+    [AFEAmountCC]           DECIMAL (19, 9) NULL,
+    [report_Date]           DATETIME        NOT NULL,
+    [line_number]           BIGINT          NOT NULL,
+    [completioncostitem_id] INT             NOT NULL,
+    [VendorName]            NVARCHAR (MAX)  NULL,
+    [VendorId]              INT             NULL,
+    [reportTypeId]          BIGINT          NOT NULL,
+    [Remarks]               NVARCHAR (MAX)  NULL,
+    [ItemCode]              NVARCHAR (MAX)  NOT NULL,
+    [ExpenseDescription]    NVARCHAR (MAX)  NOT NULL,
+    [SubExpenseDescription] NVARCHAR (MAX)  NULL,
+    [Cost]                  DECIMAL (19, 9) NULL
+);
+
+
+GO
+CREATE CLUSTERED COLUMNSTORE INDEX [ccsi_WellEZ_vw_AllCostItemDetail]
+    ON [WellEZ].[vw_AllCostItemDetail];
+

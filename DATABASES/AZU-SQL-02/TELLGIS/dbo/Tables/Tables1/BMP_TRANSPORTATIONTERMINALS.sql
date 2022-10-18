@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[BMP_TRANSPORTATIONTERMINALS] (
+    [OBJECTID]          INT              NOT NULL,
+    [STCTYFIPS]         NVARCHAR (5)     NULL,
+    [NAME]              NVARCHAR (100)   NULL,
+    [FEATTYPE]          NVARCHAR (50)    NULL,
+    [MNFC]              SMALLINT         NULL,
+    [TEXTLENGTH]        SMALLINT         NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R300_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g281_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S281_idx]
+    ON [dbo].[BMP_TRANSPORTATIONTERMINALS] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -7305866.23204142, XMIN = -18535015.5166339, YMAX = 9569325.40299188, YMIN = 2076631.51583227),
+            CELLS_PER_OBJECT = 16
+          );
+

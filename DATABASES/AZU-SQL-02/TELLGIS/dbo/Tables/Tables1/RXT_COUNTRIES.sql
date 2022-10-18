@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[RXT_COUNTRIES] (
+    [OBJECTID]          INT              NOT NULL,
+    [COUNTRY]           NVARCHAR (50)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R253_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g234_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S234_idx]
+    ON [dbo].[RXT_COUNTRIES] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -5859444.52807925, XMIN = -19840231.7149212, YMAX = 17923775.6474476, YMIN = 1635334.65416354),
+            CELLS_PER_OBJECT = 16
+          );
+

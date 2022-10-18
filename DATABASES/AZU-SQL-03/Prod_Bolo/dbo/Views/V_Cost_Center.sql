@@ -1,0 +1,43 @@
+﻿
+create view [dbo].[V_Cost_Center] AS
+SELECT
+	ACQ.DESCRIPTION AS Acquisition,
+	CC.u2_id AS CC_UID,
+	CC.NAME AS Cost_Center,
+	CC.SHADOW_KEY AS Cost_Center_Number,
+	CC.TYPE AS Cost_Center_Type,
+	W.STATE AS State,
+	C.NAME AS County,
+	D.NAME AS District,
+	D.SHADOW_KEY AS District_Number,
+	A.NAME AS Area,
+	A.SHADOW_KEY AS Area_Number,
+	F.NAME AS Field,
+	F.SHADOW_KEY AS Field_Number,
+	P.NAME AS Prospect,
+	P.SHADOW_KEY AS Prospect_Number,
+	OP.NAME1 AS Operator,
+	W.API_WELL_NO,
+	W.LAST_STATUS,
+	W.NAME AS WellName,
+	W.NRI_RPTG_DOI,
+	W.WI_RPTG_DECK
+FROM CC
+LEFT JOIN WELL_INFO W
+	ON CC.u2_id = W.u2_id
+LEFT JOIN AREA A
+	ON W.AREA = A.u2_id
+LEFT JOIN DISTRICT D
+	ON W.DISTRICT = D.u2_id
+LEFT JOIN FIELD F
+	ON W.FIELD_ID = F.u2_id
+LEFT JOIN CTY C
+	ON W.COUNTY = C.u2_id
+LEFT JOIN NAME OP
+	ON W.OPERATOR = OP.u2_id
+LEFT JOIN PROSPECT P
+	ON W.PROSPECT = P.u2_id
+LEFT JOIN WELL_INFO_ACQ WA
+	ON W.u2_id  = WA.u2_id
+LEFT JOIN ACQUISITION ACQ
+	ON WA.ACQUISITION = ACQ.u2_id

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Prod_ProCount</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{1ffd3a8f-9735-4a54-aba1-f46d58108d65}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Prod_ProCount</RootNamespace>
+    <AssemblyName>Prod_ProCount</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\WellTypeTb.sql" />
+    <Build Include="dbo\Tables\TankTypeTb.sql" />
+    <Build Include="dbo\Tables\TankTb.sql" />
+    <Build Include="dbo\Tables\TankStrappingTb.sql" />
+    <Build Include="dbo\Tables\TankStrappingDetailTb.sql" />
+    <Build Include="dbo\Tables\TankRunTicketTb.sql" />
+    <Build Include="dbo\Tables\TankMonthlyTb.sql" />
+    <Build Include="dbo\Tables\TankDailyTb.sql" />
+    <Build Include="dbo\Tables\TankCompletionMonthlyTb.sql" />
+    <Build Include="dbo\Tables\TankCompletionDailyTb.sql" />
+    <Build Include="dbo\Tables\TankAllocationTypeTb.sql" />
+    <Build Include="dbo\Tables\StateNamesTb.sql" />
+    <Build Include="dbo\Tables\StateCountyNamesTb.sql" />
+    <Build Include="dbo\Tables\RouteTb.sql" />
+    <Build Include="dbo\Tables\RouteStopTb.sql" />
+    <Build Include="dbo\Tables\RouteStopItemTb.sql" />
+    <Build Include="dbo\Tables\RegulatoryFieldTb.sql" />
+    <Build Include="dbo\Tables\PropertyWellInfoTb.sql" />
+    <Build Include="dbo\Tables\ProductTypeTb.sql" />
+    <Build Include="dbo\Tables\ProductCodeTb.sql" />
+    <Build Include="dbo\Tables\ProducingStatusTb.sql" />
+    <Build Include="dbo\Tables\ProducingMethodsTb.sql" />
+    <Build Include="dbo\Tables\MeterTb.sql" />
+    <Build Include="dbo\Tables\MeterMonthlyTb.sql" />
+    <Build Include="dbo\Tables\MeterMonthlyDispTb.sql" />
+    <Build Include="dbo\Tables\MeterDailyTb.sql" />
+    <Build Include="dbo\Tables\MeterDailyDispTb.sql" />
+    <Build Include="dbo\Tables\MeterAllocationTypeTb.sql" />
+    <Build Include="dbo\Tables\MessageLogTb.sql" />
+    <Build Include="dbo\Tables\ListTankMonthlyInvSourceTb.sql" />
+    <Build Include="dbo\Tables\ListTankDataEntryFlagTb.sql" />
+    <Build Include="dbo\Tables\ListTankCompBegInvSourceTb.sql" />
+    <Build Include="dbo\Tables\ListStateFilingFlagTb.sql" />
+    <Build Include="dbo\Tables\ListRunTicketTypeTb.sql" />
+    <Build Include="dbo\Tables\ListRunTicketFluidTypeTb.sql" />
+    <Build Include="dbo\Tables\ListPumperEnteredVolumeTb.sql" />
+    <Build Include="dbo\Tables\ListOwnershipDeckTypeTb.sql" />
+    <Build Include="dbo\Tables\ListOutsideOperatedTypeTb.sql" />
+    <Build Include="dbo\Tables\ListMeterTypeTb.sql" />
+    <Build Include="dbo\Tables\ListMeterCalculationTypeTb.sql" />
+    <Build Include="dbo\Tables\ListMerrickObjectTypesTb.sql" />
+    <Build Include="dbo\Tables\ListMerrickObjectSubtypeTb.sql" />
+    <Build Include="dbo\Tables\ListMeasurementRoleTypeTb.sql" />
+    <Build Include="dbo\Tables\ListFirstDayFlagTb.sql" />
+    <Build Include="dbo\Tables\ListDispositionGroupingTb.sql" />
+    <Build Include="dbo\Tables\ListCommentTypeTb.sql" />
+    <Build Include="dbo\Tables\ListChokeSizeTb.sql" />
+    <Build Include="dbo\Tables\ListCarryForwardTypeTb.sql" />
+    <Build Include="dbo\Tables\GatheringSystemTb.sql" />
+    <Build Include="dbo\Tables\GatheringSystemCloseTb.sql" />
+    <Build Include="dbo\Tables\EquipmentTypeTb.sql" />
+    <Build Include="dbo\Tables\EquipmentTb.sql" />
+    <Build Include="dbo\Tables\EquipmentMonthlyTb.sql" />
+    <Build Include="dbo\Tables\EquipmentDailyTb.sql" />
+    <Build Include="dbo\Tables\EquipmentAllocationTypeTb.sql" />
+    <Build Include="dbo\Tables\DowntimeReasonTb.sql" />
+    <Build Include="dbo\Tables\DowntimeCodeTb.sql" />
+    <Build Include="dbo\Tables\DispositionCodeTb.sql" />
+    <Build Include="dbo\Tables\CrossReferenceTb.sql" />
+    <Build Include="dbo\Tables\CompletionTb.sql" />
+    <Build Include="dbo\Tables\CompletionMonthlyTb.sql" />
+    <Build Include="dbo\Tables\CompletionMonthlyDispTb.sql" />
+    <Build Include="dbo\Tables\CompletionDailyTb.sql" />
+    <Build Include="dbo\Tables\CompletionDailyDispTb.sql" />
+    <Build Include="dbo\Tables\CompletionConnectCrossTb.sql" />
+    <Build Include="dbo\Tables\CompletionAllocationTypeTb.sql" />
+    <Build Include="dbo\Tables\CommentsTb.sql" />
+    <Build Include="dbo\Tables\BusinessEntityTb.sql" />
+    <Build Include="dbo\Views\V_MonthlyMeterAllocVol.sql" />
+    <Build Include="dbo\Views\V_MonthlyAllocVol.sql" />
+    <Build Include="dbo\Views\V_DownTime.sql" />
+    <Build Include="dbo\Views\V_DailyMeterAllocVol.sql" />
+    <Build Include="dbo\Views\V_DailyAllocVol_With_DT_Comments.sql" />
+    <Build Include="dbo\Views\V_DailyAllocVol.sql" />
+    <Build Include="Security\TLN_upstream.sql" />
+    <Build Include="Security\TLN_ttaylor.sql" />
+    <Build Include="Security\TLN_svc-powerbi.sql" />
+    <Build Include="Security\TLN_jlogbotche.sql" />
+    <Build Include="Security\TLN_gscrogin.sql" />
+    <Build Include="Security\TLN_Domain Users.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Security\PDS.sql" />
+  </ItemGroup>
+</Project>

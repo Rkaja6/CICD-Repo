@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[RV_OWNER_VALID_CO] (
+    [RV_OWNER_VALID_CO_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                VARCHAR (255) NULL,
+    [EXEMPT_CODES]         VARCHAR (4)   NULL,
+    [SH_CODES]             VARCHAR (5)   NULL,
+    [VALID_COMPANIES]      VARCHAR (5)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RV_OWNER_VALID_CO_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RV_OWNER_VALID_CO_u2_id_in]
+    ON [dbo].[RV_OWNER_VALID_CO]([u2_id] ASC);
+

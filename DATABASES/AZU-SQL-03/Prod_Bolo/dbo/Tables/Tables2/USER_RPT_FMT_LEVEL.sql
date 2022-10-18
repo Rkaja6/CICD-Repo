@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[USER_RPT_FMT_LEVEL] (
+    [USER_RPT_FMT_LEVEL_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [CAPTION_LEVELS]        VARCHAR (24)  NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([USER_RPT_FMT_LEVEL_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [USER_RPT_FMT_LEVEL_u2_id_in]
+    ON [dbo].[USER_RPT_FMT_LEVEL]([u2_id] ASC);
+

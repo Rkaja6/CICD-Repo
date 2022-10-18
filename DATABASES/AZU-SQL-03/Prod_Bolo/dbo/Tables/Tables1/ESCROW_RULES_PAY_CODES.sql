@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[ESCROW_RULES_PAY_CODES] (
+    [ESCROW_RULES_PAY_CODES_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                     VARCHAR (255) NULL,
+    [EXC_PAY_CODES]             VARCHAR (5)   NULL,
+    [time_stamp]                DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([ESCROW_RULES_PAY_CODES_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ESCROW_RU_u2_id_85314]
+    ON [dbo].[ESCROW_RULES_PAY_CODES]([u2_id] ASC);
+

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[PRR_LA_LUW_GROUPS_DET] (
+    [subValueId]           VARCHAR (255) NOT NULL,
+    [PRR_LA_LUW_GROUPS_ID] VARCHAR (255) NULL,
+    [COMPANY_IDS]          VARCHAR (9)   NULL,
+    [FIELD_PLANTS]         VARCHAR (10)  NULL,
+    [GROUP_CODES]          VARCHAR (4)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRR_LA_LU_PRR_LA_LU_89271]
+    ON [dbo].[PRR_LA_LUW_GROUPS_DET]([PRR_LA_LUW_GROUPS_ID] ASC);
+

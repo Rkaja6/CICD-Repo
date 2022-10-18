@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[UNIT_LSE_IDX] (
+    [UNIT_LSE_IDX_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [LEASE_UNIT_INDEX] VARCHAR (15)  NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([UNIT_LSE_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UNIT_LSE_IDX_u2_id_in]
+    ON [dbo].[UNIT_LSE_IDX]([u2_id] ASC);
+

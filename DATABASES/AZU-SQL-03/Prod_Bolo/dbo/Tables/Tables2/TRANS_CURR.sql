@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[TRANS_CURR] (
+    [TRANS_CURR_ID]     VARCHAR (255)   NOT NULL,
+    [u2_id]             VARCHAR (255)   NULL,
+    [INT_RPT_AMT]       NUMERIC (19, 2) NULL,
+    [INT_RPT_GROSS_AMT] NUMERIC (19, 2) NULL,
+    [INT_RPT_STAT1_AMT] NUMERIC (19, 2) NULL,
+    [INT_RPT_STAT2_AMT] NUMERIC (19, 2) NULL,
+    [time_stamp]        DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([TRANS_CURR_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [TRANS_CURR_u2_id_in]
+    ON [dbo].[TRANS_CURR]([u2_id] ASC);
+

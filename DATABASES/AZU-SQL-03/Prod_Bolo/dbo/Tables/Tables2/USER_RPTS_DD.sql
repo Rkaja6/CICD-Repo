@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[USER_RPTS_DD] (
+    [USER_RPTS_DD_ID]           VARCHAR (255) NOT NULL,
+    [u2_id]                     VARCHAR (255) NULL,
+    [DRILL_DOWN_DISPLAY_LABELS] VARCHAR (13)  NULL,
+    [DRILL_DOWN_PARAMETERS]     VARCHAR (6)   NULL,
+    [time_stamp]                DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([USER_RPTS_DD_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [USER_RPTS_DD_u2_id_in]
+    ON [dbo].[USER_RPTS_DD]([u2_id] ASC);
+

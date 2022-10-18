@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[LABEL_FMT_QUEUE] (
+    [LABEL_FMT_QUEUE_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [LQS]                VARCHAR (11)  NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([LABEL_FMT_QUEUE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LABEL_FMT_QUEUE_u2_id_in]
+    ON [dbo].[LABEL_FMT_QUEUE]([u2_id] ASC);
+

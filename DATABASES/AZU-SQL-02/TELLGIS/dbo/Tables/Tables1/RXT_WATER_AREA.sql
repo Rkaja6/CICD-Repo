@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[RXT_WATER_AREA] (
+    [OBJECTID]          INT              NOT NULL,
+    [COUNTRY]           NVARCHAR (54)    NULL,
+    [NAME]              NVARCHAR (254)   NULL,
+    [TYPE]              NVARCHAR (150)   NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R258_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g239_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S239_idx]
+    ON [dbo].[RXT_WATER_AREA] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = 20021886.3905328, XMIN = -19951914.9377244, YMAX = 17833801.8486176, YMIN = -1643352.01868746),
+            CELLS_PER_OBJECT = 16
+          );
+

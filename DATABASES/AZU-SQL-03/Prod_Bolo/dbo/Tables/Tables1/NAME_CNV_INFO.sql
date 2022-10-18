@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[NAME_CNV_INFO] (
+    [NAME_CNV_INFO_ID] VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [CNV_ID]           VARCHAR (31)  NULL,
+    [CNV_NAME]         VARCHAR (13)  NULL,
+    [UPLOAD_NAMEX_IDS] VARCHAR (51)  NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([NAME_CNV_INFO_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NAME_CNV_INFO_u2_id_in]
+    ON [dbo].[NAME_CNV_INFO]([u2_id] ASC);
+

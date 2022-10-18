@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[WELL_INFO_MOS] (
+    [subValueId]           VARCHAR (255) NOT NULL,
+    [WELL_INFO_SPC_OBL_ID] VARCHAR (255) NULL,
+    [SPC_OBL_MOS]          VARCHAR (3)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [WELL_INFO_WELL_INFO_5494]
+    ON [dbo].[WELL_INFO_MOS]([WELL_INFO_SPC_OBL_ID] ASC);
+

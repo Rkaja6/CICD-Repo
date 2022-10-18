@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[DM_DICT_SRCH_OPTS] (
+    [DM_DICT_SRCH_OPTS_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [DFLT_SEARCH_OPERATORS] VARCHAR (8)   NULL,
+    [LABELS]                VARCHAR (28)  NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([DM_DICT_SRCH_OPTS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [DM_DICT_SRCH_OPTS_u2_id_in]
+    ON [dbo].[DM_DICT_SRCH_OPTS]([u2_id] ASC);
+

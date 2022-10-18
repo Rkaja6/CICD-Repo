@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[WELL_INFO_PURCH] (
+    [WELL_INFO_PURCH_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [PURCHASERS]         VARCHAR (9)   NULL,
+    [PURCH_CTRCS]        VARCHAR (15)  NULL,
+    [PURCH_PRODUCTS]     VARCHAR (5)   NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([WELL_INFO_PURCH_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [WELL_INFO_PURCH_u2_id_in]
+    ON [dbo].[WELL_INFO_PURCH]([u2_id] ASC);
+

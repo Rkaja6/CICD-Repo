@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[AT_DDA_DET_LYR_ACCTG_PER] (
+    [subValueId]                 VARCHAR (255)   NOT NULL,
+    [AT_DDA_DET_LYR_PER_ID]      VARCHAR (255)   NULL,
+    [ERR_MSGS]                   VARCHAR (15)    NULL,
+    [LAYER_ACCTG_PERIODS]        DATETIME        NULL,
+    [LAYER_ACCUM_DDA]            NUMERIC (19, 2) NULL,
+    [LAYER_ACCUM_MOS_IN_SERVICE] NUMERIC (19, 2) NULL,
+    [LAYER_ANNUAL_DDA]           NUMERIC (19, 2) NULL,
+    [LAYER_BALFWD_VOUCHERS]      VARCHAR (12)    NULL,
+    [LAYER_BALFWD_VOUCHER_AMTS]  NUMERIC (19, 2) NULL,
+    [LAYER_DDA_THIS_MO]          NUMERIC (19, 2) NULL,
+    [LAYER_DDA_YTD]              NUMERIC (19, 2) NULL,
+    [LAYER_DEPR_METHODS]         VARCHAR (12)    NULL,
+    [LAYER_LIFE]                 NUMERIC (9)     NULL,
+    [LAYER_MOS_IN_SERVICE]       NUMERIC (19, 2) NULL,
+    [LAYER_MOS_TO_DATE]          NUMERIC (19, 2) NULL,
+    [LAYER_SALVAGE_PCTS]         NUMERIC (19, 2) NULL,
+    [time_stamp]                 DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_DDA_DE_AT_DDA_DE_58111]
+    ON [dbo].[AT_DDA_DET_LYR_ACCTG_PER]([AT_DDA_DET_LYR_PER_ID] ASC);
+

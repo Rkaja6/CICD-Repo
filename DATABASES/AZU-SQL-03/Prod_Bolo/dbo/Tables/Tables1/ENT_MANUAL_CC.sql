@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[ENT_MANUAL_CC] (
+    [ENT_MANUAL_CC_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]            VARCHAR (255)   NULL,
+    [BALFWD_PRICE]     NUMERIC (19, 3) NULL,
+    [BALFWD_VALUE]     NUMERIC (19, 2) NULL,
+    [BALFWD_VOLUME]    NUMERIC (19, 2) NULL,
+    [COST_CENTER]      VARCHAR (15)    NULL,
+    [UPDATE_FLAG]      VARCHAR (3)     NULL,
+    [time_stamp]       DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([ENT_MANUAL_CC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ENT_MANUAL_CC_u2_id_in]
+    ON [dbo].[ENT_MANUAL_CC]([u2_id] ASC);
+

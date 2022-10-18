@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CPT_FORM_DISP] (
+    [CPT_FORM_DISP_ID] VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [GLINFO_DISPS]     VARCHAR (6)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CPT_FORM_DISP_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CPT_FORM_DISP_u2_id_in]
+    ON [dbo].[CPT_FORM_DISP]([u2_id] ASC);
+

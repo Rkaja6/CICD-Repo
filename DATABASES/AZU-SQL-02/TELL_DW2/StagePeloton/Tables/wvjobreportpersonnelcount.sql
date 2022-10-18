@@ -1,0 +1,28 @@
+﻿CREATE TABLE [StagePeloton].[wvjobreportpersonnelcount] (
+    [IDWELL]            VARCHAR (32)  NULL,
+    [IDRECPARENT]       VARCHAR (32)  NULL,
+    [SYSCARRYFWDP]      SMALLINT      NULL,
+    [IDREC]             VARCHAR (32)  NULL,
+    [COMPANY]           VARCHAR (100) NULL,
+    [COMPANYTYP]        VARCHAR (100) NULL,
+    [DURATIONWORKOT]    FLOAT (53)    NULL,
+    [DURATIONWORKREG]   FLOAT (53)    NULL,
+    [EMPLOYEENAME]      VARCHAR (50)  NULL,
+    [EMPLOYEETYP]       VARCHAR (100) NULL,
+    [EXCLUDE]           SMALLINT      NULL,
+    [HEADCOUNT]         INT           NULL,
+    [NOTE]              VARCHAR (255) NULL,
+    [REFDERRICK]        VARCHAR (50)  NULL,
+    [SYSSEQ]            INT           NULL,
+    [SYSLOCKMEUI]       SMALLINT      NULL,
+    [SYSLOCKCHILDRENUI] SMALLINT      NULL,
+    [SYSLOCKME]         SMALLINT      NULL,
+    [SYSLOCKCHILDREN]   SMALLINT      NULL,
+    [SYSLOCKDATE]       DATETIME      NULL,
+    [SYSMODDATE]        DATETIME      NULL,
+    [SYSMODUSER]        VARCHAR (50)  NULL,
+    [SYSCREATEDATE]     DATETIME      NULL,
+    [SYSCREATEUSER]     VARCHAR (50)  NULL,
+    [SYSTAG]            VARCHAR (255) NULL
+);
+

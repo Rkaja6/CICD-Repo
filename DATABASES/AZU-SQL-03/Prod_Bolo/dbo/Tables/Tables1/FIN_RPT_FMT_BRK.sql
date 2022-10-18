@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[FIN_RPT_FMT_BRK] (
+    [FIN_RPT_FMT_BRK_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [BREAK_ATTRS]        VARCHAR (19)  NULL,
+    [BREAK_TABLES]       VARCHAR (15)  NULL,
+    [BREAK_TEXT]         VARCHAR (31)  NULL,
+    [CAPTION_LEVELS]     VARCHAR (8)   NULL,
+    [PAGE_BREAKS]        VARCHAR (5)   NULL,
+    [SORT_ATTRS]         VARCHAR (22)  NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([FIN_RPT_FMT_BRK_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [FIN_RPT_FMT_BRK_u2_id_in]
+    ON [dbo].[FIN_RPT_FMT_BRK]([u2_id] ASC);
+

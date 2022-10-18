@@ -1,0 +1,23 @@
+﻿CREATE TABLE [dbo].[BMP_FEDERALLANDSLINES] (
+    [OBJECTID]          INT              NOT NULL,
+    [FEATURE]           NVARCHAR (100)   NULL,
+    [ADMIN]             NVARCHAR (50)    NULL,
+    [NAME]              NVARCHAR (100)   NULL,
+    [STATE_ABBR]        NVARCHAR (50)    NULL,
+    [STATE_FIPS]        NVARCHAR (50)    NULL,
+    [MILES]             NUMERIC (38, 8)  NULL,
+    [SHAPE]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R81_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g71_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S71_idx]
+    ON [dbo].[BMP_FEDERALLANDSLINES] ([SHAPE])
+    WITH  (
+            BOUNDING_BOX = (XMAX = 20037700, XMIN = -20037700, YMAX = 30241100, YMIN = -30241100),
+            CELLS_PER_OBJECT = 16
+          );
+

@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[CommentsTb] (
+    [ReferenceMerrickItem] INT              NOT NULL,
+    [ReferenceMerrickType] INT              NOT NULL,
+    [OriginalDateEntered]  DATETIME         NOT NULL,
+    [OriginalTimeEntered]  CHAR (8)         NOT NULL,
+    [CommentType]          INT              NULL,
+    [CommentPurpose]       VARCHAR (50)     NULL,
+    [CommentsGeneral]      VARCHAR (2500)   NULL,
+    [RioCommentCode]       INT              NULL,
+    [RioProdCommentCode]   VARCHAR (40)     NULL,
+    [PriorityType]         INT              NULL,
+    [MessageSendFlag]      INT              NULL,
+    [DestinationPerson]    INT              NULL,
+    [TempInteger]          INT              NULL,
+    [LastTransmission]     INT              NULL,
+    [LastLoadDate]         DATETIME         NULL,
+    [LastLoadTime]         CHAR (8)         NULL,
+    [TransmitFlag]         INT              NULL,
+    [DateTimeStamp]        DATETIME         NULL,
+    [UserDateStamp]        DATETIME         NULL,
+    [UserTimeStamp]        CHAR (8)         NULL,
+    [UserID]               INT              NULL,
+    [RowUID]               UNIQUEIDENTIFIER NOT NULL,
+    [CommentServiceID]     INT              NULL,
+    CONSTRAINT [PK_CommentsTb] PRIMARY KEY CLUSTERED ([ReferenceMerrickItem] ASC, [ReferenceMerrickType] ASC, [OriginalDateEntered] ASC, [OriginalTimeEntered] ASC)
+);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OG_SALE_CTL_TRANS_IDX] (
+    [subValueId]           VARCHAR (255) NOT NULL,
+    [OG_SALE_CTL_REMIT_ID] VARCHAR (255) NULL,
+    [TRANS_INDEX]          VARCHAR (9)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OG_SALE_C_OG_SALE_C_61557]
+    ON [dbo].[OG_SALE_CTL_TRANS_IDX]([OG_SALE_CTL_REMIT_ID] ASC);
+

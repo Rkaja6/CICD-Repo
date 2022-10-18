@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[MEAS_PT_STATUS_WELL_IDX] (
+    [MEAS_PT_STATUS_WELL_IDX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [WELL_PROD_INDEX]            VARCHAR (9)   NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([MEAS_PT_STATUS_WELL_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MEAS_PT_S_u2_id_5165]
+    ON [dbo].[MEAS_PT_STATUS_WELL_IDX]([u2_id] ASC);
+

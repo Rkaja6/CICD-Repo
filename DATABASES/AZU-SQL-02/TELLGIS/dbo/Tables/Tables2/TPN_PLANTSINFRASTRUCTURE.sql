@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[TPN_PLANTSINFRASTRUCTURE] (
+    [OBJECTID]          INT              NOT NULL,
+    [Name]              NVARCHAR (50)    NULL,
+    [Presentation]      NVARCHAR (20)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R237_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g218_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S218_idx]
+    ON [dbo].[TPN_PLANTSINFRASTRUCTURE] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10389893.6298549, XMIN = -10746305.1478211, YMAX = 3878576.47413682, YMIN = 3389621.99930374),
+            CELLS_PER_OBJECT = 16
+          );
+

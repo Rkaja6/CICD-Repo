@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[POR_WELL_FLAT_RATE] (
+    [POR_WELL_FLAT_RATE_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [FLAT_RATE_DATES]       DATETIME      NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([POR_WELL_FLAT_RATE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [POR_WELL_FLAT_RATE_u2_id_in]
+    ON [dbo].[POR_WELL_FLAT_RATE]([u2_id] ASC);
+

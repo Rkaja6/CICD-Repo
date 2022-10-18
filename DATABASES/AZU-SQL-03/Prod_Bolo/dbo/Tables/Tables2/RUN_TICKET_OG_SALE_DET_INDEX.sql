@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RUN_TICKET_OG_SALE_DET_INDEX] (
+    [RUN_TICKET_OG_SALE_DET_INDEX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                           VARCHAR (255) NULL,
+    [OG_SALE_DET_INDEX]               VARCHAR (9)   NULL,
+    [time_stamp]                      DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RUN_TICKET_OG_SALE_DET_INDEX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RUN_TICKE_u2_id_56508]
+    ON [dbo].[RUN_TICKET_OG_SALE_DET_INDEX]([u2_id] ASC);
+

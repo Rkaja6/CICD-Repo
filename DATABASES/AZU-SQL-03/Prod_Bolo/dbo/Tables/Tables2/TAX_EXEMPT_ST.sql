@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[TAX_EXEMPT_ST] (
+    [TAX_EXEMPT_ST_ID] VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [STATES]           VARCHAR (5)   NULL,
+    [STATE_CODES]      VARCHAR (5)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([TAX_EXEMPT_ST_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [TAX_EXEMPT_ST_u2_id_in]
+    ON [dbo].[TAX_EXEMPT_ST]([u2_id] ASC);
+

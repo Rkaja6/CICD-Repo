@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[USERS_TAX_ID_SEC] (
+    [USERS_TAX_ID_SEC_ID] VARCHAR (255) NOT NULL,
+    [u2_id]               VARCHAR (255) NULL,
+    [AUTH_TAX_ID_USAGE]   VARCHAR (5)   NULL,
+    [time_stamp]          DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([USERS_TAX_ID_SEC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [USERS_TAX_ID_SEC_u2_id_in]
+    ON [dbo].[USERS_TAX_ID_SEC]([u2_id] ASC);
+

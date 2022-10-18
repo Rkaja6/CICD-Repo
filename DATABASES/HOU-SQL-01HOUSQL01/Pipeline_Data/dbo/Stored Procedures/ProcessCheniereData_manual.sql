@@ -1,0 +1,37 @@
+﻿
+
+CREATE PROCEDURE [dbo].[ProcessCheniereData_manual] AS
+INSERT INTO [Pipeline_Data].[dbo].[rawCheniereOperationalCapacity]
+(	[TSP]
+      ,[TSP Name]
+      ,[Posting Date Time]
+      ,[Eff Gas Day Time]
+      ,[Loc]
+      ,[Loc Name]
+      ,[Loc Purp Desc]
+      ,[Loc QTI ]
+      ,[All Qty Avail]
+      ,[IT]
+      ,[Design Capacity]
+      ,[Operating Capacity]
+      ,[Total Sched Quantity]
+      ,[Operationally Available Capacity]
+      ,[Flow Ind])
+SELECT
+		[TSP]
+      ,[TSP Name]
+      ,[Posting Date Time]
+      ,[Eff Gas Day Time]
+      ,[Loc]
+      ,[Loc Name]
+      ,[Loc Purp Desc]
+      ,[Loc QTI ]
+      ,[All Qty Avail]
+      ,[IT]
+      ,[Design Capacity]
+      ,[Operating Capacity]
+      ,[Total Sched Quantity]
+      ,[Operationally Available Capacity]
+      ,[Flow Ind]
+  FROM
+[Pipeline_Data].[dbo].[vw_TransformRawCheniereData]

@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[TPN_DWPL] (
+    [OBJECTID]          INT              NOT NULL,
+    [Name]              NVARCHAR (255)   NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R151_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g132_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S132_idx]
+    ON [dbo].[TPN_DWPL] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10269674.1509215, XMIN = -10397552.1327735, YMAX = 3583601.79375369, YMIN = 3516737.89435373),
+            CELLS_PER_OBJECT = 16
+          );
+

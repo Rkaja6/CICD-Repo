@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PTR_X_STR] (
+    [PTR_X_STR_ID] VARCHAR (255) NOT NULL,
+    [u2_id]        VARCHAR (255) NULL,
+    [XREF_STRING]  VARCHAR (20)  NULL,
+    [time_stamp]   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PTR_X_STR_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PTR_X_STR_u2_id_in]
+    ON [dbo].[PTR_X_STR]([u2_id] ASC);
+

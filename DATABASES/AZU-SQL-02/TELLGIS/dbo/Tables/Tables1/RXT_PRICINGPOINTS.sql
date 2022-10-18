@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[RXT_PRICINGPOINTS] (
+    [OBJECTID]          INT              NOT NULL,
+    [NAME]              NVARCHAR (100)   NULL,
+    [CNTY_NAME]         NVARCHAR (60)    NULL,
+    [STATE_NAME]        NVARCHAR (40)    NULL,
+    [CNTRY_NAME]        NVARCHAR (40)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R512_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g475_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S475_idx]
+    ON [dbo].[RXT_PRICINGPOINTS] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -7507184.076, XMIN = -13626121.9128, YMAX = 7488697.6495, YMIN = 3115273.5196)
+          );
+

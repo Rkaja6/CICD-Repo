@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[OG_CTRC_SHRINK_CPTS] (
+    [OG_CTRC_SHRINK_CPTS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                  VARCHAR (255) NULL,
+    [SHRINK_CPTS]            VARCHAR (6)   NULL,
+    [SHRINK_CPT_EFF_DATES]   DATETIME      NULL,
+    [time_stamp]             DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OG_CTRC_SHRINK_CPTS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OG_CTRC_SHRINK_CPTS_u2_id_in]
+    ON [dbo].[OG_CTRC_SHRINK_CPTS]([u2_id] ASC);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[MEAS_PT_WELL] (
+    [subValueId]        VARCHAR (255) NOT NULL,
+    [MEAS_PT_EFF_DT_ID] VARCHAR (255) NULL,
+    [WELLS]             VARCHAR (8)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MEAS_PT_W_MEAS_PT_E_38864]
+    ON [dbo].[MEAS_PT_WELL]([MEAS_PT_EFF_DT_ID] ASC);
+

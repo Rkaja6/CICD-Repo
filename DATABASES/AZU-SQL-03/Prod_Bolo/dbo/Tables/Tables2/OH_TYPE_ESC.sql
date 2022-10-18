@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[OH_TYPE_ESC] (
+    [OH_TYPE_ESC_ID]       VARCHAR (255)   NOT NULL,
+    [u2_id]                VARCHAR (255)   NULL,
+    [ESCALATION_EFF_DATES] DATETIME        NULL,
+    [ESCALATION_RATES]     NUMERIC (19, 2) NULL,
+    [time_stamp]           DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([OH_TYPE_ESC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OH_TYPE_ESC_u2_id_in]
+    ON [dbo].[OH_TYPE_ESC]([u2_id] ASC);
+

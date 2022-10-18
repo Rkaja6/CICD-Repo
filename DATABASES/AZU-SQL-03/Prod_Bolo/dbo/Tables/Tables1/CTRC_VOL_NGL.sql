@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[CTRC_VOL_NGL] (
+    [u2_id]              VARCHAR (255)   NOT NULL,
+    [ACCTG_PERIOD]       DATETIME        NULL,
+    [BTU_BASIS]          VARCHAR (3)     NULL,
+    [BTU_FACTOR]         NUMERIC (19, 6) NULL,
+    [COMPANY]            VARCHAR (7)     NULL,
+    [CONTRA_CTRC_VOL_ID] VARCHAR (8)     NULL,
+    [DIV_ID]             VARCHAR (6)     NULL,
+    [DIV_SESSION]        VARCHAR (7)     NULL,
+    [MEAS_PT]            VARCHAR (11)    NULL,
+    [OWNER_VOL_STATUS]   VARCHAR (6)     NULL,
+    [PPL_STMT_ID]        VARCHAR (12)    NULL,
+    [PRESSURE_BASE]      NUMERIC (19, 4) NULL,
+    [PRODUCT]            VARCHAR (7)     NULL,
+    [REVERSAL_FLAG]      VARCHAR (7)     NULL,
+    [SALE_DATE]          DATETIME        NULL,
+    [STMT_BASIS]         VARCHAR (4)     NULL,
+    [STMT_FACTOR]        NUMERIC (19, 6) NULL,
+    [STMT_PBASE]         NUMERIC (19, 3) NULL,
+    [STMT_UOM]           VARCHAR (8)     NULL,
+    [TYPE]               VARCHAR (6)     NULL,
+    [UOM]                VARCHAR (5)     NULL,
+    [WELL]               VARCHAR (12)    NULL,
+    [time_stamp]         DATETIME        NULL,
+    [u2_checksum]        VARCHAR (25)    NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[STD_TRANS_EXCH] (
+    [STD_TRANS_EXCH_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]             VARCHAR (255)   NULL,
+    [EXCH_RATE]         NUMERIC (19, 4) NULL,
+    [EXCH_RATE_DATE]    DATETIME        NULL,
+    [EXCH_RATE_SOURCE]  VARCHAR (8)     NULL,
+    [time_stamp]        DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([STD_TRANS_EXCH_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [STD_TRANS_EXCH_u2_id_in]
+    ON [dbo].[STD_TRANS_EXCH]([u2_id] ASC);
+

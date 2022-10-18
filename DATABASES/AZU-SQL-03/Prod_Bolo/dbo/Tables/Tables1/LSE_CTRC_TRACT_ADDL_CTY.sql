@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[LSE_CTRC_TRACT_ADDL_CTY] (
+    [LSE_CTRC_TRACT_ADDL_CTY_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [ADDL_CTYS]                  VARCHAR (7)   NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([LSE_CTRC_TRACT_ADDL_CTY_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LSE_CTRC__u2_id_90460]
+    ON [dbo].[LSE_CTRC_TRACT_ADDL_CTY]([u2_id] ASC);
+

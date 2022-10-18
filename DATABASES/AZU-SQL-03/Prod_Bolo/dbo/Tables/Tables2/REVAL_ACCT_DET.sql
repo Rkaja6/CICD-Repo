@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[REVAL_ACCT_DET] (
+    [REVAL_ACCT_DET_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [ACCTS]             VARCHAR (10)  NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([REVAL_ACCT_DET_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [REVAL_ACCT_DET_u2_id_in]
+    ON [dbo].[REVAL_ACCT_DET]([u2_id] ASC);
+

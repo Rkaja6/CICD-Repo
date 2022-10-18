@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[CPTCALC_CPT] (
+    [CPTCALC_CPT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]          VARCHAR (255) NULL,
+    [CPTS]           VARCHAR (6)   NULL,
+    [LOCAL_NAMES]    VARCHAR (30)  NULL,
+    [PAYEES]         VARCHAR (6)   NULL,
+    [time_stamp]     DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CPTCALC_CPT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CPTCALC_CPT_u2_id_in]
+    ON [dbo].[CPTCALC_CPT]([u2_id] ASC);
+

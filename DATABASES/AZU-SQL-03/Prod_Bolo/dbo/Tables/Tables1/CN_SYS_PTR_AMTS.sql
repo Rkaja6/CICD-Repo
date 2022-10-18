@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[CN_SYS_PTR_AMTS] (
+    [subValueId]     VARCHAR (255)   NOT NULL,
+    [CN_SYS_PTRS_ID] VARCHAR (255)   NULL,
+    [DECIMALS]       NUMERIC (19, 8) NULL,
+    [PTR_COS]        VARCHAR (3)     NULL,
+    [time_stamp]     DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CN_SYS_PT_CN_SYS_PT_84024]
+    ON [dbo].[CN_SYS_PTR_AMTS]([CN_SYS_PTRS_ID] ASC);
+

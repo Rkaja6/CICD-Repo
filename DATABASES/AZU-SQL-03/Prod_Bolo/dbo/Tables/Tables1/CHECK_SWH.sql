@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[CHECK_SWH] (
+    [CHECK_SWH_ID]   VARCHAR (255)   NOT NULL,
+    [u2_id]          VARCHAR (255)   NULL,
+    [SWH_ADJ_AMTS]   NUMERIC (19, 2) NULL,
+    [SWH_ADJ_STATES] VARCHAR (3)     NULL,
+    [SWH_GROSS_AMTS] NUMERIC (19, 2) NULL,
+    [SWH_STATES]     VARCHAR (3)     NULL,
+    [SWH_TAX_AMTS]   NUMERIC (19, 2) NULL,
+    [time_stamp]     DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([CHECK_SWH_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CHECK_SWH_u2_id_in]
+    ON [dbo].[CHECK_SWH]([u2_id] ASC);
+

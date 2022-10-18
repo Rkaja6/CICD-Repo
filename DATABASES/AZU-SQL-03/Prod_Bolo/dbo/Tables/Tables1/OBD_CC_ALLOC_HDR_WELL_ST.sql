@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OBD_CC_ALLOC_HDR_WELL_ST] (
+    [OBD_CC_ALLOC_HDR_WELL_ST_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                       VARCHAR (255) NULL,
+    [WELL_STATUSES]               VARCHAR (6)   NULL,
+    [time_stamp]                  DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OBD_CC_ALLOC_HDR_WELL_ST_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OBD_CC_AL_u2_id_43658]
+    ON [dbo].[OBD_CC_ALLOC_HDR_WELL_ST]([u2_id] ASC);
+

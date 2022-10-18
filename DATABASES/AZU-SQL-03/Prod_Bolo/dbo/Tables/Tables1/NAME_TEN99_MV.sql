@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[NAME_TEN99_MV] (
+    [NAME_TEN99_MV_ID] VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [TEN99_NAME]       VARCHAR (46)  NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([NAME_TEN99_MV_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NAME_TEN99_MV_u2_id_in]
+    ON [dbo].[NAME_TEN99_MV]([u2_id] ASC);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CO_GRP_COMPANY] (
+    [CO_GRP_COMPANY_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [COMPANIES]         VARCHAR (3)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CO_GRP_COMPANY_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CO_GRP_COMPANY_u2_id_in]
+    ON [dbo].[CO_GRP_COMPANY]([u2_id] ASC);
+

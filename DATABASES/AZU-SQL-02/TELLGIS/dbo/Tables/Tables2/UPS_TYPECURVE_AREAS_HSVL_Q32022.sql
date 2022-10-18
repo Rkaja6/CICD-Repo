@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[UPS_TYPECURVE_AREAS_HSVL_Q32022] (
+    [OBJECTID]          INT              NOT NULL,
+    [Name]              NVARCHAR (60)    NULL,
+    [Val]               NUMERIC (38, 8)  NULL,
+    [Former_Nam]        NVARCHAR (75)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R695_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g658_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S658_idx]
+    ON [dbo].[UPS_TYPECURVE_AREAS_HSVL_Q32022] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10371076.8906372, XMIN = -10470525.6120431, YMAX = 3795998.70662561, YMIN = 3723731.07523947)
+          );
+

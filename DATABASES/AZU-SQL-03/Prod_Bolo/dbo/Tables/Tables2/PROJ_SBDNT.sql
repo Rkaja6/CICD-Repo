@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PROJ_SBDNT] (
+    [PROJ_SBDNT_ID]     VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [SUBORDINATE_PROJS] VARCHAR (21)  NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PROJ_SBDNT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROJ_SBDNT_u2_id_in]
+    ON [dbo].[PROJ_SBDNT]([u2_id] ASC);
+

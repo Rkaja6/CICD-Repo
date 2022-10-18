@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OWN_CHANGE_SCP] (
+    [OWN_CHANGE_SCP_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [SCOPE_LIMITERS]    VARCHAR (3)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OWN_CHANGE_SCP_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OWN_CHANGE_SCP_u2_id_in]
+    ON [dbo].[OWN_CHANGE_SCP]([u2_id] ASC);
+

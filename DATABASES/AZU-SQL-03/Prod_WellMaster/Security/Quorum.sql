@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Quorum]
+    AUTHORIZATION [dbo];
+

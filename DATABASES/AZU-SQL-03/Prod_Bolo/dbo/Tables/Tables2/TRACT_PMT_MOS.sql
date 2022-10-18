@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[TRACT_PMT_MOS] (
+    [subValueId]   VARCHAR (255) NOT NULL,
+    [TRACT_PMT_ID] VARCHAR (255) NULL,
+    [PMT_MOS]      VARCHAR (3)   NULL,
+    [time_stamp]   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [TRACT_PMT_MOS_TRACT_PMT_ID_in]
+    ON [dbo].[TRACT_PMT_MOS]([TRACT_PMT_ID] ASC);
+

@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PROD_INV_ADJ_CMPL] (
+    [PROD_INV_ADJ_CMPL_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]                VARCHAR (255)   NULL,
+    [ALLOC_VOLUMES]        NUMERIC (19, 2) NULL,
+    [COMPLETIONS]          VARCHAR (10)    NULL,
+    [time_stamp]           DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([PROD_INV_ADJ_CMPL_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROD_INV_ADJ_CMPL_u2_id_in]
+    ON [dbo].[PROD_INV_ADJ_CMPL]([u2_id] ASC);
+

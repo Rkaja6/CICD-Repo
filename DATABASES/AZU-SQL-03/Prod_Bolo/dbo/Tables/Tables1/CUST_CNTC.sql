@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[CUST_CNTC] (
+    [CUST_CNTC_ID]     VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [CONTACTS]         VARCHAR (50)  NULL,
+    [CONTACT_COMMENTS] VARCHAR (70)  NULL,
+    [CONTACT_PHONES]   VARCHAR (21)  NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CUST_CNTC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CUST_CNTC_u2_id_in]
+    ON [dbo].[CUST_CNTC]([u2_id] ASC);
+

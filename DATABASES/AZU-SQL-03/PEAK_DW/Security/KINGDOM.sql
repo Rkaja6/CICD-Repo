@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [KINGDOM]
+    AUTHORIZATION [dbo];
+

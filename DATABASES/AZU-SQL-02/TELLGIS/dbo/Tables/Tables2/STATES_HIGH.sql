@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[STATES_HIGH] (
+    [OBJECTID]          INT              NOT NULL,
+    [STATE]             NVARCHAR (50)    NULL,
+    [COUNTRY]           NVARCHAR (50)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R175_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g156_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S156_idx]
+    ON [dbo].[STATES_HIGH] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -5859444.52807925, XMIN = -19840231.7149212, YMAX = 17923775.6474476, YMIN = 1635334.65416354),
+            CELLS_PER_OBJECT = 16
+          );
+

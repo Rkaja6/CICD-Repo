@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OGP_PROP_DIS_RMK] (
+    [OGP_PROP_DIS_RMK_ID] VARCHAR (255) NOT NULL,
+    [u2_id]               VARCHAR (255) NULL,
+    [DISBURSE_REMARKS]    VARCHAR (30)  NULL,
+    [time_stamp]          DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OGP_PROP_DIS_RMK_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OGP_PROP_DIS_RMK_u2_id_in]
+    ON [dbo].[OGP_PROP_DIS_RMK]([u2_id] ASC);
+

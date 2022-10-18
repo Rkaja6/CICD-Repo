@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[CN_COA_ACCT] (
+    [CN_COA_ACCT_ID]     VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [CLEARING_ACCTS]     VARCHAR (12)  NULL,
+    [FROM_COMPANY_ACCTS] VARCHAR (12)  NULL,
+    [TO_COMPANY_ACCTS]   VARCHAR (12)  NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CN_COA_ACCT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CN_COA_ACCT_u2_id_in]
+    ON [dbo].[CN_COA_ACCT]([u2_id] ASC);
+

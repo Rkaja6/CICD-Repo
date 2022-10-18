@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[COD_SYS_CDS] (
+    [COD_SYS_CDS_ID]   VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [CLIENT_PRD_CODES] VARCHAR (7)   NULL,
+    [GW_PRD_CODES]     VARCHAR (7)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([COD_SYS_CDS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [COD_SYS_CDS_u2_id_in]
+    ON [dbo].[COD_SYS_CDS]([u2_id] ASC);
+

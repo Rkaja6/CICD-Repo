@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[OFP_SYS] (
+    [u2_id]                       VARCHAR (255)   NOT NULL,
+    [BBL_MIN]                     NUMERIC (19, 2) NULL,
+    [CODE_CO_ID]                  VARCHAR (7)     NULL,
+    [COMP_MILEAGE]                NUMERIC (19, 2) NULL,
+    [DFLT_CORRECTION_SALE_TYPE]   VARCHAR (4)     NULL,
+    [DFLT_ORIGINAL_SALE_TYPE]     VARCHAR (4)     NULL,
+    [DFLT_REJECT_CODE]            VARCHAR (6)     NULL,
+    [DFLT_REVERSAL_SALE_TYPE]     VARCHAR (4)     NULL,
+    [DFLT_TARIFF_ID]              VARCHAR (6)     NULL,
+    [DRIVER_SHARE]                NUMERIC (19, 5) NULL,
+    [FROM_SPLIT_AMT]              NUMERIC (19, 2) NULL,
+    [GRAVITY_RATE]                NUMERIC (19, 2) NULL,
+    [MINIMUM_GRAVITY]             NUMERIC (19, 2) NULL,
+    [RCV_CODE]                    VARCHAR (3)     NULL,
+    [REJECT_TICKET_AMT]           NUMERIC (19, 2) NULL,
+    [RUN_STMT_ALL_PROP_FLAG]      VARCHAR (4)     NULL,
+    [RUN_STMT_SUPP_OP_TOTAL_FLAG] VARCHAR (6)     NULL,
+    [SEND_CODE]                   VARCHAR (4)     NULL,
+    [SPLIT_LOAD_AMT]              NUMERIC (19, 2) NULL,
+    [TO_SPLIT_AMT]                NUMERIC (19, 2) NULL,
+    [time_stamp]                  DATETIME        NULL,
+    [u2_checksum]                 VARCHAR (25)    NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

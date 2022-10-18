@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[DIV_ASSEM_DECK] (
+    [DIV_ASSEM_DECK_ID]      VARCHAR (255)   NOT NULL,
+    [u2_id]                  VARCHAR (255)   NULL,
+    [MDECK_INDEX]            VARCHAR (6)     NULL,
+    [MDECK_SESSIONS]         VARCHAR (7)     NULL,
+    [UNIT_TRACT_ALLOC_UNITS] NUMERIC (19, 4) NULL,
+    [UNIT_TRACT_FACTORS]     NUMERIC (19, 8) NULL,
+    [UNIT_TRACT_INDEX]       VARCHAR (10)    NULL,
+    [UNIT_TRACT_NRI_TOTALS]  NUMERIC (19, 8) NULL,
+    [time_stamp]             DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([DIV_ASSEM_DECK_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [DIV_ASSEM_DECK_u2_id_in]
+    ON [dbo].[DIV_ASSEM_DECK]([u2_id] ASC);
+

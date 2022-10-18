@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[TRACT_PMT] (
+    [TRACT_PMT_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]        VARCHAR (255)   NULL,
+    [PMT_AMTS]     NUMERIC (19, 2) NULL,
+    [PMT_TYPES]    VARCHAR (8)     NULL,
+    [time_stamp]   DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([TRACT_PMT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [TRACT_PMT_u2_id_in]
+    ON [dbo].[TRACT_PMT]([u2_id] ASC);
+

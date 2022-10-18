@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [StageDI]
+    AUTHORIZATION [dbo];
+

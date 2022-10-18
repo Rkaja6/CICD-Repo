@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[PROSPECT_SECTION] (
+    [PROSPECT_SECTION_ID] VARCHAR (255) NOT NULL,
+    [u2_id]               VARCHAR (255) NULL,
+    [LEG_SUBDIVS]         VARCHAR (10)  NULL,
+    [RANGES]              VARCHAR (4)   NULL,
+    [SECTIONS]            VARCHAR (4)   NULL,
+    [SEC_DESCS]           VARCHAR (48)  NULL,
+    [TOWNSHIPS]           VARCHAR (4)   NULL,
+    [time_stamp]          DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PROSPECT_SECTION_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROSPECT_SECTION_u2_id_in]
+    ON [dbo].[PROSPECT_SECTION]([u2_id] ASC);
+

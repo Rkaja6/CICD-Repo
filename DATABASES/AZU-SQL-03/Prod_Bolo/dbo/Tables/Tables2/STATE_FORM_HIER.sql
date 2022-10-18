@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[STATE_FORM_HIER] (
+    [STATE_FORM_HIER_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [EDI_TYPE_HIER]      VARCHAR (3)   NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([STATE_FORM_HIER_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [STATE_FORM_HIER_u2_id_in]
+    ON [dbo].[STATE_FORM_HIER]([u2_id] ASC);
+

@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[AT_ASSET_IN_SERVICE_PERIODS] (
+    [AT_ASSET_IN_SERVICE_PERIODS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                          VARCHAR (255) NULL,
+    [IN_SERVICE_PERIODS]             DATETIME      NULL,
+    [PERSPECTIVES]                   VARCHAR (5)   NULL,
+    [time_stamp]                     DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_ASSET_IN_SERVICE_PERIODS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_ASSET__u2_id_3657]
+    ON [dbo].[AT_ASSET_IN_SERVICE_PERIODS]([u2_id] ASC);
+

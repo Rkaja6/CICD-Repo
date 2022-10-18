@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RR_WELL_LUG_ORR_COMPANY_VALUE] (
+    [RR_WELL_LUG_ORR_COMPANY_VALUE_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]                            VARCHAR (255)   NULL,
+    [ORR_COMPANY_VALUE]                NUMERIC (19, 2) NULL,
+    [time_stamp]                       DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([RR_WELL_LUG_ORR_COMPANY_VALUE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_WELL_L_u2_id_32671]
+    ON [dbo].[RR_WELL_LUG_ORR_COMPANY_VALUE]([u2_id] ASC);
+

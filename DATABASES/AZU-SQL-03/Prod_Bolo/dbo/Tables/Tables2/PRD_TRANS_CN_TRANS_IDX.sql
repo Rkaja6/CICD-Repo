@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PRD_TRANS_CN_TRANS_IDX] (
+    [PRD_TRANS_CN_TRANS_IDX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                     VARCHAR (255) NULL,
+    [CN_TRANS_INDEX]            VARCHAR (9)   NULL,
+    [time_stamp]                DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PRD_TRANS_CN_TRANS_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRD_TRANS_u2_id_90374]
+    ON [dbo].[PRD_TRANS_CN_TRANS_IDX]([u2_id] ASC);
+

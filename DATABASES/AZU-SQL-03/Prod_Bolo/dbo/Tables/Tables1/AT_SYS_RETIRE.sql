@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[AT_SYS_RETIRE] (
+    [AT_SYS_RETIRE_ID]           VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [AT_RETIREMENT_TYPES]        VARCHAR (10)  NULL,
+    [RETIREMENT_GAIN_LOSS_ACCTS] VARCHAR (10)  NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_SYS_RETIRE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_SYS_RETIRE_u2_id_in]
+    ON [dbo].[AT_SYS_RETIRE]([u2_id] ASC);
+

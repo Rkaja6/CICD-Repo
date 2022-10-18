@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>UpstreamForecast</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{2152aa5a-8e44-4752-aa49-826029fa525e}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>UpstreamForecast</RootNamespace>
+    <AssemblyName>UpstreamForecast</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\TypeCurveHeader.sql" />
+    <Build Include="dbo\Tables\TypeCurve.sql" />
+    <Build Include="dbo\Tables\ScenarioRunHistory.sql" />
+    <Build Include="dbo\Tables\RigForecast.sql" />
+    <Build Include="dbo\Tables\RigConfig.sql" />
+    <Build Include="dbo\Tables\ProductionScenarioTransaction.sql" />
+    <Build Include="dbo\Tables\ProductionScenarioConfig.sql" />
+    <Build Include="dbo\Tables\Forecast_Base_Prod.sql" />
+    <Build Include="dbo\Tables\Forecast_2020_Plus.sql" />
+    <Build Include="dbo\Tables\Forecast_2019.sql" />
+    <Build Include="dbo\Tables\ConsolidatedForecast_Tableau.sql" />
+    <Build Include="dbo\Tables\ConsolidatedForecast.sql" />
+    <Build Include="dbo\Views\vw_ConsolidatedForecastPermian.sql" />
+    <Build Include="dbo\Views\vw_ConsolidatedForecastHaynesville.sql" />
+    <Build Include="dbo\Views\vw_ConsolidatedForecastBakken.sql" />
+    <Build Include="dbo\Views\vw_ConsolidatedForecast_prelim.sql" />
+    <Build Include="dbo\Views\vw_ConsolidatedForecast.sql" />
+    <Build Include="Security\TLN_rpirrong.sql" />
+    <Build Include="Security\TLN_rhope.sql" />
+    <Build Include="Security\tln_rglazebrook.sql" />
+    <Build Include="Security\TLN_avogt.sql" />
+    <Build Include="Security\tln_atharp.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Stored Procedures\sp_UpdateScenarioRunHistory.sql" />
+    <Build Include="dbo\Stored Procedures\sp_RunSpudForecast.sql" />
+    <Build Include="dbo\Stored Procedures\sp_RunRigForecast.sql" />
+    <Build Include="dbo\Stored Procedures\sp_RunBaseProdForecast.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GenerateSpudCountsTbl.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GenerateProductionScenario.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GenerateConsolidatedForecast.sql" />
+    <Build Include="dbo\Stored Procedures\sp_DropForecastTempTbls.sql" />
+  </ItemGroup>
+</Project>

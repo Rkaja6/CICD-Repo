@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[OBDCC_INFO_OH_EFF_DT] (
+    [subValueId]       VARCHAR (255)   NOT NULL,
+    [OBDCC_INFO_OH_ID] VARCHAR (255)   NULL,
+    [OH_AMTS]          NUMERIC (19, 2) NULL,
+    [OH_EFF_DATES]     DATETIME        NULL,
+    [time_stamp]       DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OBDCC_INF_OBDCC_INF_28832]
+    ON [dbo].[OBDCC_INFO_OH_EFF_DT]([OBDCC_INFO_OH_ID] ASC);
+

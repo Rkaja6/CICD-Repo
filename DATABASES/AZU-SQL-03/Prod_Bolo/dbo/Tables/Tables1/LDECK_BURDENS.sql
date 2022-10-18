@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[LDECK_BURDENS] (
+    [subValueId]          VARCHAR (255)   NOT NULL,
+    [LDECK_BUR_ASSOCS_ID] VARCHAR (255)   NULL,
+    [BURDENS]             NUMERIC (19, 8) NULL,
+    [BUR_EFF_DATES]       DATETIME        NULL,
+    [BUR_EFF_SESSIONS]    VARCHAR (3)     NULL,
+    [BUR_EXP_DATES]       DATETIME        NULL,
+    [BUR_EXP_SESSIONS]    VARCHAR (3)     NULL,
+    [BUR_INTEREST_TYPES]  VARCHAR (4)     NULL,
+    [BUR_OWNERS]          VARCHAR (7)     NULL,
+    [time_stamp]          DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LDECK_BUR_LDECK_BUR_29985]
+    ON [dbo].[LDECK_BURDENS]([LDECK_BUR_ASSOCS_ID] ASC);
+

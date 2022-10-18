@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[RVCC_INFO_CPT_EFF_DT] (
+    [subValueId]       VARCHAR (255)   NOT NULL,
+    [RVCC_INFO_CPT_ID] VARCHAR (255)   NULL,
+    [CALC_BASIS]       VARCHAR (10)    NULL,
+    [CPT_EFF_DATES]    VARCHAR (8)     NULL,
+    [CPT_EXP_DATES]    DATETIME        NULL,
+    [RATES]            NUMERIC (19, 6) NULL,
+    [time_stamp]       DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RVCC_INFO_RVCC_INFO_74195]
+    ON [dbo].[RVCC_INFO_CPT_EFF_DT]([RVCC_INFO_CPT_ID] ASC);
+

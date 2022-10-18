@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PRR_LA_LUW_EFF_DATE_DET] (
+    [subValueId]             VARCHAR (255)   NOT NULL,
+    [PRR_LA_LUW_EFF_DATE_ID] VARCHAR (255)   NULL,
+    [PARISH_CODES]           VARCHAR (6)     NULL,
+    [PARISH_DECIMAL]         NUMERIC (19, 8) NULL,
+    [time_stamp]             DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRR_LA_LU_PRR_LA_LU_30029]
+    ON [dbo].[PRR_LA_LUW_EFF_DATE_DET]([PRR_LA_LUW_EFF_DATE_ID] ASC);
+

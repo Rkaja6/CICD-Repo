@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[USER_RPT_FMT_EDIT] (
+    [subValueId]           VARCHAR (255) NOT NULL,
+    [USER_RPT_FMT_USER_ID] VARCHAR (255) NULL,
+    [EDIT_CODES]           VARCHAR (5)   NULL,
+    [EDIT_VALUES]          VARCHAR (20)  NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [USER_RPT__USER_RPT__85821]
+    ON [dbo].[USER_RPT_FMT_EDIT]([USER_RPT_FMT_USER_ID] ASC);
+

@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[AT_MT_FROM] (
+    [AT_MT_FROM_ID]    VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [FROM_TRANS_CATS]  VARCHAR (8)   NULL,
+    [FROM_TRANS_CODES] VARCHAR (8)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_MT_FROM_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_MT_FROM_u2_id_in]
+    ON [dbo].[AT_MT_FROM]([u2_id] ASC);
+

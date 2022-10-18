@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[DFW_LCI_ROADWAY] (
+    [OBJECTID]          INT              NOT NULL,
+    [Acres]             NUMERIC (38, 8)  NULL,
+    [Name]              NVARCHAR (50)    NULL,
+    [SHAPE]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R680_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g643_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S643_idx]
+    ON [dbo].[DFW_LCI_ROADWAY] ([SHAPE])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10391740.7073361, XMIN = -10392220.476692, YMAX = 3517625.66773696, YMIN = 3517076.37754028)
+          );
+

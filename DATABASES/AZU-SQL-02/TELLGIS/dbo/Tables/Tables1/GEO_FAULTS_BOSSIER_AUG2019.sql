@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[GEO_FAULTS_BOSSIER_AUG2019] (
+    [OBJECTID_1]        INT              NOT NULL,
+    [OBJECTID]          INT              NULL,
+    [Shape_Leng]        NUMERIC (38, 8)  NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R455_pk] PRIMARY KEY CLUSTERED ([OBJECTID_1] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g418_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S418_idx]
+    ON [dbo].[GEO_FAULTS_BOSSIER_AUG2019] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10352762.2648777, XMIN = -10544450.1637924, YMAX = 3827193.97565852, YMIN = 3674971.08985438),
+            CELLS_PER_OBJECT = 16
+          );
+

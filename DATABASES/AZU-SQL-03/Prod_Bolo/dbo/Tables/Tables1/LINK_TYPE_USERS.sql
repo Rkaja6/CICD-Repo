@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[LINK_TYPE_USERS] (
+    [LINK_TYPE_USERS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [EXC_USERS]          VARCHAR (8)   NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([LINK_TYPE_USERS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LINK_TYPE_USERS_u2_id_in]
+    ON [dbo].[LINK_TYPE_USERS]([u2_id] ASC);
+

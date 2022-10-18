@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[NAME_USG] (
+    [NAME_USG_ID] VARCHAR (255) NOT NULL,
+    [u2_id]       VARCHAR (255) NULL,
+    [USAGE_INDEX] VARCHAR (5)   NULL,
+    [time_stamp]  DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([NAME_USG_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NAME_USG_u2_id_in]
+    ON [dbo].[NAME_USG]([u2_id] ASC);
+

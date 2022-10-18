@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[MERIDIAN_ST] (
+    [MERIDIAN_ST_ID] VARCHAR (255) NOT NULL,
+    [u2_id]          VARCHAR (255) NULL,
+    [STATES]         VARCHAR (6)   NULL,
+    [time_stamp]     DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([MERIDIAN_ST_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MERIDIAN_ST_u2_id_in]
+    ON [dbo].[MERIDIAN_ST]([u2_id] ASC);
+

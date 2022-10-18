@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[RVCLOSE_CTL_EXC] (
+    [RVCLOSE_CTL_EXC_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [CYCLES]             VARCHAR (7)   NULL,
+    [EXC_PROCESSES]      VARCHAR (7)   NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RVCLOSE_CTL_EXC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RVCLOSE_CTL_EXC_u2_id_in]
+    ON [dbo].[RVCLOSE_CTL_EXC]([u2_id] ASC);
+

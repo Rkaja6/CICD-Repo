@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [PEL]
+    AUTHORIZATION [dbo];
+

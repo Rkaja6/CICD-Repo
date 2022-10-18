@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[TRACT_OSH] (
+    [TRACT_OSH_ID]         VARCHAR (255)   NOT NULL,
+    [u2_id]                VARCHAR (255)   NULL,
+    [OFFSHORE_AREAS]       VARCHAR (8)     NULL,
+    [OFFSHORE_BLOCKS]      VARCHAR (5)     NULL,
+    [OFFSHORE_DESCS]       VARCHAR (30)    NULL,
+    [OFFSHORE_GROSS_ACRES] NUMERIC (19, 4) NULL,
+    [time_stamp]           DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([TRACT_OSH_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [TRACT_OSH_u2_id_in]
+    ON [dbo].[TRACT_OSH]([u2_id] ASC);
+

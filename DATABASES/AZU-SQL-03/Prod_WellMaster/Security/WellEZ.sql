@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [WellEZ]
+    AUTHORIZATION [dbo];
+

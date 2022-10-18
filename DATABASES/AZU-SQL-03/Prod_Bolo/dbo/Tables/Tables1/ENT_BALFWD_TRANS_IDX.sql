@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[ENT_BALFWD_TRANS_IDX] (
+    [subValueId]              VARCHAR (255) NOT NULL,
+    [ENT_BALFWD_ACCTG_PER_ID] VARCHAR (255) NULL,
+    [EDIT_CDS]                VARCHAR (3)   NULL,
+    [OWNER_SALE_INDEX]        VARCHAR (10)  NULL,
+    [TRANS_INDEX]             VARCHAR (9)   NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ENT_BALFW_ENT_BALFW_40412]
+    ON [dbo].[ENT_BALFWD_TRANS_IDX]([ENT_BALFWD_ACCTG_PER_ID] ASC);
+

@@ -1,0 +1,17 @@
+﻿create view BOLO.V_ActualVBudget_VolumesByWell as
+SELECT [Type]
+      ,[GL Amount]
+      ,[GL Qty1]
+      ,[Main Acct]
+      ,[Sub Acct]
+      ,[CC Number]
+      ,[CC Name]
+      ,[Voucher Source]
+      ,[CC Operator]
+      ,[Acctg Period]
+      ,[Occur Date]
+      ,[Prodview Volumes]
+      ,[Gathering System]
+      ,[Operated or Nonop]
+      
+  FROM [ETL].[ActualVBudget_VolumesByWell]

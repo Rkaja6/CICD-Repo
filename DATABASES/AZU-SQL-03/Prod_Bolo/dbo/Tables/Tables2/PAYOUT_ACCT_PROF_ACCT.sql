@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PAYOUT_ACCT_PROF_ACCT] (
+    [PAYOUT_ACCT_PROF_ACCT_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]                    VARCHAR (255)   NULL,
+    [ACCTS]                    VARCHAR (10)    NULL,
+    [THRESHHOLD_AMTS]          NUMERIC (19, 2) NULL,
+    [time_stamp]               DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([PAYOUT_ACCT_PROF_ACCT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PAYOUT_ACCT_PROF_ACCT_u2_id_in]
+    ON [dbo].[PAYOUT_ACCT_PROF_ACCT]([u2_id] ASC);
+

@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[CAD_FCL04_TAR_07102017] (
+    [OBJECTID]          INT              NOT NULL,
+    [LABEL]             NVARCHAR (254)   NULL,
+    [TAR]               NUMERIC (38, 8)  NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R140_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g121_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S121_idx]
+    ON [dbo].[CAD_FCL04_TAR_07102017] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10283169.8587995, XMIN = -10397485.0398947, YMAX = 3580048.52355586, YMIN = 3516748.47587533),
+            CELLS_PER_OBJECT = 16
+          );
+

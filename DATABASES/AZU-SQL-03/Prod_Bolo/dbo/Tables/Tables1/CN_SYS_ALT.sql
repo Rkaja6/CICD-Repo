@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[CN_SYS_ALT] (
+    [subValueId]     VARCHAR (255)   NOT NULL,
+    [CN_SYS_ATLD_ID] VARCHAR (255)   NULL,
+    [ALT_DECIMALS]   NUMERIC (19, 8) NULL,
+    [ALT_PTR_COS]    VARCHAR (4)     NULL,
+    [time_stamp]     DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CN_SYS_ALT_CN_SYS_ATLD_ID_in]
+    ON [dbo].[CN_SYS_ALT]([CN_SYS_ATLD_ID] ASC);
+

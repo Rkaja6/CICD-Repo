@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PTRSHP_INVESTOR_YTD_PER] (
+    [PTRSHP_INVESTOR_YTD_PER_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [NO_YEARS]                   VARCHAR (8)   NULL,
+    [YTD_PERIODS]                DATETIME      NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PTRSHP_INVESTOR_YTD_PER_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PTRSHP_IN_u2_id_15296]
+    ON [dbo].[PTRSHP_INVESTOR_YTD_PER]([u2_id] ASC);
+

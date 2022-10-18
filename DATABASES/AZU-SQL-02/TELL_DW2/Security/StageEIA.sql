@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [StageEIA]
+    AUTHORIZATION [dbo];
+

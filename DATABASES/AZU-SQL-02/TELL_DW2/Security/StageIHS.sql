@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [StageIHS]
+    AUTHORIZATION [dbo];
+

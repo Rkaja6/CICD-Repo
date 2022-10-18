@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[GL_DET_HIER_LVL_CD] (
+    [GL_DET_HIER_LVL_CD_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [HIER_LEVEL_CODES]      VARCHAR (25)  NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([GL_DET_HIER_LVL_CD_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [GL_DET_HIER_LVL_CD_u2_id_in]
+    ON [dbo].[GL_DET_HIER_LVL_CD]([u2_id] ASC);
+

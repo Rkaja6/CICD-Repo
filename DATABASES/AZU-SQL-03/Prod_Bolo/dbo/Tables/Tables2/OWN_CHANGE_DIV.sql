@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[OWN_CHANGE_DIV] (
+    [OWN_CHANGE_DIV_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [DIV_INDEX]         VARCHAR (5)   NULL,
+    [DIV_SESSIONS]      VARCHAR (35)  NULL,
+    [TEMP_DECKS]        VARCHAR (4)   NULL,
+    [TEMP_UPDATE_FLAGS] VARCHAR (6)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OWN_CHANGE_DIV_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OWN_CHANGE_DIV_u2_id_in]
+    ON [dbo].[OWN_CHANGE_DIV]([u2_id] ASC);
+

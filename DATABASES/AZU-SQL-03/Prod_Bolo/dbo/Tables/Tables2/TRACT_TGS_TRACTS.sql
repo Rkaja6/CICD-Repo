@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[TRACT_TGS_TRACTS] (
+    [subValueId]       VARCHAR (255)   NOT NULL,
+    [TRACT_TGS_MAP_ID] VARCHAR (255)   NULL,
+    [MAP_IDS]          VARCHAR (3)     NULL,
+    [MAP_MANUALLY]     VARCHAR (3)     NULL,
+    [SPATIAL_ACTIONS]  VARCHAR (3)     NULL,
+    [TGS_CALC_ACRES]   NUMERIC (19, 4) NULL,
+    [TGS_COMMENTS]     VARCHAR (30)    NULL,
+    [TGS_LOTS]         VARCHAR (4)     NULL,
+    [TGS_QTR_QTR]      VARCHAR (4)     NULL,
+    [TGS_TRACTS]       VARCHAR (5)     NULL,
+    [time_stamp]       DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [TRACT_TGS_TRACT_TGS_13400]
+    ON [dbo].[TRACT_TGS_TRACTS]([TRACT_TGS_MAP_ID] ASC);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[AT_DEPR_PROF_PSPTV] (
+    [AT_DEPR_PROF_PSPTV_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [PERSPECTIVES]          VARCHAR (11)  NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_DEPR_PROF_PSPTV_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_DEPR_PROF_PSPTV_u2_id_in]
+    ON [dbo].[AT_DEPR_PROF_PSPTV]([u2_id] ASC);
+

@@ -1,0 +1,23 @@
+﻿CREATE TABLE [dbo].[OBD_BDECK_SESS] (
+    [OBD_BDECK_SESS_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [CHANGE_DATES]       DATETIME      NULL,
+    [CONTROL_FLAG]       VARCHAR (4)   NULL,
+    [CPY_FLG]            VARCHAR (4)   NULL,
+    [EFF_DATES]          DATETIME      NULL,
+    [EXPLANATIONS]       VARCHAR (30)  NULL,
+    [OWN_CHANGE_IDS]     VARCHAR (13)  NULL,
+    [SESSIONS]           VARCHAR (4)   NULL,
+    [SESSION_APPRS]      VARCHAR (3)   NULL,
+    [SESSION_APPR_DATES] DATETIME      NULL,
+    [SESSION_STATUS]     VARCHAR (4)   NULL,
+    [SESSION_USER_ID]    VARCHAR (9)   NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OBD_BDECK_SESS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OBD_BDECK_SESS_u2_id_in]
+    ON [dbo].[OBD_BDECK_SESS]([u2_id] ASC);
+

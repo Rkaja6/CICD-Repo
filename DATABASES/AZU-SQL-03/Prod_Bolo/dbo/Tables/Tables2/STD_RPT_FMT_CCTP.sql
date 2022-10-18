@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[STD_RPT_FMT_CCTP] (
+    [STD_RPT_FMT_CCTP_ID]        VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [COST_CENTER_TRIAL_BALANCES] VARCHAR (11)  NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([STD_RPT_FMT_CCTP_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [STD_RPT_FMT_CCTP_u2_id_in]
+    ON [dbo].[STD_RPT_FMT_CCTP]([u2_id] ASC);
+

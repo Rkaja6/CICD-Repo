@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[ACCTG_PERIOD_SUB_SYS] (
+    [ACCTG_PERIOD_SUB_SYS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                   VARCHAR (255) NULL,
+    [EXC_SUB_SYSTEMS]         VARCHAR (7)   NULL,
+    [SS_CLOSE_DATES]          DATETIME      NULL,
+    [SS_OPEN_DATES]           DATETIME      NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([ACCTG_PERIOD_SUB_SYS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ACCTG_PERIOD_SUB_SYS_u2_id_in]
+    ON [dbo].[ACCTG_PERIOD_SUB_SYS]([u2_id] ASC);
+

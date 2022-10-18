@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[OGP_PROP_RATE] (
+    [subValueId]      VARCHAR (255)   NOT NULL,
+    [OGP_PROP_CPT_ID] VARCHAR (255)   NULL,
+    [CALC_BASIS]      VARCHAR (20)    NULL,
+    [CPT_EFF_DATES]   DATETIME        NULL,
+    [CPT_EXP_DATES]   DATETIME        NULL,
+    [RATES]           NUMERIC (19, 6) NULL,
+    [REMIT_TYPES]     VARCHAR (5)     NULL,
+    [time_stamp]      DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OGP_PROP__OGP_PROP__38009]
+    ON [dbo].[OGP_PROP_RATE]([OGP_PROP_CPT_ID] ASC);
+

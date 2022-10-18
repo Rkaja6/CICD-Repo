@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[BMP_WORLDWWF_MAR] (
+    [OBJECTID]          INT              NOT NULL,
+    [G200_REGIO]        NVARCHAR (35)    NULL,
+    [G200_BIOME]        NUMERIC (38, 8)  NULL,
+    [G200_NUM]          NUMERIC (38, 8)  NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R203_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g184_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S184_idx]
+    ON [dbo].[BMP_WORLDWWF_MAR] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = 20037503.384, XMIN = -20037503.2828, YMAX = 17647110.1145, YMIN = -21169596.524),
+            CELLS_PER_OBJECT = 16
+          );
+

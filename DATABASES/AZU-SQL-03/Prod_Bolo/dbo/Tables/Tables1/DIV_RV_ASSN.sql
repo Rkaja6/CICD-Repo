@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[DIV_RV_ASSN] (
+    [DIV_RV_ASSN_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]           VARCHAR (255) NULL,
+    [RV_ASSIGN_INDEX] VARCHAR (10)  NULL,
+    [time_stamp]      DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([DIV_RV_ASSN_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [DIV_RV_ASSN_u2_id_in]
+    ON [dbo].[DIV_RV_ASSN]([u2_id] ASC);
+

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[PRD_TRANS_EXCH] (
+    [PRD_TRANS_EXCH_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]             VARCHAR (255)   NULL,
+    [EXCH_RATE]         NUMERIC (19, 4) NULL,
+    [EXCH_RATE_DATE]    VARCHAR (8)     NULL,
+    [EXCH_RATE_SOURCE]  VARCHAR (8)     NULL,
+    [time_stamp]        DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([PRD_TRANS_EXCH_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRD_TRANS_EXCH_u2_id_in]
+    ON [dbo].[PRD_TRANS_EXCH]([u2_id] ASC);
+

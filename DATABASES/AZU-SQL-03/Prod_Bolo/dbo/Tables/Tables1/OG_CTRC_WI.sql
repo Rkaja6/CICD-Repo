@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[OG_CTRC_WI] (
+    [OG_CTRC_WI_ID]      VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [BUR_DISB_CODES]     VARCHAR (4)   NULL,
+    [ROYALTY_DISB_CODES] VARCHAR (7)   NULL,
+    [WI_DISB_CODES]      VARCHAR (4)   NULL,
+    [WI_EFF_DATES]       DATETIME      NULL,
+    [WI_EXP_DATES]       DATETIME      NULL,
+    [WI_INTEREST_TYPES]  VARCHAR (4)   NULL,
+    [WI_OWNERS]          VARCHAR (9)   NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OG_CTRC_WI_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OG_CTRC_WI_u2_id_in]
+    ON [dbo].[OG_CTRC_WI]([u2_id] ASC);
+

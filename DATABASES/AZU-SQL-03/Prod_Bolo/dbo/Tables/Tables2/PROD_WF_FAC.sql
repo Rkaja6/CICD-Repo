@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PROD_WF_FAC] (
+    [subValueId]      VARCHAR (255) NOT NULL,
+    [PROD_WF_GATH_ID] VARCHAR (255) NULL,
+    [FACILITIES]      VARCHAR (10)  NULL,
+    [time_stamp]      DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROD_WF_FAC_PROD_WF_GATH_ID_in]
+    ON [dbo].[PROD_WF_FAC]([PROD_WF_GATH_ID] ASC);
+

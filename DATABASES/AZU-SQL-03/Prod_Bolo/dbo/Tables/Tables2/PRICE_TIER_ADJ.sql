@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[PRICE_TIER_ADJ] (
+    [PRICE_TIER_ADJ_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]             VARCHAR (255)   NULL,
+    [BEGIN_LEVELS]      NUMERIC (19, 2) NULL,
+    [DEC_ADJS]          NUMERIC (19, 6) NULL,
+    [END_LEVELS]        NUMERIC (19, 2) NULL,
+    [FLAT_ADJ_AMTS]     NUMERIC (19, 5) NULL,
+    [PRICE_METHOD]      VARCHAR (6)     NULL,
+    [time_stamp]        DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([PRICE_TIER_ADJ_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRICE_TIER_ADJ_u2_id_in]
+    ON [dbo].[PRICE_TIER_ADJ]([u2_id] ASC);
+

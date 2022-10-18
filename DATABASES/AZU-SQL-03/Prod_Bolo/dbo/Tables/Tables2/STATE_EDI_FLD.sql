@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[STATE_EDI_FLD] (
+    [subValueId]       VARCHAR (255) NOT NULL,
+    [STATE_EDI_GRP_ID] VARCHAR (255) NULL,
+    [FLD_ID]           VARCHAR (10)  NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [STATE_EDI_STATE_EDI_25861]
+    ON [dbo].[STATE_EDI_FLD]([STATE_EDI_GRP_ID] ASC);
+

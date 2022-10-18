@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[ACC_OG_SALE_OG_HIST_IDX] (
+    [ACC_OG_SALE_OG_HIST_IDX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                      VARCHAR (255) NULL,
+    [OG_SALE_HIST_INDEX]         VARCHAR (20)  NULL,
+    [time_stamp]                 DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([ACC_OG_SALE_OG_HIST_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ACC_OG_SA_u2_id_23176]
+    ON [dbo].[ACC_OG_SALE_OG_HIST_IDX]([u2_id] ASC);
+

@@ -1,0 +1,76 @@
+﻿CREATE TABLE [stage].[TransformData] (
+    [Index]                               INT            NOT NULL,
+    [Effective Date]                      DATE           NULL,
+    [Source]                              NVARCHAR (280) NULL,
+    [TabName]                             NVARCHAR (280) NULL,
+    [Job Title]                           NVARCHAR (280) NULL,
+    [Job Code]                            NVARCHAR (280) NULL,
+    [Inc]                                 NVARCHAR (280) NULL,
+    [Cos]                                 NVARCHAR (280) NULL,
+    [Base 25th Percentile]                NVARCHAR (280) NULL,
+    [Base 50th Percentile]                NVARCHAR (280) NULL,
+    [Base 75th Percentile]                NVARCHAR (280) NULL,
+    [Base 90th Percentile]                NVARCHAR (280) NULL,
+    [Actual TC 25th Percentile]           NVARCHAR (280) NULL,
+    [Actual TC 50th Percentile]           NVARCHAR (280) NULL,
+    [Actual TC 75th Percentile]           NVARCHAR (280) NULL,
+    [Actual TC 90th Percentile]           NVARCHAR (280) NULL,
+    [Target TC 25th Percentile]           NVARCHAR (280) NULL,
+    [Target TC 50th Percentile]           NVARCHAR (280) NULL,
+    [Target TC 75th Percentile]           NVARCHAR (280) NULL,
+    [Target TC 90th Percentile]           NVARCHAR (280) NULL,
+    [LTI 25th Percentile]                 NVARCHAR (280) NULL,
+    [LTI 50th Percentile]                 NVARCHAR (280) NULL,
+    [LTI 75th Percentile]                 NVARCHAR (280) NULL,
+    [LTI 90th Percentile]                 NVARCHAR (280) NULL,
+    [Total Direct Actual 25th Percentile] NVARCHAR (280) NULL,
+    [Total Direct Actual 50th Percentile] NVARCHAR (280) NULL,
+    [Total Direct Actual 75th Percentile] NVARCHAR (280) NULL,
+    [Total Direct Actual 90th Percentile] NVARCHAR (280) NULL,
+    [Target TDC 25th Percentile]          NVARCHAR (280) NULL,
+    [Target TDC 50th Percentile]          NVARCHAR (280) NULL,
+    [Target TDC 75th Percentile]          NVARCHAR (280) NULL,
+    [Target TDC 90th Percentile]          NVARCHAR (280) NULL,
+    [Industry]                            NVARCHAR (280) NULL,
+    [Corporate-Noncorporate]              NVARCHAR (280) NULL,
+    [Rev Responsibility-Location-Other]   NVARCHAR (280) NULL,
+    [Family]                              NVARCHAR (280) NULL,
+    [Sub-Family]                          NVARCHAR (280) NULL,
+    [Specialization]                      NVARCHAR (280) NULL,
+    [Job Description]                     NVARCHAR (280) NULL,
+    [Mercer Job Type]                     NVARCHAR (280) NULL,
+    [AonHewitt Scope From]                NVARCHAR (280) NULL,
+    [AonHewitt Scope To]                  NVARCHAR (280) NULL,
+    [AonHewitt Scope Desc]                NVARCHAR (280) NULL,
+    [AI Percentage 25th Percentile]       NVARCHAR (280) NULL,
+    [AI Percentage 50th Percentile]       NVARCHAR (280) NULL,
+    [AI Percentage 75th Percentile]       NVARCHAR (280) NULL,
+    [AI Percentage 90th Percentile]       NVARCHAR (280) NULL,
+    [LTI Percent of Base 25th Percentile] NVARCHAR (280) NULL,
+    [LTI Percent of Base 50th Percentile] NVARCHAR (280) NULL,
+    [LTI Percent of Base 75th Percentile] NVARCHAR (280) NULL,
+    [LTI Percent of Base 90th Percentile] NVARCHAR (280) NULL,
+    [Function]                            NVARCHAR (280) NULL,
+    [Level]                               NVARCHAR (280) NULL,
+    [Function Code]                       NVARCHAR (280) NULL,
+    [Level Code]                          NVARCHAR (280) NULL,
+    [Region]                              NVARCHAR (280) NULL,
+    [Sub Region]                          NVARCHAR (280) NULL,
+    [State]                               NVARCHAR (280) NULL,
+    [Metropolitan Area]                   NVARCHAR (280) NULL,
+    [Specialty]                           NVARCHAR (280) NULL,
+    [Type of Operations]                  NVARCHAR (280) NULL,
+    [Union Status]                        NVARCHAR (280) NULL,
+    [CreatedDate]                         DATETIME       NOT NULL
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [FileSheet]
+    ON [stage].[TransformData]([Source] ASC, [TabName] ASC, [Effective Date] ASC);
+
+
+GO
+CREATE UNIQUE CLUSTERED INDEX [RowNumberIndex]
+    ON [stage].[TransformData]([Index] ASC);
+

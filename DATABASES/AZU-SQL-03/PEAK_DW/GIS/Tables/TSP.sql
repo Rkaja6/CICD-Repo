@@ -1,0 +1,5 @@
+﻿CREATE TABLE [GIS].[TSP] (
+    [TSP_Name] NVARCHAR (80) NULL,
+    [TSP]      NVARCHAR (20) NULL
+);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[COA_GRP_CO_ACCTS] (
+    [subValueId]    VARCHAR (255) NOT NULL,
+    [COA_GRP_CO_ID] VARCHAR (255) NULL,
+    [ACCTS]         VARCHAR (12)  NULL,
+    [time_stamp]    DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [COA_GRP_C_COA_GRP_C_47058]
+    ON [dbo].[COA_GRP_CO_ACCTS]([COA_GRP_CO_ID] ASC);
+

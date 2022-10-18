@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[AP_INV_CURR_AMTS] (
+    [subValueId]      VARCHAR (255)   NOT NULL,
+    [AP_INV_TRANS_ID] VARCHAR (255)   NULL,
+    [CURR_AMTS]       NUMERIC (19, 2) NULL,
+    [INT_CURR_AMTS]   NUMERIC (19, 2) NULL,
+    [RPT_CURRS]       VARCHAR (4)     NULL,
+    [time_stamp]      DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AP_INV_CU_AP_INV_TR_74051]
+    ON [dbo].[AP_INV_CURR_AMTS]([AP_INV_TRANS_ID] ASC);
+

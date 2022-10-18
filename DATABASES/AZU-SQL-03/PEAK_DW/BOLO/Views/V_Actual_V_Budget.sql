@@ -1,0 +1,16 @@
+﻿Create view BOLO.V_Actual_V_Budget
+AS
+SELECT [Amount Type]
+      ,[Date]
+      ,[Gas Sales Volumes]
+      ,[Oil Sales Volumes]
+      ,[Gas Sales Revenues]
+      ,[Oil Sales Revenues]
+      ,[Processing Rev/Deducts]
+      ,[Production taxes]
+      ,[LOE - Recurring]
+      ,[LOE - Non Recurring]
+      ,[Expense Workover]
+      ,[Ad valorem taxes]
+      ,[Capital expenditures]
+  FROM [ETL].[ActualVBudget]

@@ -1,0 +1,4 @@
+﻿CREATE USER [TLN\mdean] FOR LOGIN [TLN\MDEAN];
+
+
+

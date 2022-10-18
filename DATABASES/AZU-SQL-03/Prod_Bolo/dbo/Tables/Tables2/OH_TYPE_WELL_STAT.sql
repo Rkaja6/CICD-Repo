@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[OH_TYPE_WELL_STAT] (
+    [OH_TYPE_WELL_STAT_ID]     VARCHAR (255) NOT NULL,
+    [u2_id]                    VARCHAR (255) NULL,
+    [WELL_STATUS]              VARCHAR (5)   NULL,
+    [WELL_STATUS_FACTOR_FLAGS] VARCHAR (6)   NULL,
+    [time_stamp]               DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OH_TYPE_WELL_STAT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OH_TYPE_WELL_STAT_u2_id_in]
+    ON [dbo].[OH_TYPE_WELL_STAT]([u2_id] ASC);
+

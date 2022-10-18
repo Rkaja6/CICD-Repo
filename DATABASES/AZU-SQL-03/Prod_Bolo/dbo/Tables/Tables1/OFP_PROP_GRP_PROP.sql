@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OFP_PROP_GRP_PROP] (
+    [subValueId]              VARCHAR (255) NOT NULL,
+    [OFP_PROP_GRP_PRC_IDX_ID] VARCHAR (255) NULL,
+    [PROPERTIES]              VARCHAR (15)  NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OFP_PROP__OFP_PROP__52987]
+    ON [dbo].[OFP_PROP_GRP_PROP]([OFP_PROP_GRP_PRC_IDX_ID] ASC);
+

@@ -1,0 +1,24 @@
+﻿CREATE TABLE [dbo].[MDECK_BUR_ENTERED_PRODUCTS] (
+    [subValueId]            VARCHAR (255)   NOT NULL,
+    [MDECK_BUR_ASSOCS_ID]   VARCHAR (255)   NULL,
+    [BURDENS]               NUMERIC (19, 8) NULL,
+    [BUR_EFF_DATES]         DATETIME        NULL,
+    [BUR_EFF_SESSIONS]      VARCHAR (4)     NULL,
+    [BUR_EXP_DATES]         DATETIME        NULL,
+    [BUR_EXP_SESSIONS]      VARCHAR (4)     NULL,
+    [BUR_FORMULAS]          VARCHAR (7)     NULL,
+    [BUR_INTEREST_TYPES]    VARCHAR (4)     NULL,
+    [BUR_LEASES]            VARCHAR (16)    NULL,
+    [BUR_OWNERS]            VARCHAR (10)    NULL,
+    [BUR_PAY_CODES]         VARCHAR (4)     NULL,
+    [TOTAL_BURDENS]         NUMERIC (19, 8) NULL,
+    [TOTAL_BURDENS_ENTERED] NUMERIC (19, 8) NULL,
+    [time_stamp]            DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MDECK_BUR_MDECK_BUR_87686]
+    ON [dbo].[MDECK_BUR_ENTERED_PRODUCTS]([MDECK_BUR_ASSOCS_ID] ASC);
+

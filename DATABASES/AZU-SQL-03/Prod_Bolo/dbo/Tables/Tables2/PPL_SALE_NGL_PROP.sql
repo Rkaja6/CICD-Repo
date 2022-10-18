@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[PPL_SALE_NGL_PROP] (
+    [PPL_SALE_NGL_PROP_ID]  VARCHAR (255)   NOT NULL,
+    [u2_id]                 VARCHAR (255)   NULL,
+    [OG_SALE_IDS]           VARCHAR (10)    NULL,
+    [VOUCHER]               VARCHAR (10)    NULL,
+    [WELLS]                 VARCHAR (12)    NULL,
+    [WELL_DELIVERED_MCFS]   VARCHAR (10)    NULL,
+    [WELL_DELIVERED_MMBTUS] VARCHAR (10)    NULL,
+    [WELL_PROCEEDS]         NUMERIC (19, 2) NULL,
+    [WELL_PRODUCED_MCFS]    VARCHAR (10)    NULL,
+    [WELL_PRODUCED_MMBTUS]  VARCHAR (10)    NULL,
+    [WELL_PROD_VOL]         NUMERIC (19, 2) NULL,
+    [WELL_STMT_VOL]         NUMERIC (19, 2) NULL,
+    [time_stamp]            DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([PPL_SALE_NGL_PROP_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PPL_SALE_NGL_PROP_u2_id_in]
+    ON [dbo].[PPL_SALE_NGL_PROP]([u2_id] ASC);
+

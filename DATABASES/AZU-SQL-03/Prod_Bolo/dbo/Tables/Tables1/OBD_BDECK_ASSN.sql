@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OBD_BDECK_ASSN] (
+    [OBD_BDECK_ASSN_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [ASSIGN_INDEX]      VARCHAR (10)  NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OBD_BDECK_ASSN_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OBD_BDECK_ASSN_u2_id_in]
+    ON [dbo].[OBD_BDECK_ASSN]([u2_id] ASC);
+

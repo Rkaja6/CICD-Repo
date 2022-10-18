@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[LEASE_ACQ] (
+    [LEASE_ACQ_ID] VARCHAR (255) NOT NULL,
+    [u2_id]        VARCHAR (255) NULL,
+    [ACQUISITION]  VARCHAR (10)  NULL,
+    [ACQ_NAME]     VARCHAR (28)  NULL,
+    [time_stamp]   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([LEASE_ACQ_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LEASE_ACQ_u2_id_in]
+    ON [dbo].[LEASE_ACQ]([u2_id] ASC);
+

@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[DEPOSIT_CHK] (
+    [DEPOSIT_CHK_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]          VARCHAR (255)   NULL,
+    [CHECK_AMTS]     NUMERIC (19, 2) NULL,
+    [CHECK_DATES]    DATETIME        NULL,
+    [CHECK_NOS]      VARCHAR (21)    NULL,
+    [RECEIPT_TYPE]   VARCHAR (4)     NULL,
+    [REMITTERS]      VARCHAR (8)     NULL,
+    [time_stamp]     DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([DEPOSIT_CHK_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [DEPOSIT_CHK_u2_id_in]
+    ON [dbo].[DEPOSIT_CHK]([u2_id] ASC);
+

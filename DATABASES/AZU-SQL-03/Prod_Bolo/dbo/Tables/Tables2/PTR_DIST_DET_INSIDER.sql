@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[PTR_DIST_DET_INSIDER] (
+    [PTR_DIST_DET_INSIDER_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]                   VARCHAR (255)   NULL,
+    [INSIDER_ACCTS]           VARCHAR (10)    NULL,
+    [INSIDER_AMTS]            NUMERIC (19, 2) NULL,
+    [INSIDER_QTY1S]           NUMERIC (19, 2) NULL,
+    [INSIDER_QTY2S]           NUMERIC (19, 2) NULL,
+    [time_stamp]              DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([PTR_DIST_DET_INSIDER_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PTR_DIST_DET_INSIDER_u2_id_in]
+    ON [dbo].[PTR_DIST_DET_INSIDER]([u2_id] ASC);
+

@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[RXT_GULFFAIRWAYS] (
+    [OBJECTID]          INT              NOT NULL,
+    [NAME]              NVARCHAR (100)   NULL,
+    [STATE_NAME]        NVARCHAR (30)    NULL,
+    [CNTRY_NAME]        NVARCHAR (30)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R355_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g318_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S318_idx]
+    ON [dbo].[RXT_GULFFAIRWAYS] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -9162442.6209, XMIN = -10811343.6447, YMAX = 3589383.4008, YMIN = 2933224.8005),
+            CELLS_PER_OBJECT = 16
+          );
+

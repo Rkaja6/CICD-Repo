@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[USER_RPTS_SEG] (
+    [USER_RPTS_SEG_ID] VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [SEGMENTS]         VARCHAR (15)  NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([USER_RPTS_SEG_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [USER_RPTS_SEG_u2_id_in]
+    ON [dbo].[USER_RPTS_SEG]([u2_id] ASC);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[AT_MT_SALES_TAX] (
+    [AT_MT_SALES_TAX_ID]    VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [SALES_TAX_TRANS_INDEX] VARCHAR (9)   NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_MT_SALES_TAX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_MT_SALES_TAX_u2_id_in]
+    ON [dbo].[AT_MT_SALES_TAX]([u2_id] ASC);
+

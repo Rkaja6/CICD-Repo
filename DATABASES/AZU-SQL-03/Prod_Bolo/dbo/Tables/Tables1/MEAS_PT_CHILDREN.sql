@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[MEAS_PT_CHILDREN] (
+    [MEAS_PT_CHILDREN_ID] VARCHAR (255) NOT NULL,
+    [u2_id]               VARCHAR (255) NULL,
+    [EXP_DATES]           DATETIME      NULL,
+    [time_stamp]          DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([MEAS_PT_CHILDREN_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MEAS_PT_CHILDREN_u2_id_in]
+    ON [dbo].[MEAS_PT_CHILDREN]([u2_id] ASC);
+

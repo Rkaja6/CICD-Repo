@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[OG_CTRC_CPT_INTERESTS] (
+    [subValueId]         VARCHAR (255)   NOT NULL,
+    [OG_CTRC_CCPT_ID]    VARCHAR (255)   NULL,
+    [CCPT_EFF_DATES]     DATETIME        NULL,
+    [CCPT_EXP_DATES]     DATETIME        NULL,
+    [CPT_EFF_DATES]      DATETIME        NULL,
+    [CPT_EXEMPT_TYPES]   VARCHAR (6)     NULL,
+    [CPT_EXP_DATES]      DATETIME        NULL,
+    [CPT_INTERESTS]      NUMERIC (19, 8) NULL,
+    [CPT_INTEREST_TYPES] VARCHAR (4)     NULL,
+    [CPT_OWNERS]         VARCHAR (6)     NULL,
+    [REMIT_TYPES]        VARCHAR (5)     NULL,
+    [time_stamp]         DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OG_CTRC_C_OG_CTRC_C_29854]
+    ON [dbo].[OG_CTRC_CPT_INTERESTS]([OG_CTRC_CCPT_ID] ASC);
+

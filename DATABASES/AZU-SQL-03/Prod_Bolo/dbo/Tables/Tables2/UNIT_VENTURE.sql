@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[UNIT_VENTURE] (
+    [UNIT_VENTURE_ID] VARCHAR (255) NOT NULL,
+    [u2_id]           VARCHAR (255) NULL,
+    [VENTURES]        VARCHAR (7)   NULL,
+    [time_stamp]      DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([UNIT_VENTURE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UNIT_VENTURE_u2_id_in]
+    ON [dbo].[UNIT_VENTURE]([u2_id] ASC);
+

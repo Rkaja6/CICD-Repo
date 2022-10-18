@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[LOE_ADJ_DIV] (
+    [LOE_ADJ_DIV_ID] VARCHAR (255) NOT NULL,
+    [u2_id]          VARCHAR (255) NULL,
+    [DIV_IDS]        VARCHAR (8)   NULL,
+    [DIV_SESSIONS]   VARCHAR (4)   NULL,
+    [time_stamp]     DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([LOE_ADJ_DIV_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LOE_ADJ_DIV_u2_id_in]
+    ON [dbo].[LOE_ADJ_DIV]([u2_id] ASC);
+

@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[LOS_GRP_EXCL_ACCTS] (
+    [u2_id]       VARCHAR (255) NULL,
+    [CAT]         VARCHAR (8)   NULL,
+    [DESCRIPTION] VARCHAR (93)  NULL,
+    [SUB_CAT]     VARCHAR (8)   NULL,
+    [COMPANIES]   VARCHAR (3)   NULL,
+    [EXC_ACCTS]   VARCHAR (12)  NULL
+);
+

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[GS_STATUS_TEMP] (
+    [GS_STATUS_TEMP_ID]   VARCHAR (255) NOT NULL,
+    [u2_id]               VARCHAR (255) NULL,
+    [TEMP_MP]             VARCHAR (7)   NULL,
+    [TEMP_PPL_STMT_INDEX] VARCHAR (16)  NULL,
+    [TEMP_STATUS]         VARCHAR (10)  NULL,
+    [time_stamp]          DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([GS_STATUS_TEMP_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [GS_STATUS_TEMP_u2_id_in]
+    ON [dbo].[GS_STATUS_TEMP]([u2_id] ASC);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[JBCC_CYC] (
+    [JBCC_CYC_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]        VARCHAR (255) NULL,
+    [JBCYCLE_REFS] VARCHAR (5)   NULL,
+    [time_stamp]   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([JBCC_CYC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [JBCC_CYC_u2_id_in]
+    ON [dbo].[JBCC_CYC]([u2_id] ASC);
+

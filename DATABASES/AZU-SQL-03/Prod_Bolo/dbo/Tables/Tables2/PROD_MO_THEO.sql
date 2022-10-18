@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[PROD_MO_THEO] (
+    [u2_id]                           VARCHAR (255)   NOT NULL,
+    [AGGREGATE_BEGIN_INVENTORY]       NUMERIC (19, 2) NULL,
+    [AGGREGATE_BEGIN_WATER_INVENTORY] NUMERIC (19, 2) NULL,
+    [AGGREGATE_GAS_LIFT_MMBTU]        VARCHAR (9)     NULL,
+    [AGGREGATE_GAS_LIFT_VOL]          NUMERIC (19, 2) NULL,
+    [ALLOC_BEGIN_INVENTORY]           NUMERIC (19, 2) NULL,
+    [ALLOC_BEGIN_WATER_INVENTORY]     NUMERIC (19, 2) NULL,
+    [BEGIN_INVENTORY]                 NUMERIC (19, 2) NULL,
+    [BEGIN_WATER_INVENTORY]           NUMERIC (19, 2) NULL,
+    [GAS_LIFT_MMBTU]                  NUMERIC (19, 2) NULL,
+    [GAS_LIFT_VOL]                    NUMERIC (19, 2) NULL,
+    [GATHERING_SUB_SYSTEM]            VARCHAR (9)     NULL,
+    [GATHERING_SYSTEM]                VARCHAR (12)    NULL,
+    [GATH_SUB_SYS_ID]                 VARCHAR (12)    NULL,
+    [PRODUCT]                         VARCHAR (6)     NULL,
+    [PROD_FAC_ID]                     VARCHAR (11)    NULL,
+    [PROD_FAC_PRD_ID]                 VARCHAR (20)    NULL,
+    [TERMINAL_NODE]                   VARCHAR (8)     NULL,
+    [VOLUME_TYPE]                     VARCHAR (6)     NULL,
+    [time_stamp]                      DATETIME        NULL,
+    [u2_checksum]                     VARCHAR (25)    NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

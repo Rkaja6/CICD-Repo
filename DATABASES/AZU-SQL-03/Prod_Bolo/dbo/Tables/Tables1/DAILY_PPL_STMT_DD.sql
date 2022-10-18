@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[DAILY_PPL_STMT_DD] (
+    [DAILY_PPL_STMT_DD_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                VARCHAR (255) NULL,
+    [DAILY_TOTALS]         NUMERIC (9)   NULL,
+    [DELIVERY_DATES]       DATETIME      NULL,
+    [PVR_MMBTUS]           NUMERIC (9)   NULL,
+    [TEMP_CONTRACT_MMBTUS] NUMERIC (9)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([DAILY_PPL_STMT_DD_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [DAILY_PPL_STMT_DD_u2_id_in]
+    ON [dbo].[DAILY_PPL_STMT_DD]([u2_id] ASC);
+

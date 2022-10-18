@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[OG_REG_RPT_XMPT_CD] (
+    [subValueId]         VARCHAR (255)   NOT NULL,
+    [OG_REG_RPT_XMPT_ID] VARCHAR (255)   NULL,
+    [ALLOW_CODES]        VARCHAR (5)     NULL,
+    [ALLOW_VALUES]       NUMERIC (19, 2) NULL,
+    [ALLOW_VOLUMES]      NUMERIC (19, 2) NULL,
+    [time_stamp]         DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OG_REG_RP_OG_REG_RP_12477]
+    ON [dbo].[OG_REG_RPT_XMPT_CD]([OG_REG_RPT_XMPT_ID] ASC);
+

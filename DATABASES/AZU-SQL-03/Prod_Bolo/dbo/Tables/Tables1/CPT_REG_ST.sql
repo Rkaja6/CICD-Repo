@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CPT_REG_ST] (
+    [subValueId] VARCHAR (255) NOT NULL,
+    [CPT_REG_ID] VARCHAR (255) NULL,
+    [REG_STATES] VARCHAR (10)  NULL,
+    [time_stamp] DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CPT_REG_ST_CPT_REG_ID_in]
+    ON [dbo].[CPT_REG_ST]([CPT_REG_ID] ASC);
+

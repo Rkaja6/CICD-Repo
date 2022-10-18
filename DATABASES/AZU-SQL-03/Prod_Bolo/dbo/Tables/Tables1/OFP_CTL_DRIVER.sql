@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OFP_CTL_DRIVER] (
+    [OFP_CTL_DRIVER_ID]       VARCHAR (255) NOT NULL,
+    [u2_id]                   VARCHAR (255) NULL,
+    [USER_DATA_FILEDS_DRIVER] VARCHAR (10)  NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OFP_CTL_DRIVER_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OFP_CTL_DRIVER_u2_id_in]
+    ON [dbo].[OFP_CTL_DRIVER]([u2_id] ASC);
+

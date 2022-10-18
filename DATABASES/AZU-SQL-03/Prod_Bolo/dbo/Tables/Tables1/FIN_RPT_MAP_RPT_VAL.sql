@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[FIN_RPT_MAP_RPT_VAL] (
+    [subValueId]                VARCHAR (255) NOT NULL,
+    [FIN_RPT_MAP_COORDINATE_ID] VARCHAR (255) NULL,
+    [REPORT_VALUES]             VARCHAR (6)   NULL,
+    [time_stamp]                DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [FIN_RPT_M_FIN_RPT_M_25241]
+    ON [dbo].[FIN_RPT_MAP_RPT_VAL]([FIN_RPT_MAP_COORDINATE_ID] ASC);
+

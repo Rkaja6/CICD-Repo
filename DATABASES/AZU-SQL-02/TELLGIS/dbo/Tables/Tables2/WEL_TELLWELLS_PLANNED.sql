@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[WEL_TELLWELLS_PLANNED] (
+    [OBJECTID]          INT              NOT NULL,
+    [Well_Name]         NVARCHAR (255)   NULL,
+    [Formation]         NVARCHAR (10)    NULL,
+    [Status]            NVARCHAR (10)    NULL,
+    [SHAPE]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R691_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g654_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S654_idx]
+    ON [dbo].[WEL_TELLWELLS_PLANNED] ([SHAPE])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10390595.1858822, XMIN = -10403020.4804459, YMAX = 3786600.49641896, YMIN = 3759272.23139461)
+          );
+

@@ -1,0 +1,2 @@
+﻿CREATE USER [DWLNG_App] FOR LOGIN [DWLNG_App];
+

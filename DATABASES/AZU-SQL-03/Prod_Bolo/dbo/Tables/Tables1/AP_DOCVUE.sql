@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[AP_DOCVUE] (
+    [u2_id]          VARCHAR (255)   NOT NULL,
+    [ACTIVITY_DATE]  DATETIME        NULL,
+    [COMPANYNO]      VARCHAR (10)    NULL,
+    [COMPANY_NAME]   VARCHAR (29)    NULL,
+    [COMPANY_NO]     VARCHAR (10)    NULL,
+    [IMAGE_ID]       VARCHAR (10)    NULL,
+    [INVOICENO]      VARCHAR (30)    NULL,
+    [INVOICE_DATE]   DATETIME        NULL,
+    [INVOICE_NO]     VARCHAR (30)    NULL,
+    [INVOICE_TOTAL]  NUMERIC (19, 2) NULL,
+    [PER_END_DATE]   DATETIME        NULL,
+    [TRIG_DATE]      DATETIME        NULL,
+    [TRIG_TIME]      VARCHAR (8)     NULL,
+    [UPDATE_DATE]    DATETIME        NULL,
+    [UPDATE_TIME]    VARCHAR (7)     NULL,
+    [VENDORNO]       VARCHAR (10)    NULL,
+    [VENDOR_INVOICE] VARCHAR (35)    NULL,
+    [VENDOR_NAME]    VARCHAR (34)    NULL,
+    [VENDOR_NO]      VARCHAR (10)    NULL,
+    [VOUCHER_NO]     VARCHAR (16)    NULL,
+    [time_stamp]     DATETIME        NULL,
+    [u2_checksum]    VARCHAR (25)    NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

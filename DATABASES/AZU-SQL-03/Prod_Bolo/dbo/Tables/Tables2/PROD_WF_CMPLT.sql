@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PROD_WF_CMPLT] (
+    [PROD_WF_CMPLT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [COMPLETIONS]      VARCHAR (11)  NULL,
+    [SCREEN_TABS]      VARCHAR (6)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PROD_WF_CMPLT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROD_WF_CMPLT_u2_id_in]
+    ON [dbo].[PROD_WF_CMPLT]([u2_id] ASC);
+

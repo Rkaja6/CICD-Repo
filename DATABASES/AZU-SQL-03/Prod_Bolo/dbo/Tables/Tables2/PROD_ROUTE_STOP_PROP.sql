@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[PROD_ROUTE_STOP_PROP] (
+    [PROD_ROUTE_STOP_PROP_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                   VARCHAR (255) NULL,
+    [WELLS]                   VARCHAR (12)  NULL,
+    [WELL_EFF_DATES]          DATETIME      NULL,
+    [WELL_EXP_DATES]          DATETIME      NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PROD_ROUTE_STOP_PROP_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROD_ROUTE_STOP_PROP_u2_id_in]
+    ON [dbo].[PROD_ROUTE_STOP_PROP]([u2_id] ASC);
+

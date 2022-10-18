@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[FIN_RPT_FMT_PARAM] (
+    [FIN_RPT_FMT_PARAM_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                VARCHAR (255) NULL,
+    [PARAMETERS_TEXT]      VARCHAR (36)  NULL,
+    [PARAMS]               VARCHAR (20)  NULL,
+    [STORE_FLAGS]          VARCHAR (6)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([FIN_RPT_FMT_PARAM_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [FIN_RPT_FMT_PARAM_u2_id_in]
+    ON [dbo].[FIN_RPT_FMT_PARAM]([u2_id] ASC);
+

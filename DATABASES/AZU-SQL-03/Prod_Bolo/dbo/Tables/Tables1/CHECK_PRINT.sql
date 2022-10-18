@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[CHECK_PRINT] (
+    [CHECK_PRINT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]          VARCHAR (255) NULL,
+    [PRINT_BY]       VARCHAR (5)   NULL,
+    [PRINT_DATES]    DATETIME      NULL,
+    [time_stamp]     DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CHECK_PRINT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CHECK_PRINT_u2_id_in]
+    ON [dbo].[CHECK_PRINT]([u2_id] ASC);
+

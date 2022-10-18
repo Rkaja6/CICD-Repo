@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[FIN_RPT_FMT_EDIT] (
+    [subValueId]         VARCHAR (255) NOT NULL,
+    [FIN_RPT_FMT_UDF_ID] VARCHAR (255) NULL,
+    [EDIT_CODES]         VARCHAR (5)   NULL,
+    [EDIT_VALUES]        VARCHAR (22)  NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [FIN_RPT_F_FIN_RPT_F_78853]
+    ON [dbo].[FIN_RPT_FMT_EDIT]([FIN_RPT_FMT_UDF_ID] ASC);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PRD_SYS_UPLD] (
+    [PRD_SYS_UPLD_ID]    VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [PRD_UPLOAD_SOURCES] VARCHAR (20)  NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PRD_SYS_UPLD_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRD_SYS_UPLD_u2_id_in]
+    ON [dbo].[PRD_SYS_UPLD]([u2_id] ASC);
+

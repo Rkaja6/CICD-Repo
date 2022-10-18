@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[DIV_AUTH_TARG] (
+    [DIV_AUTH_TARG_ID]        VARCHAR (255) NOT NULL,
+    [u2_id]                   VARCHAR (255) NULL,
+    [CREATION_DATE]           DATETIME      NULL,
+    [DIVISION_ORDERS_CREATED] VARCHAR (10)  NULL,
+    [TARGET_COST_CENTERS]     VARCHAR (12)  NULL,
+    [TARGET_PROPERTIES]       VARCHAR (10)  NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([DIV_AUTH_TARG_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [DIV_AUTH_TARG_u2_id_in]
+    ON [dbo].[DIV_AUTH_TARG]([u2_id] ASC);
+

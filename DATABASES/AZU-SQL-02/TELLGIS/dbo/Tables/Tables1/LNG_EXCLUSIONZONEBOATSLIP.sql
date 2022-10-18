@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[LNG_EXCLUSIONZONEBOATSLIP] (
+    [ObjectID]          INT              NOT NULL,
+    [BufferDist]        NUMERIC (38, 8)  NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R266_pk] PRIMARY KEY CLUSTERED ([ObjectID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g247_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S247_idx]
+    ON [dbo].[LNG_EXCLUSIONZONEBOATSLIP] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10389301.7112, XMIN = -10389343.0327813, YMAX = 3516479.3068, YMIN = 3516437.79914767),
+            CELLS_PER_OBJECT = 16
+          );
+

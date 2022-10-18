@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[AT_ASSET_DET_LYR_PER] (
+    [AT_ASSET_DET_LYR_PER_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                   VARCHAR (255) NULL,
+    [LAYER_PERIODS]           DATETIME      NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_ASSET_DET_LYR_PER_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_ASSET_DET_LYR_PER_u2_id_in]
+    ON [dbo].[AT_ASSET_DET_LYR_PER]([u2_id] ASC);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[ARIES_XREF_RES_CAT] (
+    [ARIES_XREF_RES_CAT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [RESERVE_CATEGORY]      VARCHAR (8)   NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([ARIES_XREF_RES_CAT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ARIES_XREF_RES_CAT_u2_id_in]
+    ON [dbo].[ARIES_XREF_RES_CAT]([u2_id] ASC);
+

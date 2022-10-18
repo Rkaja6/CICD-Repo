@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[PTRSHP_SYS] (
+    [u2_id]            VARCHAR (255) NOT NULL,
+    [CB_VOU_APP]       VARCHAR (9)   NULL,
+    [CB_VOU_SRC]       VARCHAR (4)   NULL,
+    [DIST_ACCT]        VARCHAR (12)  NULL,
+    [DIST_BANK_ACCT]   VARCHAR (9)   NULL,
+    [DIST_BY_OPER]     VARCHAR (7)   NULL,
+    [DIST_CO]          VARCHAR (6)   NULL,
+    [ESTAB_DATE]       VARCHAR (11)  NULL,
+    [EXP_DATE]         VARCHAR (8)   NULL,
+    [HOLD_DIST]        VARCHAR (4)   NULL,
+    [INV_ADJ_CLR_ACCT] VARCHAR (12)  NULL,
+    [INV_ADJ_VOU_APP]  VARCHAR (9)   NULL,
+    [INV_ADJ_VOU_SRC]  VARCHAR (3)   NULL,
+    [INV_CLEAR_ACCT]   VARCHAR (12)  NULL,
+    [INV_PAY_ACCT]     VARCHAR (12)  NULL,
+    [INV_SUSP_ACCT]    VARCHAR (10)  NULL,
+    [OPERATING_CO]     VARCHAR (9)   NULL,
+    [PAY_CODE_VOU_APP] VARCHAR (9)   NULL,
+    [PAY_CODE_VOU_SRC] VARCHAR (8)   NULL,
+    [UNIT_SIZE]        VARCHAR (9)   NULL,
+    [WRITE_OFF_ACCT]   VARCHAR (12)  NULL,
+    [time_stamp]       DATETIME      NULL,
+    [u2_checksum]      VARCHAR (25)  NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

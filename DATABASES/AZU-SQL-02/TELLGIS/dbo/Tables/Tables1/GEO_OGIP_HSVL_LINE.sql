@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[GEO_OGIP_HSVL_LINE] (
+    [OBJECTID]          INT              NOT NULL,
+    [ZLEVEL]            NUMERIC (38, 8)  NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R646_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g609_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S609_idx]
+    ON [dbo].[GEO_OGIP_HSVL_LINE] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10358352.414941, XMIN = -10552308.333021, YMAX = 3867983.20173085, YMIN = 3667384.39476567),
+            CELLS_PER_OBJECT = 16
+          );
+

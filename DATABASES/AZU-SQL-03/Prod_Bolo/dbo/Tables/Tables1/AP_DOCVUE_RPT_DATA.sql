@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[AP_DOCVUE_RPT_DATA] (
+    [AP_DOCVUE_RPT_DATA_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [REPORT_DATA]           VARCHAR (255) NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AP_DOCVUE_RPT_DATA_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AP_DOCVUE_RPT_DATA_u2_id_in]
+    ON [dbo].[AP_DOCVUE_RPT_DATA]([u2_id] ASC);
+

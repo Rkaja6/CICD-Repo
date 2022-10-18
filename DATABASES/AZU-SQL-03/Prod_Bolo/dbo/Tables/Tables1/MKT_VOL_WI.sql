@@ -1,0 +1,24 @@
+﻿CREATE TABLE [dbo].[MKT_VOL_WI] (
+    [MKT_VOL_WI_ID]         VARCHAR (255)   NOT NULL,
+    [u2_id]                 VARCHAR (255)   NULL,
+    [ENTITLEMENT_INTERESTS] NUMERIC (19, 8) NULL,
+    [ESTIMATED_INTERESTS]   NUMERIC (19, 8) NULL,
+    [ESTIMATED_MMBTUS]      NUMERIC (19, 2) NULL,
+    [GAS_BAL_DATE]          DATETIME        NULL,
+    [MAKEUP_FLAGS]          VARCHAR (6)     NULL,
+    [MANUAL_OVERRIDE_FLAGS] VARCHAR (8)     NULL,
+    [PRIOR_IMBALANCES]      NUMERIC (19, 2) NULL,
+    [SUSPEND_FLAGS]         VARCHAR (7)     NULL,
+    [TEMP_ALLOCATE]         VARCHAR (13)    NULL,
+    [TEMP_MARKETS]          VARCHAR (11)    NULL,
+    [WI_INTEREST_TYPES]     VARCHAR (8)     NULL,
+    [WI_OWNERS]             VARCHAR (9)     NULL,
+    [time_stamp]            DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([MKT_VOL_WI_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MKT_VOL_WI_u2_id_in]
+    ON [dbo].[MKT_VOL_WI]([u2_id] ASC);
+

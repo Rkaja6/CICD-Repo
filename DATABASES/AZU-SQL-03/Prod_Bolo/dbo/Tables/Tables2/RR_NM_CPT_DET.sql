@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[RR_NM_CPT_DET] (
+    [subValueId]     VARCHAR (255)   NOT NULL,
+    [RR_NM_CPT_ID]   VARCHAR (255)   NULL,
+    [ALLOC_DECIMALS] NUMERIC (19, 8) NULL,
+    [PUNS]           VARCHAR (13)    NULL,
+    [RATE_CODES]     VARCHAR (4)     NULL,
+    [SPLIT_GAS_PRDS] VARCHAR (4)     NULL,
+    [SPLIT_LIQ_PRDS] VARCHAR (4)     NULL,
+    [SPLIT_OIL_PRDS] VARCHAR (4)     NULL,
+    [time_stamp]     DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_NM_CPT_DET_RR_NM_CPT_ID_in]
+    ON [dbo].[RR_NM_CPT_DET]([RR_NM_CPT_ID] ASC);
+

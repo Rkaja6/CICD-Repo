@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[RXT_PRODUCINGAREAS] (
+    [OBJECTID]          INT              NOT NULL,
+    [COMMODITY]         NVARCHAR (15)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R247_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g219_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S219_idx]
+    ON [dbo].[RXT_PRODUCINGAREAS] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -8411897.6064, XMIN = -18131146.9976, YMAX = 11498255.5367, YMIN = 2994190.3611)
+          );
+

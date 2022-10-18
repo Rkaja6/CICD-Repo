@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[GATH_SYS_ALLOC] (
+    [GATH_SYS_ALLOC_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [ALLOC_ORDER]        VARCHAR (5)   NULL,
+    [ALLOC_SUB_FAC_PROD] VARCHAR (5)   NULL,
+    [ALLOC_SUB_SYS]      VARCHAR (8)   NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([GATH_SYS_ALLOC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [GATH_SYS_ALLOC_u2_id_in]
+    ON [dbo].[GATH_SYS_ALLOC]([u2_id] ASC);
+

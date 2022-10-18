@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[TANK_MEAS_PTS] (
+    [TANK_MEAS_PTS_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [MEAS_PT_EFF_DATES] DATETIME      NULL,
+    [MEAS_PT_INDEX]     VARCHAR (7)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([TANK_MEAS_PTS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [TANK_MEAS_PTS_u2_id_in]
+    ON [dbo].[TANK_MEAS_PTS]([u2_id] ASC);
+

@@ -1,0 +1,52 @@
+﻿CREATE TABLE [dbo].[GDB_REPLICALOG] (
+    [ID]             INT           NOT NULL,
+    [ReplicaID]      INT           NOT NULL,
+    [Event]          INT           NOT NULL,
+    [ErrorCode]      INT           NOT NULL,
+    [LogDate]        DATETIME2 (7) NOT NULL,
+    [SourceBeginGen] INT           NOT NULL,
+    [SourceEndGen]   INT           NOT NULL,
+    [TargetGen]      INT           NOT NULL
+);
+
+
+GO
+CREATE UNIQUE CLUSTERED INDEX [R9_SDE_ROWID_UK]
+    ON [dbo].[GDB_REPLICALOG]([ID] ASC);
+
+
+GO
+CREATE TRIGGER GDB_REP_LOG_TR ON dbo.GDB_REPLICALOG FOR INSERT, UPDATE, DELETE AS BEGIN 
+SET NOCOUNT ON 
+UPDATE dbo.GDB_TABLES_LAST_MODIFIED SET last_modified_count = last_modified_count + 1 WHERE table_name = 'GDB_REPLICALOG' IF @@ROWCOUNT = 0 
+BEGIN 
+INSERT INTO dbo.GDB_TABLES_LAST_MODIFIED VALUES ('GDB_REPLICALOG', 1) 
+END 
+END
+GO
+GRANT UPDATE
+    ON OBJECT::[dbo].[GDB_REPLICALOG] TO PUBLIC
+    WITH GRANT OPTION
+    AS [dbo];
+
+
+GO
+GRANT SELECT
+    ON OBJECT::[dbo].[GDB_REPLICALOG] TO PUBLIC
+    WITH GRANT OPTION
+    AS [dbo];
+
+
+GO
+GRANT INSERT
+    ON OBJECT::[dbo].[GDB_REPLICALOG] TO PUBLIC
+    WITH GRANT OPTION
+    AS [dbo];
+
+
+GO
+GRANT DELETE
+    ON OBJECT::[dbo].[GDB_REPLICALOG] TO PUBLIC
+    WITH GRANT OPTION
+    AS [dbo];
+

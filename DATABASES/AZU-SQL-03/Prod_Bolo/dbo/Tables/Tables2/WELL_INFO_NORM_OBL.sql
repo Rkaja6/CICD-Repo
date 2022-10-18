@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[WELL_INFO_NORM_OBL] (
+    [WELL_INFO_NORM_OBL_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                 VARCHAR (255) NULL,
+    [NORMAL_OBLS]           VARCHAR (6)   NULL,
+    [NORMAL_OBL_DATES]      DATETIME      NULL,
+    [NORMAL_OBL_MOS]        VARCHAR (6)   NULL,
+    [NORMAL_OBL_PERIODS]    VARCHAR (8)   NULL,
+    [time_stamp]            DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([WELL_INFO_NORM_OBL_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [WELL_INFO_NORM_OBL_u2_id_in]
+    ON [dbo].[WELL_INFO_NORM_OBL]([u2_id] ASC);
+

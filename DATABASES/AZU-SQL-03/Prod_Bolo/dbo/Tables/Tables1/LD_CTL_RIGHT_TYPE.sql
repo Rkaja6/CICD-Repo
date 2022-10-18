@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[LD_CTL_RIGHT_TYPE] (
+    [LD_CTL_RIGHT_TYPE_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                VARCHAR (255) NULL,
+    [RIGHTS_TYPES]         VARCHAR (15)  NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([LD_CTL_RIGHT_TYPE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LD_CTL_RIGHT_TYPE_u2_id_in]
+    ON [dbo].[LD_CTL_RIGHT_TYPE]([u2_id] ASC);
+

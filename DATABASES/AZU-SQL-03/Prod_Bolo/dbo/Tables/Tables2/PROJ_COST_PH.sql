@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PROJ_COST_PH] (
+    [PROJ_COST_PH_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [COST_PHASES]      VARCHAR (5)   NULL,
+    [COST_PHASE_APPRS] VARCHAR (5)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PROJ_COST_PH_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROJ_COST_PH_u2_id_in]
+    ON [dbo].[PROJ_COST_PH]([u2_id] ASC);
+

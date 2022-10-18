@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[OWNER_SALE_TYPE] (
+    [subValueId]        VARCHAR (255) NOT NULL,
+    [OWNER_SALE_ADJ_ID] VARCHAR (255) NULL,
+    [ADJ_TYPES]         VARCHAR (5)   NULL,
+    [CHECKS]            VARCHAR (22)  NULL,
+    [SYSTEM_DATE]       DATETIME      NULL,
+    [SYSTEM_TIME]       VARCHAR (8)   NULL,
+    [SYSTEM_USER_ID]    VARCHAR (6)   NULL,
+    [TRANS_DATES]       DATETIME      NULL,
+    [TRANS_INDEX]       VARCHAR (9)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OWNER_SAL_OWNER_SAL_65476]
+    ON [dbo].[OWNER_SALE_TYPE]([OWNER_SALE_ADJ_ID] ASC);
+

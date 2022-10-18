@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[WELL_INFO_LINK] (
+    [WELL_INFO_LINK_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [IMAGE_REF]         VARCHAR (25)  NULL,
+    [LINKS]             VARCHAR (25)  NULL,
+    [LINK_TYPES]        VARCHAR (12)  NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([WELL_INFO_LINK_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [WELL_INFO_LINK_u2_id_in]
+    ON [dbo].[WELL_INFO_LINK]([u2_id] ASC);
+

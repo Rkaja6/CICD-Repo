@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[AT_SYS_MT] (
+    [AT_SYS_MT_ID]  VARCHAR (255) NOT NULL,
+    [u2_id]         VARCHAR (255) NULL,
+    [MT_CLRG_ACCTS] VARCHAR (11)  NULL,
+    [time_stamp]    DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AT_SYS_MT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AT_SYS_MT_u2_id_in]
+    ON [dbo].[AT_SYS_MT]([u2_id] ASC);
+

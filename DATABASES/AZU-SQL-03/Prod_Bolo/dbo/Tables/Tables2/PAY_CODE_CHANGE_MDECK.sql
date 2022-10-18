@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PAY_CODE_CHANGE_MDECK] (
+    [PAY_CODE_CHANGE_MDECK_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                    VARCHAR (255) NULL,
+    [MDECK_INDEX]              VARCHAR (8)   NULL,
+    [MDECK_SESSIONS]           VARCHAR (7)   NULL,
+    [time_stamp]               DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PAY_CODE_CHANGE_MDECK_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PAY_CODE_CHANGE_MDECK_u2_id_in]
+    ON [dbo].[PAY_CODE_CHANGE_MDECK]([u2_id] ASC);
+

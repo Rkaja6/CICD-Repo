@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[CC_ALLOC_HDR_ACCT] (
+    [CC_ALLOC_HDR_ACCT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                VARCHAR (255) NULL,
+    [INVALID_ACCTS]        VARCHAR (9)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([CC_ALLOC_HDR_ACCT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CC_ALLOC_HDR_ACCT_u2_id_in]
+    ON [dbo].[CC_ALLOC_HDR_ACCT]([u2_id] ASC);
+

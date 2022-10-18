@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RR_SYS_SPL_CTY] (
+    [subValueId]       VARCHAR (255) NOT NULL,
+    [RR_SYS_SPL_ST_ID] VARCHAR (255) NULL,
+    [SUPPL_CTY_CODES]  VARCHAR (6)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_SYS_SP_RR_SYS_SP_86226]
+    ON [dbo].[RR_SYS_SPL_CTY]([RR_SYS_SPL_ST_ID] ASC);
+

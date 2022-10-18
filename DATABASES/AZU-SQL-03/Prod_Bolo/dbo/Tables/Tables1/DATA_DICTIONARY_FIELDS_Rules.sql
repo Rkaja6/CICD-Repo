@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[DATA_DICTIONARY_FIELDS_Rules] (
+    [DATA_DICTIONARY_FIELDS_Rules_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                           VARCHAR (255) NULL,
+    [time_stamp]                      DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([DATA_DICTIONARY_FIELDS_Rules_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [DATA_DICT_u2_id_3923]
+    ON [dbo].[DATA_DICTIONARY_FIELDS_Rules]([u2_id] ASC);
+

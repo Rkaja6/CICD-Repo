@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Prod_WellMaster</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{2a595fc0-f9f8-446a-9e92-fda161eff4fc}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Prod_WellMaster</RootNamespace>
+    <AssemblyName>Prod_WellMaster</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Zedi\" />
+    <Folder Include="Zedi\Tables\" />
+    <Folder Include="WellEZ\" />
+    <Folder Include="WellEZ\Tables\" />
+    <Folder Include="Quorum\" />
+    <Folder Include="Quorum\Tables\" />
+    <Folder Include="ProCount\" />
+    <Folder Include="ProCount\Tables\" />
+    <Folder Include="Kingdom\" />
+    <Folder Include="Kingdom\Tables\" />
+    <Folder Include="Bolo\" />
+    <Folder Include="Bolo\Tables\" />
+    <Folder Include="Aries\" />
+    <Folder Include="Aries\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Zedi\Tables\ZediData.sql" />
+    <Build Include="WellEZ\Tables\vw_AllCostItemDetail.sql" />
+    <Build Include="Quorum\Tables\STAGE_AFE_LINE_ITEM.sql" />
+    <Build Include="Quorum\Tables\STAGE_AFE_LINE_ITEM_bkp.sql" />
+    <Build Include="Quorum\Tables\STAGE_AFE.sql" />
+    <Build Include="ProCount\Tables\PropertyWellInfoTb.sql" />
+    <Build Include="ProCount\Tables\CompletionTb.sql" />
+    <Build Include="Kingdom\Tables\T_Well.sql" />
+    <Build Include="Bolo\Tables\Cost_Center.sql" />
+    <Build Include="Aries\Tables\AC_PROPERTY.sql" />
+    <Build Include="dbo\Views\vw_WellsWithNameMismatchProCountAries.sql" />
+    <Build Include="dbo\Views\vw_ProCountWellMissingAriesNumber.sql" />
+    <Build Include="dbo\Views\vw_AriesWellsNotInKingdom.sql" />
+    <Build Include="Security\TLN_upstream.sql" />
+    <Build Include="Security\TLN_svc-powerbi.sql" />
+    <Build Include="Security\TLN_jlogbotche.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Security\Zedi.sql" />
+    <Build Include="Security\WellEZ.sql" />
+    <Build Include="Security\Quorum.sql" />
+    <Build Include="Security\ProCount.sql" />
+    <Build Include="Security\Kingdom.sql" />
+    <Build Include="Security\Bolo.sql" />
+    <Build Include="Security\Aries.sql" />
+    <Build Include="Security\ArcMap.sql" />
+  </ItemGroup>
+</Project>

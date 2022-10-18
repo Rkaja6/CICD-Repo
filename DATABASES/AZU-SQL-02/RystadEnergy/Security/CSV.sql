@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [CSV]
+    AUTHORIZATION [TLN\avogt];
+

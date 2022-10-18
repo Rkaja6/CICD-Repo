@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RIK_EXP_DT] (
+    [subValueId] VARCHAR (255) NOT NULL,
+    [RIK_OWN_ID] VARCHAR (255) NULL,
+    [EXP_DATES]  DATETIME      NULL,
+    [time_stamp] DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RIK_EXP_DT_RIK_OWN_ID_in]
+    ON [dbo].[RIK_EXP_DT]([RIK_OWN_ID] ASC);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[BDECK_ASSN] (
+    [BDECK_ASSN_ID] VARCHAR (255) NOT NULL,
+    [u2_id]         VARCHAR (255) NULL,
+    [ASSIGN_INDEX]  VARCHAR (10)  NULL,
+    [time_stamp]    DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([BDECK_ASSN_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [BDECK_ASSN_u2_id_in]
+    ON [dbo].[BDECK_ASSN]([u2_id] ASC);
+

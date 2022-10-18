@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Prod_WellEZ</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{27503e63-24fa-42de-a137-909d7de80178}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Prod_WellEZ</RootNamespace>
+    <AssemblyName>Prod_WellEZ</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="tell\" />
+    <Folder Include="tell\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="tell\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="tell\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\xmlimports.sql" />
+    <Build Include="dbo\Tables\WorkoverCostItem.sql" />
+    <Build Include="dbo\Tables\WorkoverCostContingency.sql" />
+    <Build Include="dbo\Tables\WorkoverCost.sql" />
+    <Build Include="dbo\Tables\WkgInterestItem.sql" />
+    <Build Include="dbo\Tables\WkgInterest.sql" />
+    <Build Include="dbo\Tables\WFEWellPlanItem.sql" />
+    <Build Include="dbo\Tables\WFEWellPlan.sql" />
+    <Build Include="dbo\Tables\WFETransportVessel.sql" />
+    <Build Include="dbo\Tables\WFETransportHelicopter.sql" />
+    <Build Include="dbo\Tables\WFETransport.sql" />
+    <Build Include="dbo\Tables\WFERigElevation.sql" />
+    <Build Include="dbo\Tables\WFEPerforationItem.sql" />
+    <Build Include="dbo\Tables\WFEPerforation.sql" />
+    <Build Include="dbo\Tables\WFEDrillBitItem.sql" />
+    <Build Include="dbo\Tables\WFEDrillBit.sql" />
+    <Build Include="dbo\Tables\WFEConsumables.sql" />
+    <Build Include="dbo\Tables\WFEConsumableItem.sql" />
+    <Build Include="dbo\Tables\WFECasingRepeatable.sql" />
+    <Build Include="dbo\Tables\WFECasing.sql" />
+    <Build Include="dbo\Tables\WFEBOP.sql" />
+    <Build Include="dbo\Tables\WFEBhaRepeatable.sql" />
+    <Build Include="dbo\Tables\WFEBha.sql" />
+    <Build Include="dbo\Tables\WellInfo.sql" />
+    <Build Include="dbo\Tables\Weather.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_9.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_8.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_7.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_6.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_50.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_5.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_49.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_48.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_47.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_46.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_45.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_44.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_43.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_42.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_41.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_40.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_4.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_39.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_38.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_37.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_36.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_35.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_34.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_33.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_32.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_31.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_30.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_3.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_29.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_28.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_27.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_26.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_25.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_24.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_23.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_22.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_21.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_20.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_2.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_19.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_18.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_17.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_16.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_15.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_14.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_13.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_12.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_11.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_10.sql" />
+    <Build Include="dbo\Tables\UserDefinedItem_1.sql" />
+    <Build Include="dbo\Tables\UserDefined_9.sql" />
+    <Build Include="dbo\Tables\UserDefined_8.sql" />
+    <Build Include="dbo\Tables\UserDefined_7.sql" />
+    <Build Include="dbo\Tables\UserDefined_6.sql" />
+    <Build Include="dbo\Tables\UserDefined_50.sql" />
+    <Build Include="dbo\Tables\UserDefined_5.sql" />
+    <Build Include="dbo\Tables\UserDefined_49.sql" />
+    <Build Include="dbo\Tables\UserDefined_48.sql" />
+    <Build Include="dbo\Tables\UserDefined_47.sql" />
+    <Build Include="dbo\Tables\UserDefined_46.sql" />
+    <Build Include="dbo\Tables\UserDefined_45.sql" />
+    <Build Include="dbo\Tables\UserDefined_44.sql" />
+    <Build Include="dbo\Tables\UserDefined_43.sql" />
+    <Build Include="dbo\Tables\UserDefined_42.sql" />
+    <Build Include="dbo\Tables\UserDefined_41.sql" />
+    <Build Include="dbo\Tables\UserDefined_40.sql" />
+    <Build Include="dbo\Tables\UserDefined_4.sql" />
+    <Build Include="dbo\Tables\UserDefined_39.sql" />
+    <Build Include="dbo\Tables\UserDefined_38.sql" />
+    <Build Include="dbo\Tables\UserDefined_37.sql" />
+    <Build Include="dbo\Tables\UserDefined_36.sql" />
+    <Build Include="dbo\Tables\UserDefined_35.sql" />
+    <Build Include="dbo\Tables\UserDefined_34.sql" />
+    <Build Include="dbo\Tables\UserDefined_33.sql" />
+    <Build Include="dbo\Tables\UserDefined_32.sql" />
+    <Build Include="dbo\Tables\UserDefined_31.sql" />
+    <Build Include="dbo\Tables\UserDefined_30.sql" />
+    <Build Include="dbo\Tables\UserDefined_3.sql" />
+    <Build Include="dbo\Tables\UserDefined_29.sql" />
+    <Build Include="dbo\Tables\UserDefined_28.sql" />
+    <Build Include="dbo\Tables\UserDefined_27.sql" />
+    <Build Include="dbo\Tables\UserDefined_26.sql" />
+    <Build Include="dbo\Tables\UserDefined_25.sql" />
+    <Build Include="dbo\Tables\UserDefined_24.sql" />
+    <Build Include="dbo\Tables\UserDefined_23.sql" />
+    <Build Include="dbo\Tables\UserDefined_22.sql" />
+    <Build Include="dbo\Tables\UserDefined_21.sql" />
+    <Build Include="dbo\Tables\UserDefined_20.sql" />
+    <Build Include="dbo\Tables\UserDefined_2.sql" />
+    <Build Include="dbo\Tables\UserDefined_19.sql" />
+    <Build Include="dbo\Tables\UserDefined_18.sql" />
+    <Build Include="dbo\Tables\UserDefined_17.sql" />
+    <Build Include="dbo\Tables\UserDefined_16.sql" />
+    <Build Include="dbo\Tables\UserDefined_15.sql" />
+    <Build Include="dbo\Tables\UserDefined_14.sql" />
+    <Build Include="dbo\Tables\UserDefined_13.sql" />
+    <Build Include="dbo\Tables\UserDefined_12.sql" />
+    <Build Include="dbo\Tables\UserDefined_11.sql" />
+    <Build Include="dbo\Tables\UserDefined_10.sql" />
+    <Build Include="dbo\Tables\UserDefined_1.sql" />
+    <Build Include="dbo\Tables\UOM.sql" />
+    <Build Include="dbo\Tables\TubingItem.sql" />
+    <Build Include="dbo\Tables\Tubing.sql" />
+    <Build Include="dbo\Tables\TimeLogActivityItem.sql" />
+    <Build Include="dbo\Tables\TimeLog.sql" />
+    <Build Include="dbo\Tables\SurveyItem.sql" />
+    <Build Include="dbo\Tables\Survey.sql" />
+    <Build Include="dbo\Tables\Solids.sql" />
+    <Build Include="dbo\Tables\Pumps.sql" />
+    <Build Include="dbo\Tables\PumpItems.sql" />
+    <Build Include="dbo\Tables\ProductionCostItem.sql" />
+    <Build Include="dbo\Tables\ProductionCostContingency.sql" />
+    <Build Include="dbo\Tables\ProductionCost.sql" />
+    <Build Include="dbo\Tables\PersonnelItem.sql" />
+    <Build Include="dbo\Tables\Personnel.sql" />
+    <Build Include="dbo\Tables\Packers.sql" />
+    <Build Include="dbo\Tables\PackerItem.sql" />
+    <Build Include="dbo\Tables\NonAFECostItem.sql" />
+    <Build Include="dbo\Tables\NonAFECostContingency.sql" />
+    <Build Include="dbo\Tables\NonAFECost.sql" />
+    <Build Include="dbo\Tables\MudInventoryRepeatable.sql" />
+    <Build Include="dbo\Tables\MudInventoryMaterialRepeatable.sql" />
+    <Build Include="dbo\Tables\MudInventoryData.sql" />
+    <Build Include="dbo\Tables\MudCheck_4.sql" />
+    <Build Include="dbo\Tables\MudCheck_3.sql" />
+    <Build Include="dbo\Tables\MudCheck_2.sql" />
+    <Build Include="dbo\Tables\MudCheck_1.sql" />
+    <Build Include="dbo\Tables\LOECostItem.sql" />
+    <Build Include="dbo\Tables\LOECostContingency.sql" />
+    <Build Include="dbo\Tables\LOECost.sql" />
+    <Build Include="dbo\Tables\LocationInfo.sql" />
+    <Build Include="dbo\Tables\JobDetails.sql" />
+    <Build Include="dbo\Tables\JobCustomItem_5.sql" />
+    <Build Include="dbo\Tables\JobCustomItem_4.sql" />
+    <Build Include="dbo\Tables\JobCustomItem_3.sql" />
+    <Build Include="dbo\Tables\JobCustomItem_2.sql" />
+    <Build Include="dbo\Tables\JobCustomItem_1.sql" />
+    <Build Include="dbo\Tables\JobCustom_5.sql" />
+    <Build Include="dbo\Tables\JobCustom_4.sql" />
+    <Build Include="dbo\Tables\JobCustom_3.sql" />
+    <Build Include="dbo\Tables\JobCustom_2.sql" />
+    <Build Include="dbo\Tables\JobCustom_1.sql" />
+    <Build Include="dbo\Tables\FlowbackItem.sql" />
+    <Build Include="dbo\Tables\Flowback.sql" />
+    <Build Include="dbo\Tables\FacilitiesCostItem.sql" />
+    <Build Include="dbo\Tables\FacilitiesCostContingency.sql" />
+    <Build Include="dbo\Tables\FacilitiesCost.sql" />
+    <Build Include="dbo\Tables\Environmental.sql" />
+    <Build Include="dbo\Tables\DrillingCostItem.sql" />
+    <Build Include="dbo\Tables\DrillingCostContingency.sql" />
+    <Build Include="dbo\Tables\DrillingCost.sql" />
+    <Build Include="dbo\Tables\DrillBreakItem.sql" />
+    <Build Include="dbo\Tables\DrillBreak.sql" />
+    <Build Include="dbo\Tables\DisabledReportFormLayouts.sql" />
+    <Build Include="dbo\Tables\DeletedWells.sql" />
+    <Build Include="dbo\Tables\DeletedLocations.sql" />
+    <Build Include="dbo\Tables\DeletedJobs.sql" />
+    <Build Include="dbo\Tables\DeletedDailyReports.sql" />
+    <Build Include="dbo\Tables\DeletedAssets.sql" />
+    <Build Include="dbo\Tables\DatumPoints.sql" />
+    <Build Include="dbo\Tables\DailyOps3.sql" />
+    <Build Include="dbo\Tables\DailyOps2.sql" />
+    <Build Include="dbo\Tables\DailyOps.sql" />
+    <Build Include="dbo\Tables\Custom5CostItem.sql" />
+    <Build Include="dbo\Tables\Custom5CostContingency.sql" />
+    <Build Include="dbo\Tables\Custom5Cost.sql" />
+    <Build Include="dbo\Tables\Custom4CostItem.sql" />
+    <Build Include="dbo\Tables\Custom4CostContingency.sql" />
+    <Build Include="dbo\Tables\Custom4Cost.sql" />
+    <Build Include="dbo\Tables\Custom3CostItem.sql" />
+    <Build Include="dbo\Tables\Custom3CostContingency.sql" />
+    <Build Include="dbo\Tables\Custom3Cost.sql" />
+    <Build Include="dbo\Tables\Custom2CostItem.sql" />
+    <Build Include="dbo\Tables\Custom2CostContingency.sql" />
+    <Build Include="dbo\Tables\Custom2Cost.sql" />
+    <Build Include="dbo\Tables\Custom1CostItem.sql" />
+    <Build Include="dbo\Tables\Custom1CostContingency.sql" />
+    <Build Include="dbo\Tables\Custom1Cost.sql" />
+    <Build Include="dbo\Tables\CostVendor.sql" />
+    <Build Include="dbo\Tables\CostAllocationItem.sql" />
+    <Build Include="dbo\Tables\CostAllocation.sql" />
+    <Build Include="dbo\Tables\CompletionFluid.sql" />
+    <Build Include="dbo\Tables\CompletionCostItem.sql" />
+    <Build Include="dbo\Tables\CompletionCostContingency.sql" />
+    <Build Include="dbo\Tables\CompletionCost.sql" />
+    <Build Include="dbo\Tables\CementingItem.sql" />
+    <Build Include="dbo\Tables\Cementing.sql" />
+    <Build Include="dbo\Tables\CasingItem.sql" />
+    <Build Include="dbo\Tables\Casing.sql" />
+    <Build Include="dbo\Tables\BHAItem.sql" />
+    <Build Include="dbo\Tables\BHA.sql" />
+    <Build Include="dbo\Tables\AFEItems.sql" />
+    <Build Include="dbo\Tables\AFE.sql" />
+    <Build Include="dbo\Tables\ActivityTimesItem.sql" />
+    <Build Include="dbo\Tables\ActivityTimes.sql" />
+    <Build Include="tell\Tables\XMLFiles.sql" />
+    <Build Include="tell\Tables\Stage_XMLFiles.sql" />
+    <Build Include="dbo\Views\VW_WorkoverCostSubItem.sql" />
+    <Build Include="dbo\Views\VW_WorkoverCostItem.sql" />
+    <Build Include="dbo\Views\VW_ProductionCostSubItem.sql" />
+    <Build Include="dbo\Views\VW_ProductionCostItem.sql" />
+    <Build Include="dbo\Views\VW_NonAFECostSubItem.sql" />
+    <Build Include="dbo\Views\VW_NonAFECostItem.sql" />
+    <Build Include="dbo\Views\VW_LOECostSubItem.sql" />
+    <Build Include="dbo\Views\VW_LOECostItem.sql" />
+    <Build Include="dbo\Views\VW_FacilitiesCostSubItem.sql" />
+    <Build Include="dbo\Views\VW_FacilitiesCostItem.sql" />
+    <Build Include="dbo\Views\VW_DrillingCostSubItem.sql" />
+    <Build Include="dbo\Views\VW_DrillingCostItem.sql" />
+    <Build Include="dbo\Views\VW_Custom5CostSubItem.sql" />
+    <Build Include="dbo\Views\VW_Custom5CostItem.sql" />
+    <Build Include="dbo\Views\VW_Custom4CostSubItem.sql" />
+    <Build Include="dbo\Views\VW_Custom4CostItem.sql" />
+    <Build Include="dbo\Views\VW_Custom3CostSubItem.sql" />
+    <Build Include="dbo\Views\VW_Custom3CostItem.sql" />
+    <Build Include="dbo\Views\VW_Custom2CostSubItem.sql" />
+    <Build Include="dbo\Views\VW_Custom2CostItem.sql" />
+    <Build Include="dbo\Views\VW_Custom1CostSubItem.sql" />
+    <Build Include="dbo\Views\VW_Custom1CostItem.sql" />
+    <Build Include="dbo\Views\VW_CompletionCostSubItem.sql" />
+    <Build Include="dbo\Views\VW_CompletionCostItem.sql" />
+    <Build Include="tell\Views\vw_PersonnelHours.sql" />
+    <Build Include="tell\Views\vw_AFECostItem_Raw.sql" />
+    <Build Include="tell\Views\vw_AllCostItemDetail.sql" />
+    <Build Include="tell\Views\vw_AllCostItemTbls.sql" />
+    <Build Include="tell\Views\vw_AFECostItemDetail.sql" />
+    <Build Include="tell\Views\vw_AFECostItemTbls.sql" />
+    <Build Include="Security\TLN_upstream.sql" />
+    <Build Include="Security\tln_ttaylor.sql" />
+    <Build Include="Security\TLN_svc-powerbi.sql" />
+    <Build Include="Security\TLN_jlogbotche.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ImportXML.sql" />
+    <Build Include="tell\Stored Procedures\sp_UploadXMLFiles.sql" />
+    <Build Include="Security\ttaylor.sql" />
+    <Build Include="Security\tell.sql" />
+  </ItemGroup>
+</Project>

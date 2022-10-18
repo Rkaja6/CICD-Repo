@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[COA_TRANS_CATS] (
+    [COA_TRANS_CATS_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [TRANS_CATS]        VARCHAR (17)  NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([COA_TRANS_CATS_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [COA_TRANS_CATS_u2_id_in]
+    ON [dbo].[COA_TRANS_CATS]([u2_id] ASC);
+

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[VENDOR_VBA] (
+    [subValueId]           VARCHAR (255) NOT NULL,
+    [VENDOR_CO_ID]         VARCHAR (255) NULL,
+    [CO_VBA_EFF_DATES]     DATETIME      NULL,
+    [CO_VBA_EXP_DATES]     DATETIME      NULL,
+    [CO_VENDOR_BANK_ACCTS] VARCHAR (5)   NULL,
+    [time_stamp]           DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [VENDOR_VBA_VENDOR_CO_ID_in]
+    ON [dbo].[VENDOR_VBA]([VENDOR_CO_ID] ASC);
+

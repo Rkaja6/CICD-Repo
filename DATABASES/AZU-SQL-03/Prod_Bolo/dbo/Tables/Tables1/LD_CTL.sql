@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[LD_CTL] (
+    [u2_id]                     VARCHAR (255) NOT NULL,
+    [LEASE_NO_SUFFIX_DELIMITER] VARCHAR (9)   NULL,
+    [RECORD_TYPE_FLAG]          VARCHAR (10)  NULL,
+    [RENTAL_LET_CLOSE_PARA]     VARCHAR (50)  NULL,
+    [RENTAL_LET_CLOSING1]       VARCHAR (20)  NULL,
+    [RENTAL_LET_CLOSING2]       VARCHAR (20)  NULL,
+    [RENTAL_LET_OPEN_WE_PAY]    VARCHAR (50)  NULL,
+    [RENTAL_LET_OPEN_YOU_PAY]   VARCHAR (50)  NULL,
+    [RENTAL_LET_SALUTATION]     VARCHAR (20)  NULL,
+    [RENTAL_LET_SIGNER]         VARCHAR (20)  NULL,
+    [time_stamp]                DATETIME      NULL,
+    [u2_checksum]               VARCHAR (25)  NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

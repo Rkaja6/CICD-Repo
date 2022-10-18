@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[UPR_RPT_AUDIT] (
+    [UPR_RPT_AUDIT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]            VARCHAR (255) NULL,
+    [SYSTEM_DATE]      DATETIME      NULL,
+    [SYSTEM_TIME]      VARCHAR (8)   NULL,
+    [SYSTEM_USER_]     VARCHAR (5)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([UPR_RPT_AUDIT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [UPR_RPT_AUDIT_u2_id_in]
+    ON [dbo].[UPR_RPT_AUDIT]([u2_id] ASC);
+

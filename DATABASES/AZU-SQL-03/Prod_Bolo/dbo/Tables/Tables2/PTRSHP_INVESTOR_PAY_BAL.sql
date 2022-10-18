@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PTRSHP_INVESTOR_PAY_BAL] (
+    [PTRSHP_INVESTOR_PAY_BAL_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]                      VARCHAR (255)   NULL,
+    [PAY_BAL_DATES]              DATETIME        NULL,
+    [PTR_PAY_BALS]               NUMERIC (19, 2) NULL,
+    [time_stamp]                 DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([PTRSHP_INVESTOR_PAY_BAL_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PTRSHP_IN_u2_id_98478]
+    ON [dbo].[PTRSHP_INVESTOR_PAY_BAL]([u2_id] ASC);
+

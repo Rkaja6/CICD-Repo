@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[GL_CC_CONS_PRD_DISP] (
+    [subValueId]              VARCHAR (255)   NOT NULL,
+    [GL_CC_CONS_ACCTG_PER_ID] VARCHAR (255)   NULL,
+    [PRD_DISPS]               VARCHAR (6)     NULL,
+    [PRD_DISP_AMTS]           NUMERIC (19, 2) NULL,
+    [PRD_DISP_STAT2_AMTS]     NUMERIC (19, 2) NULL,
+    [time_stamp]              DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [GL_CC_CON_GL_CC_CON_38467]
+    ON [dbo].[GL_CC_CONS_PRD_DISP]([GL_CC_CONS_ACCTG_PER_ID] ASC);
+

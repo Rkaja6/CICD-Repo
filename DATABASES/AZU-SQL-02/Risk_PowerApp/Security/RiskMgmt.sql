@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [RiskMgmt]
+    AUTHORIZATION [dbo];
+

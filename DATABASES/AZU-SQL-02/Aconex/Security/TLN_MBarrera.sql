@@ -1,0 +1,2 @@
+﻿CREATE USER [TLN\MBarrera] FOR LOGIN [TLN\MBarrera];
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[OBD_COA_IDX] (
+    [OBD_COA_IDX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]          VARCHAR (255) NULL,
+    [INDEX_SUB]      VARCHAR (5)   NULL,
+    [time_stamp]     DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([OBD_COA_IDX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OBD_COA_IDX_u2_id_in]
+    ON [dbo].[OBD_COA_IDX]([u2_id] ASC);
+

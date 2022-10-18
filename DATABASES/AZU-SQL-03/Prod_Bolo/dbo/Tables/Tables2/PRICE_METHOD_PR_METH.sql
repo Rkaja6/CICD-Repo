@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PRICE_METHOD_PR_METH] (
+    [PRICE_METHOD_PR_METH_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                   VARCHAR (255) NULL,
+    [PRICE_METHODS]           VARCHAR (8)   NULL,
+    [SALE_DATES]              DATETIME      NULL,
+    [time_stamp]              DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PRICE_METHOD_PR_METH_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PRICE_METHOD_PR_METH_u2_id_in]
+    ON [dbo].[PRICE_METHOD_PR_METH]([u2_id] ASC);
+

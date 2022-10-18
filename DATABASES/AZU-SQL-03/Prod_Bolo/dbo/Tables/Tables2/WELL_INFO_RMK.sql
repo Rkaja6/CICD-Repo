@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[WELL_INFO_RMK] (
+    [WELL_INFO_RMK_ID] VARCHAR (255)  NOT NULL,
+    [u2_id]            VARCHAR (255)  NULL,
+    [REMARKS]          VARCHAR (1249) NULL,
+    [REMARK_CODES]     VARCHAR (7)    NULL,
+    [REMARK_DATES]     DATETIME       NULL,
+    [time_stamp]       DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([WELL_INFO_RMK_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [WELL_INFO_RMK_u2_id_in]
+    ON [dbo].[WELL_INFO_RMK]([u2_id] ASC);
+

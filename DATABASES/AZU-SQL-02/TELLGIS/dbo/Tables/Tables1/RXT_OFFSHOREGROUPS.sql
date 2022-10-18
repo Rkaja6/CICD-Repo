@@ -1,0 +1,23 @@
+﻿CREATE TABLE [dbo].[RXT_OFFSHOREGROUPS] (
+    [OBJECTID]          INT              NOT NULL,
+    [MMS_REGION]        NVARCHAR (1)     NULL,
+    [MMS_PLAN_A]        NVARCHAR (3)     NULL,
+    [AREA_CODE]         NVARCHAR (2)     NULL,
+    [GROUP_NAME]        NVARCHAR (50)    NULL,
+    [STATE_NAME]        NVARCHAR (30)    NULL,
+    [CNTRY_NAME]        NVARCHAR (30)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R362_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g325_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S325_idx]
+    ON [dbo].[RXT_OFFSHOREGROUPS] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -9035815.1351, XMIN = -10824595.5915, YMAX = 3540765.5798, YMIN = 2726717.7443),
+            CELLS_PER_OBJECT = 16
+          );
+

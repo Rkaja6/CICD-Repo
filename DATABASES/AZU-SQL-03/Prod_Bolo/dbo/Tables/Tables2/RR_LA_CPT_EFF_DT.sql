@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[RR_LA_CPT_EFF_DT] (
+    [subValueId]    VARCHAR (255)   NOT NULL,
+    [RR_LA_CPT_ID]  VARCHAR (255)   NULL,
+    [CALC_BASIS]    VARCHAR (20)    NULL,
+    [CPT_EFF_DATES] DATETIME        NULL,
+    [CPT_EXP_DATES] DATETIME        NULL,
+    [RATES]         NUMERIC (19, 8) NULL,
+    [REMIT_TYPES]   VARCHAR (5)     NULL,
+    [time_stamp]    DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_LA_CPT_RR_LA_CPT_73250]
+    ON [dbo].[RR_LA_CPT_EFF_DT]([RR_LA_CPT_ID] ASC);
+

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[TANK_PRODUCT] (
+    [TANK_PRODUCT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]           VARCHAR (255) NULL,
+    [PRODUCT]         VARCHAR (7)   NULL,
+    [time_stamp]      DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([TANK_PRODUCT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [TANK_PRODUCT_u2_id_in]
+    ON [dbo].[TANK_PRODUCT]([u2_id] ASC);
+

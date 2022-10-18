@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[INS_CERT_TYP] (
+    [INS_CERT_TYP_ID]  VARCHAR (255)   NOT NULL,
+    [u2_id]            VARCHAR (255)   NULL,
+    [ACTUAL_COVERAGES] NUMERIC (19, 2) NULL,
+    [CARRIERS]         VARCHAR (87)    NULL,
+    [INS_EFF_DATES]    DATETIME        NULL,
+    [INS_EXP_DATES]    DATETIME        NULL,
+    [INS_STATUS]       VARCHAR (4)     NULL,
+    [INS_TYPES]        VARCHAR (4)     NULL,
+    [REQ_COVERAGES]    NUMERIC (19, 2) NULL,
+    [time_stamp]       DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([INS_CERT_TYP_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [INS_CERT_TYP_u2_id_in]
+    ON [dbo].[INS_CERT_TYP]([u2_id] ASC);
+

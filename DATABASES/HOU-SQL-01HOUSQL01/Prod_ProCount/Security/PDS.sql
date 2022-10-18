@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [PDS]
+    AUTHORIZATION [dbo];
+

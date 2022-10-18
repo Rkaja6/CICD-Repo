@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[WELL_INFO_RECT] (
+    [WELL_INFO_RECT_ID] VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [LEG_SUBDIVS]       VARCHAR (10)  NULL,
+    [RANGES]            VARCHAR (6)   NULL,
+    [SECTIONS]          VARCHAR (4)   NULL,
+    [SEC_DESCS]         VARCHAR (561) NULL,
+    [TOWNSHIPS]         VARCHAR (4)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([WELL_INFO_RECT_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [WELL_INFO_RECT_u2_id_in]
+    ON [dbo].[WELL_INFO_RECT]([u2_id] ASC);
+

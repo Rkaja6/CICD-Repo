@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[LEASE_DMG] (
+    [LEASE_DMG_ID]      VARCHAR (255)   NOT NULL,
+    [u2_id]             VARCHAR (255)   NULL,
+    [DAMAGES_AMTS]      NUMERIC (19, 2) NULL,
+    [DAMAGES_PAYEES]    VARCHAR (25)    NULL,
+    [DAMAGES_PMT_DATES] VARCHAR (8)     NULL,
+    [time_stamp]        DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([LEASE_DMG_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LEASE_DMG_u2_id_in]
+    ON [dbo].[LEASE_DMG]([u2_id] ASC);
+

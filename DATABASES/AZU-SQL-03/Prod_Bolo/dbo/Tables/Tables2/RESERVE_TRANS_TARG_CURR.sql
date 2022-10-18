@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[RESERVE_TRANS_TARG_CURR] (
+    [RESERVE_TRANS_TARG_CURR_ID] VARCHAR (255)   NOT NULL,
+    [u2_id]                      VARCHAR (255)   NULL,
+    [EXCH_RATE]                  NUMERIC (19, 4) NULL,
+    [EXCH_RATE_DATE]             VARCHAR (8)     NULL,
+    [EXCH_RATE_SOURCE]           VARCHAR (8)     NULL,
+    [TARGET_CURRENCIES]          VARCHAR (4)     NULL,
+    [time_stamp]                 DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([RESERVE_TRANS_TARG_CURR_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RESERVE_T_u2_id_78740]
+    ON [dbo].[RESERVE_TRANS_TARG_CURR]([u2_id] ASC);
+

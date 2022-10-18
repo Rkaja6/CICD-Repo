@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[MMS_PRODUCT_PRD] (
+    [MMS_PRODUCT_PRD_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [REV_PRD]            VARCHAR (7)   NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([MMS_PRODUCT_PRD_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MMS_PRODUCT_PRD_u2_id_in]
+    ON [dbo].[MMS_PRODUCT_PRD]([u2_id] ASC);
+

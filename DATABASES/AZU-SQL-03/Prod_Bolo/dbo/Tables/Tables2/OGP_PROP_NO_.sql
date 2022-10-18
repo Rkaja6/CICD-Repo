@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[OGP_PROP_NO_] (
+    [subValueId]       VARCHAR (255)   NOT NULL,
+    [OGP_PROP_CO_ID]   VARCHAR (255)   NULL,
+    [CO_OGCC_DECIMALS] NUMERIC (19, 8) NULL,
+    [CO_OGCC_NOS]      VARCHAR (6)     NULL,
+    [time_stamp]       DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OGP_PROP_NO__OGP_PROP_CO_ID_in]
+    ON [dbo].[OGP_PROP_NO_]([OGP_PROP_CO_ID] ASC);
+

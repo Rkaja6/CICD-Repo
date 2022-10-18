@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[MEAS_PT_EQUIP_TP] (
+    [subValueId]       VARCHAR (255) NOT NULL,
+    [MEAS_PT_EQUIP_ID] VARCHAR (255) NULL,
+    [EQUIP_IDS]        VARCHAR (8)   NULL,
+    [EQUIP_TYPES]      VARCHAR (5)   NULL,
+    [time_stamp]       DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [MEAS_PT_E_MEAS_PT_E_4309]
+    ON [dbo].[MEAS_PT_EQUIP_TP]([MEAS_PT_EQUIP_ID] ASC);
+

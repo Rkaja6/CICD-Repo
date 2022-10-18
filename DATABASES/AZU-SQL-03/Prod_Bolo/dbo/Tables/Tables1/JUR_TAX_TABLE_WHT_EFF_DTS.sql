@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[JUR_TAX_TABLE_WHT_EFF_DTS] (
+    [subValueId]           VARCHAR (255)   NOT NULL,
+    [JUR_TAX_TABLE_WHT_ID] VARCHAR (255)   NULL,
+    [WHT_EFF_DATES]        DATETIME        NULL,
+    [WHT_RATES]            NUMERIC (19, 8) NULL,
+    [time_stamp]           DATETIME        NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [JUR_TAX_T_JUR_TAX_T_10445]
+    ON [dbo].[JUR_TAX_TABLE_WHT_EFF_DTS]([JUR_TAX_TABLE_WHT_ID] ASC);
+

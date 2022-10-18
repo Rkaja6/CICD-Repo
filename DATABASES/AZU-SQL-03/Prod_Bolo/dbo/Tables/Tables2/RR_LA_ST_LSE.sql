@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[RR_LA_ST_LSE] (
+    [RR_LA_ST_LSE_ID]   VARCHAR (255) NOT NULL,
+    [u2_id]             VARCHAR (255) NULL,
+    [GAS_CERTIFICATION] VARCHAR (4)   NULL,
+    [GAS_CONTINUITY]    VARCHAR (4)   NULL,
+    [GAS_RATE_CODE]     VARCHAR (4)   NULL,
+    [LSE_EFF_DATES]     DATETIME      NULL,
+    [LSE_EXP_DATES]     DATETIME      NULL,
+    [MEAS_METHOD]       VARCHAR (6)   NULL,
+    [OIL_CERTIFICATION] VARCHAR (4)   NULL,
+    [OIL_CONTINUITY]    VARCHAR (4)   NULL,
+    [OIL_RATE_CODE]     VARCHAR (4)   NULL,
+    [PROD_METHOD]       VARCHAR (6)   NULL,
+    [SCHEDULE_]         VARCHAR (5)   NULL,
+    [WELL_CLASS]        VARCHAR (5)   NULL,
+    [WELL_NO]           VARCHAR (10)  NULL,
+    [WELL_SERIAL_NO]    VARCHAR (6)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([RR_LA_ST_LSE_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RR_LA_ST_LSE_u2_id_in]
+    ON [dbo].[RR_LA_ST_LSE]([u2_id] ASC);
+

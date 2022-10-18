@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[LD_QUERY_TEMPLATE_ATTR] (
+    [LD_QUERY_TEMPLATE_ATTR_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                     VARCHAR (255) NULL,
+    [OPERATORS]                 VARCHAR (8)   NULL,
+    [SEARCH_ATTRIBUTES]         VARCHAR (9)   NULL,
+    [time_stamp]                DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([LD_QUERY_TEMPLATE_ATTR_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [LD_QUERY__u2_id_43645]
+    ON [dbo].[LD_QUERY_TEMPLATE_ATTR]([u2_id] ASC);
+

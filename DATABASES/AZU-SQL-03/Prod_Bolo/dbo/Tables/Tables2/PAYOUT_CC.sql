@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[PAYOUT_CC] (
+    [PAYOUT_CC_ID] VARCHAR (255) NOT NULL,
+    [u2_id]        VARCHAR (255) NULL,
+    [COST_CENTERS] VARCHAR (12)  NULL,
+    [time_stamp]   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PAYOUT_CC_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PAYOUT_CC_u2_id_in]
+    ON [dbo].[PAYOUT_CC]([u2_id] ASC);
+

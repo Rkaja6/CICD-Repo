@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[WELL_DOWN_PROD_DAILY_INDEX] (
+    [WELL_DOWN_PROD_DAILY_INDEX_ID] VARCHAR (255) NOT NULL,
+    [u2_id]                         VARCHAR (255) NULL,
+    [PROD_DAILY_INDEX]              DATETIME      NULL,
+    [time_stamp]                    DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([WELL_DOWN_PROD_DAILY_INDEX_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [WELL_DOWN_u2_id_78927]
+    ON [dbo].[WELL_DOWN_PROD_DAILY_INDEX]([u2_id] ASC);
+

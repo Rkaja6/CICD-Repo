@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[BANK_ACCT] (
+    [u2_id]             VARCHAR (255) NOT NULL,
+    [ABA_NO]            VARCHAR (10)  NULL,
+    [ACCT_NAME]         VARCHAR (47)  NULL,
+    [ACCT_NO]           VARCHAR (12)  NULL,
+    [ACH_CO_ID_CCD]     VARCHAR (10)  NULL,
+    [ACH_CO_ID_PPD]     VARCHAR (10)  NULL,
+    [ACH_SERVICE_CLASS] VARCHAR (7)   NULL,
+    [AUTO_MICR]         VARCHAR (4)   NULL,
+    [BANK]              VARCHAR (9)   NULL,
+    [CLOSE_DATE]        DATETIME      NULL,
+    [COMPANY]           VARCHAR (3)   NULL,
+    [CURRENCY]          VARCHAR (4)   NULL,
+    [DEPOSIT_ENABLED]   VARCHAR (7)   NULL,
+    [EXG_RATE_SRC]      VARCHAR (10)  NULL,
+    [GL_ACCT]           VARCHAR (12)  NULL,
+    [IMMEDIATE_DEST]    VARCHAR (11)  NULL,
+    [IMMEDIATE_ORIG]    VARCHAR (10)  NULL,
+    [NEXT_CHECK_NO]     VARCHAR (8)   NULL,
+    [OPEN_DATE]         DATETIME      NULL,
+    [POSPAY_TYPE]       VARCHAR (4)   NULL,
+    [SECURE_REF]        VARCHAR (6)   NULL,
+    [time_stamp]        DATETIME      NULL,
+    [u2_checksum]       VARCHAR (25)  NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

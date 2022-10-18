@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[AP_APPR_PROF_CO] (
+    [AP_APPR_PROF_CO_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [COMPANIES]          VARCHAR (3)   NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([AP_APPR_PROF_CO_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [AP_APPR_PROF_CO_u2_id_in]
+    ON [dbo].[AP_APPR_PROF_CO]([u2_id] ASC);
+

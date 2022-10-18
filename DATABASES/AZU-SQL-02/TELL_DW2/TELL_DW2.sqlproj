@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>TELL_DW2</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{7455fd08-9628-455f-9688-f5d7216e499f}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>TELL_DW2</RootNamespace>
+    <AssemblyName>TELL_DW2</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Upstream\" />
+    <Folder Include="Upstream\Tables\" />
+    <Folder Include="temp\" />
+    <Folder Include="temp\Tables\" />
+    <Folder Include="StageRystad\" />
+    <Folder Include="StageRystad\Tables\" />
+    <Folder Include="StagePLE\" />
+    <Folder Include="StagePLE\Tables\" />
+    <Folder Include="StagePeloton\" />
+    <Folder Include="StagePeloton\Tables\" />
+    <Folder Include="StagePEAK_DW\" />
+    <Folder Include="StagePEAK_DW\Tables\" />
+    <Folder Include="StageIHS\" />
+    <Folder Include="StageIHS\Tables\" />
+    <Folder Include="StageEIA\" />
+    <Folder Include="StageEIA\Tables\" />
+    <Folder Include="StageDI\" />
+    <Folder Include="StageDI\Tables\" />
+    <Folder Include="StageBOLO\" />
+    <Folder Include="StageBOLO\Tables\" />
+    <Folder Include="StageAries\" />
+    <Folder Include="StageAries\Tables\" />
+    <Folder Include="Research\" />
+    <Folder Include="Research\Tables\" />
+    <Folder Include="DW\" />
+    <Folder Include="DW\Tables\" />
+    <Folder Include="Upstream\Views\" />
+    <Folder Include="Research\Views\" />
+    <Folder Include="DW\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="Upstream\Stored Procedures\" />
+    <Folder Include="DW\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\AzureSQLMaintenanceLog.sql" />
+    <Build Include="Upstream\Tables\RefWell_HoleDirection.sql" />
+    <Build Include="Upstream\Tables\RefWell_County.sql" />
+    <Build Include="Upstream\Tables\RefWell_Classification.sql" />
+    <Build Include="Upstream\Tables\RefWell_Activity.sql" />
+    <Build Include="Upstream\Tables\NOAATemperatures.sql" />
+    <Build Include="Upstream\Tables\UV_AC_PRODUCT_AT.sql" />
+    <Build Include="Upstream\Tables\UV_AC_PROP_AT.sql" />
+    <Build Include="Upstream\Tables\RefWell_PlayByStateCounty.sql" />
+    <Build Include="Upstream\Tables\RefWell_State.sql" />
+    <Build Include="Upstream\Tables\WellHeader.sql" />
+    <Build Include="Upstream\Tables\WellHeader_WellTreatment.sql" />
+    <Build Include="Upstream\Tables\WellHeader_LateralLengthComparison.sql" />
+    <Build Include="Upstream\Tables\WellHeader_AllSources.sql" />
+    <Build Include="Upstream\Tables\UV_PEAK_PROD_AT.sql" />
+    <Build Include="Upstream\Tables\UV_AC_PRODUCT_AT_Backup_20200229.sql" />
+    <Build Include="Upstream\Tables\TransformationQueries.sql" />
+    <Build Include="Upstream\Tables\RefWell_Status.sql" />
+    <Build Include="Upstream\Tables\RefWell_PrimaryProduct.sql" />
+    <Build Include="Upstream\Tables\RefWell_PlayByStateCounty_bkp20200228.sql" />
+    <Build Include="temp\Tables\ProducingEntities.sql" />
+    <Build Include="StageRystad\Tables\WellHeader.sql" />
+    <Build Include="StageRystad\Tables\Operator.sql" />
+    <Build Include="StageRystad\Tables\Location.sql" />
+    <Build Include="StageRystad\Tables\Geography.sql" />
+    <Build Include="StagePLE\Tables\RegionalFlowPipeline.sql" />
+    <Build Include="StagePLE\Tables\PointMedadata.sql" />
+    <Build Include="StagePLE\Tables\FlowByPoints.sql" />
+    <Build Include="StagePLE\Tables\AggregateFlow.sql" />
+    <Build Include="StagePeloton\Tables\wvjobafe.sql" />
+    <Build Include="StagePeloton\Tables\wvwellheader.sql" />
+    <Build Include="StagePeloton\Tables\wvwellboredirsurvey.sql" />
+    <Build Include="StagePeloton\Tables\wvjobreporttimelog.sql" />
+    <Build Include="StagePeloton\Tables\wvjobreportpersonnelcount.sql" />
+    <Build Include="StagePeloton\Tables\wvjobafefinalinvoicecost.sql" />
+    <Build Include="StagePeloton\Tables\wvjobafecost.sql" />
+    <Build Include="StagePeloton\Tables\wvjob.sql" />
+    <Build Include="StagePeloton\Tables\pvunitcompstatus.sql" />
+    <Build Include="StagePeloton\Tables\pvunitcompparam.sql" />
+    <Build Include="StagePeloton\Tables\pvunitcompdowntm.sql" />
+    <Build Include="StagePeloton\Tables\pvunitcomp.sql" />
+    <Build Include="StagePeloton\Tables\pvunitallocmonthday.sql" />
+    <Build Include="StagePeloton\Tables\pvunitallocmonth.sql" />
+    <Build Include="StagePeloton\Tables\pvunit.sql" />
+    <Build Include="StagePeloton\Tables\pvflownetheader.sql" />
+    <Build Include="StagePeloton\Tables\pvfacility.sql" />
+    <Build Include="StagePeloton\Tables\wvjobreportcostgen.sql" />
+    <Build Include="StagePeloton\Tables\wvjobreport.sql" />
+    <Build Include="StagePeloton\Tables\wvloccongressional.sql" />
+    <Build Include="StagePeloton\Tables\wvzone.sql" />
+    <Build Include="StagePeloton\Tables\wvwellboresize.sql" />
+    <Build Include="StagePeloton\Tables\wvwellbore.sql" />
+    <Build Include="StagePeloton\Tables\wvperforation.sql" />
+    <Build Include="StagePEAK_DW\Tables\LOS_GRP_INCL_ACCTS.sql" />
+    <Build Include="StagePEAK_DW\Tables\LOS_GRP_EXCL_ACCTS.sql" />
+    <Build Include="StagePEAK_DW\Tables\Cost_Center.sql" />
+    <Build Include="StageIHS\Tables\API_Update_List.sql" />
+    <Build Include="StageIHS\Tables\T_WELL_TREATMENT_SUMMARY.sql" />
+    <Build Include="StageIHS\Tables\T_WELL_TEST_PERFORATION.sql" />
+    <Build Include="StageIHS\Tables\T_WELL_HEADER.sql" />
+    <Build Include="StageIHS\Tables\T_PRODUCTION_PRODUCTION_WELL.sql" />
+    <Build Include="StageIHS\Tables\T_PRODUCTION_MONTHLY_PRODUCTION.sql" />
+    <Build Include="StageIHS\Tables\T_WELL_LOCATION.sql" />
+    <Build Include="StageIHS\Tables\T_PRODUCTION_PRODUCTION_HEADER.sql" />
+    <Build Include="StageEIA\Tables\RawEIATimeSeries.sql" />
+    <Build Include="StageDI\Tables\TreatmentStages.sql" />
+    <Build Include="StageDI\Tables\Permits.sql" />
+    <Build Include="StageDI\Tables\Completions.sql" />
+    <Build Include="StageDI\Tables\TreatmentMaterials.sql" />
+    <Build Include="StageDI\Tables\TreatmentJobs.sql" />
+    <Build Include="StageDI\Tables\Perforations.sql" />
+    <Build Include="StageDI\Tables\WellBores.sql" />
+    <Build Include="StageDI\Tables\WellRollups.sql" />
+    <Build Include="StageDI\Tables\WellOrigins.sql" />
+    <Build Include="StageDI\Tables\ProducingEntityDetails.sql" />
+    <Build Include="StageDI\Tables\ProducingEntities.sql" />
+    <Build Include="StageBOLO\Tables\DIV.sql" />
+    <Build Include="StageBOLO\Tables\BDECK.sql" />
+    <Build Include="StageBOLO\Tables\DIV_NRI.sql" />
+    <Build Include="StageBOLO\Tables\BDECK_WI.sql" />
+    <Build Include="StageBOLO\Tables\PROJ.sql" />
+    <Build Include="StageBOLO\Tables\TRANS.sql" />
+    <Build Include="StageBOLO\Tables\VOUCHER.sql" />
+    <Build Include="StageBOLO\Tables\RECEIPT.sql" />
+    <Build Include="StageBOLO\Tables\OWNER_SALE.sql" />
+    <Build Include="StageBOLO\Tables\OG_SALE.sql" />
+    <Build Include="StageBOLO\Tables\LEASE_PMT.sql" />
+    <Build Include="StageBOLO\Tables\JE.sql" />
+    <Build Include="StageBOLO\Tables\COA.sql" />
+    <Build Include="StageBOLO\Tables\FIN_RPT_FMT_ROW.sql" />
+    <Build Include="StageBOLO\Tables\DEPOSIT.sql" />
+    <Build Include="StageBOLO\Tables\NAME.sql" />
+    <Build Include="StageBOLO\Tables\CO.sql" />
+    <Build Include="StageBOLO\Tables\WELL_INFO.sql" />
+    <Build Include="StageBOLO\Tables\CHECK.sql" />
+    <Build Include="StageBOLO\Tables\PROSPECT.sql" />
+    <Build Include="StageBOLO\Tables\AR_INV_DET.sql" />
+    <Build Include="StageBOLO\Tables\FIELD.sql" />
+    <Build Include="StageBOLO\Tables\AR_INV.sql" />
+    <Build Include="StageBOLO\Tables\DISTRICT.sql" />
+    <Build Include="StageBOLO\Tables\AR_ADJ.sql" />
+    <Build Include="StageBOLO\Tables\CTY.sql" />
+    <Build Include="StageBOLO\Tables\AP_INV.sql" />
+    <Build Include="StageBOLO\Tables\AREA.sql" />
+    <Build Include="StageBOLO\Tables\AP_ADJ.sql" />
+    <Build Include="StageBOLO\Tables\CC.sql" />
+    <Build Include="StageBOLO\Tables\COA_GRP_CO_ACCTS.sql" />
+    <Build Include="StageBOLO\Tables\COA_GRP_CO.sql" />
+    <Build Include="StageBOLO\Tables\COA_GRP.sql" />
+    <Build Include="StageBOLO\Tables\GL_BUD_ACCTG_PER.sql" />
+    <Build Include="StageBOLO\Tables\GL_BUD.sql" />
+    <Build Include="StageAries\Tables\AC_PROPERTY.sql" />
+    <Build Include="StageAries\Tables\ROCK_AC_PROPERTY.sql" />
+    <Build Include="StageAries\Tables\ROCK_AC_PRODUCT.sql" />
+    <Build Include="StageAries\Tables\DVN_AC_PROPERTY.sql" />
+    <Build Include="StageAries\Tables\DVN_AC_PRODUCT.sql" />
+    <Build Include="StageAries\Tables\CPE_AC_PROPERTY.sql" />
+    <Build Include="StageAries\Tables\CPE_AC_PRODUCT.sql" />
+    <Build Include="StageAries\Tables\CHK_AC_PROPERTY.sql" />
+    <Build Include="StageAries\Tables\CHK_AC_PRODUCT.sql" />
+    <Build Include="Research\Tables\TimeSeries.sql" />
+    <Build Include="Research\Tables\RefTimeSeries.sql" />
+    <Build Include="Research\Tables\RefPoints.sql" />
+    <Build Include="Research\Tables\RefGeographyQuarterMileGridPointsUS.sql" />
+    <Build Include="Research\Tables\WellHeaderGridLocation.sql" />
+    <Build Include="DW\Tables\_HashKeyTranslation.sql" />
+    <Build Include="DW\Tables\LinkBudget.sql" />
+    <Build Include="DW\Tables\LinkAFESupp.sql" />
+    <Build Include="DW\Tables\LinkAFEEstimateCOA.sql" />
+    <Build Include="DW\Tables\LinkAFE.sql" />
+    <Build Include="DW\Tables\HubTransaction.sql" />
+    <Build Include="DW\Tables\HubPoint.sql" />
+    <Build Include="DW\Tables\HubBudget.sql" />
+    <Build Include="DW\Tables\HubAFEEstimate.sql" />
+    <Build Include="DW\Tables\HubAFE.sql" />
+    <Build Include="DW\Tables\ExceptionLog.sql" />
+    <Build Include="DW\Tables\_LinkHashKeyTranslation.sql" />
+    <Build Include="DW\Tables\SatWellOriginUID.sql" />
+    <Build Include="DW\Tables\SatWellOriginPropNum.sql" />
+    <Build Include="DW\Tables\SatProducingEntityUID.sql" />
+    <Build Include="DW\Tables\SatParty.sql" />
+    <Build Include="DW\Tables\SatLandDeckInterest.sql" />
+    <Build Include="DW\Tables\SatLandDeck.sql" />
+    <Build Include="DW\Tables\TransformationQueries.sql" />
+    <Build Include="DW\Tables\SatWellStatus.sql" />
+    <Build Include="DW\Tables\SatCostCenter.sql" />
+    <Build Include="DW\Tables\SatChartOfAccounts.sql" />
+    <Build Include="DW\Tables\SatTransaction.sql" />
+    <Build Include="DW\Tables\SatAddress.sql" />
+    <Build Include="DW\Tables\LinkWellOriginWellbore.sql" />
+    <Build Include="DW\Tables\LinkWellCostCenter.sql" />
+    <Build Include="DW\Tables\LinkWellboreWell.sql" />
+    <Build Include="DW\Tables\HubWellOrigin.sql" />
+    <Build Include="DW\Tables\SatBudget.sql" />
+    <Build Include="DW\Tables\SatAFEEstimates.sql" />
+    <Build Include="DW\Tables\LinkPartyAddress.sql" />
+    <Build Include="DW\Tables\HubWellbore.sql" />
+    <Build Include="DW\Tables\SatAFEEstimate.sql" />
+    <Build Include="DW\Tables\SatAFEBudgets.sql" />
+    <Build Include="DW\Tables\HubWell.sql" />
+    <Build Include="DW\Tables\SatAFEActuals.sql" />
+    <Build Include="DW\Tables\SatAFE.sql" />
+    <Build Include="DW\Tables\SatWellTreatment.sql" />
+    <Build Include="DW\Tables\SatWellLocation.sql" />
+    <Build Include="DW\Tables\SatWellHeader.sql" />
+    <Build Include="DW\Tables\HubTimeSeries.sql" />
+    <Build Include="DW\Tables\SatProduction.sql" />
+    <Build Include="DW\Tables\HubParty.sql" />
+    <Build Include="DW\Tables\SatWellInternal.sql" />
+    <Build Include="DW\Tables\LinkTransaction.sql" />
+    <Build Include="DW\Tables\HubLandDeckInterest.sql" />
+    <Build Include="DW\Tables\HubLandDeck.sql" />
+    <Build Include="DW\Tables\LinkLandDeckInterest.sql" />
+    <Build Include="DW\Tables\HubCostCenter.sql" />
+    <Build Include="DW\Tables\LinkLandDeck.sql" />
+    <Build Include="DW\Tables\LinkCostCenterOperator.sql" />
+    <Build Include="DW\Tables\HubChartOfAccounts.sql" />
+    <Build Include="DW\Tables\LinkCostCenterCompany.sql" />
+    <Build Include="DW\Tables\HubAddress.sql" />
+    <Build Include="Upstream\Views\WellHeader_ETX_GC.sql" />
+    <Build Include="Upstream\Views\WELL_STICK_PB_2K.sql" />
+    <Build Include="Upstream\Views\WELL_STICK_MS_2K.sql" />
+    <Build Include="Upstream\Views\AC_PROP_PB_2K.sql" />
+    <Build Include="Upstream\Views\WellHeader_PowderRiverBasin.sql" />
+    <Build Include="Upstream\Views\AC_PROP_MS_2K.sql" />
+    <Build Include="Upstream\Views\WellHeader_Permian.sql" />
+    <Build Include="Upstream\Views\WellHeader_Haynesville.sql" />
+    <Build Include="Upstream\Views\AC_PRODUCT_PB_2K_DI.sql" />
+    <Build Include="Upstream\Views\WellHeader_Eagle Ford.sql" />
+    <Build Include="Upstream\Views\AC_PRODUCT_PB_2K.sql" />
+    <Build Include="Upstream\Views\WellHeader_DJ-Niobrara.sql" />
+    <Build Include="Upstream\Views\AC_PRODUCT_MS_2K_DI.sql" />
+    <Build Include="Upstream\Views\WellHeader_Barnett.sql" />
+    <Build Include="Upstream\Views\WellHeader_Bakken.sql" />
+    <Build Include="Upstream\Views\AC_PRODUCT_MS_2K.sql" />
+    <Build Include="Upstream\Views\WellHeader_Appalachia.sql" />
+    <Build Include="Upstream\Views\WellHeader_Anadarko.sql" />
+    <Build Include="Upstream\Views\WELL_STICK_2K.sql" />
+    <Build Include="Upstream\Views\UV_WELL_STICK_AT.sql" />
+    <Build Include="Upstream\Views\vw_UC_AC_PROP_WithRefPlayNames.sql" />
+    <Build Include="Upstream\Views\AC_PROP_PB.sql" />
+    <Build Include="Upstream\Views\AC_PROP_MS.sql" />
+    <Build Include="Upstream\Views\AC_PROP_2K.sql" />
+    <Build Include="Upstream\Views\vw_WellHeader_LateralLengthComparison.sql" />
+    <Build Include="Upstream\Views\vw_UV_AC_PROP_WithRefPlayNames.sql" />
+    <Build Include="Upstream\Views\DUC_ALL_WELLS.sql" />
+    <Build Include="Upstream\Views\WELL_STICK_AB_2K.sql" />
+    <Build Include="Upstream\Views\AC_PROP_AB_2K.sql" />
+    <Build Include="Upstream\Views\WellProduction_ProductionByPlay.sql" />
+    <Build Include="Upstream\Views\AC_PRODUCT_AB_2K_DI.sql" />
+    <Build Include="Upstream\Views\AC_PRODUCT_AB_2K.sql" />
+    <Build Include="Upstream\Views\AC_PROP_AB.sql" />
+    <Build Include="Upstream\Views\WellHeader_PropertiesByPlay.sql" />
+    <Build Include="Research\Views\vw_TotalProductionByAreaAPIAsOfFirstProdDate.sql" />
+    <Build Include="DW\Views\vw_Upstream_WellHeader_LateralLengthComparison.sql" />
+    <Build Include="DW\Views\vw_WellWellBoreLinkStageData.sql" />
+    <Build Include="DW\Views\vw_WellOriginWellBoreLinkStageData.sql" />
+    <Build Include="DW\Views\vw_TellDWWellOriginPropNumSatStageData.sql" />
+    <Build Include="DW\Views\vw_PelotonWellHubStageData.sql" />
+    <Build Include="DW\Views\vw_PelotonAFEStageData.sql" />
+    <Build Include="DW\Views\vw_PelotonAFEHubStageData.sql" />
+    <Build Include="DW\Views\vw_IHSWellStatusSatStageData.sql" />
+    <Build Include="DW\Views\vw_IHSWellOriginHubStageData.sql" />
+    <Build Include="DW\Views\vw_IHSWellLocationSatStageData.sql" />
+    <Build Include="DW\Views\vw_IHSWellboreHubStageData.sql" />
+    <Build Include="DW\Views\vw_IHSProductionSatStageData.sql" />
+    <Build Include="DW\Views\vw_IHSProductionHeaderSatStageData.sql" />
+    <Build Include="DW\Views\vw_DIWellStatusSatStageData.sql" />
+    <Build Include="DW\Views\vw_DIWellOriginUIDSatStageData.sql" />
+    <Build Include="DW\Views\vw_DIWellOriginHubStageData.sql" />
+    <Build Include="DW\Views\vw_DIWellLocationSatStageData.sql" />
+    <Build Include="DW\Views\vw_DIWellboreHubStageData.sql" />
+    <Build Include="DW\Views\vw_DIProductionSatStageData.sql" />
+    <Build Include="DW\Views\vw_DIProductionHeaderSatStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOTransactionHubStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOTransactionChartOfAccountsLinkStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOTransactionAFELinkStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOPartyStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOLandDeckStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOLandDeckInterestStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOCostCenterStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOChartOfAccountsStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOAFEWellLinkStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOAFEStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOAFEEstimatesSatStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOAFEBudgetsSatStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOAFEActualsSatStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOAddressStageData.sql" />
+    <Build Include="DW\Views\vw_AriesWellOriginHubStageData.sql" />
+    <Build Include="DW\Views\vw_WellViewWellStatusSatStageData.sql" />
+    <Build Include="DW\Views\vw_ProdViewWellStatusSatStageData.sql" />
+    <Build Include="DW\Views\vw_ProdViewWellHeaderSatStageData.sql" />
+    <Build Include="DW\Views\vw_Upstream_UV_PEAK_PROD_AT.sql" />
+    <Build Include="DW\Views\vw_IHSWellHeaderSatStageData.sql" />
+    <Build Include="DW\Views\vw_Upstream_WellHeader_Treatment.sql" />
+    <Build Include="DW\Views\vw_DIWellTreatmentSatStageData.sql" />
+    <Build Include="DW\Views\vw_IHSWellTreatmentSatStageData.sql" />
+    <Build Include="DW\Views\vw_Upstream_UV_AC_PROP_AT.sql" />
+    <Build Include="DW\Views\vw_RystadWellHeaderSatStageData.sql" />
+    <Build Include="DW\Views\vw_Upstream_UV_AC_PRODUCT_AT.sql" />
+    <Build Include="DW\Views\vw_ResearchRefTimeSeriesEIAHeaders.sql" />
+    <Build Include="DW\Views\vw_DIWellHeaderSatStageData.sql" />
+    <Build Include="DW\Views\vw_ResearchTimeSeriesData.sql" />
+    <Build Include="DW\Views\vw_BOLOLOS_GRP_INCL_ACCTS.sql" />
+    <Build Include="DW\Views\vw_EIATimeSeriesHubStageData.sql" />
+    <Build Include="DW\Views\vw_BOLOAFE_Budget.sql" />
+    <Build Include="DW\Views\vw_WellViewWellHeaderSatStageData.sql" />
+    <Build Include="Security\Upstream_Role.sql" />
+    <Build Include="Security\Research_Role.sql" />
+    <Build Include="dbo\Functions\fn_GeographicMidpoint.sql" />
+    <Build Include="dbo\Functions\fn_DistanceBetweenPoints.sql" />
+    <Build Include="Upstream\Stored Procedures\sp_PopulateWellHeader.sql" />
+    <Build Include="Upstream\Stored Procedures\sp_PopulateTransformationQueries.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedProductionDataByAPIIHS.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedProductionDataBatchIHS.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedProductionDataBatch.sql" />
+    <Build Include="DW\Stored Procedures\sp_UpstreamPopulateWellHeaderStickMidpoints.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellWellBoreLinkData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellTreatmentData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellStatusData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellOriginWellBoreLinkData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellOriginUIDData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellOriginPropNumData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellOriginData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellLocationData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellHeaderData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedWellboreData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedTransactionsData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedProductionDataByAPI.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedProductionData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedProducingEntityData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedPartyAddressData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedLandDeckData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedInvoiceData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedEIAData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedCostCenterData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedChartOfAccountsData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedAFEEstimatesData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedAFEData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedAFEBudgetsData.sql" />
+    <Build Include="DW\Stored Procedures\sp_TransformInsertStagedAFEActualsData.sql" />
+    <Build Include="DW\Stored Procedures\sp_ResearchPopulateWellHeaderGridLocation.sql" />
+    <Build Include="DW\Stored Procedures\sp_RefreshTableFromView.sql" />
+    <Build Include="DW\Stored Procedures\sp_Generate_UV_PEAK_PROD.sql" />
+    <Build Include="DW\Stored Procedures\sp_Generate_UV_AC_Production_Aggregations_v2_byAPI.sql" />
+    <Build Include="DW\Stored Procedures\sp_Generate_UV_AC_Production_Aggregations_v2.sql" />
+    <Build Include="DW\Stored Procedures\sp_Generate_UV_AC_Production_Aggregations.sql" />
+    <Build Include="DW\Stored Procedures\sp_ExceptionLogandPurge.sql" />
+    <Build Include="Security\Upstream.sql" />
+    <Build Include="Security\temp.sql" />
+    <Build Include="Security\StageRystad.sql" />
+    <Build Include="Security\StagePLE.sql" />
+    <Build Include="Security\StagePeloton.sql" />
+    <Build Include="Security\StagePEAK_DW.sql" />
+    <Build Include="Security\StageIHS.sql" />
+    <Build Include="Security\StageEIA.sql" />
+    <Build Include="Security\StageDI.sql" />
+    <Build Include="Security\StageBOLO.sql" />
+    <Build Include="Security\StageAries.sql" />
+    <Build Include="Security\Research.sql" />
+    <Build Include="Security\DW.sql" />
+  </ItemGroup>
+</Project>

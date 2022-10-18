@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[PROJ_LINK] (
+    [PROJ_LINK_ID] VARCHAR (255) NOT NULL,
+    [u2_id]        VARCHAR (255) NULL,
+    [LINKS]        VARCHAR (40)  NULL,
+    [LINK_TYPES]   VARCHAR (10)  NULL,
+    [time_stamp]   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([PROJ_LINK_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [PROJ_LINK_u2_id_in]
+    ON [dbo].[PROJ_LINK]([u2_id] ASC);
+

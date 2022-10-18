@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[PTRSHP_DIST_DET] (
+    [u2_id]                  VARCHAR (255)   NOT NULL,
+    [ALLOC_DATE]             DATETIME        NULL,
+    [AMT]                    NUMERIC (19, 2) NULL,
+    [COA_GRP]                VARCHAR (7)     NULL,
+    [COST_CENTER]            VARCHAR (7)     NULL,
+    [DIST_CO]                VARCHAR (4)     NULL,
+    [DIST_DATE]              DATETIME        NULL,
+    [OCCUR_DATE]             DATETIME        NULL,
+    [PDECK_ID]               VARCHAR (8)     NULL,
+    [PROD_TYPE]              VARCHAR (4)     NULL,
+    [PROJECT]                VARCHAR (10)    NULL,
+    [PTRSHP_DIST_CONTROL_ID] VARCHAR (11)    NULL,
+    [PTRSHP_NO]              VARCHAR (6)     NULL,
+    [QTY1]                   NUMERIC (19, 2) NULL,
+    [QTY2]                   NUMERIC (19, 2) NULL,
+    [SESSION_NO]             VARCHAR (7)     NULL,
+    [SYSTEM_DATE]            DATETIME        NULL,
+    [SYSTEM_TIME]            VARCHAR (8)     NULL,
+    [SYSTEM_USER_ID]         VARCHAR (6)     NULL,
+    [TRANS_GENERATED]        DATETIME        NULL,
+    [time_stamp]             DATETIME        NULL,
+    [u2_checksum]            VARCHAR (25)    NULL,
+    PRIMARY KEY CLUSTERED ([u2_id] ASC)
+);
+

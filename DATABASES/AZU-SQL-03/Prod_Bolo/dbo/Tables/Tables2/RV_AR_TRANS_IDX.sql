@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RV_AR_TRANS_IDX] (
+    [subValueId]         VARCHAR (255) NOT NULL,
+    [RV_AR_ACCTG_PER_ID] VARCHAR (255) NULL,
+    [TRANS_INDEX]        VARCHAR (15)  NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([subValueId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [RV_AR_TRA_RV_AR_ACC_2029]
+    ON [dbo].[RV_AR_TRANS_IDX]([RV_AR_ACCTG_PER_ID] ASC);
+

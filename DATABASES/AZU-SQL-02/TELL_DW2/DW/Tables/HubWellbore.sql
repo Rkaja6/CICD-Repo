@@ -1,0 +1,9 @@
+﻿CREATE TABLE [DW].[HubWellbore] (
+    [RecordSource]    VARCHAR (50)  NOT NULL,
+    [LoadDate]        DATETIME2 (7) CONSTRAINT [DF__HubWellbo__LoadD__7ABC33CD] DEFAULT (getdate()) NOT NULL,
+    [API12]           VARCHAR (12)  NOT NULL,
+    [WellboreHashKey] BINARY (32)   NOT NULL,
+    CONSTRAINT [PK_HubWellbore] PRIMARY KEY CLUSTERED ([WellboreHashKey] ASC) WITH (STATISTICS_NORECOMPUTE = ON),
+    CONSTRAINT [UK_HubWellboreAPI12] UNIQUE NONCLUSTERED ([API12] ASC) WITH (STATISTICS_NORECOMPUTE = ON)
+);
+

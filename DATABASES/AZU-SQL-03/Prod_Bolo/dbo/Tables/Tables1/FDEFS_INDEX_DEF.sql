@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[FDEFS_INDEX_DEF] (
+    [FDEFS_INDEX_DEF_ID] VARCHAR (255) NOT NULL,
+    [u2_id]              VARCHAR (255) NULL,
+    [INDEX_TABLES]       VARCHAR (17)  NULL,
+    [INDEX_TYPE]         VARCHAR (10)  NULL,
+    [time_stamp]         DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([FDEFS_INDEX_DEF_ID] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [FDEFS_INDEX_DEF_u2_id_in]
+    ON [dbo].[FDEFS_INDEX_DEF]([u2_id] ASC);
+

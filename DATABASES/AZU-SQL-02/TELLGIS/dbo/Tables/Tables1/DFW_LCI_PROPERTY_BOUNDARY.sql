@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[DFW_LCI_PROPERTY_BOUNDARY] (
+    [OID]               INT              NOT NULL,
+    [Name]              NVARCHAR (60)    NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R677_pk] PRIMARY KEY CLUSTERED ([OID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g640_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S640_idx]
+    ON [dbo].[DFW_LCI_PROPERTY_BOUNDARY] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -10388997.580922, XMIN = -10391455.1472162, YMAX = 3517047.11589494, YMIN = 3514156.81945699)
+          );
+

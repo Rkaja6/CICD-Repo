@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[RXT_SHALE_PLAYS_TELL] (
+    [OBJECTID]          INT              NOT NULL,
+    [NAME]              NVARCHAR (100)   NULL,
+    [COUNTRY]           NVARCHAR (30)    NULL,
+    [UPDATE_NO]         NVARCHAR (5)     NULL,
+    [Shape]             [sys].[geometry] NULL,
+    [GDB_GEOMATTR_DATA] VARBINARY (MAX)  NULL,
+    CONSTRAINT [R174_pk] PRIMARY KEY CLUSTERED ([OBJECTID] ASC) WITH (FILLFACTOR = 75),
+    CONSTRAINT [g155_ck] CHECK ([SHAPE].[STSrid]=(3857))
+);
+
+
+GO
+CREATE SPATIAL INDEX [S155_idx]
+    ON [dbo].[RXT_SHALE_PLAYS_TELL] ([Shape])
+    WITH  (
+            BOUNDING_BOX = (XMAX = -8225785.50463409, XMIN = -11713782.5542106, YMAX = 5445635.13857893, YMIN = 3205541.27312077),
+            CELLS_PER_OBJECT = 16
+          );
+
