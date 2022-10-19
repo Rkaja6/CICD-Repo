@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "KPLER Data Download and Import Trades", "KPLER Data Download and Import Trades\KPLER Data Download and Import Trades.dtproj", "{CFE3C3C3-B9D9-416A-AB95-EE020AE5BCBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFE3C3C3-B9D9-416A-AB95-EE020AE5BCBA}.Development|Default.ActiveCfg = Development
+		{CFE3C3C3-B9D9-416A-AB95-EE020AE5BCBA}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F499F285-0027-428E-920F-430EEB520F93}
+	EndGlobalSection
+EndGlobal

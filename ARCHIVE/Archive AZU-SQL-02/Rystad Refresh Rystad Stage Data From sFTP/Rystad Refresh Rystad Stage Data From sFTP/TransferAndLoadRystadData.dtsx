@@ -1,0 +1,2274 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/21/2019 11:39:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0MCJM8"
+  DTS:CreatorName="TLN\avogt"
+  DTS:DTSID="{B2E6580B-1255-4784-A0C5-F4BA95087D8A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="TransferAndLoadRystadData"
+  DTS:PackageType="5"
+  DTS:VersionBuild="72"
+  DTS:VersionGUID="{2054F3C0-07DA-49D8-ADA1-985F1986A697}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[azu-sql-02.RystadEnergy1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7C7B5285-C0FA-40D6-B7F5-7CF90E0DA696}"
+      DTS:ObjectName="azu-sql-02.RystadEnergy1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-02;Initial Catalog=RystadEnergy;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE213793-C24A-4B50-AD6A-123AC16D3D8F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinationFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">F:\Rystad\SFTP Download\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{38553A16-7E14-446F-B224-325794204424}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilesDownloaded">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7BA555D2-FDDB-43DA-A8A7-54CF81DE4CF7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="QuitLoop">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{604D97C5-63D3-4E9B-A200-6810CB565B45}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RetryCounter">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9AF0572C-9A56-455B-B802-E89205E39B57}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RetryMax">
+      <DTS:VariableValue
+        DTS:DataType="3">5</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4A1CA9CE-9413-43E3-82D4-989FB29A721F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RystadsFTPHost">
+      <DTS:VariableValue
+        DTS:DataType="8">ftp2.rystadenergy.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D5913261-1FB9-4E43-B3F2-05929BCEA485}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RystadsFTPPassword">
+      <DTS:VariableValue
+        DTS:DataType="8">!QAZZAQ!5tgbBGT%</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{21EAF0B1-BD82-4D97-9105-850624EE98B5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RystadsFTPPath">
+      <DTS:VariableValue
+        DTS:DataType="8">/ShaleWellCube/</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{618FE2BD-699C-4820-A3C1-B88E0B52DE66}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RystadsFTPUsername">
+      <DTS:VariableValue
+        DTS:DataType="8">ftptellurianincuser01</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6276D523-FD56-493C-878C-705AE8D293F6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SSHNetPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\avogt\source\repos\RystadSFTPExtractLoad</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import BreakevenGasPrice CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import BreakevenGasPrice CSV"
+      DTS:DTSID="{79514583-1ACA-44C5-8556-F578C0B65537}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import BreakevenGasPrice CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_BreakevenGasPrice_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import BreakevenOilPrice CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import BreakevenOilPrice CSV"
+      DTS:DTSID="{99DC5EB2-E271-4CD3-8A71-926D0384A51D}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import BreakevenOilPrice CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_BreakevenOilPrice_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Chemicals CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import Chemicals CSV"
+      DTS:DTSID="{B949C042-109C-4832-AFA1-C7E548ECCF40}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Chemicals CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_Chemicals_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import EconomicsCost CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import EconomicsCost CSV"
+      DTS:DTSID="{54A603AF-487A-4E1B-884F-6A57A425ECF6}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import EconomicsCost CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_EconomicsCost_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Geography CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import Geography CSV"
+      DTS:DTSID="{FAA7C0BA-927E-452A-B927-971812E7E02F}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Geography CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_Geography_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Location CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import Location CSV"
+      DTS:DTSID="{FCCE9171-7691-40F2-B5DD-E2DB367317EB}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Location CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_Location_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Operator CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import Operator CSV"
+      DTS:DTSID="{1CCB89CC-5B56-4918-BAE3-8705995A9889}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Operator CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_Operator_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import ProductionCurrentYear CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import ProductionCurrentYear CSV"
+      DTS:DTSID="{343C9BB9-46CB-4DBE-94D4-44CFF698B1EE}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import ProductionCurrentYear CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_ProductionCurrentYear_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import ProductionForecast CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import ProductionForecast CSV"
+      DTS:DTSID="{402F5896-9CF4-40A2-93C6-B2484AD2D335}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import ProductionForecast CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_ProductionForecast_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import ProductionPreviousYear CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import ProductionPreviousYear CSV"
+      DTS:DTSID="{C8A0C65E-84F5-44E8-9FEC-B0266DCBF9A1}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import ProductionPreviousYear CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_ProductionPreviousYear_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Production_2000_2010 CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import Production_2000_2010 CSV"
+      DTS:DTSID="{5A46668E-39EF-4594-BAC2-4B4BBA0608DD}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Production_2000_2010 CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_Production2000_2010_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Production_2011_2016 CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import Production_2011_2016 CSV"
+      DTS:DTSID="{B81536DC-144D-49EE-8B83-A5930D1C3740}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Production_2011_2016 CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_Production2011_2016_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Production_2017_2025 CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import Production_2017_2025 CSV"
+      DTS:DTSID="{CF232159-1374-489E-A412-CFFB20B936EE}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Production_2017_2025 CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_Production2017_2025_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import REAnalysis CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import REAnalysis CSV"
+      DTS:DTSID="{2DAA8B01-3AD3-4B18-8B99-8C5472C9694D}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import REAnalysis CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_REAnalysis_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import UpdateLog CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import UpdateLog CSV"
+      DTS:DTSID="{44E2A040-1BE7-4507-AB95-4A0F54180B37}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import UpdateLog CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_UpdateLog_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import WaterProduction CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import WaterProduction CSV"
+      DTS:DTSID="{9D2646EA-D9DB-476C-9AE8-758ACF071FCA}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import WaterProduction CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_WaterProduction_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import WellHeader CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import WellHeader CSV"
+      DTS:DTSID="{F737FE25-0305-4C7D-8EF7-64832BC26022}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import WellHeader CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_WellHeader_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import WellInfo CSV"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Import WellInfo CSV"
+      DTS:DTSID="{248FC728-0BE9-4F04-ADFB-F89E92762E5A}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import WellInfo CSV"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_WellInfo_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loop to Delete Files when not in use"
+      DTS:AssignExpression="@[User::RetryCounter] = @[User::RetryCounter] + 1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{E40DACFF-A932-4E3D-AC12-D70C0138DD89}"
+      DTS:EvalExpression="@[User::RetryCounter] &lt;= @[User::RetryMax] &amp;&amp; @[User::QuitLoop] == false"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@[User::RetryCounter] = 1"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="Loop to Delete Files when not in use">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loop to Delete Files when not in use\DeleteFiles"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="DeleteFiles"
+          DTS:DTSID="{C2B96B62-8872-411E-BCB9-6189A015314C}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DeleteFiles"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Loop to Delete Files when not in use\DeleteFiles.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{16B69DE9-2A20-4F74-810F-4D0E9376B05E}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{13568035-5CDA-42BA-9229-4D69C95CC037}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">0</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteDirectoryContent"
+              TaskSourcePath="User::DestinationFolder"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop to Delete Files when not in use\Set QuitLoop to True"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Expression Task"
+          DTS:DTSID="{7D880A4E-BB3F-4AAA-B16A-0BDF0FE4AB80}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Set QuitLoop to True"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::QuitLoop] = true" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loop to Delete Files when not in use\Wait 5 seconds"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FC0615F0-876F-4A57-A3B2-0FA31EAB3FD4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Wait 5 seconds"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7C7B5285-C0FA-40D6-B7F5-7CF90E0DA696}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:05'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop to Delete Files when not in use.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B0D6DEC1-81F1-46EE-8F40-C82B69B27EC2}"
+          DTS:From="Package\Loop to Delete Files when not in use\Wait 5 seconds"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Loop to Delete Files when not in use\DeleteFiles" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loop to Delete Files when not in use.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{6AE2108D-2ECE-4F39-82BB-787DE2C1C52E}"
+          DTS:From="Package\Loop to Delete Files when not in use\DeleteFiles"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Loop to Delete Files when not in use\Set QuitLoop to True" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Merge Production Data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Merge Production Data"
+      DTS:DTSID="{E76A5AF4-C832-406D-BBC5-AA5163B81A86}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge Production Data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7C7B5285-C0FA-40D6-B7F5-7CF90E0DA696}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Production&#xA;INSERT INTO dbo.Production WITH (TABLOCK)&#xA;(&#xA;&#x9;[Id],&#xA;&#x9;[API_Number],&#xA;&#x9;[Year],&#xA;&#x9;[Month],&#xA;&#x9;[Production_Forecast_Group],&#xA;&#x9;[Oil_And_Gas_Group],&#xA;&#x9;[Cumulative_Calendar_Months],&#xA;&#x9;[Production__bbl_boe_],&#xA;&#x9;[Cumulative_Calendar_Years],&#xA;&#x9;[Production_Phase],&#xA;&#x9;[TellurianUpdatedDate],&#xA;&#x9;[TellurianCreatedDate]&#xA;)&#xA;SELECT &#xA;&#x9;[Id],&#xA;&#x9;[API_Number],&#xA;&#x9;[Year],&#xA;&#x9;[Month],&#xA;&#x9;[Production_Forecast_Group],&#xA;&#x9;[Oil_And_Gas_Group],&#xA;&#x9;[Cumulative_Calendar_Months],&#xA;&#x9;[Production__bbl_boe_],&#xA;&#x9;[Cumulative_Calendar_Years],&#xA;&#x9;[Production_Phase],&#xA;&#x9;[TellurianUpdatedDate],&#xA;&#x9;[TellurianCreatedDate]&#xA;FROM &#xA;&#x9;dbo.Production2000_2010&#xA;UNION ALL&#xA;SELECT &#xA;&#x9;[Id],&#xA;&#x9;[API_Number],&#xA;&#x9;[Year],&#xA;&#x9;[Month],&#xA;&#x9;[Production_Forecast_Group],&#xA;&#x9;[Oil_And_Gas_Group],&#xA;&#x9;[Cumulative_Calendar_Months],&#xA;&#x9;[Production__bbl_boe_],&#xA;&#x9;[Cumulative_Calendar_Years],&#xA;&#x9;[Production_Phase],&#xA;&#x9;[TellurianUpdatedDate],&#xA;&#x9;[TellurianCreatedDate]&#xA;FROM &#xA;&#x9;dbo.Production2011_2016&#xA;UNION ALL&#xA;SELECT &#xA;&#x9;[Id],&#xA;&#x9;[API_Number],&#xA;&#x9;[Year],&#xA;&#x9;[Month],&#xA;&#x9;[Production_Forecast_Group],&#xA;&#x9;[Oil_And_Gas_Group],&#xA;&#x9;[Cumulative_Calendar_Months],&#xA;&#x9;[Production__bbl_boe_],&#xA;&#x9;[Cumulative_Calendar_Years],&#xA;&#x9;[Production_Phase],&#xA;&#x9;[TellurianUpdatedDate],&#xA;&#x9;[TellurianCreatedDate]&#xA;FROM &#xA;&#x9;dbo.Production2017_2025" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Refresh DataQuality Data"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Refresh DataQuality Data"
+      DTS:DTSID="{0B26C2FD-622C-492C-BA58-471F47400AAF}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Refresh DataQuality Data"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Rystad_DataQuality_Load.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:DTSID="{FEB5674F-562C-414E-A5A6-F6156A92C64B}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_46df482ea7274b7481a40c27b6731241"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="User::DestinationFolder,User::RystadsFTPHost,User::RystadsFTPPassword,User::RystadsFTPPath,User::RystadsFTPUsername"
+          ReadWriteVariables="User::FilesDownloaded">
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_46df482ea7274b7481a40c27b6731241.Properties.Settings.get_Default():ST_46df482ea7274b7481a40c27b6731241.Properties.Sett" +
+    "ings")]
+
+namespace ST_46df482ea7274b7481a40c27b6731241.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[using System;
+using System.IO;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+
+namespace ST_46df482ea7274b7481a40c27b6731241
+{
+    [Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+    public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+    {
+        static ScriptMain()
+        {
+            AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);
+        }
+        static System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            if (args.Name.Contains("SshNet"))
+            {
+                string path = @"F:\Rystad\bin";
+                return System.Reflection.Assembly.LoadFile(System.IO.Path.Combine(path, "Renci.SshNet.dll"));
+            }
+            return null;
+        }
+        public void Main()
+        {
+            string filesDownloaded = string.Empty;
+            string host = (string)Dts.Variables["RystadsFTPHost"].Value;
+            string username = (string)Dts.Variables["RystadsFTPUsername"].Value;
+            string password = (string)Dts.Variables["RystadsFTPPassword"].Value;
+            string remoteDirectory = (string)Dts.Variables["RystadsFTPPath"].Value;
+            string destinationFolder = (string) Dts.Variables["DestinationFolder"].Value;
+            using (var sftp = new Renci.SshNet.SftpClient(host, username, password))
+            {
+                sftp.Connect();
+                var files = sftp.ListDirectory(remoteDirectory);
+                foreach (var file in files)
+                {
+                    if ((!file.Name.StartsWith(".")))
+                    {
+                        Boolean downloadCurrentFile = false;
+                        downloadCurrentFile = !File.Exists(destinationFolder + file.Name);
+                        if (!downloadCurrentFile)
+                        {
+                            DateTime modifiedDateDestination = File.GetLastWriteTime(destinationFolder + file.Name);
+                            FileInfo fileInfoDestination = new FileInfo(destinationFolder + file.Name);
+                            downloadCurrentFile = ((DateTime.Compare(modifiedDateDestination, file.LastWriteTime) <= 0) && ((file.Length >= (fileInfoDestination.Length * 0.90))));
+                            if (!downloadCurrentFile)
+                            {
+                                downloadCurrentFile = (file.Length > fileInfoDestination.Length);
+                            }
+                        }
+
+                        if (downloadCurrentFile)
+                        {
+                            using (Stream fileStream = File.Create(destinationFolder + file.Name))
+                            {
+                                try
+                                {
+                                    sftp.DownloadFile(remoteDirectory + file.Name, fileStream);
+                                    filesDownloaded = filesDownloaded + file.Name.ToLower();
+                                    fileStream.Close();
+                                }
+                                catch(Exception e)
+                                {
+                                    fileStream.Close();
+                                    File.Delete(destinationFolder + file.Name);
+                                }
+                            }
+                        }
+                    }
+                }
+                sftp.Disconnect();
+            }
+            Dts.Variables["FilesDownloaded"].Value = filesDownloaded;
+            Dts.TaskResult = (int)ScriptResults.Success;
+        }
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ST_46df482ea7274b7481a40c27b6731241.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2FC078C6-8587-4D23-8D7F-6A4433137706}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_46df482ea7274b7481a40c27b6731241</RootNamespace>
+    <AssemblyName>ST_46df482ea7274b7481a40c27b6731241</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Renci.SshNet">
+      <HintPath>C:\Users\avogt\source\repos\RystadSFTPExtractLoad\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_46df482ea7274b7481a40c27b6731241</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_46df482ea7274b7481a40c27b6731241</msb:DisplayName>
+    <msb:ProjectId>{51434EA2-683E-4500-B608-21B1B42741AE}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_46df482ea7274b7481a40c27b6731241.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_46df482ea7274b7481a40c27b6731241")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_46df482ea7274b7481a40c27b6731241")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_46df482ea7274b7481a40c27b6731241.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_46df482ea7274b7481a40c27b6731241.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_46df482ea7274b7481a40c27b6731241.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_46df482ea7274b7481a40c27b6731241.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_46df482ea7274b7481a40c27b6731241.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4893D702-66B0-4CA6-A068-20BD10D100EA}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;dataquality&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Refresh DataQuality Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3D026711-E0B8-42E4-B86B-EC5F74B19BA6}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;breakevengasprice&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Import BreakevenGasPrice CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{913E4351-F7E4-4DC8-873B-C5CD8EAA2692}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;production&quot;, 1) &gt; 0 &amp;&amp; FINDSTRING(@[User::FilesDownloaded], &quot;2011&quot;, 1) &gt; 0  &amp;&amp; FINDSTRING(@[User::FilesDownloaded], &quot;2016&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Import Production_2011_2016 CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{2DB825F2-2BDB-487F-827E-4BF77F974D46}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;location&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Import Location CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{2F66C67B-3F76-43FA-962E-703677C35B44}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;productionforecast&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\Import ProductionForecast CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{DD252A4D-1DAC-4711-98BD-CE7919FE7D08}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;productionpreviousyear&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 13"
+      DTS:To="Package\Import ProductionPreviousYear CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 14]"
+      DTS:CreationName=""
+      DTS:DTSID="{F6E81EC2-4450-4A59-A57D-ED6E09FD2317}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;reanalysis&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 14"
+      DTS:To="Package\Import REAnalysis CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 15]"
+      DTS:CreationName=""
+      DTS:DTSID="{810AC464-95FD-4E98-91C4-F758A599CAAB}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;updatelog&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 15"
+      DTS:To="Package\Import UpdateLog CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 16]"
+      DTS:CreationName=""
+      DTS:DTSID="{15A6DB8F-96A2-474B-B3DF-B7FE5CD69DAE}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;waterproduction&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 16"
+      DTS:To="Package\Import WaterProduction CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 17]"
+      DTS:CreationName=""
+      DTS:DTSID="{6DDA1800-CBD2-468E-9D4E-761D76171700}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;wellheader&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 17"
+      DTS:To="Package\Import WellHeader CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 18]"
+      DTS:CreationName=""
+      DTS:DTSID="{D8E44943-B8D8-43C3-9A70-553C5524BAB7}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;wellinfo&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 18"
+      DTS:To="Package\Import WellInfo CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 19]"
+      DTS:CreationName=""
+      DTS:DTSID="{A9200225-8109-4408-8A38-C6FA10A1AE45}"
+      DTS:From="Package\Import Production_2000_2010 CSV"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 19"
+      DTS:To="Package\Merge Production Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{9780A195-5C67-476B-8104-03BDA3E1E48A}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;breakevenoilprice&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Import BreakevenOilPrice CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 20]"
+      DTS:CreationName=""
+      DTS:DTSID="{800E883D-8E6B-453C-9B51-03159833F6C1}"
+      DTS:From="Package\Import Production_2017_2025 CSV"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 20"
+      DTS:To="Package\Merge Production Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 21]"
+      DTS:CreationName=""
+      DTS:DTSID="{F6EC4C17-3A21-42CD-B409-18AEB06AE15D}"
+      DTS:From="Package\Import Production_2011_2016 CSV"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 21"
+      DTS:To="Package\Merge Production Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 22]"
+      DTS:CreationName=""
+      DTS:DTSID="{914FA01C-B6AC-4E24-A910-18D95697CC72}"
+      DTS:From="Package\Merge Production Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 22"
+      DTS:To="Package\Loop to Delete Files when not in use" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{4A764CDE-FFBF-44F7-A6BD-285668A23C48}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;operator&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Import Operator CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{CEA601BC-B0D6-4C02-AB5B-E0AE2D6A86DE}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;geography&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Import Geography CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{6E2FC5C6-4F7E-4047-BBA3-A542D7C8EFA5}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;chemicals&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Import Chemicals CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{6FB24BBB-F9F0-4F57-875F-16FA5447CDD6}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;economicscost&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Import EconomicsCost CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{91A97DC6-D950-41AD-B8BB-F30D7B4D5382}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;production&quot;, 1) &gt; 0 &amp;&amp; FINDSTRING(@[User::FilesDownloaded], &quot;2000&quot;, 1) &gt; 0  &amp;&amp; FINDSTRING(@[User::FilesDownloaded], &quot;2010&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Import Production_2000_2010 CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{F9EB2349-DDFC-45EA-9DF9-C24943C878C5}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;production&quot;, 1) &gt; 0 &amp;&amp; FINDSTRING(@[User::FilesDownloaded], &quot;2017&quot;, 1) &gt; 0  &amp;&amp; FINDSTRING(@[User::FilesDownloaded], &quot;2025&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Import Production_2017_2025 CSV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{5B3613DA-AE29-4C1F-8555-2D433BD8192B}"
+      DTS:EvalOp="3"
+      DTS:Expression="FINDSTRING(@[User::FilesDownloaded], &quot;productioncurrectyear&quot;, 1) &gt; 0"
+      DTS:From="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Import ProductionCurrentYear CSV" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Import BreakevenGasPrice CSV"
+          TopLeft="99.5714285714284,145.642857142857" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Import BreakevenOilPrice CSV"
+          TopLeft="245.821428571428,233.142857142857" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Import Chemicals CSV"
+          TopLeft="395.07142857143,150.531746031746" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Import EconomicsCost CSV"
+          TopLeft="662.57142857143,164.337301587301" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Import Geography CSV"
+          TopLeft="799.793650793652,229.781746031746" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Import Location CSV"
+          TopLeft="934.015873015874,165.087301587301" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Import Operator CSV"
+          TopLeft="1044.54365079365,231.337301587301" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Import Production_2000_2010 CSV"
+          TopLeft="1161.62698412699,164.809523809524" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Import Production_2011_2016 CSV"
+          TopLeft="1474.37698412699,166.198412698413" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Import Production_2017_2025 CSV"
+          TopLeft="1302.90476190476,227.170634920635" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Import ProductionCurrentYear CSV"
+          TopLeft="1610.68253968254,227.531746031746" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Import ProductionForecast CSV"
+          TopLeft="1770.44444444444,172.888888888889" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\Import ProductionPreviousYear CSV"
+          TopLeft="1903,232.777777777778" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Import REAnalysis CSV"
+          TopLeft="2080.5,170.5" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Import UpdateLog CSV"
+          TopLeft="2204.16666666667,236.388888888889" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Import WaterProduction CSV"
+          TopLeft="2332.5,169.722222222222" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Import WellHeader CSV"
+          TopLeft="2467,235" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Import WellInfo CSV"
+          TopLeft="2598.88888888889,175.555555555556" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Merge Production Data"
+          TopLeft="1370,410" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Refresh DataQuality Data"
+          TopLeft="515.793650793652,237.503968253968" />
+        <NodeLayout
+          Size="2665,42"
+          Id="Package\Transfer Newer or Larger Files From Rystad sFTP Host"
+          TopLeft="101.265873015874,37.4206349206349" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="636.665873015874,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-21.8722222222221,158.083333333333"
+              Start="0,0"
+              End="-21.8722222222221,150.583333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.3117493798739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.3117493798739"
+                    Point2="0,45.3117493798739"
+                    Point3="-4,45.3117493798739" />
+                  <mssgle:LineSegment
+                    End="-17.8722222222221,45.3117493798739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.8722222222221,45.3117493798739"
+                    Point2="-21.8722222222221,45.3117493798739"
+                    Point3="-21.8722222222221,49.3117493798739" />
+                  <mssgle:LineSegment
+                    End="-21.8722222222221,150.583333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-18.9361111111111,50.3117493798739,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="238.115873015874,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-25.5444444444458,66.2222222222221"
+              Start="0,0"
+              End="-25.5444444444458,58.7222222222221">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,2.16770075959512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,2.16770075959512"
+                    Point2="0,6.16770075959512"
+                    Point3="-4,6.16770075959512" />
+                  <mssgle:LineSegment
+                    End="-21.5444444444458,6.16770075959512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.5444444444458,6.16770075959512"
+                    Point2="-25.5444444444458,6.16770075959512"
+                    Point3="-25.5444444444458,10.1677007595951" />
+                  <mssgle:LineSegment
+                    End="-25.5444444444458,58.7222222222221" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-20.7722222222229,11.1677007595951,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="1566.61587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="30.261111111116,86.7777777777781"
+              Start="0,0"
+              End="30.261111111116,79.2777777777781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.112477977652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.112477977652"
+                    Point2="0,41.112477977652"
+                    Point3="4,41.112477977652" />
+                  <mssgle:LineSegment
+                    End="26.261111111116,41.112477977652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.261111111116,41.112477977652"
+                    Point2="30.261111111116,41.112477977652"
+                    Point3="30.261111111116,45.112477977652" />
+                  <mssgle:LineSegment
+                    End="30.261111111116,79.2777777777781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="7.13055555555798,46.112477977652,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="1035.21587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-13.1999999999999,85.6666666666661"
+              Start="0,0"
+              End="-13.1999999999999,78.1666666666661">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.3011905549793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.3011905549793"
+                    Point2="0,35.3011905549793"
+                    Point3="-4,35.3011905549793" />
+                  <mssgle:LineSegment
+                    End="-9.19999999999993,35.3011905549793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.19999999999993,35.3011905549793"
+                    Point2="-13.1999999999999,35.3011905549793"
+                    Point3="-13.1999999999999,39.3011905549793" />
+                  <mssgle:LineSegment
+                    End="-13.1999999999999,78.1666666666661" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-14.6,40.3011905549793,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="1832.31587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="51.1285714285659,93.4682539682541"
+              Start="0,0"
+              End="51.1285714285659,85.9682539682541">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.516038647952" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.516038647952"
+                    Point2="0,38.516038647952"
+                    Point3="4,38.516038647952" />
+                  <mssgle:LineSegment
+                    End="47.1285714285659,38.516038647952" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.1285714285659,38.516038647952"
+                    Point2="51.1285714285659,38.516038647952"
+                    Point3="51.1285714285659,42.516038647952" />
+                  <mssgle:LineSegment
+                    End="51.1285714285659,85.9682539682541" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="17.564285714283,43.516038647952,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="1965.16587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="61.334126984126,153.357142857143"
+              Start="0,0"
+              End="61.334126984126,145.857142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5808057474959" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.5808057474959"
+                    Point2="0,57.5808057474959"
+                    Point3="4,57.5808057474959" />
+                  <mssgle:LineSegment
+                    End="57.334126984126,57.5808057474959" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.334126984126,57.5808057474959"
+                    Point2="61.334126984126,57.5808057474959"
+                    Point3="61.334126984126,61.5808057474959" />
+                  <mssgle:LineSegment
+                    End="61.334126984126,145.857142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="22.667063492063,62.5808057474959,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 14]"
+          TopLeft="2098.01587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="75.9841269841259,91.0793650793651"
+              Start="0,0"
+              End="75.9841269841259,83.5793650793651">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4204851752022" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.4204851752022"
+                    Point2="0,30.4204851752022"
+                    Point3="4,30.4204851752022" />
+                  <mssgle:LineSegment
+                    End="71.9841269841259,30.4204851752022" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.9841269841259,30.4204851752022"
+                    Point2="75.9841269841259,30.4204851752022"
+                    Point3="75.9841269841259,34.4204851752022" />
+                  <mssgle:LineSegment
+                    End="75.9841269841259,83.5793650793651" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.9920634920629,35.4204851752022,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 15]"
+          TopLeft="2230.86587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="66.8007936507961,156.968253968254"
+              Start="0,0"
+              End="66.8007936507961,149.468253968254">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.9921318992469" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.9921318992469"
+                    Point2="0,44.9921318992469"
+                    Point3="4,44.9921318992469" />
+                  <mssgle:LineSegment
+                    End="62.8007936507961,44.9921318992469" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.8007936507961,44.9921318992469"
+                    Point2="66.8007936507961,44.9921318992469"
+                    Point3="66.8007936507961,48.9921318992469" />
+                  <mssgle:LineSegment
+                    End="66.8007936507961,149.468253968254" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="25.400396825398,49.9921318992469,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 16]"
+          TopLeft="2363.71587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="76.284126984126,90.3015873015871"
+              Start="0,0"
+              End="76.284126984126,82.8015873015871">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.9509258916192" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.9509258916192"
+                    Point2="0,20.9509258916192"
+                    Point3="4,20.9509258916192" />
+                  <mssgle:LineSegment
+                    End="72.284126984126,20.9509258916192" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72.284126984126,20.9509258916192"
+                    Point2="76.284126984126,20.9509258916192"
+                    Point3="76.284126984126,24.9509258916192" />
+                  <mssgle:LineSegment
+                    End="76.284126984126,82.8015873015871" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="30.142063492063,25.9509258916192,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 17]"
+          TopLeft="2496.56587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="65.4341269841257,155.579365079365"
+              Start="0,0"
+              End="65.4341269841257,148.079365079365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.188837075212" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.188837075212"
+                    Point2="0,26.188837075212"
+                    Point3="4,26.188837075212" />
+                  <mssgle:LineSegment
+                    End="61.4341269841257,26.188837075212" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.4341269841257,26.188837075212"
+                    Point2="65.4341269841257,26.188837075212"
+                    Point3="65.4341269841257,30.188837075212" />
+                  <mssgle:LineSegment
+                    End="65.4341269841257,148.079365079365" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="24.7170634920628,31.188837075212,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 18]"
+          TopLeft="2629.41587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="57.4730158730158,96.1349206349211"
+              Start="0,0"
+              End="57.4730158730158,88.6349206349211">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,4.95366242820903" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,4.95366242820903"
+                    Point2="0,8.95366242820903"
+                    Point3="4,8.95366242820903" />
+                  <mssgle:LineSegment
+                    End="53.4730158730158,8.95366242820903" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.4730158730158,8.95366242820903"
+                    Point2="57.4730158730158,8.95366242820903"
+                    Point3="57.4730158730158,12.953662428209" />
+                  <mssgle:LineSegment
+                    End="57.4730158730158,88.6349206349211" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="20.7365079365079,13.953662428209,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 19]"
+          TopLeft="1284.12698412699,206.809523809524">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="134.62301587301,203.190476190476"
+              Start="0,0"
+              End="134.62301587301,195.690476190476">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,129.555778726253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,129.555778726253"
+                    Point2="0,133.555778726253"
+                    Point3="4,133.555778726253" />
+                  <mssgle:LineSegment
+                    End="130.62301587301,133.555778726253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="130.62301587301,133.555778726253"
+                    Point2="134.62301587301,133.555778726253"
+                    Point3="134.62301587301,137.555778726253" />
+                  <mssgle:LineSegment
+                    End="134.62301587301,195.690476190476" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="370.965873015874,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-14.6444444444462,153.722222222222"
+              Start="0,0"
+              End="-14.6444444444462,146.222222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8762222777015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8762222777015"
+                    Point2="0,25.8762222777015"
+                    Point3="-4,25.8762222777015" />
+                  <mssgle:LineSegment
+                    End="-10.6444444444462,25.8762222777015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.6444444444462,25.8762222777015"
+                    Point2="-14.6444444444462,25.8762222777015"
+                    Point3="-14.6444444444462,29.8762222777015" />
+                  <mssgle:LineSegment
+                    End="-14.6444444444462,146.222222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.3222222222231,30.8762222777015,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 20]"
+          TopLeft="1425.40476190476,269.170634920635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="38.0952380952397,140.829365079365"
+              Start="0,0"
+              End="38.0952380952397,133.329365079365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.4146825396825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,66.4146825396825"
+                    Point2="0,70.4146825396825"
+                    Point3="4,70.4146825396825" />
+                  <mssgle:LineSegment
+                    End="34.0952380952397,70.4146825396825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.0952380952397,70.4146825396825"
+                    Point2="38.0952380952397,70.4146825396825"
+                    Point3="38.0952380952397,74.4146825396825" />
+                  <mssgle:LineSegment
+                    End="38.0952380952397,133.329365079365" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 21]"
+          TopLeft="1596.87698412699,208.198412698413">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-88.62698412699,201.801587301587"
+              Start="0,0"
+              End="-88.62698412699,194.301587301587">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,128.642871091026" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,128.642871091026"
+                    Point2="0,132.642871091026"
+                    Point3="-4,132.642871091026" />
+                  <mssgle:LineSegment
+                    End="-84.62698412699,132.642871091026" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-84.62698412699,132.642871091026"
+                    Point2="-88.62698412699,132.642871091026"
+                    Point3="-88.62698412699,136.642871091026" />
+                  <mssgle:LineSegment
+                    End="-88.62698412699,194.301587301587" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="1168.06587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-34.5222222222242,151.916666666666"
+              Start="0,0"
+              End="-34.5222222222242,144.416666666666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5466594423371" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63.5466594423371"
+                    Point2="0,67.5466594423371"
+                    Point3="-4,67.5466594423371" />
+                  <mssgle:LineSegment
+                    End="-30.5222222222242,67.5466594423371" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5222222222242,67.5466594423371"
+                    Point2="-34.5222222222242,67.5466594423371"
+                    Point3="-34.5222222222242,71.5466594423371" />
+                  <mssgle:LineSegment
+                    End="-34.5222222222242,144.416666666666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.2611111111121,72.5466594423371,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="902.365873015874,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-9.07222222222219,150.361111111111"
+              Start="0,0"
+              End="-9.07222222222219,142.861111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4558896283798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.4558896283798"
+                    Point2="0,56.4558896283798"
+                    Point3="-4,56.4558896283798" />
+                  <mssgle:LineSegment
+                    End="-5.07222222222219,56.4558896283798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.07222222222219,56.4558896283798"
+                    Point2="-9.07222222222219,56.4558896283798"
+                    Point3="-9.07222222222219,60.4558896283798" />
+                  <mssgle:LineSegment
+                    End="-9.07222222222219,142.861111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.5361111111111,61.4558896283798,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="503.815873015874,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-16.7444444444442,71.1111111111111"
+              Start="0,0"
+              End="-16.7444444444442,63.6111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.4985319026989" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.4985319026989"
+                    Point2="0,16.4985319026989"
+                    Point3="-4,16.4985319026989" />
+                  <mssgle:LineSegment
+                    End="-12.7444444444442,16.4985319026989" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.7444444444442,16.4985319026989"
+                    Point2="-16.7444444444442,16.4985319026989"
+                    Point3="-16.7444444444442,20.4985319026989" />
+                  <mssgle:LineSegment
+                    End="-16.7444444444442,63.6111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.3722222222221,21.4985319026989,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="767.543650793652,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,84.9166666666661"
+              Start="0,0"
+              End="0,77.4166666666661">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.4166666666661" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,30.708333333333,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="1300.91587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-16.7888888888842,85.3888888888891"
+              Start="0,0"
+              End="-16.7888888888842,77.8888888888891">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.454467766742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.454467766742"
+                    Point2="0,40.454467766742"
+                    Point3="-4,40.454467766742" />
+                  <mssgle:LineSegment
+                    End="-12.7888888888842,40.454467766742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.7888888888842,40.454467766742"
+                    Point2="-16.7888888888842,40.454467766742"
+                    Point3="-16.7888888888842,44.454467766742" />
+                  <mssgle:LineSegment
+                    End="-16.7888888888842,77.8888888888891" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.3944444444421,45.454467766742,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="1433.76587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-8.36111111111404,147.75"
+              Start="0,0"
+              End="-8.36111111111404,140.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,69.875"
+                    Point2="0,73.875"
+                    Point3="-4,73.875" />
+                  <mssgle:LineSegment
+                    End="-4.36111111111404,73.875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.36111111111404,73.875"
+                    Point2="-8.36111111111404,73.875"
+                    Point3="-8.36111111111404,77.875" />
+                  <mssgle:LineSegment
+                    End="-8.36111111111404,140.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.180555555557,78.875,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="1699.46587301587,79.4206349206349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="32.7166666666658,148.111111111111"
+              Start="0,0"
+              End="32.7166666666658,140.611111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.8545964795287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.8545964795287"
+                    Point2="0,65.8545964795287"
+                    Point3="4,65.8545964795287" />
+                  <mssgle:LineSegment
+                    End="28.7166666666658,65.8545964795287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.7166666666658,65.8545964795287"
+                    Point2="32.7166666666658,65.8545964795287"
+                    Point3="32.7166666666658,69.8545964795287" />
+                  <mssgle:LineSegment
+                    End="32.7166666666658,140.611111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.35833333333289,70.8545964795287,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Loop to Delete Files when not in use\DeleteFiles"
+          TopLeft="19.75,79.25" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Loop to Delete Files when not in use\Wait 5 seconds"
+          TopLeft="21.5,12.5" />
+        <EdgeLayout
+          Id="Package\Loop to Delete Files when not in use.PrecedenceConstraints[Constraint]"
+          TopLeft="97.625,54.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,24.75"
+              Start="0,0"
+              End="0,17.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Loop to Delete Files when not in use\Set QuitLoop to True"
+          TopLeft="20.25,147.5" />
+        <EdgeLayout
+          Id="Package\Loop to Delete Files when not in use.PrecedenceConstraints[Constraint 1]"
+          TopLeft="98.75,121.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="10,26.25"
+              Start="0,0"
+              End="10,18.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.125"
+                    Point2="0,13.125"
+                    Point3="4,13.125" />
+                  <mssgle:LineSegment
+                    End="6,13.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,13.125"
+                    Point2="10,13.125"
+                    Point3="10,17.125" />
+                  <mssgle:LineSegment
+                    End="10,18.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="236,242"
+          Size="236,285"
+          Id="Package\Loop to Delete Files when not in use"
+          TopLeft="1376.25,482.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 22]"
+          TopLeft="1463.5,452">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="30.75,30.5"
+              Start="0,0"
+              End="30.75,23">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.25"
+                    Point2="0,15.25"
+                    Point3="4,15.25" />
+                  <mssgle:LineSegment
+                    End="26.75,15.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.75,15.25"
+                    Point2="30.75,15.25"
+                    Point3="30.75,19.25" />
+                  <mssgle:LineSegment
+                    End="30.75,23" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package\Loop to Delete Files when not in use\DeleteFiles.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <AnnotationLayout
+          Text="Note: DeleteFiles should be allowed to fail because there is a retry loop. It will fail occasionallly because SSIS previously used the file in an earlier dataflow and the file connection might still be &quot;open.&quot;"
+          ParentId="Package\Loop to Delete Files when not in use\DeleteFiles.EventHandlers[OnError]"
+          Size="1000,60"
+          Id="322d9c53-af42-4306-a7d0-823e18d9dbb3"
+          TopLeft="50,14">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

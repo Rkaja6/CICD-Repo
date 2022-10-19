@@ -1,0 +1,994 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/23/2019 5:34:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0B32BT"
+  DTS:CreatorName="TLN\rglazebrook"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{52D74719-110C-4C82-AB80-9E07149E9E9F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="DRILLINGINFO_to_EDM_Base"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{C281B8F9-4258-491C-A0B7-E1CC58157957}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[hou-sql-01\housql01.DRILLINGINFO]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3375FEAF-44E8-4B56-9D97-2D5A2171B45B}"
+      DTS:ObjectName="hou-sql-01\housql01.DRILLINGINFO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=hou-sql-01\housql01;Initial Catalog=DRILLINGINFO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IHSM_Meridian]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{749B4E05-1626-4252-9746-A77460DB4C2B}"
+      DTS:ObjectName="IHSM_Meridian">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-01;Initial Catalog=IHSM_Meridian;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create Permian Basin 2K Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D39C14A8-2D83-457A-9086-9206315068B4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Permian Basin 2K Tables"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{749B4E05-1626-4252-9746-A77460DB4C2B}"
+          SQLTask:SqlStatementSource="exec [Upstream].[UPD_AT_PB_2K_Tables]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1888E2EA-6132-4853-9BD3-B20E3999E67B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move vwTELL_AC_PRODUCT_AT to EDM BASE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Upstream].[DI_AC_PRODUCT_AT]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[IHSM_Meridian]"
+                  connectionManagerRefId="Package.ConnectionManagers[IHSM_Meridian]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Month_Start_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Month_Start_Date"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month_Start_Date]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month_Start_Date]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[YEAR]"
+                      cachedDataType="i4"
+                      cachedName="YEAR"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[YEAR]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MONTH]"
+                      cachedDataType="i4"
+                      cachedName="MONTH"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONTH]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[MONTH]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TOT_LIQUID]"
+                      cachedDataType="i4"
+                      cachedName="TOT_LIQUID"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOT_LIQUID]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_LIQUID]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TOT_GAS]"
+                      cachedDataType="i4"
+                      cachedName="TOT_GAS"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOT_GAS]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_GAS]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TOT_WATER]"
+                      cachedDataType="i4"
+                      cachedName="TOT_WATER"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOT_WATER]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_WATER]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TOT_BOE]"
+                      cachedDataType="i4"
+                      cachedName="TOT_BOE"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOT_BOE]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_BOE]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MAX_NUM_WELLS]"
+                      cachedDataType="i4"
+                      cachedName="MAX_NUM_WELLS"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MAX_NUM_WELLS]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAX_NUM_WELLS]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MAX_DAYS_ON]"
+                      cachedDataType="i4"
+                      cachedName="MAX_DAYS_ON"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MAX_DAYS_ON]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAX_DAYS_ON]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RECORD_CREATION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RECORD_CREATION_DATE"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RECORD_CREATION_DATE]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECORD_CREATION_DATE]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RECORD_UPDATE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RECORD_UPDATE_DATE"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RECORD_UPDATE_DATE]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECORD_UPDATE_DATE]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PeakProdDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PeakProdDate"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PeakProdDate]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[PeakProdDate]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstProdDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FirstProdDate"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstProdDate]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstProdDate]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Months_Since_PeakProd]"
+                      cachedDataType="i4"
+                      cachedName="Months_Since_PeakProd"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Months_Since_PeakProd]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[Months_Since_PeakProd]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Months_Since_FirstProd]"
+                      cachedDataType="i4"
+                      cachedName="Months_Since_FirstProd"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Months_Since_FirstProd]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[Months_Since_FirstProd]" />
+                    <inputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ApiNo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ApiNo"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[API]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[ApiNo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month_Start_Date]"
+                      dataType="dbTimeStamp"
+                      name="Month_Start_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
+                      dataType="i4"
+                      name="YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONTH]"
+                      dataType="i4"
+                      name="MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOT_LIQUID]"
+                      dataType="i4"
+                      name="TOT_LIQUID" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOT_GAS]"
+                      dataType="i4"
+                      name="TOT_GAS" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOT_WATER]"
+                      dataType="i4"
+                      name="TOT_WATER" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOT_BOE]"
+                      dataType="i4"
+                      name="TOT_BOE" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MAX_NUM_WELLS]"
+                      dataType="i4"
+                      name="MAX_NUM_WELLS" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MAX_DAYS_ON]"
+                      dataType="i4"
+                      name="MAX_DAYS_ON" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RECORD_CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="RECORD_CREATION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RECORD_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="RECORD_UPDATE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PeakProdDate]"
+                      dataType="dbTimeStamp"
+                      name="PeakProdDate" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstProdDate]"
+                      dataType="dbTimeStamp"
+                      name="FirstProdDate" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Months_Since_PeakProd]"
+                      dataType="i4"
+                      name="Months_Since_PeakProd" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Months_Since_FirstProd]"
+                      dataType="i4"
+                      name="Months_Since_FirstProd" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="API" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[vwTELL_AC_PRODUCT_AT]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[hou-sql-01\housql01.DRILLINGINFO]"
+                  connectionManagerRefId="Package.ConnectionManagers[hou-sql-01\housql01.DRILLINGINFO]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[ApiNo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ApiNo]"
+                      length="30"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[ApiNo]"
+                      name="ApiNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month_Start_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Month_Start_Date]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month_Start_Date]"
+                      name="Month_Start_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[YEAR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[YEAR]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[YEAR]"
+                      name="YEAR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[MONTH]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MONTH]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[MONTH]"
+                      name="MONTH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_LIQUID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOT_LIQUID]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_LIQUID]"
+                      name="TOT_LIQUID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_GAS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOT_GAS]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_GAS]"
+                      name="TOT_GAS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_WATER]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOT_WATER]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_WATER]"
+                      name="TOT_WATER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_BOE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOT_BOE]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOT_BOE]"
+                      name="TOT_BOE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAX_NUM_WELLS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MAX_NUM_WELLS]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAX_NUM_WELLS]"
+                      name="MAX_NUM_WELLS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAX_DAYS_ON]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MAX_DAYS_ON]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAX_DAYS_ON]"
+                      name="MAX_DAYS_ON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECORD_CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RECORD_CREATION_DATE]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECORD_CREATION_DATE]"
+                      name="RECORD_CREATION_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECORD_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RECORD_UPDATE_DATE]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[RECORD_UPDATE_DATE]"
+                      name="RECORD_UPDATE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[PeakProdDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PeakProdDate]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[PeakProdDate]"
+                      name="PeakProdDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstProdDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstProdDate]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstProdDate]"
+                      name="FirstProdDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[Months_Since_PeakProd]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Months_Since_PeakProd]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[Months_Since_PeakProd]"
+                      name="Months_Since_PeakProd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[Months_Since_FirstProd]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Months_Since_FirstProd]"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].Columns[Months_Since_FirstProd]"
+                      name="Months_Since_FirstProd"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ApiNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ApiNo" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Month_Start_Date]"
+                      dataType="dbTimeStamp"
+                      name="Month_Start_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[YEAR]"
+                      dataType="i4"
+                      name="YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MONTH]"
+                      dataType="i4"
+                      name="MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOT_LIQUID]"
+                      dataType="i4"
+                      name="TOT_LIQUID" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOT_GAS]"
+                      dataType="i4"
+                      name="TOT_GAS" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOT_WATER]"
+                      dataType="i4"
+                      name="TOT_WATER" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOT_BOE]"
+                      dataType="i4"
+                      name="TOT_BOE" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MAX_NUM_WELLS]"
+                      dataType="i4"
+                      name="MAX_NUM_WELLS" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MAX_DAYS_ON]"
+                      dataType="i4"
+                      name="MAX_DAYS_ON" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RECORD_CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="RECORD_CREATION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RECORD_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="RECORD_UPDATE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PeakProdDate]"
+                      dataType="dbTimeStamp"
+                      name="PeakProdDate" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstProdDate]"
+                      dataType="dbTimeStamp"
+                      name="FirstProdDate" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Months_Since_PeakProd]"
+                      dataType="i4"
+                      name="Months_Since_PeakProd" />
+                    <externalMetadataColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Months_Since_FirstProd]"
+                      dataType="i4"
+                      name="Months_Since_FirstProd" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ApiNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ApiNo]"
+                      name="ApiNo" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Month_Start_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Month_Start_Date]"
+                      name="Month_Start_Date" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[YEAR]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[YEAR]"
+                      name="YEAR" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MONTH]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MONTH]"
+                      name="MONTH" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOT_LIQUID]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOT_LIQUID]"
+                      name="TOT_LIQUID" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOT_GAS]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOT_GAS]"
+                      name="TOT_GAS" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOT_WATER]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOT_WATER]"
+                      name="TOT_WATER" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOT_BOE]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOT_BOE]"
+                      name="TOT_BOE" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MAX_NUM_WELLS]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MAX_NUM_WELLS]"
+                      name="MAX_NUM_WELLS" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MAX_DAYS_ON]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MAX_DAYS_ON]"
+                      name="MAX_DAYS_ON" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RECORD_CREATION_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RECORD_CREATION_DATE]"
+                      name="RECORD_CREATION_DATE" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RECORD_UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RECORD_UPDATE_DATE]"
+                      name="RECORD_UPDATE_DATE" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PeakProdDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PeakProdDate]"
+                      name="PeakProdDate" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstProdDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstProdDate]"
+                      name="FirstProdDate" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Months_Since_PeakProd]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Months_Since_PeakProd]"
+                      name="Months_Since_PeakProd" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Months_Since_FirstProd]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Months_Since_FirstProd]"
+                      name="Months_Since_FirstProd" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE.Paths[OLE DB Source Output]"
+              endId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate Destination DI_AC_PRODUCT_AT"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="truncate Destination DI_AC_PRODUCT_AT"
+      DTS:DTSID="{4892A7C0-233A-4523-8B7E-0AFC82FF5501}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate Destination DI_AC_PRODUCT_AT"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{749B4E05-1626-4252-9746-A77460DB4C2B}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE truncate Upstream.DI_AC_PRODUCT_AT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Source TELL_ProductionRollup"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Update Source TELL_ProductionRollup"
+      DTS:DTSID="{2E8A21BE-5013-4A7A-938E-2B2E6311045A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Source TELL_ProductionRollup"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3375FEAF-44E8-4B56-9D97-2D5A2171B45B}"
+          SQLTask:SqlStatementSource="exec [dbo].[SP_AC_PRODUCT_AT]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{CD192A63-1A1A-4AAC-8370-7522745848E0}"
+      DTS:From="Package\Update Source TELL_ProductionRollup"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\truncate Destination DI_AC_PRODUCT_AT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{53593659-9176-452D-8FF0-98815A0837CA}"
+      DTS:From="Package\truncate Destination DI_AC_PRODUCT_AT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{9594E736-CA37-46CB-AF5E-03A2A3264186}"
+      DTS:From="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Create Permian Basin 2K Tables" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="299,42"
+          Id="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE"
+          TopLeft="68,195" />
+        <NodeLayout
+          Size="342,45"
+          Id="Package\Update Source TELL_ProductionRollup"
+          TopLeft="70,32" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\truncate Destination DI_AC_PRODUCT_AT"
+          TopLeft="70,126" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="241,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.5,49"
+              Start="0,0"
+              End="-31.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="-4,24.5" />
+                  <mssgle:LineSegment
+                    End="-27.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.5,24.5"
+                    Point2="-31.5,24.5"
+                    Point3="-31.5,28.5" />
+                  <mssgle:LineSegment
+                    End="-31.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="209.5,168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,27"
+              Start="0,0"
+              End="8,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="4,13.5" />
+                  <mssgle:LineSegment
+                    End="4,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,13.5"
+                    Point2="8,13.5"
+                    Point3="8,17.5" />
+                  <mssgle:LineSegment
+                    End="8,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="308,42"
+          Id="Package\Create Permian Basin 2K Tables"
+          TopLeft="75,290" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="217.5,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.5,53"
+              Start="0,0"
+              End="11.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="7.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,26.5"
+                    Point2="11.5,26.5"
+                    Point3="11.5,30.5" />
+                  <mssgle:LineSegment
+                    End="11.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source"
+          TopLeft="126,69" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination"
+          TopLeft="113,187" />
+        <EdgeLayout
+          Id="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE.Paths[OLE DB Source Output]"
+          TopLeft="199.75,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Move vwTELL_AC_PRODUCT_AT to EDM BASE\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1315 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/16/2020 12:39:56 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0MCJM8"
+  DTS:CreatorName="TLN\avogt"
+  DTS:DTSID="{D2033BBB-6D90-4EDB-8A6F-B76C8EA653FC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Tell_DW2_Stage_IHS_MonthlyProduction"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{357BFDB8-37D9-438B-99F4-206622FBA997}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A8C28893-D7BD-42FB-8207-4AC842BED405}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::SourceConnectionOLEDB_ConnectionString]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Description">@[$Package::SourceConnectionOLEDB_Description]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Package::SourceConnectionOLEDB_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Name">@[$Package::SourceConnectionOLEDB_Name]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="RetainSameConnection">@[$Package::SourceConnectionOLEDB_RetainSameConnection]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Package::SourceConnectionOLEDB_ServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-01;Initial Catalog=IHSM_Meridian;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{859B8482-356F-4372-8006-19ABD629C950}"
+      DTS:ObjectName="DestinationConnectionOLEDB_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=AZU-SQL-02;Trusted_Connection=yes;Initial Catalog=TELL_DW2;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=false;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{EF7F1846-C0F5-4E38-A485-FC9695887B94}"
+      DTS:ObjectName="DestinationConnectionOLEDB_Description">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{63E5785B-EF2C-49A1-B55A-6AEC466ED3DB}"
+      DTS:ObjectName="DestinationConnectionOLEDB_InitialCatalog">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TELL_DW2</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{EFABC7E7-5095-4BCF-A786-3372FFEF021E}"
+      DTS:ObjectName="DestinationConnectionOLEDB_Name">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DestinationConnectionOLEDB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{629C3C17-7140-4EC5-97DF-B4EB874A6034}"
+      DTS:ObjectName="DestinationConnectionOLEDB_RetainSameConnection">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{437616A6-8610-411D-B047-13E6627A0258}"
+      DTS:ObjectName="DestinationConnectionOLEDB_ServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">azu-sql-02</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A8568EAC-87D8-4611-AD9A-060FE0A7E766}"
+      DTS:ObjectName="SourceConnectionOLEDB_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=azu-sql-01;Initial Catalog=IHSM_Meridian;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C588D9B9-711E-4ACD-9058-105414CF2DFE}"
+      DTS:ObjectName="SourceConnectionOLEDB_Description">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{59D46FF4-E58F-4BE3-AC4B-BFED233CB93D}"
+      DTS:ObjectName="SourceConnectionOLEDB_InitialCatalog">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">IHSM_Meridian</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9FACA3B8-7D40-4BF8-BD86-4B0B79CC85B7}"
+      DTS:ObjectName="SourceConnectionOLEDB_Name">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SourceConnectionOLEDB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{574E9CB8-5D6C-4980-8643-428562831C3D}"
+      DTS:ObjectName="SourceConnectionOLEDB_Password">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{790EBEB8-C3DE-456D-9141-435A95725718}"
+      DTS:ObjectName="SourceConnectionOLEDB_RetainSameConnection">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{6819987E-505A-48B1-B4FC-681C1592C86C}"
+      DTS:ObjectName="SourceConnectionOLEDB_ServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">azu-sql-01</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A00E408A-F164-4C13-9B4E-C433D0E8534F}"
+      DTS:ObjectName="SourceConnectionOLEDB_UserName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8ACE829C-3025-47CE-B2B2-9EB5C64E13C0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StageIHS].[T_PRODUCTION_MONTHLY_PRODUCTION]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Connections[OleDbConnection]"
+                  connectionManagerID="{295530B0-DAD8-410D-9052-C1B8FE70F532}:invalid"
+                  connectionManagerRefId="{295530B0-DAD8-410D-9052-C1B8FE70F532}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[ENTITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="ENTITY"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[ENTITY]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[ENTITY]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[SOURCE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="SOURCE"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[SOURCE]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[SOURCE]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[ENTITY_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="ENTITY_TYPE"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[ENTITY_TYPE]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[ENTITY_TYPE]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[PRIMARY_PRODUCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="PRIMARY_PRODUCT"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[PRIMARY_PRODUCT]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[PRIMARY_PRODUCT]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[LEASE_NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="LEASE_NAME"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[LEASE_NAME]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[LEASE_NAME]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[WELL_NUMBER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="WELL_NUMBER"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[WELL_NUMBER]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[WELL_NUMBER]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[API]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="API"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[API]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[API]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[REGULATORY_API]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="REGULATORY_API"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[REGULATORY_API]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[REGULATORY_API]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[YEAR]"
+                      cachedDataType="i4"
+                      cachedName="YEAR"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[YEAR]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[MONTH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="MONTH"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[MONTH]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[MONTH]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[LIQUID]"
+                      cachedDataType="numeric"
+                      cachedName="LIQUID"
+                      cachedPrecision="14"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[LIQUID]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[LIQUID]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[GAS]"
+                      cachedDataType="numeric"
+                      cachedName="GAS"
+                      cachedPrecision="14"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[GAS]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[GAS]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[WATER]"
+                      cachedDataType="numeric"
+                      cachedName="WATER"
+                      cachedPrecision="14"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[WATER]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[WATER]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[RATIO_GAS_OIL]"
+                      cachedDataType="numeric"
+                      cachedName="RATIO_GAS_OIL"
+                      cachedPrecision="14"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[RATIO_GAS_OIL]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[RATIO_GAS_OIL]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[PERCENT_WATER]"
+                      cachedDataType="numeric"
+                      cachedName="PERCENT_WATER"
+                      cachedPrecision="14"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[PERCENT_WATER]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[PERCENT_WATER]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[WELLS]"
+                      cachedDataType="i4"
+                      cachedName="WELLS"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[WELLS]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[WELLS]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[DAYS_ON]"
+                      cachedDataType="i4"
+                      cachedName="DAYS_ON"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[DAYS_ON]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[DAYS_ON]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[CADIS_SYSTEM_INSERTED]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CADIS_SYSTEM_INSERTED"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_INSERTED]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_INSERTED]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[CADIS_SYSTEM_UPDATED]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CADIS_SYSTEM_UPDATED"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_UPDATED]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_UPDATED]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[CADIS_SYSTEM_CHANGEDBY]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CADIS_SYSTEM_CHANGEDBY"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_CHANGEDBY]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_CHANGEDBY]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[CADIS_SYSTEM_RUNID]"
+                      cachedDataType="i4"
+                      cachedName="CADIS_SYSTEM_RUNID"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_RUNID]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_RUNID]" />
+                    <inputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].Columns[CADIS_SYSTEM_TOPRUNID]"
+                      cachedDataType="i4"
+                      cachedName="CADIS_SYSTEM_TOPRUNID"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_TOPRUNID]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_TOPRUNID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[ENTITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="273"
+                      name="ENTITY" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[SOURCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="273"
+                      name="SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[IDX]"
+                      dataType="i4"
+                      name="IDX" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[ENTITY_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="ENTITY_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[PRIMARY_PRODUCT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="PRIMARY_PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[LEASE_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="LEASE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[WELL_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="WELL_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="API" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[REGULATORY_API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="REGULATORY_API" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[YEAR]"
+                      dataType="i4"
+                      name="YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[MONTH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[LIQUID]"
+                      dataType="numeric"
+                      name="LIQUID"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[GAS]"
+                      dataType="numeric"
+                      name="GAS"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[WATER]"
+                      dataType="numeric"
+                      name="WATER"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[RATIO_GAS_OIL]"
+                      dataType="numeric"
+                      name="RATIO_GAS_OIL"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[PERCENT_WATER]"
+                      dataType="numeric"
+                      name="PERCENT_WATER"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[WELLS]"
+                      dataType="i4"
+                      name="WELLS" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[DAYS_ON]"
+                      dataType="i4"
+                      name="DAYS_ON" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_INSERTED]"
+                      dataType="dbTimeStamp"
+                      name="CADIS_SYSTEM_INSERTED" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_UPDATED]"
+                      dataType="dbTimeStamp"
+                      name="CADIS_SYSTEM_UPDATED" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_CHANGEDBY]"
+                      dataType="wstr"
+                      length="350"
+                      name="CADIS_SYSTEM_CHANGEDBY" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_RUNID]"
+                      dataType="i4"
+                      name="CADIS_SYSTEM_RUNID" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input].ExternalColumns[CADIS_SYSTEM_TOPRUNID]"
+                      dataType="i4"
+                      name="CADIS_SYSTEM_TOPRUNID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[T_PRODUCTION_MONTHLY_PRODUCTION]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+FROM 
+	T_PRODUCTION_MONTHLY_PRODUCTION 
+/*WHERE
+    CADIS_SYSTEM_UPDATED BETWEEN DATEADD(DAY, -21, GETDATE()) AND DATEADD(DAY, 0, GETDATE()) OR
+	CADIS_SYSTEM_INSERTED BETWEEN DATEADD(DAY, -21, GETDATE()) AND DATEADD(DAY, 0, GETDATE())*/</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[ENTITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[ENTITY]"
+                      length="40"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[ENTITY]"
+                      name="ENTITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[SOURCE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[SOURCE]"
+                      length="12"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[SOURCE]"
+                      name="SOURCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[IDX]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[IDX]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[IDX]"
+                      name="IDX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[ENTITY_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[ENTITY_TYPE]"
+                      length="12"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[ENTITY_TYPE]"
+                      name="ENTITY_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[PRIMARY_PRODUCT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[PRIMARY_PRODUCT]"
+                      length="12"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[PRIMARY_PRODUCT]"
+                      name="PRIMARY_PRODUCT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[LEASE_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[LEASE_NAME]"
+                      length="60"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[LEASE_NAME]"
+                      name="LEASE_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[WELL_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[WELL_NUMBER]"
+                      length="20"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[WELL_NUMBER]"
+                      name="WELL_NUMBER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[API]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[API]"
+                      length="20"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[API]"
+                      name="API"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[REGULATORY_API]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[REGULATORY_API]"
+                      length="20"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[REGULATORY_API]"
+                      name="REGULATORY_API"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[YEAR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[YEAR]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[YEAR]"
+                      name="YEAR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[MONTH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[MONTH]"
+                      length="12"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[MONTH]"
+                      name="MONTH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[LIQUID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[LIQUID]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[LIQUID]"
+                      name="LIQUID"
+                      precision="14"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[GAS]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[GAS]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[GAS]"
+                      name="GAS"
+                      precision="14"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[WATER]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[WATER]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[WATER]"
+                      name="WATER"
+                      precision="14"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[RATIO_GAS_OIL]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[RATIO_GAS_OIL]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[RATIO_GAS_OIL]"
+                      name="RATIO_GAS_OIL"
+                      precision="14"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[PERCENT_WATER]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[PERCENT_WATER]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[PERCENT_WATER]"
+                      name="PERCENT_WATER"
+                      precision="14"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[WELLS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[WELLS]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[WELLS]"
+                      name="WELLS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[DAYS_ON]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[DAYS_ON]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[DAYS_ON]"
+                      name="DAYS_ON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_INSERTED]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_INSERTED]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_INSERTED]"
+                      name="CADIS_SYSTEM_INSERTED"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_UPDATED]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_UPDATED]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_UPDATED]"
+                      name="CADIS_SYSTEM_UPDATED"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_CHANGEDBY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_CHANGEDBY]"
+                      length="50"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_CHANGEDBY]"
+                      name="CADIS_SYSTEM_CHANGEDBY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_RUNID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_RUNID]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_RUNID]"
+                      name="CADIS_SYSTEM_RUNID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_TOPRUNID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_TOPRUNID]"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].Columns[CADIS_SYSTEM_TOPRUNID]"
+                      name="CADIS_SYSTEM_TOPRUNID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[ENTITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="ENTITY" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[SOURCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[IDX]"
+                      dataType="i4"
+                      name="IDX" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[ENTITY_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="ENTITY_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[PRIMARY_PRODUCT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="PRIMARY_PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[LEASE_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="LEASE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[WELL_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="WELL_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="API" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[REGULATORY_API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="REGULATORY_API" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[YEAR]"
+                      dataType="i4"
+                      name="YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[MONTH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[LIQUID]"
+                      dataType="numeric"
+                      name="LIQUID"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[GAS]"
+                      dataType="numeric"
+                      name="GAS"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[WATER]"
+                      dataType="numeric"
+                      name="WATER"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[RATIO_GAS_OIL]"
+                      dataType="numeric"
+                      name="RATIO_GAS_OIL"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[PERCENT_WATER]"
+                      dataType="numeric"
+                      name="PERCENT_WATER"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[WELLS]"
+                      dataType="i4"
+                      name="WELLS" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[DAYS_ON]"
+                      dataType="i4"
+                      name="DAYS_ON" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_INSERTED]"
+                      dataType="dbTimeStamp"
+                      name="CADIS_SYSTEM_INSERTED" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_UPDATED]"
+                      dataType="dbTimeStamp"
+                      name="CADIS_SYSTEM_UPDATED" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_CHANGEDBY]"
+                      dataType="wstr"
+                      length="50"
+                      name="CADIS_SYSTEM_CHANGEDBY" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_RUNID]"
+                      dataType="i4"
+                      name="CADIS_SYSTEM_RUNID" />
+                    <externalMetadataColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output].ExternalColumns[CADIS_SYSTEM_TOPRUNID]"
+                      dataType="i4"
+                      name="CADIS_SYSTEM_TOPRUNID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[ENTITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[ENTITY]"
+                      name="ENTITY" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[SOURCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[SOURCE]"
+                      name="SOURCE" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[IDX]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[IDX]"
+                      name="IDX" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[ENTITY_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[ENTITY_TYPE]"
+                      name="ENTITY_TYPE" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[PRIMARY_PRODUCT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[PRIMARY_PRODUCT]"
+                      name="PRIMARY_PRODUCT" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[LEASE_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[LEASE_NAME]"
+                      name="LEASE_NAME" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[WELL_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[WELL_NUMBER]"
+                      name="WELL_NUMBER" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[API]"
+                      name="API" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[REGULATORY_API]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[REGULATORY_API]"
+                      name="REGULATORY_API" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[YEAR]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[YEAR]"
+                      name="YEAR" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[MONTH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[MONTH]"
+                      name="MONTH" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[LIQUID]"
+                      dataType="numeric"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[LIQUID]"
+                      name="LIQUID"
+                      precision="14"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[GAS]"
+                      dataType="numeric"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[GAS]"
+                      name="GAS"
+                      precision="14"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[WATER]"
+                      dataType="numeric"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[WATER]"
+                      name="WATER"
+                      precision="14"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[RATIO_GAS_OIL]"
+                      dataType="numeric"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[RATIO_GAS_OIL]"
+                      name="RATIO_GAS_OIL"
+                      precision="14"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[PERCENT_WATER]"
+                      dataType="numeric"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[PERCENT_WATER]"
+                      name="PERCENT_WATER"
+                      precision="14"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[WELLS]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[WELLS]"
+                      name="WELLS" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[DAYS_ON]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[DAYS_ON]"
+                      name="DAYS_ON" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_INSERTED]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_INSERTED]"
+                      name="CADIS_SYSTEM_INSERTED" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_UPDATED]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_UPDATED]"
+                      name="CADIS_SYSTEM_UPDATED" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_CHANGEDBY]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_CHANGEDBY]"
+                      name="CADIS_SYSTEM_CHANGEDBY" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_RUNID]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_RUNID]"
+                      name="CADIS_SYSTEM_RUNID" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_TOPRUNID]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[CADIS_SYSTEM_TOPRUNID]"
+                      name="CADIS_SYSTEM_TOPRUNID" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Paths[OLE DB Source Output]"
+              endId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Truncate StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+      DTS:DTSID="{68ECADDF-6251-401C-85AD-5E6148842ACD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{295530B0-DAD8-410D-9052-C1B8FE70F532}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE StageIHS.T_PRODUCTION_MONTHLY_PRODUCTION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2939FA1E-F0C2-4785-9398-04FFDC9FD2D3}"
+      DTS:From="Package\Truncate StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="364,42"
+          Id="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+          TopLeft="392,419.666666666667" />
+        <NodeLayout
+          Size="374,42"
+          Id="Package\Truncate StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+          TopLeft="385,340" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="573,382">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.666666666667"
+              Start="0,0"
+              End="0,30.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="385,42"
+          Id="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION"
+          TopLeft="487,239" />
+        <NodeLayout
+          Size="360,42"
+          Id="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION"
+          TopLeft="495,129" />
+        <EdgeLayout
+          Id="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION.Paths[OLE DB Source Output]"
+          TopLeft="677.25,171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Destination StageIHS T_PRODUCTION_MONTHLY_PRODUCTION">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import StageIHS T_PRODUCTION_MONTHLY_PRODUCTION\Source Meridian T_PRODUCTION_MONTHLY_PRODUCTION">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

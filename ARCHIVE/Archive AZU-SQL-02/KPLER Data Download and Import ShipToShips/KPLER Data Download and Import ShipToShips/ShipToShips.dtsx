@@ -1,0 +1,790 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/14/2020 12:13:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0MCJM8"
+  DTS:CreatorName="TLN\avogt"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{0BB52ED7-E469-4BB1-A223-C8481AACFA91}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="ShipToShips"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{9E6CAC0E-EF5C-41EC-8EEA-1B32F023EA2C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2C2E5011-7D08-43EF-A44B-3A7B5FCCCEDF}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-02;Initial Catalog=KPLER;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{830AFFBE-DC9D-464E-9E12-743EEF40F54B}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="F:\KPLER\StagedData\ship-to-ships.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="132"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vessel (load)"
+              DTS:DTSID="{693594B2-D389-4C90-8A4A-C0ED5E8482B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IMO (load)"
+              DTS:DTSID="{A680C788-ED9F-457D-AF86-17F58EDD4D96}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="132"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vessel (discharge)"
+              DTS:DTSID="{09991CED-1C5E-4ED8-A76E-A59278C61296}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IMO (discharge)"
+              DTS:DTSID="{12B1DFC4-C972-463B-B71C-5E8A68ED82E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Volume (cm)"
+              DTS:DTSID="{63A3DE98-8139-4125-AC10-9393FBEEF602}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="108"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Zone"
+              DTS:DTSID="{B7F0D3A1-1D45-4497-9181-0606E5BCE2E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Start"
+              DTS:DTSID="{9D112DE4-38A4-4145-BA71-A8A849FEFC7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="End"
+              DTS:DTSID="{9454D1E9-C940-4B59-9153-1DADF7596568}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{F37E31F4-A388-46EE-B054-6E15CA5C6C86}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Data Conversion 0 - 0"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 0 - 0"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Start]"
+                      cachedDataType="date"
+                      cachedName="Start"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Start]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[End]"
+                      cachedDataType="date"
+                      cachedName="End"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[End]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Start]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Start]"
+                      name="Start"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Start]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[End]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[End]"
+                      name="End"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[End]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Destination - ShipToShips"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - ShipToShips"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ShipToShips]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - ShipToShips.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].Columns[Vessel (load)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="132"
+                      cachedName="Vessel (load)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[VesselLoad]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Vessel (load)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].Columns[IMO (load)]"
+                      cachedDataType="i4"
+                      cachedName="IMO (load)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[IMOLoad]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[IMO (load)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].Columns[Vessel (discharge)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="132"
+                      cachedName="Vessel (discharge)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[VesselDischarge]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Vessel (discharge)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].Columns[IMO (discharge)]"
+                      cachedDataType="i4"
+                      cachedName="IMO (discharge)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[IMODischarge]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[IMO (discharge)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].Columns[Volume (cm)]"
+                      cachedDataType="i4"
+                      cachedName="Volume (cm)"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[VolumeCm]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Volume (cm)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].Columns[Zone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="108"
+                      cachedName="Zone"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[Zone]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Zone]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].Columns[Start]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Start"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[Start]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Start]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].Columns[End]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="End"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[End]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[End]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[VesselLoad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="27"
+                      name="VesselLoad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[IMOLoad]"
+                      dataType="i4"
+                      name="IMOLoad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[VesselDischarge]"
+                      codePage="1252"
+                      dataType="str"
+                      length="27"
+                      name="VesselDischarge" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[IMODischarge]"
+                      dataType="i4"
+                      name="IMODischarge" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[VolumeCm]"
+                      dataType="i4"
+                      name="VolumeCm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[Zone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="22"
+                      name="Zone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[Start]"
+                      dataType="dbTimeStamp"
+                      name="Start" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input].ExternalColumns[End]"
+                      dataType="dbTimeStamp"
+                      name="End" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - ShipToShips.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - ShipToShips.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - ShipToShips.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - ShipToShips.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - ship-to-ships_txt"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - ship-to-ships_txt"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Vessel (load)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Vessel (load)]"
+                      length="132"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Vessel (load)]"
+                      name="Vessel (load)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[IMO (load)]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[IMO (load)]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[IMO (load)]"
+                      name="IMO (load)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Vessel (discharge)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Vessel (discharge)]"
+                      length="132"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Vessel (discharge)]"
+                      name="Vessel (discharge)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[IMO (discharge)]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[IMO (discharge)]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[IMO (discharge)]"
+                      name="IMO (discharge)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Volume (cm)]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Volume (cm)]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Volume (cm)]"
+                      name="Volume (cm)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Zone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Zone]"
+                      length="108"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Zone]"
+                      name="Zone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Start]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Start]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[Start]"
+                      name="Start"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[End]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[End]"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].Columns[End]"
+                      name="End"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Vessel (load)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="132"
+                      name="Vessel (load)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[IMO (load)]"
+                      dataType="i4"
+                      name="IMO (load)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Vessel (discharge)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="132"
+                      name="Vessel (discharge)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[IMO (discharge)]"
+                      dataType="i4"
+                      name="IMO (discharge)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Volume (cm)]"
+                      dataType="i4"
+                      name="Volume (cm)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Zone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="108"
+                      name="Zone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[Start]"
+                      dataType="date"
+                      name="Start" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output].ExternalColumns[End]"
+                      dataType="date"
+                      name="End" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task 1\Destination - ShipToShips.Inputs[Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - ship-to-ships_txt.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{895BD496-F477-40A2-A170-2FE40D6B21A8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C2E5011-7D08-43EF-A44B-3A7B5FCCCEDF}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[ShipToShips]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{607EB872-362D-45F2-AA10-C199CE601AF3\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{D0031F7D-2AB0-4744-BFDA-BFFEB2E4953A}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{D0031F7D-2AB0-4744-BFDA-BFFEB2E4953A}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="20.5,107.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{607EB872-362D-45F2-AA10-C199CE601AF3\}]"
+          TopLeft="100.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

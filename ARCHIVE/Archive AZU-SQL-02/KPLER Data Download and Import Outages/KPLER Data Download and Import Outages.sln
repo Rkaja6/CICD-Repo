@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "KPLER Data Download and Import Outages", "KPLER Data Download and Import Outages\KPLER Data Download and Import Outages.dtproj", "{636A0DE4-93CD-4F05-9238-B7068C99859D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{636A0DE4-93CD-4F05-9238-B7068C99859D}.Development|Default.ActiveCfg = Development
+		{636A0DE4-93CD-4F05-9238-B7068C99859D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA4740CA-22C4-45E4-BBED-080C5F25ECB7}
+	EndGlobalSection
+EndGlobal

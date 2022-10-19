@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "GenerateCommentLogFile", "GenerateCommentLogFile\GenerateCommentLogFile.dtproj", "{0B49A804-7434-4A2E-9566-8BB8C6C55675}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B49A804-7434-4A2E-9566-8BB8C6C55675}.Development|Default.ActiveCfg = Development
+		{0B49A804-7434-4A2E-9566-8BB8C6C55675}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45D71D53-0E31-4B5E-ACD5-44F93490CA0B}
+	EndGlobalSection
+EndGlobal

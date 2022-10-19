@@ -1,0 +1,2258 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2019 11:47:03 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0MCJM8"
+  DTS:CreatorName="TLN\avogt"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{4823F10F-6C41-4A41-B472-497BDDC01293}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Tell_DW2_Stage_PEAK_DW_Refresh"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{754AF7A6-4DF4-4922-9CDC-A3B540B22A70}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A5F2FBC3-D05D-495E-95BF-38056530920E}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::DestinationConnectionOLEDB_ConnectionString]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Description">@[$Package::DestinationConnectionOLEDB_Description]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Package::DestinationConnectionOLEDB_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Name">@[$Package::DestinationConnectionOLEDB_Name]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="RetainSameConnection">@[$Package::DestinationConnectionOLEDB_RetainSameConnection]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Package::DestinationConnectionOLEDB_ServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-02;Initial Catalog=TELL_DW2;Trusted_Connection=yes;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{675C2331-979C-4466-8EA1-6ED32632ACAC}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::SourceConnectionOLEDB_ConnectionString]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Description">@[$Package::SourceConnectionOLEDB_Description]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Package::SourceConnectionOLEDB_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Name">@[$Package::SourceConnectionOLEDB_Name]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Password">@[$Package::SourceConnectionOLEDB_Password]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="RetainSameConnection">@[$Package::SourceConnectionOLEDB_RetainSameConnection]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Package::SourceConnectionOLEDB_ServerName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="UserName">@[$Package::SourceConnectionOLEDB_UserName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=hou-sql-01\housql01;User ID=;Initial Catalog=PEAK_DW;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAq5htYR7S6EGApY87L+gX6gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADUcaSfC/ZBIwkFXsORK/XnAAAAAASAAACgAAAAEAAAABroyiAcTV3stfuPE8sljXoIAAAArKUJwWCi+dYUAAAA0BiV7MxiI8o4YPfV5BdTo45SuKY</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{41B7AE1D-F86E-4FA7-868B-E4B1EC25D45E}"
+      DTS:ObjectName="DestinationConnectionOLEDB_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=AZU-SQL-02;Trusted_Connection=yes;Initial Catalog=TELL_DW2;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=false;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{3C5AC7FD-286C-47CE-89B4-19657AC59E38}"
+      DTS:ObjectName="DestinationConnectionOLEDB_Description">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C0B6FFF5-72FA-4E47-A525-7FE59A17E9BD}"
+      DTS:ObjectName="DestinationConnectionOLEDB_InitialCatalog">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TELL_DW2</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{130DACDD-8F33-4830-A1A8-C1B17D972836}"
+      DTS:ObjectName="DestinationConnectionOLEDB_Name">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DestinationConnectionOLEDB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{F6DB10CF-A893-4482-ADB2-57AF21549C59}"
+      DTS:ObjectName="DestinationConnectionOLEDB_RetainSameConnection">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C4ED103B-EE1C-4FA6-A135-510B385F1D81}"
+      DTS:ObjectName="DestinationConnectionOLEDB_ServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">azu-sql-02</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9F049BBD-1500-4CE1-9E9B-62090AC1F927}"
+      DTS:ObjectName="SourceConnectionOLEDB_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=hou-sql-01\housql01;Initial Catalog=PEAK_DW;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{BD6DFA59-C169-433F-9FEC-A1EA0C4949D6}"
+      DTS:ObjectName="SourceConnectionOLEDB_Description">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{719BCF63-5DBC-4734-8246-2221E0468198}"
+      DTS:ObjectName="SourceConnectionOLEDB_InitialCatalog">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">PEAK_DW</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D4252BB9-9BBF-4904-813C-5572B392E83A}"
+      DTS:ObjectName="SourceConnectionOLEDB_Name">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SourceConnectionOLEDB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{642828F9-7363-4F78-A1D9-4893B1203392}"
+      DTS:ObjectName="SourceConnectionOLEDB_Password">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{B4D2A420-3B4C-4ABC-B9BC-0FCEC9FFDDA4}"
+      DTS:ObjectName="SourceConnectionOLEDB_RetainSameConnection">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D09B8EBF-2888-4E04-BD6C-102362723332}"
+      DTS:ObjectName="SourceConnectionOLEDB_ServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">hou-sql-01\housql01</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A8C4C1E5-AA0A-4E8D-9D2F-A43B838ECFD7}"
+      DTS:ObjectName="SourceConnectionOLEDB_UserName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import StagePEAK_DW Cost_Center"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{74C42259-B23D-4E0F-B967-68E15A2421A2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import StagePEAK_DW Cost_Center"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Cost_Center"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StagePEAK_DW].[Cost_Center]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[CC_UID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CC_UID"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[CC_UID]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[CC_UID]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Cost_Center]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="482"
+                      cachedName="Cost_Center"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Cost_Center]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Cost_Center]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Cost_Center_Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="21"
+                      cachedName="Cost_Center_Number"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Cost_Center_Number]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Cost_Center_Number]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Cost_Center_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Cost_Center_Type"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Cost_Center_Type]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Cost_Center_Type]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[County]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="County"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[County]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[County]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[District]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="49"
+                      cachedName="District"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[District]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[District]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[District_Number]"
+                      cachedDataType="i4"
+                      cachedName="District_Number"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[District_Number]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[District_Number]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Area]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="33"
+                      cachedName="Area"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Area]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Area]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Area_Number]"
+                      cachedDataType="i4"
+                      cachedName="Area_Number"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Area_Number]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Area_Number]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Field]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="34"
+                      cachedName="Field"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Field]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Field]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Field_Number]"
+                      cachedDataType="i4"
+                      cachedName="Field_Number"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Field_Number]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Field_Number]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Prospect]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="Prospect"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Prospect]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Prospect]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Prospect_Number]"
+                      cachedDataType="i4"
+                      cachedName="Prospect_Number"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Prospect_Number]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Prospect_Number]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[Operator]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="Operator"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Operator]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Operator]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[API_WELL_NO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="API_WELL_NO"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[API_WELL_NO]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[API_WELL_NO]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[LAST_STATUS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="LAST_STATUS"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[LAST_STATUS]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[LAST_STATUS]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].Columns[WellName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="89"
+                      cachedName="WellName"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[WellName]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[WellName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[CC_UID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CC_UID" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Cost_Center]"
+                      codePage="1252"
+                      dataType="str"
+                      length="482"
+                      name="Cost_Center" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Cost_Center_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="21"
+                      name="Cost_Center_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Cost_Center_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cost_Center_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[County]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="County" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[District]"
+                      codePage="1252"
+                      dataType="str"
+                      length="49"
+                      name="District" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[District_Number]"
+                      dataType="i4"
+                      name="District_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Area_Number]"
+                      dataType="i4"
+                      name="Area_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Field]"
+                      codePage="1252"
+                      dataType="str"
+                      length="34"
+                      name="Field" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Field_Number]"
+                      dataType="i4"
+                      name="Field_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Prospect]"
+                      codePage="1252"
+                      dataType="str"
+                      length="68"
+                      name="Prospect" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Prospect_Number]"
+                      dataType="i4"
+                      name="Prospect_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[Operator]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Operator" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[API_WELL_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="API_WELL_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[LAST_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="LAST_STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input].ExternalColumns[WellName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="89"
+                      name="WellName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - Cost_Center"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[BOLO].[Cost_Center]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[CC_UID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[CC_UID]"
+                      length="255"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[CC_UID]"
+                      name="CC_UID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Cost_Center]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Cost_Center]"
+                      length="482"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Cost_Center]"
+                      name="Cost_Center"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Cost_Center_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Cost_Center_Number]"
+                      length="21"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Cost_Center_Number]"
+                      name="Cost_Center_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Cost_Center_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Cost_Center_Type]"
+                      length="4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Cost_Center_Type]"
+                      name="Cost_Center_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[County]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[County]"
+                      length="30"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[County]"
+                      name="County"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[District]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[District]"
+                      length="49"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[District]"
+                      name="District"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[District_Number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[District_Number]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[District_Number]"
+                      name="District_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                      length="33"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Area]"
+                      name="Area"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Area_Number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Area_Number]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Area_Number]"
+                      name="Area_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Field]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Field]"
+                      length="34"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Field]"
+                      name="Field"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Field_Number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Field_Number]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Field_Number]"
+                      name="Field_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Prospect]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Prospect]"
+                      length="68"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Prospect]"
+                      name="Prospect"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Prospect_Number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Prospect_Number]"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Prospect_Number]"
+                      name="Prospect_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Operator]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Operator]"
+                      length="35"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[Operator]"
+                      name="Operator"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[API_WELL_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[API_WELL_NO]"
+                      length="18"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[API_WELL_NO]"
+                      name="API_WELL_NO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[LAST_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[LAST_STATUS]"
+                      length="5"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[LAST_STATUS]"
+                      name="LAST_STATUS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[WellName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[WellName]"
+                      length="89"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].Columns[WellName]"
+                      name="WellName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[CC_UID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CC_UID" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Cost_Center]"
+                      codePage="1252"
+                      dataType="str"
+                      length="482"
+                      name="Cost_Center" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Cost_Center_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="21"
+                      name="Cost_Center_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Cost_Center_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cost_Center_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[County]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="County" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[District]"
+                      codePage="1252"
+                      dataType="str"
+                      length="49"
+                      name="District" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[District_Number]"
+                      dataType="i4"
+                      name="District_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Area_Number]"
+                      dataType="i4"
+                      name="Area_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Field]"
+                      codePage="1252"
+                      dataType="str"
+                      length="34"
+                      name="Field" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Field_Number]"
+                      dataType="i4"
+                      name="Field_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Prospect]"
+                      codePage="1252"
+                      dataType="str"
+                      length="68"
+                      name="Prospect" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Prospect_Number]"
+                      dataType="i4"
+                      name="Prospect_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[Operator]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Operator" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[API_WELL_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="API_WELL_NO" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[LAST_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="LAST_STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output].ExternalColumns[WellName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="89"
+                      name="WellName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[CC_UID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[CC_UID]"
+                      name="CC_UID" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Cost_Center]"
+                      codePage="1252"
+                      dataType="str"
+                      length="482"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Cost_Center]"
+                      name="Cost_Center" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Cost_Center_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="21"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Cost_Center_Number]"
+                      name="Cost_Center_Number" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Cost_Center_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Cost_Center_Type]"
+                      name="Cost_Center_Type" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[County]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[County]"
+                      name="County" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[District]"
+                      codePage="1252"
+                      dataType="str"
+                      length="49"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[District]"
+                      name="District" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[District_Number]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[District_Number]"
+                      name="District_Number" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Area]"
+                      name="Area" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Area_Number]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Area_Number]"
+                      name="Area_Number" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Field]"
+                      codePage="1252"
+                      dataType="str"
+                      length="34"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Field]"
+                      name="Field" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Field_Number]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Field_Number]"
+                      name="Field_Number" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Prospect]"
+                      codePage="1252"
+                      dataType="str"
+                      length="68"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Prospect]"
+                      name="Prospect" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Prospect_Number]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Prospect_Number]"
+                      name="Prospect_Number" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Operator]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[Operator]"
+                      name="Operator" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[API_WELL_NO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[API_WELL_NO]"
+                      name="API_WELL_NO" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[LAST_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[LAST_STATUS]"
+                      name="LAST_STATUS" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[WellName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="89"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[WellName]"
+                      name="WellName" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import StagePEAK_DW Cost_Center.Paths[OLE DB Source Output]"
+              endId="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{7203E433-CB19-4B73-AD9D-2F423F9F6124}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import StagePEAK_DW LOS_GRP_EXCL_ACCTS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 1 - LOS_GRP_EXCL_ACCTS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StagePEAK_DW].[LOS_GRP_EXCL_ACCTS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].Columns[u2_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="u2_id"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[u2_id]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[u2_id]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].Columns[CAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="CAT"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[CAT]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[CAT]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].Columns[DESCRIPTION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="93"
+                      cachedName="DESCRIPTION"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[DESCRIPTION]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].Columns[SUB_CAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="SUB_CAT"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[SUB_CAT]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[SUB_CAT]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].Columns[COMPANIES]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="COMPANIES"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[COMPANIES]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[COMPANIES]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].Columns[EXC_ACCTS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="EXC_ACCTS"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[EXC_ACCTS]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[EXC_ACCTS]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[u2_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="u2_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="93"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[SUB_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="SUB_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[COMPANIES]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="COMPANIES" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input].ExternalColumns[EXC_ACCTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="EXC_ACCTS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source 1 - LOS_GRP_EXCL_ACCTS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[BOLO].[LOS_GRP_EXCL_ACCTS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[u2_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[u2_id]"
+                      length="255"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[u2_id]"
+                      name="u2_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[CAT]"
+                      length="8"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[CAT]"
+                      name="CAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      length="93"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[SUB_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[SUB_CAT]"
+                      length="8"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[SUB_CAT]"
+                      name="SUB_CAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[COMPANIES]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[COMPANIES]"
+                      length="3"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[COMPANIES]"
+                      name="COMPANIES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[EXC_ACCTS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[EXC_ACCTS]"
+                      length="12"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].Columns[EXC_ACCTS]"
+                      name="EXC_ACCTS"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[u2_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="u2_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="93"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[SUB_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="SUB_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[COMPANIES]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="COMPANIES" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[EXC_ACCTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="EXC_ACCTS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[u2_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[u2_id]"
+                      name="u2_id" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[CAT]"
+                      name="CAT" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="93"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[SUB_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[SUB_CAT]"
+                      name="SUB_CAT" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[COMPANIES]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[COMPANIES]"
+                      name="COMPANIES" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[EXC_ACCTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[EXC_ACCTS]"
+                      name="EXC_ACCTS" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS.Paths[OLE DB Source Output]"
+              endId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{52A53D6C-1F8C-4B03-8FB8-0A7BF39A3258}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import StagePEAK_DW LOS_GRP_INCL_ACCTS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 2 - LOS_GRP_INCL_ACCTS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[StagePEAK_DW].[LOS_GRP_INCL_ACCTS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].Columns[u2_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="u2_id"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[u2_id]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[u2_id]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].Columns[CAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="CAT"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[CAT]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[CAT]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].Columns[DESCRIPTION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="93"
+                      cachedName="DESCRIPTION"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[DESCRIPTION]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].Columns[SUB_CAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="SUB_CAT"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[SUB_CAT]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[SUB_CAT]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].Columns[COMPANIES]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="COMPANIES"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[COMPANIES]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[COMPANIES]" />
+                    <inputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].Columns[ACCTS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="ACCTS"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[ACCTS]"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[ACCTS]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[u2_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="u2_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="93"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[SUB_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="SUB_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[COMPANIES]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="COMPANIES" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input].ExternalColumns[ACCTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="ACCTS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source 2 - LOS_GRP_INCL_ACCTS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[BOLO].[LOS_GRP_INCL_ACCTS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[u2_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[u2_id]"
+                      length="255"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[u2_id]"
+                      name="u2_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[CAT]"
+                      length="8"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[CAT]"
+                      name="CAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      length="93"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[SUB_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[SUB_CAT]"
+                      length="8"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[SUB_CAT]"
+                      name="SUB_CAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[COMPANIES]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[COMPANIES]"
+                      length="3"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[COMPANIES]"
+                      name="COMPANIES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[ACCTS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[ACCTS]"
+                      length="12"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].Columns[ACCTS]"
+                      name="ACCTS"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[u2_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="u2_id" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="93"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[SUB_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="SUB_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[COMPANIES]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="COMPANIES" />
+                    <externalMetadataColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output].ExternalColumns[ACCTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="ACCTS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[u2_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[u2_id]"
+                      name="u2_id" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[CAT]"
+                      name="CAT" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="93"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[SUB_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[SUB_CAT]"
+                      name="SUB_CAT" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[COMPANIES]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[COMPANIES]"
+                      name="COMPANIES" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ACCTS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ACCTS]"
+                      name="ACCTS" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS.Paths[OLE DB Source Output]"
+              endId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate StagePEAK_DW Cost_Center"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{F4E80DB6-0EC8-4946-BFC2-2BA9C2B58D24}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate StagePEAK_DW Cost_Center"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A5F2FBC3-D05D-495E-95BF-38056530920E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [StagePEAK_DW].[Cost_Center]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate StagePEAK_DW LOS_GRP_EXCL_ACCTS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{64CC02D9-CD51-4D27-9FEF-E40C9E095428}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate StagePEAK_DW LOS_GRP_EXCL_ACCTS"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A5F2FBC3-D05D-495E-95BF-38056530920E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [StagePEAK_DW].[LOS_GRP_EXCL_ACCTS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate StagePEAK_DW LOS_GRP_INCL_ACCTS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{CBD14702-DAA1-4A84-BE75-E370DC423217}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate StagePEAK_DW LOS_GRP_INCL_ACCTS"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A5F2FBC3-D05D-495E-95BF-38056530920E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [StagePEAK_DW].[LOS_GRP_INCL_ACCTS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{085A923B-8D4B-4E51-B997-943C94FA8216\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{E7520E77-0A2C-4266-BB58-60AC66C34A39}"
+      DTS:From="Package\Truncate StagePEAK_DW Cost_Center"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{E7520E77-0A2C-4266-BB58-60AC66C34A39}"
+      DTS:To="Package\Import StagePEAK_DW Cost_Center" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{085A923B-8D4B-4E51-B997-943C94FA8216\} 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{BBCC506A-D215-4E41-B0C8-F769EF0EBF4C}"
+      DTS:From="Package\Truncate StagePEAK_DW LOS_GRP_INCL_ACCTS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{E7520E77-0A2C-4266-BB58-60AC66C34A39} 1"
+      DTS:To="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{085A923B-8D4B-4E51-B997-943C94FA8216\} 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{AD28E238-8F77-435A-8533-0FEF9A863A6C}"
+      DTS:From="Package\Truncate StagePEAK_DW LOS_GRP_EXCL_ACCTS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{E7520E77-0A2C-4266-BB58-60AC66C34A39} 2"
+      DTS:To="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Import StagePEAK_DW Cost_Center"
+          TopLeft="13.5,77" />
+        <NodeLayout
+          Size="303,42"
+          Id="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS"
+          TopLeft="14,207" />
+        <NodeLayout
+          Size="302,42"
+          Id="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS"
+          TopLeft="288.5,72.5" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Truncate StagePEAK_DW Cost_Center"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="312,42"
+          Id="Package\Truncate StagePEAK_DW LOS_GRP_EXCL_ACCTS"
+          TopLeft="7.5,133" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\Truncate StagePEAK_DW LOS_GRP_INCL_ACCTS"
+          TopLeft="285.5,7.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{085A923B-8D4B-4E51-B997-943C94FA8216\}]"
+          TopLeft="136.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.5"
+              Start="0,0"
+              End="0,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{085A923B-8D4B-4E51-B997-943C94FA8216\} 1]"
+          TopLeft="440.25,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{085A923B-8D4B-4E51-B997-943C94FA8216\} 2]"
+          TopLeft="164.5,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import StagePEAK_DW Cost_Center">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Import StagePEAK_DW Cost_Center\Source - Cost_Center"
+          TopLeft="42,16.4999999999999" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Import StagePEAK_DW Cost_Center\Destination - Cost_Center"
+          TopLeft="31.5,118.5" />
+        <EdgeLayout
+          Id="Package\Import StagePEAK_DW Cost_Center.Paths[OLE DB Source Output]"
+          TopLeft="131.5,58.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="242,42"
+          Id="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Source 1 - LOS_GRP_EXCL_ACCTS"
+          TopLeft="37.5000000000001,13.4999999999999" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS\Destination 1 - LOS_GRP_EXCL_ACCTS"
+          TopLeft="27.0000000000001,115.5" />
+        <EdgeLayout
+          Id="Package\Import StagePEAK_DW LOS_GRP_EXCL_ACCTS.Paths[OLE DB Source Output]"
+          TopLeft="158.5,55.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="262,42"
+          Id="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Destination 2 - LOS_GRP_INCL_ACCTS"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS\Source 2 - LOS_GRP_INCL_ACCTS"
+          TopLeft="16,5.5" />
+        <EdgeLayout
+          Id="Package\Import StagePEAK_DW LOS_GRP_INCL_ACCTS.Paths[OLE DB Source Output]"
+          TopLeft="136.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

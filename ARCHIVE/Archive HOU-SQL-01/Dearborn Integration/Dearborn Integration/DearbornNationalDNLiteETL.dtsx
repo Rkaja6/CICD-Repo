@@ -1,0 +1,786 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/4/2019 9:12:43 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0MCJM8"
+  DTS:CreatorName="TLN\avogt"
+  DTS:DTSID="{33441931-0669-487F-983B-E771E079E415}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DearbornNationalDNLiteETL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{4CCD9018-7C50-43EE-9777-8AB5D7FB6023}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DNLITE.xsl]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{E70E9145-629C-4CCB-BD55-631CE661213C}"
+      DTS:ObjectName="DNLITE.xsl">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::DNLITEXsl_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\avogt\source\Repos\Other Data Integrations\Dearborn\DNLITE.xsl" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DNLiteInput.XML]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{C309E143-9A5C-478C-B1F8-4B2F58CA9BFF}"
+      DTS:ObjectName="DNLiteInput.XML">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::DNLiteInputXML_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\avogt\source\Repos\Other Data Integrations\Dearborn\DNLiteInput.XML" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OPER.EDI.FTP.F024710.2020XXXX.1.dat]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{FE36C6BE-C983-4298-9786-F1BED48CF6A5}"
+      DTS:ObjectName="OPER.EDI.FTP.F024710.2020XXXX.1.dat">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="H:\OPER.EDI.FTP.F024710.2020XXXX.1.dat" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SampleWorkdayDearbordExtract.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{4B6852F5-9DD3-4F03-AB31-78C36EA7496F}"
+      DTS:ObjectName="SampleWorkdayDearbordExtract.xml">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::SampleWorkdayDearbordExtractXml_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\avogt\source\Repos\Other Data Integrations\Dearborn\SampleWorkdayDearbordExtract.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Tellurian_DNLite_Full_Extract]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5DFD90DB-7F5F-487B-B410-9D2620776106}"
+      DTS:ObjectName="Tellurian_DNLite_Full_Extract">
+      <DTS:PropertyExpression
+        DTS:Name="AlwaysCheckForRowDelimiters">@[$Package::Tellurian_DNLite_Full_Extract_AlwaysCheckForRowDelimiters]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::Tellurian_DNLite_Full_Extract_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="RaggedRight"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\users\avogt\source\Repos\Other Data Integrations\Dearborn\Tellurian_DNLite_FullExtract.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="2"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col01RecordType"
+              DTS:DTSID="{57113BED-0B32-4978-95E4-D4AB15248B0F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col02GroupNumber"
+              DTS:DTSID="{4BE0322A-A6AE-4CE2-A904-57051ED7D092}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="9"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col03EmployeeSSN"
+              DTS:DTSID="{573ED74B-B4F5-4AA6-98EA-AFF61601B9FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="9"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col04NewParticipantId"
+              DTS:DTSID="{F73AAE92-74C3-49CB-8D59-A4FF924A2069}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="5"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col05AccountNumber"
+              DTS:DTSID="{5B601D1A-FB53-4522-BE7D-10D92880CC59}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="9"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col06DependentSSN"
+              DTS:DTSID="{4AEE134C-174B-44EC-AB01-E3954986EF9D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col07EffectiveDate"
+              DTS:DTSID="{773D8D86-C198-402C-A46B-A6555FC601AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="12"
+              DTS:MaximumWidth="12"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col08IDNumber"
+              DTS:DTSID="{270A585A-88E7-4F36-A901-87702685CA7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="20"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col09LastName"
+              DTS:DTSID="{269873BD-BF14-4920-AF46-1694659FA53C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="17"
+              DTS:MaximumWidth="17"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col10FirstName"
+              DTS:DTSID="{84378E1B-2775-4396-841B-DDD9525E2D47}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col11MiddleInitial"
+              DTS:DTSID="{C1BDAC46-5822-4878-9366-B92844F799BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="30"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col12AddressLine1"
+              DTS:DTSID="{59216A59-3775-4848-816A-ED8CCDAF6514}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col13Filler1"
+              DTS:DTSID="{0B2FC503-2B95-47CB-BD5D-186B51C5F963}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="30"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col14AddressLine2"
+              DTS:DTSID="{C56EF412-37E8-45B9-B990-8ACBC8F04A03}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col15Filler2"
+              DTS:DTSID="{7F575B17-2DE1-4013-A1A9-2E06E4E7A928}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="40"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col16AddressLine3"
+              DTS:DTSID="{4980E6E4-760E-429A-B0C0-8E94C607BF07}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="20"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col17City"
+              DTS:DTSID="{C3FAE215-CBCF-4B14-BC60-5B1D36B64D32}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="9"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col18Filler3"
+              DTS:DTSID="{19501C31-AE5D-45E5-9CD9-49957472176D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="2"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col19State"
+              DTS:DTSID="{3095F02E-45D4-485C-99D0-5AD13DE5E8C2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="9"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col20ZipCode"
+              DTS:DTSID="{E339BAD1-1ABD-4D0A-8A0B-0DF37A48970C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col21RelationshipCode"
+              DTS:DTSID="{BA9DF5F3-7883-4DBF-AC94-7877F4E0E2C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col22Gender"
+              DTS:DTSID="{40976F57-E57E-4BFA-83C8-698769DF1306}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col23DateOfBirth"
+              DTS:DTSID="{9406AB1C-2F22-4357-B1DA-979FCD8C3839}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col24SmokerIndicator"
+              DTS:DTSID="{6A77A6D4-A5AC-4276-BB98-D06FB492C967}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col25DateOfHire"
+              DTS:DTSID="{CF1B3282-A8B1-4D92-BEA5-3E7F78119A28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="7"
+              DTS:MaximumWidth="7"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col26LocationNumber"
+              DTS:DTSID="{E3EBC1F1-1640-4AAD-B566-70559F5332DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col27LocationDate"
+              DTS:DTSID="{4E19DE1F-9AB8-4FA7-A3C5-305891F2BE31}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="11"
+              DTS:MaximumWidth="11"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col28ReportedSalary"
+              DTS:DTSID="{4575BEF9-A082-43A8-8166-55A8B4C0838F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col29SalaryMode"
+              DTS:DTSID="{4D6CFD74-7A83-4DB6-883A-FAE40BD75CE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col30SalaryEffectiveDate"
+              DTS:DTSID="{09EBFE5B-BCED-4A64-8EC4-20B0BE338F83}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="5"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col31WeeklyHours"
+              DTS:DTSID="{8FE20304-011C-484B-A7D0-7306F852A432}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="7"
+              DTS:MaximumWidth="7"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col32ProductId"
+              DTS:DTSID="{FF7B2AC2-AACF-4586-AAE1-8AA4EDF2BD74}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col33TerminationDate"
+              DTS:DTSID="{C376D4F2-5123-4BFE-8E5E-4418E8750C23}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="2"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col34TerminationReasonCode"
+              DTS:DTSID="{CEF7C5D4-6799-438C-85B2-8329D803153D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col35CoverageOption"
+              DTS:DTSID="{57B51230-F312-4653-906C-96A97A5C3D71}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="7"
+              DTS:MaximumWidth="7"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col36PlanCode"
+              DTS:DTSID="{D5516438-C75A-44FC-8751-883E3B1BB63A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="9"
+              DTS:MaximumWidth="9"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col37Units"
+              DTS:DTSID="{9982AA0A-ACB0-453F-A95B-56A896860149}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="5"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col38ProductSetId"
+              DTS:DTSID="{849E7156-216E-4EDD-B602-E00AD0A20635}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col39UnderwritingStatusIndicator"
+              DTS:DTSID="{855AC86F-CFAC-41C2-92D8-99E934200A2F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="8"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col40ApplicationReceivedDate"
+              DTS:DTSID="{40B19A3D-1F0E-4AFD-94DE-2B64CFC8C97A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="10"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col41CertificateNumber"
+              DTS:DTSID="{078270C4-58A1-4C3A-A72C-660043794E97}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="2"
+              DTS:MaximumWidth="2"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col42DependentSequence"
+              DTS:DTSID="{492B0F74-8C64-49A6-A849-2E4FB497966C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col43ForeignAddressIndicator"
+              DTS:DTSID="{E6F4D502-0B61-43F1-95FD-60D49F47977E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="617"
+              DTS:MaximumWidth="617"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="col44Filler4"
+              DTS:DTSID="{0E001656-AEAC-44C2-A801-BFF3ACAF1A13}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Row delimiter column"
+              DTS:DTSID="{70005519-9F6B-47E9-898D-46F0EED3DCFB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5A5E4CDF-36FA-41BC-87F6-A8679A18C843}"
+      DTS:ObjectName="Dearborn_sFTP_Host">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">205.172.133.140</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D723E20C-A45A-4C02-AC28-6B195A4C472D}"
+      DTS:ObjectName="Dearborn_sFTP_Password">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TSterluoi#3</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2B9B6C72-8DE5-4E41-B0FD-00AB34CB8DF3}"
+      DTS:ObjectName="Dearborn_sFTP_Path">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">//DearTellu001/inbound</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{85BD17E3-452D-4D77-8B69-8CCF7373C84B}"
+      DTS:ObjectName="Dearborn_sFTP_Username">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DearTellu001</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E84A749D-B18E-4A28-B367-9DE1D03F6D14}"
+      DTS:ObjectName="DNLiteInputXML_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\avogt\source\Repos\Other Data Integrations\Dearborn\DNLiteInput.XML</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{91CD6270-8372-49D1-B620-2A2F95366D56}"
+      DTS:ObjectName="DNLITEXsl_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\avogt\source\Repos\Other Data Integrations\Dearborn\DNLITE.xsl</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{CFCC4D89-8CBB-4898-B85E-41E694C28C5A}"
+      DTS:ObjectName="SampleWorkdayDearbordExtractXml_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\avogt\source\Repos\Other Data Integrations\Dearborn\SampleWorkdayDearbordExtract.xml</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{7279C8C9-1F15-43E7-BC88-896EFE008E19}"
+      DTS:ObjectName="Tellurian_DNLite_Full_Extract_AlwaysCheckForRowDelimiters">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4792102C-DDFD-4943-8C97-F6FF9EC8BD0E}"
+      DTS:ObjectName="Tellurian_DNLite_Full_Extract_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\users\avogt\source\Repos\Other Data Integrations\Dearborn\Tellurian_DNLite_FullExtract.txt</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{297710AE-90AD-483D-8EF7-DA802A03E02A}"
+      DTS:ObjectName="Tellurian_sFTP_Filespec">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">upload/SampleWorkdayDearbordExtract.xml</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4D585A98-117A-415B-8452-25261D968FDE}"
+      DTS:ObjectName="Tellurian_sFTP_Host">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">workdayintelex.southcentralus.azurecontainer.io</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{843C4993-D285-4EA9-85C7-5462FFB38FD2}"
+      DTS:ObjectName="Tellurian_sFTP_Password">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">workday-sftp</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9BC531A2-3935-4ABF-A1B9-0A1BB0A66945}"
+      DTS:ObjectName="Tellurian_sFTP_Username">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">workday-sftp</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F3ABF36-9A9B-420E-9BEE-62C8AE282399}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DNLite_Output">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8C16524A-57FA-4F7E-868A-26AADEB222A3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Workday_XML">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load and Transform Workday Extract"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{841EE8E3-F4AD-485F-9433-FF89F4B261C2}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load and Transform Workday Extract"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="XSLT"
+          SourceType="Variable"
+          Source="User::Workday_XML"
+          SecondOperandType="FileConnection"
+          SecondOperand="DNLITE.xsl"
+          SaveOperationResult="True"
+          DestinationType="Variable"
+          Destination="User::DNLite_Output"
+          OverwriteDestination="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Retrieve File From sFTP"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{B2B5DCCC-38FF-4062-9921-54C53129A7DF}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Retrieve File From sFTP"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_ef30235ef2794e26b1fc5fec607c6bad"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="VisualBasic" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Submit File to Dearborn"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{08951648-8CB3-4272-B5B9-97F06226D664}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Submit File to Dearborn"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_b2e82aa8826047bbb786f1a0ca14a52a"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="VisualBasic" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{21EB3B10-6068-4365-AC63-C7C18E3E4C3B}"
+      DTS:From="Package\Load and Transform Workday Extract"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Submit File to Dearborn" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1E89F493-B94E-4D52-8E80-252D314543A2}"
+      DTS:From="Package\Retrieve File From sFTP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load and Transform Workday Extract" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="255,42"
+          Id="Package\Load and Transform Workday Extract"
+          TopLeft="472,216" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Retrieve File From sFTP"
+          TopLeft="501,89" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Submit File to Dearborn"
+          TopLeft="508,321" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="601.5,258">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="597.75,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85"
+              Start="0,0"
+              End="0,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

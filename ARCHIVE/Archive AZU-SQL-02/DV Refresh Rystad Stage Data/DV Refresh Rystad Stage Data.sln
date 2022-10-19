@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DV Refresh Rystad Stage Data", "DV Refresh Rystad Stage Data\DV Refresh Rystad Stage Data.dtproj", "{6249C82A-7F22-42C5-A44A-4CEA2DF5877A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6249C82A-7F22-42C5-A44A-4CEA2DF5877A}.Development|Default.ActiveCfg = Development
+		{6249C82A-7F22-42C5-A44A-4CEA2DF5877A}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86EBE0D8-C1D3-4F94-BB87-A7F968545DFE}
+	EndGlobalSection
+EndGlobal
