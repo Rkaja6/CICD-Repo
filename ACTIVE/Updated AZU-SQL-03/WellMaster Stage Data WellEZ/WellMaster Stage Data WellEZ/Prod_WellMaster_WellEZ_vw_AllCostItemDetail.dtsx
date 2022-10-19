@@ -1,0 +1,1552 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/10/2022 7:53:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-852713J"
+  DTS:CreatorName="TLN\avogt"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{CC0870C6-B9EB-43FC-A99B-3005E83D8B6A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Prod_WellMaster_WellEZ_vw_AllCostItemDetail"
+  DTS:VersionGUID="{328A050F-7FD5-4239-8636-5098EB6FCB26}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{11EBE3EF-5741-4166-B00E-EFDF9717DEF9}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-03;Initial Catalog=Prod_WellMaster;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0E681B0A-E6E5-43D4-93F2-DDD4FA86B33E}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-03;Initial Catalog=Prod_WellEZ;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{13BA7AD6-892B-400A-B4FA-5C6253B9D0F6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - vw_AllCostItemDetail"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[WellEZ].[vw_AllCostItemDetail]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[well_id]"
+                      cachedDataType="i8"
+                      cachedName="well_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[well_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[well_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[WellName]"
+                      cachedDataType="nText"
+                      cachedName="WellName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[WellName]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[WellName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[State]"
+                      cachedDataType="nText"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[County]"
+                      cachedDataType="nText"
+                      cachedName="County"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[County]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[County]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[LatitudeLocation]"
+                      cachedDataType="nText"
+                      cachedName="LatitudeLocation"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[LatitudeLocation]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[LatitudeLocation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[LongitudeLocation]"
+                      cachedDataType="nText"
+                      cachedName="LongitudeLocation"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[LongitudeLocation]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[LongitudeLocation]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[AssetName]"
+                      cachedDataType="nText"
+                      cachedName="AssetName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[AssetName]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AssetName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[Area]"
+                      cachedDataType="nText"
+                      cachedName="Area"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Area]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Area]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[FieldName]"
+                      cachedDataType="nText"
+                      cachedName="FieldName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[FieldName]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[FieldName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[Lease]"
+                      cachedDataType="nText"
+                      cachedName="Lease"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Lease]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Lease]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[APINo]"
+                      cachedDataType="nText"
+                      cachedName="APINo"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[APINo]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[APINo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[Well Status]"
+                      cachedDataType="nText"
+                      cachedName="Well Status"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Well Status]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Well Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[ARIES Propnum]"
+                      cachedDataType="nText"
+                      cachedName="ARIES Propnum"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[ARIES Propnum]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[ARIES Propnum]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[Bolo Cost Center]"
+                      cachedDataType="nText"
+                      cachedName="Bolo Cost Center"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Bolo Cost Center]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Bolo Cost Center]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[StatePermitNo]"
+                      cachedDataType="nText"
+                      cachedName="StatePermitNo"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[StatePermitNo]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[StatePermitNo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[NetRevenueInterest]"
+                      cachedDataType="r4"
+                      cachedName="NetRevenueInterest"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[NetRevenueInterest]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[NetRevenueInterest]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[job_number]"
+                      cachedDataType="i8"
+                      cachedName="job_number"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[job_number]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[job_number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[job_status]"
+                      cachedDataType="i8"
+                      cachedName="job_status"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[job_status]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[job_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[jobDescription]"
+                      cachedDataType="nText"
+                      cachedName="jobDescription"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[jobDescription]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[jobDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[WorkingInterest]"
+                      cachedDataType="r4"
+                      cachedName="WorkingInterest"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[WorkingInterest]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[WorkingInterest]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[WellEngineer]"
+                      cachedDataType="nText"
+                      cachedName="WellEngineer"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[WellEngineer]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[WellEngineer]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[SubCode]"
+                      cachedDataType="nText"
+                      cachedName="SubCode"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[SubCode]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[SubCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[StartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[SpudDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SpudDate"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[SpudDate]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[SpudDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[RigNumber]"
+                      cachedDataType="nText"
+                      cachedName="RigNumber"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[RigNumber]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[RigNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[RigContractor]"
+                      cachedDataType="nText"
+                      cachedName="RigContractor"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[RigContractor]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[RigContractor]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[PermitNo]"
+                      cachedDataType="nText"
+                      cachedName="PermitNo"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[PermitNo]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[PermitNo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[Operator]"
+                      cachedDataType="nText"
+                      cachedName="Operator"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Operator]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Operator]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[Objective]"
+                      cachedDataType="nText"
+                      cachedName="Objective"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Objective]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Objective]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[Category]"
+                      cachedDataType="nText"
+                      cachedName="Category"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Category]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Category]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[AFE Number]"
+                      cachedDataType="nText"
+                      cachedName="AFE Number"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[AFE Number]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AFE Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[AFEAmountC]"
+                      cachedDataType="numeric"
+                      cachedName="AFEAmountC"
+                      cachedPrecision="19"
+                      cachedScale="9"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[AFEAmountC]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AFEAmountC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[AFEAmountCC]"
+                      cachedDataType="numeric"
+                      cachedName="AFEAmountCC"
+                      cachedPrecision="19"
+                      cachedScale="9"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[AFEAmountCC]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AFEAmountCC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[report_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="report_Date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[report_Date]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[report_Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[line_number]"
+                      cachedDataType="i8"
+                      cachedName="line_number"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[line_number]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[line_number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[completioncostitem_id]"
+                      cachedDataType="i4"
+                      cachedName="completioncostitem_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[completioncostitem_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[completioncostitem_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[VendorName]"
+                      cachedDataType="nText"
+                      cachedName="VendorName"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[VendorName]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[VendorName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[VendorId]"
+                      cachedDataType="i4"
+                      cachedName="VendorId"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[VendorId]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[VendorId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[reportTypeId]"
+                      cachedDataType="i8"
+                      cachedName="reportTypeId"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[reportTypeId]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[reportTypeId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[Remarks]"
+                      cachedDataType="nText"
+                      cachedName="Remarks"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Remarks]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Remarks]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[ItemCode]"
+                      cachedDataType="nText"
+                      cachedName="ItemCode"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[ItemCode]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[ItemCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[ExpenseDescription]"
+                      cachedDataType="nText"
+                      cachedName="ExpenseDescription"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[ExpenseDescription]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[ExpenseDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[SubExpenseDescription]"
+                      cachedDataType="nText"
+                      cachedName="SubExpenseDescription"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[SubExpenseDescription]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[SubExpenseDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].Columns[Cost]"
+                      cachedDataType="numeric"
+                      cachedName="Cost"
+                      cachedPrecision="19"
+                      cachedScale="9"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Cost]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Cost]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[well_id]"
+                      dataType="i8"
+                      name="well_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[WellName]"
+                      dataType="nText"
+                      name="WellName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[State]"
+                      dataType="nText"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[County]"
+                      dataType="nText"
+                      name="County" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[LatitudeLocation]"
+                      dataType="nText"
+                      name="LatitudeLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[LongitudeLocation]"
+                      dataType="nText"
+                      name="LongitudeLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[AssetName]"
+                      dataType="nText"
+                      name="AssetName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Area]"
+                      dataType="nText"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[FieldName]"
+                      dataType="nText"
+                      name="FieldName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Lease]"
+                      dataType="nText"
+                      name="Lease" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[APINo]"
+                      dataType="nText"
+                      name="APINo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Well Status]"
+                      dataType="nText"
+                      name="Well Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[ARIES Propnum]"
+                      dataType="nText"
+                      name="ARIES Propnum" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Bolo Cost Center]"
+                      dataType="nText"
+                      name="Bolo Cost Center" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[StatePermitNo]"
+                      dataType="nText"
+                      name="StatePermitNo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[NetRevenueInterest]"
+                      dataType="r4"
+                      name="NetRevenueInterest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[job_number]"
+                      dataType="i8"
+                      name="job_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[job_status]"
+                      dataType="i8"
+                      name="job_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[jobDescription]"
+                      dataType="nText"
+                      name="jobDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[WorkingInterest]"
+                      dataType="r4"
+                      name="WorkingInterest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[WellEngineer]"
+                      dataType="nText"
+                      name="WellEngineer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[SubCode]"
+                      dataType="nText"
+                      name="SubCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[SpudDate]"
+                      dataType="dbTimeStamp"
+                      name="SpudDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[RigNumber]"
+                      dataType="nText"
+                      name="RigNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[RigContractor]"
+                      dataType="nText"
+                      name="RigContractor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[PermitNo]"
+                      dataType="nText"
+                      name="PermitNo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Operator]"
+                      dataType="nText"
+                      name="Operator" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Objective]"
+                      dataType="nText"
+                      name="Objective" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Category]"
+                      dataType="nText"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[AFE Number]"
+                      dataType="nText"
+                      name="AFE Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[AFEAmountC]"
+                      dataType="numeric"
+                      name="AFEAmountC"
+                      precision="19"
+                      scale="9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[AFEAmountCC]"
+                      dataType="numeric"
+                      name="AFEAmountCC"
+                      precision="19"
+                      scale="9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[report_Date]"
+                      dataType="dbTimeStamp"
+                      name="report_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[line_number]"
+                      dataType="i8"
+                      name="line_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[completioncostitem_id]"
+                      dataType="i4"
+                      name="completioncostitem_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[VendorName]"
+                      dataType="nText"
+                      name="VendorName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[VendorId]"
+                      dataType="i4"
+                      name="VendorId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[reportTypeId]"
+                      dataType="i8"
+                      name="reportTypeId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Remarks]"
+                      dataType="nText"
+                      name="Remarks" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[ItemCode]"
+                      dataType="nText"
+                      name="ItemCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[ExpenseDescription]"
+                      dataType="nText"
+                      name="ExpenseDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[SubExpenseDescription]"
+                      dataType="nText"
+                      name="SubExpenseDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input].ExternalColumns[Cost]"
+                      dataType="numeric"
+                      name="Cost"
+                      precision="19"
+                      scale="9" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - vw_AllCostItemDetail"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[tell].[vw_AllCostItemDetail]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[well_id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[well_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[well_id]"
+                      name="well_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[WellName]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[WellName]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[WellName]"
+                      name="WellName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[County]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[County]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[County]"
+                      name="County"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[LatitudeLocation]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[LatitudeLocation]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[LatitudeLocation]"
+                      name="LatitudeLocation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[LongitudeLocation]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[LongitudeLocation]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[LongitudeLocation]"
+                      name="LongitudeLocation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AssetName]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[AssetName]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AssetName]"
+                      name="AssetName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Area]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Area]"
+                      name="Area"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[FieldName]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[FieldName]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[FieldName]"
+                      name="FieldName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Lease]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Lease]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Lease]"
+                      name="Lease"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[APINo]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[APINo]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[APINo]"
+                      name="APINo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Well Status]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Well Status]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Well Status]"
+                      name="Well Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[ARIES Propnum]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[ARIES Propnum]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[ARIES Propnum]"
+                      name="ARIES Propnum"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Bolo Cost Center]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Bolo Cost Center]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Bolo Cost Center]"
+                      name="Bolo Cost Center"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[StatePermitNo]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[StatePermitNo]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[StatePermitNo]"
+                      name="StatePermitNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[NetRevenueInterest]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[NetRevenueInterest]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[NetRevenueInterest]"
+                      name="NetRevenueInterest"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[job_number]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[job_number]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[job_number]"
+                      name="job_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[job_status]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[job_status]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[job_status]"
+                      name="job_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[jobDescription]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[jobDescription]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[jobDescription]"
+                      name="jobDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[WorkingInterest]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[WorkingInterest]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[WorkingInterest]"
+                      name="WorkingInterest"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[WellEngineer]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[WellEngineer]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[WellEngineer]"
+                      name="WellEngineer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[SubCode]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[SubCode]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[SubCode]"
+                      name="SubCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[SpudDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[SpudDate]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[SpudDate]"
+                      name="SpudDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[RigNumber]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[RigNumber]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[RigNumber]"
+                      name="RigNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[RigContractor]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[RigContractor]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[RigContractor]"
+                      name="RigContractor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[PermitNo]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[PermitNo]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[PermitNo]"
+                      name="PermitNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Operator]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Operator]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Operator]"
+                      name="Operator"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Objective]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Objective]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Objective]"
+                      name="Objective"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Category]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Category]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AFE Number]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[AFE Number]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AFE Number]"
+                      name="AFE Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AFEAmountC]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[AFEAmountC]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AFEAmountC]"
+                      name="AFEAmountC"
+                      precision="19"
+                      scale="9"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AFEAmountCC]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[AFEAmountCC]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[AFEAmountCC]"
+                      name="AFEAmountCC"
+                      precision="19"
+                      scale="9"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[report_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[report_Date]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[report_Date]"
+                      name="report_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[line_number]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[line_number]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[line_number]"
+                      name="line_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[completioncostitem_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[completioncostitem_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[completioncostitem_id]"
+                      name="completioncostitem_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[VendorName]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[VendorName]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[VendorName]"
+                      name="VendorName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[VendorId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[VendorId]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[VendorId]"
+                      name="VendorId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[reportTypeId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[reportTypeId]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[reportTypeId]"
+                      name="reportTypeId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Remarks]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Remarks]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Remarks]"
+                      name="Remarks"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[ItemCode]"
+                      name="ItemCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[ExpenseDescription]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[ExpenseDescription]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[ExpenseDescription]"
+                      name="ExpenseDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[SubExpenseDescription]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[SubExpenseDescription]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[SubExpenseDescription]"
+                      name="SubExpenseDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Cost]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Cost]"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].Columns[Cost]"
+                      name="Cost"
+                      precision="19"
+                      scale="9"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[well_id]"
+                      dataType="i8"
+                      name="well_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[WellName]"
+                      dataType="nText"
+                      name="WellName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="nText"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[County]"
+                      dataType="nText"
+                      name="County" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[LatitudeLocation]"
+                      dataType="nText"
+                      name="LatitudeLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[LongitudeLocation]"
+                      dataType="nText"
+                      name="LongitudeLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[AssetName]"
+                      dataType="nText"
+                      name="AssetName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Area]"
+                      dataType="nText"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[FieldName]"
+                      dataType="nText"
+                      name="FieldName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Lease]"
+                      dataType="nText"
+                      name="Lease" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[APINo]"
+                      dataType="nText"
+                      name="APINo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Well Status]"
+                      dataType="nText"
+                      name="Well Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[ARIES Propnum]"
+                      dataType="nText"
+                      name="ARIES Propnum" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Bolo Cost Center]"
+                      dataType="nText"
+                      name="Bolo Cost Center" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[StatePermitNo]"
+                      dataType="nText"
+                      name="StatePermitNo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[NetRevenueInterest]"
+                      dataType="r4"
+                      name="NetRevenueInterest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[job_number]"
+                      dataType="i8"
+                      name="job_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[job_status]"
+                      dataType="i8"
+                      name="job_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[jobDescription]"
+                      dataType="nText"
+                      name="jobDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[WorkingInterest]"
+                      dataType="r4"
+                      name="WorkingInterest" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[WellEngineer]"
+                      dataType="nText"
+                      name="WellEngineer" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[SubCode]"
+                      dataType="nText"
+                      name="SubCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[SpudDate]"
+                      dataType="dbTimeStamp"
+                      name="SpudDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[RigNumber]"
+                      dataType="nText"
+                      name="RigNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[RigContractor]"
+                      dataType="nText"
+                      name="RigContractor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[PermitNo]"
+                      dataType="nText"
+                      name="PermitNo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Operator]"
+                      dataType="nText"
+                      name="Operator" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Objective]"
+                      dataType="nText"
+                      name="Objective" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Category]"
+                      dataType="nText"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[AFE Number]"
+                      dataType="nText"
+                      name="AFE Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[AFEAmountC]"
+                      dataType="numeric"
+                      name="AFEAmountC"
+                      precision="19"
+                      scale="9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[AFEAmountCC]"
+                      dataType="numeric"
+                      name="AFEAmountCC"
+                      precision="19"
+                      scale="9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[report_Date]"
+                      dataType="dbTimeStamp"
+                      name="report_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[line_number]"
+                      dataType="i8"
+                      name="line_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[completioncostitem_id]"
+                      dataType="i4"
+                      name="completioncostitem_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[VendorName]"
+                      dataType="nText"
+                      name="VendorName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[VendorId]"
+                      dataType="i4"
+                      name="VendorId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[reportTypeId]"
+                      dataType="i8"
+                      name="reportTypeId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Remarks]"
+                      dataType="nText"
+                      name="Remarks" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[ItemCode]"
+                      dataType="nText"
+                      name="ItemCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[ExpenseDescription]"
+                      dataType="nText"
+                      name="ExpenseDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[SubExpenseDescription]"
+                      dataType="nText"
+                      name="SubExpenseDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output].ExternalColumns[Cost]"
+                      dataType="numeric"
+                      name="Cost"
+                      precision="19"
+                      scale="9" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[well_id]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[well_id]"
+                      name="well_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[WellName]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[WellName]"
+                      name="WellName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[County]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[County]"
+                      name="County" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[LatitudeLocation]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[LatitudeLocation]"
+                      name="LatitudeLocation" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[LongitudeLocation]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[LongitudeLocation]"
+                      name="LongitudeLocation" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[AssetName]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[AssetName]"
+                      name="AssetName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Area]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Area]"
+                      name="Area" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[FieldName]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[FieldName]"
+                      name="FieldName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Lease]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Lease]"
+                      name="Lease" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[APINo]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[APINo]"
+                      name="APINo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Well Status]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Well Status]"
+                      name="Well Status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ARIES Propnum]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ARIES Propnum]"
+                      name="ARIES Propnum" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Bolo Cost Center]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Bolo Cost Center]"
+                      name="Bolo Cost Center" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[StatePermitNo]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[StatePermitNo]"
+                      name="StatePermitNo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[NetRevenueInterest]"
+                      dataType="r4"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[NetRevenueInterest]"
+                      name="NetRevenueInterest" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[job_number]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[job_number]"
+                      name="job_number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[job_status]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[job_status]"
+                      name="job_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[jobDescription]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[jobDescription]"
+                      name="jobDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[WorkingInterest]"
+                      dataType="r4"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[WorkingInterest]"
+                      name="WorkingInterest" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[WellEngineer]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[WellEngineer]"
+                      name="WellEngineer" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[SubCode]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[SubCode]"
+                      name="SubCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[SpudDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[SpudDate]"
+                      name="SpudDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[RigNumber]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[RigNumber]"
+                      name="RigNumber" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[RigContractor]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[RigContractor]"
+                      name="RigContractor" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[PermitNo]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[PermitNo]"
+                      name="PermitNo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Operator]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Operator]"
+                      name="Operator" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Objective]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Objective]"
+                      name="Objective" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Category]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[AFE Number]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[AFE Number]"
+                      name="AFE Number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[AFEAmountC]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[AFEAmountC]"
+                      name="AFEAmountC"
+                      precision="19"
+                      scale="9" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[AFEAmountCC]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[AFEAmountCC]"
+                      name="AFEAmountCC"
+                      precision="19"
+                      scale="9" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[report_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[report_Date]"
+                      name="report_Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[line_number]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[line_number]"
+                      name="line_number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[completioncostitem_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[completioncostitem_id]"
+                      name="completioncostitem_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[VendorName]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[VendorName]"
+                      name="VendorName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[VendorId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[VendorId]"
+                      name="VendorId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[reportTypeId]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[reportTypeId]"
+                      name="reportTypeId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Remarks]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Remarks]"
+                      name="Remarks" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ItemCode]"
+                      name="ItemCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ExpenseDescription]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ExpenseDescription]"
+                      name="ExpenseDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[SubExpenseDescription]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[SubExpenseDescription]"
+                      name="SubExpenseDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Cost]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[Cost]"
+                      name="Cost"
+                      precision="19"
+                      scale="9" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Destination - vw_AllCostItemDetail.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 1\Source - vw_AllCostItemDetail.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{B3DC1915-8417-4F3D-83EA-7EEEAEFA0800}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{11EBE3EF-5741-4166-B00E-EFDF9717DEF9}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [WellEZ].[vw_AllCostItemDetail]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{B6D7E148-9338-467C-8875-8B3F86E39CDD\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{FF4FE9B6-E83B-47BD-93B3-B2ABD2365639}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{FF4FE9B6-E83B-47BD-93B3-B2ABD2365639}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>

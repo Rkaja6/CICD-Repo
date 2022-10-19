@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "GetWellEZData", "GetWellEZData\GetWellEZData.dtproj", "{1CBA4D3A-3B0E-4623-A014-2B21B850BAB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CBA4D3A-3B0E-4623-A014-2B21B850BAB8}.Development|Default.ActiveCfg = Development
+		{1CBA4D3A-3B0E-4623-A014-2B21B850BAB8}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB873824-0D50-432F-9670-102AC0E2D7D4}
+	EndGlobalSection
+EndGlobal

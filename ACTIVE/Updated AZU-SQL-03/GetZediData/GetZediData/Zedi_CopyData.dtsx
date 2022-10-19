@@ -1,0 +1,1099 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/11/2022 4:36:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOL-L-9382T83"
+  DTS:CreatorName="rglazebrook"
+  DTS:DTSID="{26488523-EB6F-4E77-9907-6EFF7F40CA98}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Zedi_CopyData"
+  DTS:VersionGUID="{5A38221E-60F8-4775-BCE3-0221318F4F0B}"
+  DTS:VersionMajor="0">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLEDB_Tell]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A1EDBD71-56F0-4CB0-B923-D2C9D0DBB4D7}"
+      DTS:ObjectName="OLEDB_Tell">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="data source=azu-sql-03;initial catalog=Prod_Zedi;provider=SQLNCLI11.1;integrated security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLEDB_Zedi]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C23FA5E3-E532-4434-843B-505A2F24B464}"
+      DTS:ObjectName="OLEDB_Zedi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="data source=tell-emerson.public.4b7da0e6df07.database.windows.net,3342;user id=TellAccess;initial catalog=UpstreamZedi;provider=SQLNCLI11.1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Update_All_Tables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{E12C0DBF-18D0-477C-A370-C94BF4F3341A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update_All_Tables">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Update_All_Tables\Update_DailyAgg"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:DTSID="{5F0F80C7-EAAC-4B86-AEFB-F3860CD1A72F}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_DailyAgg">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DTSID="{C1144413-C180-4772-BDCC-FFA82E348021}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DailyAgg"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      name="Tell"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">DBO.ZEDIDATAQTR</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[OLEDB_Tell]"
+                          connectionManagerRefId="Package.ConnectionManagers[OLEDB_Tell]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="Zedi_Output_Tell">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].Columns[location_id]"
+                              cachedDataType="i4"
+                              cachedName="location_id"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[location_id]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[location_id]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].Columns[location]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="location"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[location]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[location]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].Columns[starttime]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="starttime"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[starttime]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[starttime]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].Columns[endtime]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="endtime"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[endtime]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[endtime]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].Columns[sensor]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="sensor"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[sensor]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[sensor]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].Columns[sensor_id]"
+                              cachedDataType="i4"
+                              cachedName="sensor_id"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[sensor_id]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[sensor_id]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].Columns[unit]"
+                              cachedDataType="wstr"
+                              cachedLength="25"
+                              cachedName="unit"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[unit]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[unit]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].Columns[amount]"
+                              cachedDataType="r8"
+                              cachedName="amount"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[amount]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[amount]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].Columns[qtrtype]"
+                              cachedDataType="wstr"
+                              cachedLength="15"
+                              cachedName="qtrtype"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[qtrtype]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[qtrtype]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[location_id]"
+                              dataType="i4"
+                              name="location_id" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[location]"
+                              dataType="wstr"
+                              length="100"
+                              name="location" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[starttime]"
+                              dataType="dbTimeStamp"
+                              name="starttime" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[endtime]"
+                              dataType="dbTimeStamp"
+                              name="endtime" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[sensor]"
+                              dataType="wstr"
+                              length="100"
+                              name="sensor" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[sensor_id]"
+                              dataType="i4"
+                              name="sensor_id" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[unit]"
+                              dataType="wstr"
+                              length="25"
+                              name="unit" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[amount]"
+                              dataType="r8"
+                              name="amount" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[qtrtype]"
+                              dataType="wstr"
+                              length="15"
+                              name="qtrtype" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Outputs[Error]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Error"
+                          synchronousInputId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Outputs[Error].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Outputs[Error].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Outputs[Error].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Outputs[Error].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      name="Zedi"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM DBO.ZEDIDATAQTR WHERE CAST(starttime AS date) &gt;= DATEADD(day,-5,CAST(GETDATE() AS date))</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[OLEDB_Zedi]"
+                          connectionManagerRefId="Package.ConnectionManagers[OLEDB_Zedi]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output]"
+                          name="Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[location_id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[location_id]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[location_id]"
+                              name="location_id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[location]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[location]"
+                              length="100"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[location]"
+                              name="location"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[starttime]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[starttime]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[starttime]"
+                              name="starttime"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[endtime]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[endtime]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[endtime]"
+                              name="endtime"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[sensor]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[sensor]"
+                              length="100"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[sensor]"
+                              name="sensor"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[sensor_id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[sensor_id]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[sensor_id]"
+                              name="sensor_id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[unit]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[unit]"
+                              length="25"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[unit]"
+                              name="unit"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[amount]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[amount]"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[amount]"
+                              name="amount"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[qtrtype]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[qtrtype]"
+                              length="15"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].Columns[qtrtype]"
+                              name="qtrtype"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[location_id]"
+                              dataType="i4"
+                              name="location_id" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[location]"
+                              dataType="wstr"
+                              length="100"
+                              name="location" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[starttime]"
+                              dataType="dbTimeStamp"
+                              name="starttime" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[endtime]"
+                              dataType="dbTimeStamp"
+                              name="endtime" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[sensor]"
+                              dataType="wstr"
+                              length="100"
+                              name="sensor" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[sensor_id]"
+                              dataType="i4"
+                              name="sensor_id" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[unit]"
+                              dataType="wstr"
+                              length="25"
+                              name="unit" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[amount]"
+                              dataType="r8"
+                              name="amount" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output].ExternalColumns[qtrtype]"
+                              dataType="wstr"
+                              length="15"
+                              name="qtrtype" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error]"
+                          isErrorOut="true"
+                          name="Error">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[location_id]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[location_id]"
+                              name="location_id" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[location]"
+                              dataType="wstr"
+                              length="100"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[location]"
+                              name="location" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[starttime]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[starttime]"
+                              name="starttime" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[endtime]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[endtime]"
+                              name="endtime" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[sensor]"
+                              dataType="wstr"
+                              length="100"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[sensor]"
+                              name="sensor" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[sensor_id]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[sensor_id]"
+                              name="sensor_id" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[unit]"
+                              dataType="wstr"
+                              length="25"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[unit]"
+                              name="unit" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[amount]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[amount]"
+                              name="amount" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[qtrtype]"
+                              dataType="wstr"
+                              length="15"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[qtrtype]"
+                              name="qtrtype" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Error].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg.Paths[Zedi_Output_Tell]"
+                      endId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Tell.Inputs[Zedi_Output_Tell]"
+                      name="Zedi_Output_Tell"
+                      startId="Package\Update_All_Tables\Update_DailyAgg\DailyAgg\Zedi.Outputs[Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Update_All_Tables\Update_DailyAgg\DeleteRecords"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DTSID="{9919C77B-BDDA-463B-819B-F447DE7D2ED0}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DeleteRecords"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{A1EDBD71-56F0-4CB0-B923-D2C9D0DBB4D7}"
+                  SQLTask:SqlStatementSource="DELETE FROM DBO.ZEDIDATAQTR WHERE CAST(starttime AS date) &gt;= DATEADD(day,-5,CAST(GETDATE() AS date))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Update_All_Tables\Update_DailyAgg.PrecedenceConstraints[Constraint_DeleteRecords_To_DailyAgg]"
+              DTS:CreationName=""
+              DTS:DTSID="{AF73DF71-FA22-49E4-906F-D4DCD751E2BC}"
+              DTS:From="Package\Update_All_Tables\Update_DailyAgg\DeleteRecords"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint_DeleteRecords_To_DailyAgg"
+              DTS:To="Package\Update_All_Tables\Update_DailyAgg\DailyAgg" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_All_Tables\Update_RawData"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:DTSID="{6BC5DE42-EE77-47D3-9035-A05B391BE887}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_RawData">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Update_All_Tables\Update_RawData\DeleteRecords"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DTSID="{395B71DF-6848-4FA4-AA51-649498579C67}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DeleteRecords"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{A1EDBD71-56F0-4CB0-B923-D2C9D0DBB4D7}"
+                  SQLTask:SqlStatementSource="DELETE FROM DBO.ZEDIDATA WHERE CAST(readingtime AS date) &gt;= DATEADD(day,-2,CAST(GETDATE() AS date))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Update_All_Tables\Update_RawData\RawData"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DTSID="{5936FCBB-0DBE-4D71-B293-F483B0549183}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="RawData"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Update_All_Tables\Update_RawData\RawData\Tell"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      name="Tell"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">DBO.ZEDIDATA</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[OLEDB_Tell]"
+                          connectionManagerRefId="Package.ConnectionManagers[OLEDB_Tell]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="Zedi_Output_Tell">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].Columns[location_id]"
+                              cachedDataType="i4"
+                              cachedName="location_id"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[location_id]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[location_id]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].Columns[location]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="location"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[location]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[location]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].Columns[readingtime]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="readingtime"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[readingtime]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[readingtime]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].Columns[sensor]"
+                              cachedDataType="wstr"
+                              cachedLength="100"
+                              cachedName="sensor"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[sensor]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[sensor]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].Columns[sensor_id]"
+                              cachedDataType="i4"
+                              cachedName="sensor_id"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[sensor_id]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[sensor_id]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].Columns[unit]"
+                              cachedDataType="wstr"
+                              cachedLength="25"
+                              cachedName="unit"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[unit]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[unit]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].Columns[amount]"
+                              cachedDataType="r8"
+                              cachedName="amount"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[amount]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[amount]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].Columns[amountstring]"
+                              cachedDataType="nText"
+                              cachedName="amountstring"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[amountstring]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[amountstring]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].Columns[amountdatetimeutc]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="amountdatetimeutc"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[amountdatetimeutc]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[amountdatetimeutc]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[location_id]"
+                              dataType="i4"
+                              name="location_id" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[location]"
+                              dataType="wstr"
+                              length="100"
+                              name="location" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[readingtime]"
+                              dataType="dbTimeStamp"
+                              name="readingtime" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[sensor]"
+                              dataType="wstr"
+                              length="100"
+                              name="sensor" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[sensor_id]"
+                              dataType="i4"
+                              name="sensor_id" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[unit]"
+                              dataType="wstr"
+                              length="25"
+                              name="unit" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[amount]"
+                              dataType="r8"
+                              name="amount" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[amountstring]"
+                              dataType="nText"
+                              name="amountstring" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell].ExternalColumns[amountdatetimeutc]"
+                              dataType="dbTimeStamp"
+                              name="amountdatetimeutc" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Outputs[Error]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Error"
+                          synchronousInputId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Outputs[Error].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Outputs[Error].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Outputs[Error].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Outputs[Error].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      name="Zedi"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM DBO.ZEDIDATA WHERE CAST(readingtime AS date) &gt;= DATEADD(day,-2,CAST(GETDATE() AS date))</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[OLEDB_Zedi]"
+                          connectionManagerRefId="Package.ConnectionManagers[OLEDB_Zedi]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output]"
+                          name="Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[location_id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[location_id]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[location_id]"
+                              name="location_id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[location]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[location]"
+                              length="100"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[location]"
+                              name="location"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[readingtime]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[readingtime]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[readingtime]"
+                              name="readingtime"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[sensor]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[sensor]"
+                              length="100"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[sensor]"
+                              name="sensor"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[sensor_id]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[sensor_id]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[sensor_id]"
+                              name="sensor_id"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[unit]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[unit]"
+                              length="25"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[unit]"
+                              name="unit"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[amount]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[amount]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[amount]"
+                              name="amount"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[amountstring]"
+                              dataType="nText"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[amountstring]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[amountstring]"
+                              name="amountstring"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[amountdatetimeutc]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[amountdatetimeutc]"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].Columns[amountdatetimeutc]"
+                              name="amountdatetimeutc"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[location_id]"
+                              dataType="i4"
+                              name="location_id" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[location]"
+                              dataType="wstr"
+                              length="100"
+                              name="location" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[readingtime]"
+                              dataType="dbTimeStamp"
+                              name="readingtime" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[sensor]"
+                              dataType="wstr"
+                              length="100"
+                              name="sensor" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[sensor_id]"
+                              dataType="i4"
+                              name="sensor_id" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[unit]"
+                              dataType="wstr"
+                              length="25"
+                              name="unit" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[amount]"
+                              dataType="r8"
+                              name="amount" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[amountstring]"
+                              dataType="nText"
+                              name="amountstring" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output].ExternalColumns[amountdatetimeutc]"
+                              dataType="dbTimeStamp"
+                              name="amountdatetimeutc" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error]"
+                          isErrorOut="true"
+                          name="Error">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[location_id]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[location_id]"
+                              name="location_id" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[location]"
+                              dataType="wstr"
+                              length="100"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[location]"
+                              name="location" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[readingtime]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[readingtime]"
+                              name="readingtime" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[sensor]"
+                              dataType="wstr"
+                              length="100"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[sensor]"
+                              name="sensor" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[sensor_id]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[sensor_id]"
+                              name="sensor_id" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[unit]"
+                              dataType="wstr"
+                              length="25"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[unit]"
+                              name="unit" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[amount]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[amount]"
+                              name="amount" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[amountstring]"
+                              dataType="nText"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[amountstring]"
+                              name="amountstring" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[amountdatetimeutc]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[amountdatetimeutc]"
+                              name="amountdatetimeutc" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Error].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Update_All_Tables\Update_RawData\RawData.Paths[Zedi_Output_Tell]"
+                      endId="Package\Update_All_Tables\Update_RawData\RawData\Tell.Inputs[Zedi_Output_Tell]"
+                      name="Zedi_Output_Tell"
+                      startId="Package\Update_All_Tables\Update_RawData\RawData\Zedi.Outputs[Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Update_All_Tables\Update_RawData.PrecedenceConstraints[Constraint_DeleteRecords_To_RawData]"
+              DTS:CreationName=""
+              DTS:DTSID="{0752CBD7-9099-468E-B878-D95F95C5F59A}"
+              DTS:From="Package\Update_All_Tables\Update_RawData\DeleteRecords"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint_DeleteRecords_To_RawData"
+              DTS:To="Package\Update_All_Tables\Update_RawData\RawData" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>

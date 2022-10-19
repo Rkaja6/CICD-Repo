@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Refresh_TPC_SQL_Prod", "Refresh_TPC_SQL_Prod\Refresh_TPC_SQL_Prod.dtproj", "{51A1AD08-060C-4071-9191-3CB5EE00ECDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51A1AD08-060C-4071-9191-3CB5EE00ECDF}.Development|Default.ActiveCfg = Development
+		{51A1AD08-060C-4071-9191-3CB5EE00ECDF}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29E6AA24-A48D-417D-844C-F870AB6D871E}
+	EndGlobalSection
+EndGlobal

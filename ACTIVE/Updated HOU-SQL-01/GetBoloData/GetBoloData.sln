@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "GetBoloData", "GetBoloData\GetBoloData.dtproj", "{EF538628-C7BD-4C8A-8B92-FA6EBA1CE74E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF538628-C7BD-4C8A-8B92-FA6EBA1CE74E}.Development|Default.ActiveCfg = Development
+		{EF538628-C7BD-4C8A-8B92-FA6EBA1CE74E}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49DB31A0-ED4D-4CCF-BB98-3C6D4F7C6CED}
+	EndGlobalSection
+EndGlobal
