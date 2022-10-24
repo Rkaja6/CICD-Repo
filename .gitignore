@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ACTIVE/Updated AZU_SQL_02/GIE_AGSI_FacilityReport_API_Extractor/GIE_AGSI_FacilityReport_API_Extractor/obj/Debug/net6.0
+/ACTIVE/Updated AZU_SQL_02/GIE_AGSI_FacilityReport_API_Extractor/GIE_AGSI_FacilityReport_API_Extractor/obj/Release/net6.0
+/.vs
