@@ -1,0 +1,2564 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/14/2020 11:43:53 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0MCJM8"
+  DTS:CreatorName="TLN\avogt"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{2CCEEA32-A96D-425C-A122-E6D020E23907}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Vessels"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{261160A6-C259-422C-AB44-D6269BB2FF83}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8BA837B3-C7CA-4C1A-874F-2636069388AB}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=azu-sql-02;Initial Catalog=KPLER;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1409A2A4-5B58-4482-BBF1-3C0B8A514180}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="F:\KPLER\StagedData\vessels.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{E53598C0-5DC0-4393-9C88-3D2575634D5F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="108"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{D817A592-AB69-40CE-BC2E-5F99EA464EBC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="186"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Last port-call"
+              DTS:DTSID="{7B290C9C-9BA4-4C61-860A-0563658A06A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Departure date"
+              DTS:DTSID="{9FD044D9-429F-4339-A78A-66E8053AE30C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Volume"
+              DTS:DTSID="{C10E362E-7DF7-44E5-B76F-6507A72389D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="120"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Destination"
+              DTS:DTSID="{03D8CE94-6A04-40A8-801C-3178FFA69E77}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETA"
+              DTS:DTSID="{5C614766-2A13-4D1F-BB9D-DB36C4F98E24}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="42"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Destination source"
+              DTS:DTSID="{99315806-4ACE-4EAB-BE57-013D0502A472}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="132"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Forecasted destination"
+              DTS:DTSID="{7526410F-C530-4B39-B25B-1EB4AF2F8174}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Forecasted ETA"
+              DTS:DTSID="{BD3B8DDA-C9F4-42B9-AC9E-F627B4025AB2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Forecast confidence"
+              DTS:DTSID="{171DA1D3-72DE-4447-AC41-B6FD8184EA2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="54"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Availability"
+              DTS:DTSID="{2693B8E9-B002-46A9-AD43-9DC5810ED108}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Open from"
+              DTS:DTSID="{E4DFE8CE-FB4D-4ABF-8746-E11ABB6B5E48}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Open until"
+              DTS:DTSID="{65DA097E-F1C3-4F6C-93AA-2DC074A4C5A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="48"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Condition"
+              DTS:DTSID="{728258C8-AED0-47C4-8208-AE834D3240BD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="90"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Delivery"
+              DTS:DTSID="{5A9B39DF-98BC-4306-93A3-F9018EFE925F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Redelivery"
+              DTS:DTSID="{224820FB-8A6D-44A1-A1D7-223E77F7B6FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IMO"
+              DTS:DTSID="{2DE42DEF-546D-44C2-9B71-58092FA1DDB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MMSI"
+              DTS:DTSID="{206C7E43-05B8-4FD1-8C95-CC8D9E20A556}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Last speed"
+              DTS:DTSID="{FB04B9F7-3FA4-447C-9DEC-558C204B409E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="210"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Current controller"
+              DTS:DTSID="{F9796C13-FB52-4E32-894A-F31017B4ACB6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="312"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Owners"
+              DTS:DTSID="{AF7827B3-E9BE-4571-BCC9-9D760DBFDD73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="138"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Operators"
+              DTS:DTSID="{346970A3-7FF8-42FF-AF09-AF5632173191}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="204"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Builders"
+              DTS:DTSID="{3CBDAE43-9E0B-4E26-B6A2-824EBA261EE4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Build year"
+              DTS:DTSID="{95A67A4D-2C52-491D-93ED-819B42AD0973}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="138"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vessel type"
+              DTS:DTSID="{6014F56D-F438-4D49-B08B-DA6EB818EA9E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="42"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Carrier type"
+              DTS:DTSID="{7E8B617D-4E77-42D3-9C9A-1A9D185DE9A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Capacity"
+              DTS:DTSID="{033C20B2-58AA-4365-B4FC-45966892C559}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="192"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Flag name"
+              DTS:DTSID="{B3714258-C9AF-42C8-A042-BDD4D3B3F01E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="36"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Engine type"
+              DTS:DTSID="{309E6542-5607-4DED-9D40-D05421BBCAA8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="102"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cargo system"
+              DTS:DTSID="{F1D6C75C-434E-4761-8545-FE5050C9109C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cargo type"
+              DTS:DTSID="{EEA2D546-2F73-4583-89C1-0E7E4CE0614A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gross tonnage"
+              DTS:DTSID="{8565534D-F21D-4555-B8E3-D399B2A4D1E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Dead weight"
+              DTS:DTSID="{AB718538-55B9-4CEE-806A-3DB077A82E51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vessel id"
+              DTS:DTSID="{4CCEF9C8-CCB0-48ED-B6A2-C3FC9DA50312}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Last port-call id"
+              DTS:DTSID="{8CB60341-AD6D-45EF-A2D5-2A85AB49D9F6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Forecasted Id"
+              DTS:DTSID="{0E2F5571-F6F5-4AA0-9CDE-07C17380C5B0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Availability id"
+              DTS:DTSID="{CD48EE00-B289-45BD-8DF0-60A4C719E763}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Owners_id"
+              DTS:DTSID="{4626D876-A8B1-47A5-9733-81BBD9EC7891}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Operators_id"
+              DTS:DTSID="{B6F25925-282C-4DEA-AAC9-D818E6F16A92}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Builders_id"
+              DTS:DTSID="{F3E7659E-A10F-4157-B138-7814FD30F248}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="loaded days in 2016"
+              DTS:DTSID="{B5254163-0392-4279-8904-63E98BA61192}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="loaded days in 2017"
+              DTS:DTSID="{478C7E5A-F05C-4048-B96D-757320293AB0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="loaded days in 2018"
+              DTS:DTSID="{CE3F6823-5DFD-44D4-827D-05578B8E21F3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{6A1D4DA6-2067-4136-A548-44E4029EFA2C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Data Conversion 0 - 0"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 0 - 0"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Departure date]"
+                      cachedDataType="date"
+                      cachedName="Departure date"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Departure date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[ETA]"
+                      cachedDataType="date"
+                      cachedName="ETA"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[ETA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Forecasted ETA]"
+                      cachedDataType="date"
+                      cachedName="Forecasted ETA"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted ETA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Open from]"
+                      cachedDataType="date"
+                      cachedName="Open from"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Open from]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Open until]"
+                      cachedDataType="date"
+                      cachedName="Open until"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Open until]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input].Columns[Redelivery]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Redelivery"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Redelivery]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Departure date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Departure date]"
+                      name="Departure date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Departure date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[ETA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[ETA]"
+                      name="ETA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[ETA]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Forecasted ETA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Forecasted ETA]"
+                      name="Forecasted ETA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted ETA]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Open from]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Open from]"
+                      name="Open from"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Open from]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Open until]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Open until]"
+                      name="Open until"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Open until]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Redelivery]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Redelivery]"
+                      name="Redelivery"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Redelivery]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Destination - Stage_Vessels"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Stage_Vessels"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Stage_Vessels]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="108"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Last port-call]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="186"
+                      cachedName="Last port-call"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Last port-call]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Last port-call]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Departure date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Departure date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Departure date]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Departure date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Volume]"
+                      cachedDataType="r4"
+                      cachedName="Volume"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Volume]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Volume]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Destination]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="120"
+                      cachedName="Destination"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Destination]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Destination]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[ETA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ETA"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[ETA]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[ETA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Destination source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="42"
+                      cachedName="Destination source"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Destination source]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Destination source]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Forecasted destination]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="132"
+                      cachedName="Forecasted destination"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Forecasted destination]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted destination]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Forecasted ETA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Forecasted ETA"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Forecasted ETA]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Forecasted ETA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Forecast confidence]"
+                      cachedDataType="r4"
+                      cachedName="Forecast confidence"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Forecast confidence]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecast confidence]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Availability]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="54"
+                      cachedName="Availability"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Availability]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Availability]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Open from]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Open from"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Open from]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Open from]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Open until]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Open until"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Open until]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Open until]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Condition]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="48"
+                      cachedName="Condition"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Condition]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Condition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Delivery]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="90"
+                      cachedName="Delivery"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Delivery]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Delivery]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Redelivery]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Redelivery"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Redelivery]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output].Columns[Redelivery]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[IMO]"
+                      cachedDataType="i4"
+                      cachedName="IMO"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[IMO]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[IMO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[MMSI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="MMSI"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[MMSI]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[MMSI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Last speed]"
+                      cachedDataType="r4"
+                      cachedName="Last speed"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Last speed]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Last speed]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Current controller]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="210"
+                      cachedName="Current controller"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Current controller]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Current controller]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Owners]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="312"
+                      cachedName="Owners"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Owners]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Owners]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Operators]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="138"
+                      cachedName="Operators"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Operators]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Operators]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Builders]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="204"
+                      cachedName="Builders"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Builders]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Builders]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Build year]"
+                      cachedDataType="i2"
+                      cachedName="Build year"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Build year]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Build year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Vessel type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="138"
+                      cachedName="Vessel type"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Vessel type]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Vessel type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Carrier type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="42"
+                      cachedName="Carrier type"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Carrier type]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Carrier type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Capacity]"
+                      cachedDataType="i4"
+                      cachedName="Capacity"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Capacity]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Capacity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Flag name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="192"
+                      cachedName="Flag name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Flag name]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Flag name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Engine type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="36"
+                      cachedName="Engine type"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Engine type]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Engine type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Cargo system]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="102"
+                      cachedName="Cargo system"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Cargo system]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Cargo system]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Cargo type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Cargo type"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Cargo type]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Cargo type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Gross tonnage]"
+                      cachedDataType="i4"
+                      cachedName="Gross tonnage"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Gross tonnage]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Gross tonnage]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Dead weight]"
+                      cachedDataType="i4"
+                      cachedName="Dead weight"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Dead weight]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Dead weight]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Vessel id]"
+                      cachedDataType="i4"
+                      cachedName="Vessel id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Vessel id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Vessel id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Last port-call id]"
+                      cachedDataType="i4"
+                      cachedName="Last port-call id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Last port-call id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Last port-call id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Forecasted Id]"
+                      cachedDataType="i4"
+                      cachedName="Forecasted Id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Forecasted Id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Availability id]"
+                      cachedDataType="i2"
+                      cachedName="Availability id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Availability id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Availability id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Owners_id]"
+                      cachedDataType="r4"
+                      cachedName="Owners_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Owners_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Owners_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Operators_id]"
+                      cachedDataType="i2"
+                      cachedName="Operators_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Operators_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Operators_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[Builders_id]"
+                      cachedDataType="i2"
+                      cachedName="Builders_id"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Builders_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Builders_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[loaded days in 2016]"
+                      cachedDataType="i2"
+                      cachedName="loaded days in 2016"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[loaded days in 2016]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[loaded days in 2016]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[loaded days in 2017]"
+                      cachedDataType="i2"
+                      cachedName="loaded days in 2017"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[loaded days in 2017]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[loaded days in 2017]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].Columns[loaded days in 2018]"
+                      cachedDataType="i2"
+                      cachedName="loaded days in 2018"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[loaded days in 2018]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[loaded days in 2018]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="108"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Last port-call]"
+                      codePage="1252"
+                      dataType="str"
+                      length="186"
+                      name="Last port-call" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Departure date]"
+                      dataType="dbTimeStamp"
+                      name="Departure date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Volume]"
+                      dataType="r4"
+                      name="Volume" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Destination]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="Destination" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[ETA]"
+                      dataType="dbTimeStamp"
+                      name="ETA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Destination source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="42"
+                      name="Destination source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Forecasted destination]"
+                      codePage="1252"
+                      dataType="str"
+                      length="132"
+                      name="Forecasted destination" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Forecasted ETA]"
+                      dataType="dbTimeStamp"
+                      name="Forecasted ETA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Forecast confidence]"
+                      dataType="r4"
+                      name="Forecast confidence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Availability]"
+                      codePage="1252"
+                      dataType="str"
+                      length="54"
+                      name="Availability" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Open from]"
+                      dataType="dbTimeStamp"
+                      name="Open from" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Open until]"
+                      dataType="dbTimeStamp"
+                      name="Open until" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Condition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="Condition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Delivery]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="Delivery" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Redelivery]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Redelivery" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[IMO]"
+                      dataType="i4"
+                      name="IMO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[MMSI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="MMSI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Last speed]"
+                      dataType="r4"
+                      name="Last speed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Current controller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="210"
+                      name="Current controller" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Owners]"
+                      codePage="1252"
+                      dataType="str"
+                      length="312"
+                      name="Owners" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Operators]"
+                      codePage="1252"
+                      dataType="str"
+                      length="138"
+                      name="Operators" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Builders]"
+                      codePage="1252"
+                      dataType="str"
+                      length="204"
+                      name="Builders" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Build year]"
+                      dataType="i2"
+                      name="Build year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Vessel type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="138"
+                      name="Vessel type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Carrier type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="42"
+                      name="Carrier type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Capacity]"
+                      dataType="i4"
+                      name="Capacity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Flag name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="192"
+                      name="Flag name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Engine type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
+                      name="Engine type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Cargo system]"
+                      codePage="1252"
+                      dataType="str"
+                      length="102"
+                      name="Cargo system" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Cargo type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Cargo type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Gross tonnage]"
+                      dataType="i4"
+                      name="Gross tonnage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Dead weight]"
+                      dataType="i4"
+                      name="Dead weight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Vessel id]"
+                      dataType="i4"
+                      name="Vessel id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Last port-call id]"
+                      dataType="i4"
+                      name="Last port-call id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Forecasted Id]"
+                      dataType="i4"
+                      name="Forecasted Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Availability id]"
+                      dataType="i2"
+                      name="Availability id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Owners_id]"
+                      dataType="r4"
+                      name="Owners_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Operators_id]"
+                      dataType="i2"
+                      name="Operators_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[Builders_id]"
+                      dataType="i2"
+                      name="Builders_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[loaded days in 2016]"
+                      dataType="i2"
+                      name="loaded days in 2016" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[loaded days in 2017]"
+                      dataType="i2"
+                      name="loaded days in 2017" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input].ExternalColumns[loaded days in 2018]"
+                      dataType="i2"
+                      name="loaded days in 2018" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Stage_Vessels.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Stage_Vessels.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Stage_Vessels.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - vessels_txt"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - vessels_txt"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - vessels_txt.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      length="150"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      length="108"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Last port-call]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Last port-call]"
+                      length="186"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Last port-call]"
+                      name="Last port-call"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Departure date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Departure date]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Departure date]"
+                      name="Departure date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Volume]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Volume]"
+                      name="Volume"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Destination]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Destination]"
+                      length="120"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Destination]"
+                      name="Destination"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[ETA]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[ETA]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[ETA]"
+                      name="ETA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Destination source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Destination source]"
+                      length="42"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Destination source]"
+                      name="Destination source"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted destination]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Forecasted destination]"
+                      length="132"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted destination]"
+                      name="Forecasted destination"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted ETA]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Forecasted ETA]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted ETA]"
+                      name="Forecasted ETA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecast confidence]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Forecast confidence]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecast confidence]"
+                      name="Forecast confidence"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Availability]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Availability]"
+                      length="54"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Availability]"
+                      name="Availability"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Open from]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Open from]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Open from]"
+                      name="Open from"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Open until]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Open until]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Open until]"
+                      name="Open until"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Condition]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Condition]"
+                      length="48"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Condition]"
+                      name="Condition"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Delivery]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Delivery]"
+                      length="90"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Delivery]"
+                      name="Delivery"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Redelivery]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Redelivery]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Redelivery]"
+                      name="Redelivery"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[IMO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[IMO]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[IMO]"
+                      name="IMO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[MMSI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[MMSI]"
+                      length="100"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[MMSI]"
+                      name="MMSI"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Last speed]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Last speed]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Last speed]"
+                      name="Last speed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Current controller]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Current controller]"
+                      length="210"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Current controller]"
+                      name="Current controller"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Owners]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Owners]"
+                      length="312"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Owners]"
+                      name="Owners"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Operators]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Operators]"
+                      length="138"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Operators]"
+                      name="Operators"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Builders]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Builders]"
+                      length="204"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Builders]"
+                      name="Builders"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Build year]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Build year]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Build year]"
+                      name="Build year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Vessel type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Vessel type]"
+                      length="138"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Vessel type]"
+                      name="Vessel type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Carrier type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Carrier type]"
+                      length="42"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Carrier type]"
+                      name="Carrier type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Capacity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Capacity]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Capacity]"
+                      name="Capacity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Flag name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Flag name]"
+                      length="192"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Flag name]"
+                      name="Flag name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Engine type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Engine type]"
+                      length="36"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Engine type]"
+                      name="Engine type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Cargo system]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Cargo system]"
+                      length="102"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Cargo system]"
+                      name="Cargo system"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Cargo type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Cargo type]"
+                      length="150"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Cargo type]"
+                      name="Cargo type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Gross tonnage]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Gross tonnage]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Gross tonnage]"
+                      name="Gross tonnage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Dead weight]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Dead weight]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Dead weight]"
+                      name="Dead weight"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Vessel id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Vessel id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Vessel id]"
+                      name="Vessel id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Last port-call id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Last port-call id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Last port-call id]"
+                      name="Last port-call id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Forecasted Id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Forecasted Id]"
+                      name="Forecasted Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Availability id]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Availability id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Availability id]"
+                      name="Availability id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Owners_id]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Owners_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Owners_id]"
+                      name="Owners_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Operators_id]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Operators_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Operators_id]"
+                      name="Operators_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Builders_id]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Builders_id]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[Builders_id]"
+                      name="Builders_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[loaded days in 2016]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[loaded days in 2016]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[loaded days in 2016]"
+                      name="loaded days in 2016"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[loaded days in 2017]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[loaded days in 2017]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[loaded days in 2017]"
+                      name="loaded days in 2017"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[loaded days in 2018]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[loaded days in 2018]"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].Columns[loaded days in 2018]"
+                      name="loaded days in 2018"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="108"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Last port-call]"
+                      codePage="1252"
+                      dataType="str"
+                      length="186"
+                      name="Last port-call" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Departure date]"
+                      dataType="date"
+                      name="Departure date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                      dataType="r4"
+                      name="Volume" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Destination]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="Destination" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[ETA]"
+                      dataType="date"
+                      name="ETA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Destination source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="42"
+                      name="Destination source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Forecasted destination]"
+                      codePage="1252"
+                      dataType="str"
+                      length="132"
+                      name="Forecasted destination" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Forecasted ETA]"
+                      dataType="date"
+                      name="Forecasted ETA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Forecast confidence]"
+                      dataType="r4"
+                      name="Forecast confidence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Availability]"
+                      codePage="1252"
+                      dataType="str"
+                      length="54"
+                      name="Availability" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Open from]"
+                      dataType="date"
+                      name="Open from" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Open until]"
+                      dataType="date"
+                      name="Open until" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Condition]"
+                      codePage="1252"
+                      dataType="str"
+                      length="48"
+                      name="Condition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Delivery]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="Delivery" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Redelivery]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Redelivery" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[IMO]"
+                      dataType="i4"
+                      name="IMO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[MMSI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="MMSI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Last speed]"
+                      dataType="r4"
+                      name="Last speed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Current controller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="210"
+                      name="Current controller" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Owners]"
+                      codePage="1252"
+                      dataType="str"
+                      length="312"
+                      name="Owners" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Operators]"
+                      codePage="1252"
+                      dataType="str"
+                      length="138"
+                      name="Operators" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Builders]"
+                      codePage="1252"
+                      dataType="str"
+                      length="204"
+                      name="Builders" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Build year]"
+                      dataType="i2"
+                      name="Build year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Vessel type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="138"
+                      name="Vessel type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Carrier type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="42"
+                      name="Carrier type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Capacity]"
+                      dataType="i4"
+                      name="Capacity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Flag name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="192"
+                      name="Flag name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Engine type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
+                      name="Engine type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Cargo system]"
+                      codePage="1252"
+                      dataType="str"
+                      length="102"
+                      name="Cargo system" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Cargo type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Cargo type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Gross tonnage]"
+                      dataType="i4"
+                      name="Gross tonnage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Dead weight]"
+                      dataType="i4"
+                      name="Dead weight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Vessel id]"
+                      dataType="i4"
+                      name="Vessel id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Last port-call id]"
+                      dataType="i4"
+                      name="Last port-call id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Forecasted Id]"
+                      dataType="i4"
+                      name="Forecasted Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Availability id]"
+                      dataType="i2"
+                      name="Availability id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Owners_id]"
+                      dataType="r4"
+                      name="Owners_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Operators_id]"
+                      dataType="i2"
+                      name="Operators_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[Builders_id]"
+                      dataType="i2"
+                      name="Builders_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[loaded days in 2016]"
+                      dataType="i2"
+                      name="loaded days in 2016" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[loaded days in 2017]"
+                      dataType="i2"
+                      name="loaded days in 2017" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output].ExternalColumns[loaded days in 2018]"
+                      dataType="i2"
+                      name="loaded days in 2018" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task 1\Destination - Stage_Vessels.Inputs[Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task 1\Data Conversion 0 - 0.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Data Conversion 0 - 0.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - vessels_txt.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{1DACBD4A-D205-4D72-9C40-76BB962BC78D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8BA837B3-C7CA-4C1A-874F-2636069388AB}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[Stage_Vessels]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{39DF6720-60D7-4666-85A1-8E85CB2EE088\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{4E6E0B03-35EC-433A-A946-8C5F7E510F27}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{4E6E0B03-35EC-433A-A946-8C5F7E510F27}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="20.5,107.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Preparation SQL Task 1"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[{39DF6720-60D7-4666-85A1-8E85CB2EE088\}]"
+          TopLeft="100.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

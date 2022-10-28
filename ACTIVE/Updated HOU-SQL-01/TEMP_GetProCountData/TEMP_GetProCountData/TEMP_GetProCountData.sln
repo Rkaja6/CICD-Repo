@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "TEMP_GetProCountData", "TEMP_GetProCountData\TEMP_GetProCountData.dtproj", "{3095D6E7-9772-43C8-B77E-968A26AF91E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3095D6E7-9772-43C8-B77E-968A26AF91E9}.Development|Default.ActiveCfg = Development
+		{3095D6E7-9772-43C8-B77E-968A26AF91E9}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25CECA57-E6C2-4C8F-BD73-5EA8A5EDAC59}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/19/2019 12:52:39 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0MCJM8"
+  DTS:CreatorName="TLN\avogt"
+  DTS:DTSID="{DB36A83F-4C96-4CC6-9470-C20C9E6B3A40}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Tell_DW2_ExecuteStoredProcedure"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{FA18C6A6-45DD-4B4D-8F84-5A90CF93B74B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TargetConnection]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F81788DE-14A4-4545-896D-DA7376BCBF4D}"
+      DTS:ObjectName="TargetConnection">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::TargetConnection_ConnectionString]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Description">@[$Package::TargetConnection_Description]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Package::TargetConnection_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="RetainSameConnection">@[$Package::TargetConnection_RetainSameConnection]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Package::TargetConnection_ServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=AZU-SQL-02;Initial Catalog=TELL_DW2;Trusted_Connection=yes;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A1CBD485-47B2-4413-8251-55B9DF9BD2C3}"
+      DTS:ObjectName="ExecuteSQLTask_SqlStatementSource">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">WAITFOR DELAY '00:00:05'</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{ABECD636-F4F2-416F-83CF-0F5FF052B4DB}"
+      DTS:ObjectName="TargetConnection_ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=AZU-SQL-02;Trusted_Connection=yes;Initial Catalog=TELL_DW2;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=false;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FDABD6F8-BBEC-4CF1-BD59-5AC8EBEC537A}"
+      DTS:ObjectName="TargetConnection_Description">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AA5615CA-0CBB-400B-9F39-B08F46063E36}"
+      DTS:ObjectName="TargetConnection_InitialCatalog">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TELL_DW2</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8E64E258-C2AF-4FF4-80AE-0A00A3920E55}"
+      DTS:ObjectName="TargetConnection_Name">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TargetConnection</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{2A92109E-BC97-43D7-86BA-6ACFD926257A}"
+      DTS:ObjectName="TargetConnection_RetainSameConnection">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2C5DBBA1-0E12-4119-B422-73257B37BB02}"
+      DTS:ObjectName="TargetConnection_ServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">AZU-SQL-02</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{79E69537-FC55-4863-89FE-23526C52E50E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQLStatementToExecute">
+      <DTS:VariableValue
+        DTS:DataType="8">WAITFOR DELAY '00:01:30'</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A88152DE-D47F-4A0F-A7F3-D6C449D0538D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[$Package::ExecuteSQLTask_SqlStatementSource]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F81788DE-14A4-4545-896D-DA7376BCBF4D}"
+          SQLTask:SqlStatementSource="WAITFOR DELAY '00:00:05'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="89,30" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

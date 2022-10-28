@@ -1,0 +1,836 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/13/2019 1:33:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0B32BT"
+  DTS:CreatorName="rglazebrook"
+  DTS:DTSID="{A00D692A-B229-48DD-92A2-913507E7CD5C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Generate_WV_AFE_Cost_Flat_File"
+  DTS:VersionGUID="{BE5AF895-4CDF-4445-A744-53109268F874}"
+  DTS:VersionMajor="0">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLEDB_PeakDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BB9C11D2-FF70-4A4F-AA1C-535D25C3BD7B}"
+      DTS:ObjectName="OLEDB_PeakDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="data source=HOU-SQL-01\HOUSQL01;initial catalog=PEAK_DW;provider=SQLNCLI11.1;integrated security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WV_AFE_Cost_Loader]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9FFCC99E-6039-4951-A82F-DBA91057CB74}"
+      DTS:ObjectName="WV_AFE_Cost_Loader">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter="_x000D__x000A_"
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\hou-file-02\Peloton_Data\AFE Cost Loader\Manual Import\WV_AFE_Costs.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="job_jobtyp"
+              DTS:DTSID="{1F1D01E2-ED33-429F-8234-6A0DC31D8B9C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="24"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafe_afenumber"
+              DTS:DTSID="{79771FDE-FAA4-4B64-9E23-4C443063218C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafe_typ"
+              DTS:DTSID="{ADB8DCED-6CBF-437E-A40A-9C24EC1F69E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_code1"
+              DTS:DTSID="{0591150E-3C91-4684-8827-9DDB11BF0D11}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_code2"
+              DTS:DTSID="{C819DA25-9325-422E-832C-81F43344DCF3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="19"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_amount"
+              DTS:DTSID="{B6C5387E-0239-4147-BC79-F5ADFF25E3B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="46"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_des"
+              DTS:DTSID="{1962364B-E2F7-476B-8883-33AF63831271}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_finalinvoicedttm"
+              DTS:DTSID="{BDDFE256-A8F4-480D-BAD4-279AAFBB370C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_invoicerefno"
+              DTS:DTSID="{15FEF131-7FBD-4CF2-B7DF-67BC1E5467D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="35"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_vendor"
+              DTS:DTSID="{1C3220CB-32BF-407E-A3D0-BDF5012056FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_vendorcode"
+              DTS:DTSID="{1FADD155-CB33-406D-9051-D47EB780DA56}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_code3"
+              DTS:DTSID="{13E66B60-8060-4DC0-8C84-3673020DBAEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_code4"
+              DTS:DTSID="{B4A87FEB-6254-42E3-8589-8A819E7C02F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="jobafeFIC_note"
+              DTS:DTSID="{B81EE613-D955-4350-AB2F-927FA11EF817}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Generate_Flat_File"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{5E4C0C16-C130-4946-A61D-1526119CF1CB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Generate_Flat_File"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Generate_Flat_File\AFE_Cost_FlatFile"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              localeId="1033"
+              name="AFE_Cost_FlatFile"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WV_AFE_Cost_Loader]"
+                  connectionManagerRefId="Package.ConnectionManagers[WV_AFE_Cost_Loader]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile]"
+                  hasSideEffects="true"
+                  name="PeakDW_Output_AFE_Cost_FlatFile">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[job_jobtyp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="job_jobtyp"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[job_jobtyp]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[job_jobtyp]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafe_afenumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="jobafe_afenumber"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafe_afenumber]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafe_afenumber]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafe_typ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="jobafe_typ"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafe_typ]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafe_typ]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_code1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="jobafeFIC_code1"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_code1]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code1]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_code2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="jobafeFIC_code2"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_code2]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code2]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_amount]"
+                      cachedDataType="numeric"
+                      cachedName="jobafeFIC_amount"
+                      cachedPrecision="19"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_amount]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_amount]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_des]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="46"
+                      cachedName="jobafeFIC_des"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_des]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_des]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_finalinvoicedttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="jobafeFIC_finalinvoicedttm"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_finalinvoicedttm]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_finalinvoicedttm]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_invoicerefno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="jobafeFIC_invoicerefno"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_invoicerefno]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_invoicerefno]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_vendor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="jobafeFIC_vendor"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_vendor]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_vendor]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_vendorcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="jobafeFIC_vendorcode"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_vendorcode]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_vendorcode]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_code3]"
+                      cachedDataType="dbDate"
+                      cachedName="jobafeFIC_code3"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_code3]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code3]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_code4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="jobafeFIC_code4"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_code4]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code4]" />
+                    <inputColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].Columns[jobafeFIC_note]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="jobafeFIC_note"
+                      externalMetadataColumnId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_note]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_note]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[job_jobtyp]"
+                      dataType="wstr"
+                      length="100"
+                      name="job_jobtyp" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafe_afenumber]"
+                      dataType="wstr"
+                      length="24"
+                      name="jobafe_afenumber" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafe_typ]"
+                      dataType="wstr"
+                      length="100"
+                      name="jobafe_typ" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_code1]"
+                      dataType="wstr"
+                      length="3"
+                      name="jobafeFIC_code1" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_code2]"
+                      dataType="wstr"
+                      length="3"
+                      name="jobafeFIC_code2" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_amount]"
+                      dataType="numeric"
+                      name="jobafeFIC_amount"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_des]"
+                      dataType="wstr"
+                      length="46"
+                      name="jobafeFIC_des" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_finalinvoicedttm]"
+                      dataType="dbTimeStamp"
+                      name="jobafeFIC_finalinvoicedttm" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_invoicerefno]"
+                      dataType="wstr"
+                      length="30"
+                      name="jobafeFIC_invoicerefno" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_vendor]"
+                      dataType="wstr"
+                      length="35"
+                      name="jobafeFIC_vendor" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_vendorcode]"
+                      dataType="wstr"
+                      length="6"
+                      name="jobafeFIC_vendorcode" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_code3]"
+                      dataType="dbTimeStamp"
+                      name="jobafeFIC_code3" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_code4]"
+                      dataType="wstr"
+                      length="255"
+                      name="jobafeFIC_code4" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile].ExternalColumns[jobafeFIC_note]"
+                      dataType="wstr"
+                      length="255"
+                      name="jobafeFIC_note" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Generate_Flat_File\PeakDW"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              name="PeakDW"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM PEL.V_WV_AFE_Cost_Loader</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Generate_Flat_File\PeakDW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OLEDB_PeakDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[OLEDB_PeakDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Generate_Flat_File\PeakDW.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[job_jobtyp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[job_jobtyp]"
+                      length="100"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[job_jobtyp]"
+                      name="job_jobtyp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafe_afenumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafe_afenumber]"
+                      length="24"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafe_afenumber]"
+                      name="jobafe_afenumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafe_typ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafe_typ]"
+                      length="100"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafe_typ]"
+                      name="jobafe_typ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_code1]"
+                      length="3"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code1]"
+                      name="jobafeFIC_code1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_code2]"
+                      length="3"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code2]"
+                      name="jobafeFIC_code2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_amount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_amount]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_amount]"
+                      name="jobafeFIC_amount"
+                      precision="19"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_des]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_des]"
+                      length="46"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_des]"
+                      name="jobafeFIC_des"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_finalinvoicedttm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_finalinvoicedttm]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_finalinvoicedttm]"
+                      name="jobafeFIC_finalinvoicedttm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_invoicerefno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_invoicerefno]"
+                      length="30"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_invoicerefno]"
+                      name="jobafeFIC_invoicerefno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_vendor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_vendor]"
+                      length="35"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_vendor]"
+                      name="jobafeFIC_vendor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_vendorcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_vendorcode]"
+                      length="6"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_vendorcode]"
+                      name="jobafeFIC_vendorcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code3]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_code3]"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code3]"
+                      name="jobafeFIC_code3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_code4]"
+                      length="255"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_code4]"
+                      name="jobafeFIC_code4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_note]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_note]"
+                      length="255"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Output].Columns[jobafeFIC_note]"
+                      name="jobafeFIC_note"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[job_jobtyp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="job_jobtyp" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafe_afenumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="jobafe_afenumber" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafe_typ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="jobafe_typ" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_code1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="jobafeFIC_code1" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_code2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="jobafeFIC_code2" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_amount]"
+                      dataType="numeric"
+                      name="jobafeFIC_amount"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_des]"
+                      codePage="1252"
+                      dataType="str"
+                      length="46"
+                      name="jobafeFIC_des" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_finalinvoicedttm]"
+                      dataType="dbTimeStamp"
+                      name="jobafeFIC_finalinvoicedttm" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_invoicerefno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="jobafeFIC_invoicerefno" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_vendor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="jobafeFIC_vendor" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_vendorcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="jobafeFIC_vendorcode" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_code3]"
+                      dataType="dbDate"
+                      name="jobafeFIC_code3" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_code4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="jobafeFIC_code4" />
+                    <externalMetadataColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Output].ExternalColumns[jobafeFIC_note]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="jobafeFIC_note" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Generate_Flat_File\PeakDW.Outputs[Error]"
+                  isErrorOut="true"
+                  name="Error">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[job_jobtyp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[job_jobtyp]"
+                      name="job_jobtyp" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafe_afenumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafe_afenumber]"
+                      name="jobafe_afenumber" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafe_typ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafe_typ]"
+                      name="jobafe_typ" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_code1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_code1]"
+                      name="jobafeFIC_code1" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_code2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_code2]"
+                      name="jobafeFIC_code2" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_amount]"
+                      dataType="numeric"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_amount]"
+                      name="jobafeFIC_amount"
+                      precision="19"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_des]"
+                      codePage="1252"
+                      dataType="str"
+                      length="46"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_des]"
+                      name="jobafeFIC_des" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_finalinvoicedttm]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_finalinvoicedttm]"
+                      name="jobafeFIC_finalinvoicedttm" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_invoicerefno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_invoicerefno]"
+                      name="jobafeFIC_invoicerefno" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_vendor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_vendor]"
+                      name="jobafeFIC_vendor" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_vendorcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_vendorcode]"
+                      name="jobafeFIC_vendorcode" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_code3]"
+                      dataType="dbDate"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_code3]"
+                      name="jobafeFIC_code3" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_code4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_code4]"
+                      name="jobafeFIC_code4" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_note]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[jobafeFIC_note]"
+                      name="jobafeFIC_note" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Generate_Flat_File\PeakDW.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Generate_Flat_File.Paths[PeakDW_Output_AFE_Cost_FlatFile]"
+              endId="Package\Generate_Flat_File\AFE_Cost_FlatFile.Inputs[PeakDW_Output_AFE_Cost_FlatFile]"
+              name="PeakDW_Output_AFE_Cost_FlatFile"
+              startId="Package\Generate_Flat_File\PeakDW.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>

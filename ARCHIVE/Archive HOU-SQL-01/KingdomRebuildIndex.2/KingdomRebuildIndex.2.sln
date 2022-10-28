@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "KingdomRebuildIndex.2", "KingdomRebuildIndex.2\KingdomRebuildIndex.2.dtproj", "{93E90920-5C01-4A6A-987E-B3CCE86207FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93E90920-5C01-4A6A-987E-B3CCE86207FD}.Development|Default.ActiveCfg = Development
+		{93E90920-5C01-4A6A-987E-B3CCE86207FD}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A9FCDED-3941-4799-B087-3EC63FBFE496}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DV Refresh IHS Stage Data", "DV Refresh IHS Stage Data\DV Refresh IHS Stage Data.dtproj", "{E27D58E6-0F8C-498C-A1D2-A6D68321F712}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E27D58E6-0F8C-498C-A1D2-A6D68321F712}.Development|Default.ActiveCfg = Development
+		{E27D58E6-0F8C-498C-A1D2-A6D68321F712}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A6AF0B9-6556-4E54-905C-0AC36A655BA1}
+	EndGlobalSection
+EndGlobal

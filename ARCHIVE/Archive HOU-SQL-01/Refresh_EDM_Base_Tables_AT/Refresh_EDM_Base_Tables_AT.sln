@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Refresh_EDM_Base_Tables_AT", "Refresh_EDM_Base_Tables_AT\Refresh_EDM_Base_Tables_AT.dtproj", "{A5586804-582D-487C-B12B-013902A8541E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5586804-582D-487C-B12B-013902A8541E}.Development|Default.ActiveCfg = Development
+		{A5586804-582D-487C-B12B-013902A8541E}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42106D98-728D-4120-A70A-D09E063ABEE9}
+	EndGlobalSection
+EndGlobal

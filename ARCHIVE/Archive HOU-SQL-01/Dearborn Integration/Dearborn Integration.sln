@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Dearborn Integration", "Dearborn Integration\Dearborn Integration.dtproj", "{156F81C1-3148-4B2D-95EE-1793ED0C10CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{156F81C1-3148-4B2D-95EE-1793ED0C10CA}.Development|Default.ActiveCfg = Development
+		{156F81C1-3148-4B2D-95EE-1793ED0C10CA}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {326700DA-217A-48F5-8D5A-566995E63EF6}
+	EndGlobalSection
+EndGlobal
