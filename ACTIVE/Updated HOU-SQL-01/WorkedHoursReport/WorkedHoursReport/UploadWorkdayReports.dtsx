@@ -1,0 +1,1880 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/5/2020 10:05:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOU-L-C0B32BT"
+  DTS:CreatorName="TLN\rglazebrook"
+  DTS:DTSID="{5ED26E13-7745-4612-97C4-5E5A2BA855F6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="UploadWorkdayReports"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{66038A82-DA58-4ADC-A80B-3E3E3010ED6E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[All Workers]"
+      DTS:CreationName="EXCEL"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{F14C085B-56BB-4960-8783-54CFE26DAB8B}"
+      DTS:ObjectName="All Workers">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::Filename_AllWorkers]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.15.0;Data Source=\\azu-file-01\Public\Information Technology (Viewable by Everyone)\Data Integrations\All_Workers_Report_For_Worked_Hours_DWG 2020-11-18 17_16 CST.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES;IMEX=1&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Employee Hours]"
+      DTS:CreationName="EXCEL"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{71BEC90A-C9D5-43D1-B03B-74AE8B7C9C58}"
+      DTS:ObjectName="Employee Hours">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::Filename_EmployeeHours]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.15.0;Data Source=\\azu-file-01\Public\Information Technology (Viewable by Everyone)\Data Integrations\HR Current Period Results 2020-06-03 17_16 CDT (1).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES;IMEX=1&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ErrorLog]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9037FC93-6543-4A96-A296-9622192AD7AE}"
+      DTS:ObjectName="ErrorLog">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="P:\Information Technology (Viewable by Everyone)\Data Integrations\errors.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Employee ID"
+              DTS:DTSID="{EDFE6282-726D-48EC-9553-A89823FEAE05}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Legal Name"
+              DTS:DTSID="{4C7D50B7-E6E9-403B-9BF9-C80FD53D45CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Hire Date"
+              DTS:DTSID="{4ABFD079-A0AE-4186-AEB7-7B4F65162643}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Termination Date"
+              DTS:DTSID="{2CE7F3F2-1E93-438E-8DC6-96EA8996AB9A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Worker Status"
+              DTS:DTSID="{DFAF2286-46BE-4706-AFC9-03DF0FFF9AD2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Work Address - Country"
+              DTS:DTSID="{770633DD-205D-4021-AB36-8E730B4E3039}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Worker Type"
+              DTS:DTSID="{FF847F84-4965-42AF-9C41-E0F6EB5B42CE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="YTD Hours"
+              DTS:DTSID="{8ACCD08E-BCDD-44A5-B8B5-630581EFAA7D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Period Start Date"
+              DTS:DTSID="{CF1EA862-0E37-4C73-894A-B6FDCF56B865}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Period End Date"
+              DTS:DTSID="{608B8A7E-807F-4BF3-81A6-086F9C94E473}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Payment Date or Reversal Date"
+              DTS:DTSID="{B57E6FE2-7C1C-45BC-B306-31BE1FE13D6C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Worker's Manager"
+              DTS:DTSID="{C1B7FB3A-52A7-4D4D-940E-B7DD0ADB795A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{08209439-7275-4E73-A5CF-3623F2E635EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{724FA76D-45E8-40DD-A4E1-D01C6817C10F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{E3C03842-7A4C-4991-BF97-4CF312142FA6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HOU-SQL-01\HOUSQL01.PEAK_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{167477B4-8F9A-4A47-A6F1-1832669CAC32}"
+      DTS:ObjectName="HOU-SQL-01\HOUSQL01.PEAK_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=HOU-SQL-01\HOUSQL01;Initial Catalog=PEAK_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{08001D70-CD1A-4997-BB41-468406E9770A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Filename_AllWorkers">
+      <DTS:VariableValue
+        DTS:DataType="8">\\azu-file-01\Public\Information Technology (Viewable by Everyone)\Data Integrations\All_Workers_Report_For_Worked_Hours_DWG 2020-11-18 17_16 CST.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{938A2277-5114-412A-8574-19EC704DA303}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Filename_EmployeeHours">
+      <DTS:VariableValue
+        DTS:DataType="8">\\azu-file-01\Public\Information Technology (Viewable by Everyone)\Data Integrations\HR Current Period Results 2020-06-03 17_16 CDT (1).xlsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Find All Workers File"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{A6C74CD1-1DB6-49B6-9FFC-F4E08DB9A0E5}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Find All Workers File">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{33EAF84F-8AC0-4B25-B896-1C723FE30966}"
+        DTS:ObjectName="{33EAF84F-8AC0-4B25-B896-1C723FE30966}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\azu-file-01\Public\Information Technology (Viewable by Everyone)\Data Integrations" />
+            <FEFEProperty
+              FileSpec="All_Workers_Report_For_Worked_Hours*.xlsx" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Find All Workers File\Delete File"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{E3A050C4-1698-4155-A823-984388299C16}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete File"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="User::Filename_AllWorkers"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Find All Workers File\Upload All Workers File"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{BABEE394-9A5A-404E-B9DD-FCEAA4334871}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Upload All Workers File"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="All_Workers_Excel"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Sheet1$A2:O</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[All Workers]"
+                      connectionManagerRefId="Package.ConnectionManagers[All Workers]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Employee ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Employee ID]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Employee ID]"
+                          name="Employee ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Hire Date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Hire Date]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Hire Date]"
+                          name="Hire Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Termination Date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Termination Date]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Termination Date]"
+                          name="Termination Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Worker Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Worker Status]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Worker Status]"
+                          name="Worker Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Work Address - Country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Work Address - Country]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Work Address - Country]"
+                          name="Work Address - Country"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Worker Type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Worker Type]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Worker Type]"
+                          name="Worker Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[YTD Hours]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[YTD Hours]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[YTD Hours]"
+                          name="YTD Hours"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Period Start Date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Period Start Date]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Period Start Date]"
+                          name="Period Start Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Period End Date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Period End Date]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Period End Date]"
+                          name="Period End Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Payment Date or Reversal Date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Payment Date or Reversal Date]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Payment Date or Reversal Date]"
+                          name="Payment Date or Reversal Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Worker's Manager]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Worker's Manager]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Worker's Manager]"
+                          name="Worker's Manager"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Location]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Location]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Location]"
+                          name="Location"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Contingent Worker Type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Contingent Worker Type]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Contingent Worker Type]"
+                          name="Contingent Worker Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Time Type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Time Type]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Time Type]"
+                          name="Time Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Full Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Full Name]"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Full Name]"
+                          name="Full Name"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Employee ID]"
+                          dataType="wstr"
+                          length="255"
+                          name="Employee ID" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Hire Date]"
+                          dataType="date"
+                          name="Hire Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Termination Date]"
+                          dataType="date"
+                          name="Termination Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Worker Status]"
+                          dataType="wstr"
+                          length="255"
+                          name="Worker Status" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Work Address - Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Work Address - Country" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Worker Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Worker Type" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[YTD Hours]"
+                          dataType="r8"
+                          name="YTD Hours" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Period Start Date]"
+                          dataType="wstr"
+                          length="255"
+                          name="Period Start Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Period End Date]"
+                          dataType="wstr"
+                          length="255"
+                          name="Period End Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Payment Date or Reversal Date]"
+                          dataType="wstr"
+                          length="255"
+                          name="Payment Date or Reversal Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Worker's Manager]"
+                          dataType="wstr"
+                          length="255"
+                          name="Worker's Manager" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Location]"
+                          dataType="wstr"
+                          length="255"
+                          name="Location" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Contingent Worker Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Contingent Worker Type" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Time Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Time Type" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].ExternalColumns[Full Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Full Name" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Employee ID]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Employee ID]"
+                          name="Employee ID" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Full Name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Full Name]"
+                          name="Full Name" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Hire Date]"
+                          dataType="date"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Hire Date]"
+                          name="Hire Date" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Termination Date]"
+                          dataType="date"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Termination Date]"
+                          name="Termination Date" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Worker Status]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Worker Status]"
+                          name="Worker Status" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Work Address - Country]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Work Address - Country]"
+                          name="Work Address - Country" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Worker Type]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Worker Type]"
+                          name="Worker Type" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[YTD Hours]"
+                          dataType="r8"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[YTD Hours]"
+                          name="YTD Hours" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Period Start Date]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Period Start Date]"
+                          name="Period Start Date" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Period End Date]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Period End Date]"
+                          name="Period End Date" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Payment Date or Reversal Date]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Payment Date or Reversal Date]"
+                          name="Payment Date or Reversal Date" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Worker's Manager]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Worker's Manager]"
+                          name="Worker's Manager" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Location]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Location]"
+                          name="Location" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Contingent Worker Type]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Contingent Worker Type]"
+                          name="Contingent Worker Type" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Time Type]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[Time Type]"
+                          name="Time Type" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="RPT__Stage_All_Workers"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[RPT].[Stage_All_Workers]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[HOU-SQL-01\HOUSQL01.PEAK_DW]"
+                      connectionManagerRefId="Package.ConnectionManagers[HOU-SQL-01\HOUSQL01.PEAK_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Employee ID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Employee ID"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Employee ID]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Employee ID]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Full Name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Full Name"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Legal Name]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Full Name]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Hire Date]"
+                          cachedDataType="date"
+                          cachedName="Hire Date"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Hire Date]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Hire Date]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Termination Date]"
+                          cachedDataType="date"
+                          cachedName="Termination Date"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Termination Date]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Termination Date]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Worker Status]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Worker Status"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Worker Status]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Worker Status]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Work Address - Country]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Work Address - Country"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Work Address - Country]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Work Address - Country]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Worker Type]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Worker Type"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Worker Type]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Worker Type]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[YTD Hours]"
+                          cachedDataType="r8"
+                          cachedName="YTD Hours"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[YTD Hours]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[YTD Hours]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Worker's Manager]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Worker's Manager"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Worker's Manager]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Worker's Manager]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Location]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Location"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Location]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Contingent Worker Type]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Contingent Worker Type"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Contingent Worker Type]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Contingent Worker Type]" />
+                        <inputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].Columns[Time Type]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Time Type"
+                          externalMetadataColumnId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Time Type]"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output].Columns[Time Type]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Employee ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="Employee ID" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Legal Name]"
+                          dataType="wstr"
+                          length="60"
+                          name="Legal Name" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Hire Date]"
+                          dataType="dbTimeStamp"
+                          name="Hire Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Termination Date]"
+                          dataType="dbTimeStamp"
+                          name="Termination Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Worker Status]"
+                          dataType="wstr"
+                          length="20"
+                          name="Worker Status" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Work Address - Country]"
+                          dataType="wstr"
+                          length="50"
+                          name="Work Address - Country" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Worker Type]"
+                          dataType="wstr"
+                          length="20"
+                          name="Worker Type" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[YTD Hours]"
+                          dataType="numeric"
+                          name="YTD Hours"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Worker's Manager]"
+                          dataType="wstr"
+                          length="60"
+                          name="Worker's Manager" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                          dataType="wstr"
+                          length="50"
+                          name="Location" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Contingent Worker Type]"
+                          dataType="wstr"
+                          length="50"
+                          name="Contingent Worker Type" />
+                        <externalMetadataColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input].ExternalColumns[Time Type]"
+                          dataType="wstr"
+                          length="50"
+                          name="Time Type" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Find All Workers File\Upload All Workers File.Paths[Excel Source Output]"
+                  endId="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers.Inputs[OLE DB Destination Input]"
+                  name="Excel Source Output"
+                  startId="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Find All Workers File.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{263344DB-D47D-4E7A-A3F5-A77858B1B61A}"
+          DTS:From="Package\Find All Workers File\Upload All Workers File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Find All Workers File\Delete File" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{C332A7AF-583A-4184-B3E5-E7571DC8B984}"
+          DTS:ObjectName="{C332A7AF-583A-4184-B3E5-E7571DC8B984}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::Filename_AllWorkers" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Find Employee Hours File"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{91D8B921-7952-4B60-BAC6-D1A3ED200244}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Find Employee Hours File">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{F1B7EEB6-48FC-4CC0-B8EC-6278B059650B}"
+        DTS:ObjectName="{33EAF84F-8AC0-4B25-B896-1C723FE30966}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\azu-file-01\Public\Information Technology (Viewable by Everyone)\Data Integrations" />
+            <FEFEProperty
+              FileSpec="HR_Current_Period_Results*.xlsx" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Find Employee Hours File\Delete File"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{D63B4EB1-8AB4-4A86-B258-141F0E5F37F8}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete File"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="User::Filename_EmployeeHours"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Find Employee Hours File\Upload Employee Hours File"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{EB0518C3-85B6-42CB-86A9-FCEC39104B4A}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Upload Employee Hours File"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Employee_Hours_Excel"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Sheet1$A7:J</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Employee Hours]"
+                      connectionManagerRefId="Package.ConnectionManagers[Employee Hours]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[EE ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[EE ID]"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[EE ID]"
+                          name="EE ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[NAME]"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Hire Date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Hire Date]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Hire Date]"
+                          name="Hire Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Termination Date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Termination Date]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Termination Date]"
+                          name="Termination Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[YTD Hours]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[YTD Hours]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[YTD Hours]"
+                          name="YTD Hours"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Worker]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Worker]"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Worker]"
+                          name="Worker"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Earning Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Earning Name]"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Earning Name]"
+                          name="Earning Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Pay Component Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Pay Component Name]"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Pay Component Name]"
+                          name="Pay Component Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Period]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Period]"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Period]"
+                          name="Period"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Hours (unprorated) Related Calculation]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Hours (unprorated) Related Calculation]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Hours (unprorated) Related Calculation]"
+                          name="Hours (unprorated) Related Calculation"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[EE ID]"
+                          dataType="wstr"
+                          length="255"
+                          name="EE ID" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="255"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Hire Date]"
+                          dataType="date"
+                          name="Hire Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Termination Date]"
+                          dataType="date"
+                          name="Termination Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[YTD Hours]"
+                          dataType="r8"
+                          name="YTD Hours" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Worker]"
+                          dataType="wstr"
+                          length="255"
+                          name="Worker" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Earning Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Earning Name" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Pay Component Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Pay Component Name" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Period]"
+                          dataType="wstr"
+                          length="255"
+                          name="Period" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].ExternalColumns[Hours (unprorated) Related Calculation]"
+                          dataType="r8"
+                          name="Hours (unprorated) Related Calculation" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[EE ID]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[EE ID]"
+                          name="EE ID" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Hire Date]"
+                          dataType="date"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Hire Date]"
+                          name="Hire Date" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Termination Date]"
+                          dataType="date"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Termination Date]"
+                          name="Termination Date" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[YTD Hours]"
+                          dataType="r8"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[YTD Hours]"
+                          name="YTD Hours" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Worker]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Worker]"
+                          name="Worker" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Earning Name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Earning Name]"
+                          name="Earning Name" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Pay Component Name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Pay Component Name]"
+                          name="Pay Component Name" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Period]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Period]"
+                          name="Period" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Hours (unprorated) Related Calculation]"
+                          dataType="r8"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[Hours (unprorated) Related Calculation]"
+                          name="Hours (unprorated) Related Calculation" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="RPT__Stage_Employee_Hours"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[RPT].[Stage_Employee_Hours]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[HOU-SQL-01\HOUSQL01.PEAK_DW]"
+                      connectionManagerRefId="Package.ConnectionManagers[HOU-SQL-01\HOUSQL01.PEAK_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[Hire Date]"
+                          cachedDataType="date"
+                          cachedName="Hire Date"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Hire Date]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Hire Date]" />
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[Termination Date]"
+                          cachedDataType="date"
+                          cachedName="Termination Date"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Termination Date]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Termination Date]" />
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[YTD Hours]"
+                          cachedDataType="r8"
+                          cachedName="YTD Hours"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[YTD Hours]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[YTD Hours]" />
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[EE ID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="EE ID"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[EE ID]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[EE ID]" />
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="NAME"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[NAME]" />
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[Worker]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Worker"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Worker]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Worker]" />
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[Earning Name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Earning Name"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Earning Name]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Earning Name]" />
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[Pay Component Name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Pay Component Name"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Pay Component Name]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Pay Component Name]" />
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[Period]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Period"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Period]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Period]" />
+                        <inputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].Columns[Hours (unprorated) Related Calculation]"
+                          cachedDataType="r8"
+                          cachedName="Hours (unprorated) Related Calculation"
+                          externalMetadataColumnId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Hours (unprorated) Related Calculation]"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output].Columns[Hours (unprorated) Related Calculation]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Hire Date]"
+                          dataType="dbTimeStamp"
+                          name="Hire Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Termination Date]"
+                          dataType="dbTimeStamp"
+                          name="Termination Date" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[YTD Hours]"
+                          dataType="numeric"
+                          name="YTD Hours"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[EE ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="EE ID" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="60"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Worker]"
+                          dataType="wstr"
+                          length="70"
+                          name="Worker" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Earning Name]"
+                          dataType="wstr"
+                          length="20"
+                          name="Earning Name" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Pay Component Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Pay Component Name" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Period]"
+                          dataType="wstr"
+                          length="50"
+                          name="Period" />
+                        <externalMetadataColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input].ExternalColumns[Hours (unprorated) Related Calculation]"
+                          dataType="numeric"
+                          name="Hours (unprorated) Related Calculation"
+                          precision="18"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Find Employee Hours File\Upload Employee Hours File.Paths[Excel Source Output]"
+                  endId="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours.Inputs[OLE DB Destination Input]"
+                  name="Excel Source Output"
+                  startId="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Find Employee Hours File.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{951546B4-CEE9-41A3-A4DB-F2B6D5DF4DF8}"
+          DTS:From="Package\Find Employee Hours File\Upload Employee Hours File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Find Employee Hours File\Delete File" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{80AA1F00-AD69-48C0-9710-20AAEB2554EF}"
+          DTS:ObjectName="{80AA1F00-AD69-48C0-9710-20AAEB2554EF}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::Filename_EmployeeHours" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Stage Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5A573FD2-C45E-4AC6-89A5-668EC853BA1E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Stage Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{167477B4-8F9A-4A47-A6F1-1832669CAC32}"
+          SQLTask:SqlStatementSource="Truncate table [RPT].[Stage_All_Workers]&#xA;Truncate table [RPT].[Stage_Employee_Hours] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{251A0AF7-6188-424B-9C03-CFD21966877D}"
+      DTS:From="Package\Truncate Stage Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Find All Workers File" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5F07B82E-C52B-4927-AED3-E7AF2877BAEC}"
+      DTS:From="Package\Find All Workers File"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Find Employee Hours File" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Find All Workers File\Delete File"
+          TopLeft="45,97" />
+        <NodeLayout
+          Size="188,45"
+          Id="Package\Find All Workers File\Upload All Workers File"
+          TopLeft="16,26" />
+        <EdgeLayout
+          Id="Package\Find All Workers File.PrecedenceConstraints[Constraint]"
+          TopLeft="109.5,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="239,194"
+          Size="239,237"
+          Id="Package\Find All Workers File"
+          TopLeft="89,112" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Find Employee Hours File\Delete File"
+          TopLeft="26,122" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Find Employee Hours File\Upload Employee Hours File"
+          TopLeft="15,29" />
+        <EdgeLayout
+          Id="Package\Find Employee Hours File.PrecedenceConstraints[Constraint]"
+          TopLeft="120.5,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5,51"
+              Start="0,0"
+              End="-15.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="-4,25.5" />
+                  <mssgle:LineSegment
+                    End="-11.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5,25.5"
+                    Point2="-15.5,25.5"
+                    Point3="-15.5,29.5" />
+                  <mssgle:LineSegment
+                    End="-15.5,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="258,219"
+          Size="258,262"
+          Id="Package\Find Employee Hours File"
+          TopLeft="100,417" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Truncate Stage Tables"
+          TopLeft="131,26" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="223,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,44"
+              Start="0,0"
+              End="-14.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="-4,22" />
+                  <mssgle:LineSegment
+                    End="-10.5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,22"
+                    Point2="-14.5,22"
+                    Point3="-14.5,26" />
+                  <mssgle:LineSegment
+                    End="-14.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="208.5,349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5,68"
+              Start="0,0"
+              End="20.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="4,34" />
+                  <mssgle:LineSegment
+                    End="16.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5,34"
+                    Point2="20.5,34"
+                    Point3="20.5,38" />
+                  <mssgle:LineSegment
+                    End="20.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Find All Workers File\Upload All Workers File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers"
+          TopLeft="86,113" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel"
+          TopLeft="95,38" />
+        <EdgeLayout
+          Id="Package\Find All Workers File\Upload All Workers File.Paths[Excel Source Output]"
+          TopLeft="181.25,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Find All Workers File\Upload All Workers File\All_Workers_Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Find All Workers File\Upload All Workers File\RPT__Stage_All_Workers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Find Employee Hours File\Upload Employee Hours File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours"
+          TopLeft="86,113" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel"
+          TopLeft="95,38" />
+        <EdgeLayout
+          Id="Package\Find Employee Hours File\Upload Employee Hours File.Paths[Excel Source Output]"
+          TopLeft="192.75,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Find Employee Hours File\Upload Employee Hours File\Employee_Hours_Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Find Employee Hours File\Upload Employee Hours File\RPT__Stage_Employee_Hours">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "WellMaster Stage Data", "WellMaster Stage Data\WellMaster Stage Data.dtproj", "{AB08CE29-8A05-4FC7-BA3E-271E37508A3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB08CE29-8A05-4FC7-BA3E-271E37508A3A}.Development|Default.ActiveCfg = Development
+		{AB08CE29-8A05-4FC7-BA3E-271E37508A3A}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6A041F9-7FC7-4538-9BA0-720EBB7B30F0}
+	EndGlobalSection
+EndGlobal

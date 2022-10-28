@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "WellMaster Stage Data ProCount CompletionTb", "WellMaster Stage Data ProCount CompletionTb\WellMaster Stage Data ProCount CompletionTb.dtproj", "{6F03D615-4DF5-4238-A175-6D5FC64E507C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F03D615-4DF5-4238-A175-6D5FC64E507C}.Development|Default.ActiveCfg = Development
+		{6F03D615-4DF5-4238-A175-6D5FC64E507C}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4FAC871-309B-45BA-96CC-A66692D9F31F}
+	EndGlobalSection
+EndGlobal

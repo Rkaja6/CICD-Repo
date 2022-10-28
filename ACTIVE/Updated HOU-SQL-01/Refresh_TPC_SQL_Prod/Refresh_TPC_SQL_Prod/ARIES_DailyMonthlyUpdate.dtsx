@@ -1,0 +1,1276 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/2/2022 1:22:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOL-L-9382T83"
+  DTS:CreatorName="rglazebrook"
+  DTS:DTSID="{DB193665-BAF8-409A-A371-B0D3EEED06FE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ARIES_DailyMonthlyUpdate"
+  DTS:VersionGUID="{E2E04466-FA58-4DD3-9D71-DA1C4657C8E9}"
+  DTS:VersionMajor="0">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLEDB_ARIES]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CA4028AB-228D-4752-A64A-2C058AF1196F}"
+      DTS:ObjectName="OLEDB_ARIES">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="data source=HOU-ARSQL-01;initial catalog=TPC_SQL;provider=SQLNCLI11.1;integrated security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLEDB_PEAK]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4D8769FF-E87E-4B6E-8E6A-C074A0EC81B5}"
+      DTS:ObjectName="OLEDB_PEAK">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="data source=AZU-SQL-03;initial catalog=PEAK_DW;provider=SQLNCLI11.1;integrated security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Update_All_Tables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{6F6B27C4-F719-4CC8-B6D7-6C61F581BC24}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update_All_Tables">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Update_All_Tables\Update_AC_DAILY"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:DTSID="{FC785C2D-DAF3-47F8-8C69-132ACD110DD1}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_AC_DAILY">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DTSID="{5981FE74-6C9A-4B5B-8552-E085831A4EB4}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="AC_DAILY_TMP"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      name="ARIES"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">dbo.AC_DAILY_TMP</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[OLEDB_ARIES]"
+                          connectionManagerRefId="Package.ConnectionManagers[OLEDB_ARIES]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="PEAK_Output_ARIES">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[PROPNUM]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="30"
+                              cachedName="PROPNUM"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[PROPNUM]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[PROPNUM]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[D_DATE]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="D_DATE"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[D_DATE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[D_DATE]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[OIL]"
+                              cachedDataType="r8"
+                              cachedName="OIL"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[OIL]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[OIL]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[GAS]"
+                              cachedDataType="r8"
+                              cachedName="GAS"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[GAS]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[GAS]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[WATER]"
+                              cachedDataType="r8"
+                              cachedName="WATER"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[WATER]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[WATER]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[FTP]"
+                              cachedDataType="r8"
+                              cachedName="FTP"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[FTP]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[FTP]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[CP]"
+                              cachedDataType="r8"
+                              cachedName="CP"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[CP]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[CP]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[PROPNUM]"
+                              codePage="1252"
+                              dataType="str"
+                              length="255"
+                              name="PROPNUM" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[D_DATE]"
+                              dataType="dbTimeStamp"
+                              name="D_DATE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[OIL]"
+                              dataType="r8"
+                              name="OIL" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[GAS]"
+                              dataType="r8"
+                              name="GAS" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[WATER]"
+                              dataType="r8"
+                              name="WATER" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[FTP]"
+                              dataType="r8"
+                              name="FTP" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[CP]"
+                              dataType="r8"
+                              name="CP" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Outputs[Error]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Error"
+                          synchronousInputId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Outputs[Error].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Outputs[Error].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Outputs[Error].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Outputs[Error].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      name="PEAK"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT PROPNUM, D_DATE, OIL, GAS, WATER, FTP, CP FROM PEAK_DW.ARIES.V_AC_DAILY</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[OLEDB_PEAK]"
+                          connectionManagerRefId="Package.ConnectionManagers[OLEDB_PEAK]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output]"
+                          name="Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[PROPNUM]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[PROPNUM]"
+                              length="30"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[PROPNUM]"
+                              name="PROPNUM"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[D_DATE]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[D_DATE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[D_DATE]"
+                              name="D_DATE"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[OIL]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[OIL]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[OIL]"
+                              name="OIL"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[GAS]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[GAS]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[GAS]"
+                              name="GAS"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[WATER]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[WATER]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[WATER]"
+                              name="WATER"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[FTP]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[FTP]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[FTP]"
+                              name="FTP"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[CP]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[CP]"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].Columns[CP]"
+                              name="CP"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[PROPNUM]"
+                              codePage="1252"
+                              dataType="str"
+                              length="30"
+                              name="PROPNUM" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[D_DATE]"
+                              dataType="dbTimeStamp"
+                              name="D_DATE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[OIL]"
+                              dataType="r8"
+                              name="OIL" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[GAS]"
+                              dataType="r8"
+                              name="GAS" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[WATER]"
+                              dataType="r8"
+                              name="WATER" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[FTP]"
+                              dataType="r8"
+                              name="FTP" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output].ExternalColumns[CP]"
+                              dataType="r8"
+                              name="CP" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error]"
+                          isErrorOut="true"
+                          name="Error">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[PROPNUM]"
+                              codePage="1252"
+                              dataType="str"
+                              length="30"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[PROPNUM]"
+                              name="PROPNUM" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[D_DATE]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[D_DATE]"
+                              name="D_DATE" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[OIL]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[OIL]"
+                              name="OIL" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[GAS]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[GAS]"
+                              name="GAS" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[WATER]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[WATER]"
+                              name="WATER" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[FTP]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[FTP]"
+                              name="FTP" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[CP]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[CP]"
+                              name="CP" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Error].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP.Paths[PEAK_Output_ARIES]"
+                      endId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\ARIES.Inputs[PEAK_Output_ARIES]"
+                      name="PEAK_Output_ARIES"
+                      startId="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP\PEAK.Outputs[Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Update_All_Tables\Update_AC_DAILY\RunProc"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DTSID="{3CB2BCD3-C2D6-44A7-A714-D43D3FBD65B7}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="RunProc"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{CA4028AB-228D-4752-A64A-2C058AF1196F}"
+                  SQLTask:SqlStatementSource="EXECUTE dbo.proc_UPDATE_AC_DAILY" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Update_All_Tables\Update_AC_DAILY\TruncateTbl"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DTSID="{63C63500-EBB6-4336-9922-6E2E6E5CC84F}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="TruncateTbl"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{CA4028AB-228D-4752-A64A-2C058AF1196F}"
+                  SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.AC_DAILY_TMP" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Update_All_Tables\Update_AC_DAILY.PrecedenceConstraints[Constraint_AC_DAILY_TMP_To_RunProc]"
+              DTS:CreationName=""
+              DTS:DTSID="{C1F8F7A1-0651-4C52-9A25-672734082A25}"
+              DTS:From="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint_AC_DAILY_TMP_To_RunProc"
+              DTS:To="Package\Update_All_Tables\Update_AC_DAILY\RunProc" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Update_All_Tables\Update_AC_DAILY.PrecedenceConstraints[Constraint_TruncateTbl_To_AC_DAILY_TMP]"
+              DTS:CreationName=""
+              DTS:DTSID="{EB0246C3-AECA-4722-ADDE-B8A7B1AE6B14}"
+              DTS:From="Package\Update_All_Tables\Update_AC_DAILY\TruncateTbl"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint_TruncateTbl_To_AC_DAILY_TMP"
+              DTS:To="Package\Update_All_Tables\Update_AC_DAILY\AC_DAILY_TMP" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update_All_Tables\Update_AC_PRODUCT"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:DTSID="{ABC9C9A5-8307-4B9A-90FF-7F7B9C984EFB}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_AC_PRODUCT">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:DTSID="{E9E9949D-8B9B-41FB-AC0A-E53154A249DE}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="AC_PRODUCT_TMP"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  BLOBTempStoragePath=""
+                  bufferTempStoragePath=""
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      name="ARIES"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">dbo.AC_PRODUCT_TMP</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[OLEDB_ARIES]"
+                          connectionManagerRefId="Package.ConnectionManagers[OLEDB_ARIES]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="PEAK_Output_ARIES">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[PROPNUM]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="30"
+                              cachedName="PROPNUM"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[PROPNUM]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[PROPNUM]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[P_DATE]"
+                              cachedDataType="dbDate"
+                              cachedName="P_DATE"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[P_DATE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[P_DATE]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[OIL]"
+                              cachedDataType="r8"
+                              cachedName="OIL"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[OIL]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[OIL]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[GAS]"
+                              cachedDataType="r8"
+                              cachedName="GAS"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[GAS]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[GAS]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[WATER]"
+                              cachedDataType="r8"
+                              cachedName="WATER"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[WATER]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[WATER]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[DAYS_ON]"
+                              cachedDataType="i4"
+                              cachedName="DAYS_ON"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[DAYS_ON]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[DAYS_ON]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[WELLS]"
+                              cachedDataType="i4"
+                              cachedName="WELLS"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[WELLS]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[WELLS]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[NGL]"
+                              cachedDataType="i4"
+                              cachedName="NGL"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[NGL]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[NGL]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[CON]"
+                              cachedDataType="i4"
+                              cachedName="CON"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[CON]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[CON]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[ETHANE]"
+                              cachedDataType="i4"
+                              cachedName="ETHANE"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[ETHANE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[ETHANE]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[PROPANE]"
+                              cachedDataType="i4"
+                              cachedName="PROPANE"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[PROPANE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[PROPANE]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[BUTANE]"
+                              cachedDataType="i4"
+                              cachedName="BUTANE"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[BUTANE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[BUTANE]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[SULFUR]"
+                              cachedDataType="i4"
+                              cachedName="SULFUR"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[SULFUR]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[SULFUR]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[USR1]"
+                              cachedDataType="i4"
+                              cachedName="USR1"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[USR1]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR1]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[USR2]"
+                              cachedDataType="i4"
+                              cachedName="USR2"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[USR2]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR2]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[USR3]"
+                              cachedDataType="i4"
+                              cachedName="USR3"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[USR3]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR3]" />
+                            <inputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].Columns[USR4]"
+                              cachedDataType="i4"
+                              cachedName="USR4"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[USR4]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR4]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[PROPNUM]"
+                              codePage="1252"
+                              dataType="str"
+                              length="12"
+                              name="PROPNUM" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[P_DATE]"
+                              dataType="dbTimeStamp"
+                              name="P_DATE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[OIL]"
+                              dataType="r8"
+                              name="OIL" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[GAS]"
+                              dataType="r8"
+                              name="GAS" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[WATER]"
+                              dataType="r8"
+                              name="WATER" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[DAYS_ON]"
+                              dataType="r8"
+                              name="DAYS_ON" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[WELLS]"
+                              dataType="r8"
+                              name="WELLS" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[NGL]"
+                              dataType="r8"
+                              name="NGL" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[CON]"
+                              dataType="r8"
+                              name="CON" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[ETHANE]"
+                              dataType="r8"
+                              name="ETHANE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[PROPANE]"
+                              dataType="r8"
+                              name="PROPANE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[BUTANE]"
+                              dataType="r8"
+                              name="BUTANE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[SULFUR]"
+                              dataType="r8"
+                              name="SULFUR" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[USR1]"
+                              dataType="r8"
+                              name="USR1" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[USR2]"
+                              dataType="r8"
+                              name="USR2" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[USR3]"
+                              dataType="r8"
+                              name="USR3" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES].ExternalColumns[USR4]"
+                              dataType="r8"
+                              name="USR4" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Outputs[Error]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="Error"
+                          synchronousInputId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Outputs[Error].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Outputs[Error].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Outputs[Error].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Outputs[Error].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      name="PEAK"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT PROPNUM, P_DATE, OIL, GAS, WATER, DAYS_ON, WELLS, NGL, CON,  ETHANE,  PROPANE, BUTANE, SULFUR,  USR1,  USR2,  USR3,  USR4 FROM PEAK_DW.ARIES.V_AC_PRODUCT</property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">2</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[OLEDB_PEAK]"
+                          connectionManagerRefId="Package.ConnectionManagers[OLEDB_PEAK]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output]"
+                          name="Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[PROPNUM]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[PROPNUM]"
+                              length="30"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[PROPNUM]"
+                              name="PROPNUM"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[P_DATE]"
+                              dataType="dbDate"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[P_DATE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[P_DATE]"
+                              name="P_DATE"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[OIL]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[OIL]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[OIL]"
+                              name="OIL"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[GAS]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[GAS]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[GAS]"
+                              name="GAS"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[WATER]"
+                              dataType="r8"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[WATER]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[WATER]"
+                              name="WATER"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[DAYS_ON]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[DAYS_ON]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[DAYS_ON]"
+                              name="DAYS_ON"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[WELLS]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[WELLS]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[WELLS]"
+                              name="WELLS"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[NGL]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[NGL]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[NGL]"
+                              name="NGL"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[CON]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[CON]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[CON]"
+                              name="CON"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[ETHANE]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[ETHANE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[ETHANE]"
+                              name="ETHANE"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[PROPANE]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[PROPANE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[PROPANE]"
+                              name="PROPANE"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[BUTANE]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[BUTANE]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[BUTANE]"
+                              name="BUTANE"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[SULFUR]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[SULFUR]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[SULFUR]"
+                              name="SULFUR"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR1]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[USR1]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR1]"
+                              name="USR1"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR2]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[USR2]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR2]"
+                              name="USR2"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR3]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[USR3]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR3]"
+                              name="USR3"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR4]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[USR4]"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].Columns[USR4]"
+                              name="USR4"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[PROPNUM]"
+                              codePage="1252"
+                              dataType="str"
+                              length="30"
+                              name="PROPNUM" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[P_DATE]"
+                              dataType="dbDate"
+                              name="P_DATE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[OIL]"
+                              dataType="r8"
+                              name="OIL" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[GAS]"
+                              dataType="r8"
+                              name="GAS" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[WATER]"
+                              dataType="r8"
+                              name="WATER" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[DAYS_ON]"
+                              dataType="i4"
+                              name="DAYS_ON" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[WELLS]"
+                              dataType="i4"
+                              name="WELLS" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[NGL]"
+                              dataType="i4"
+                              name="NGL" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[CON]"
+                              dataType="i4"
+                              name="CON" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[ETHANE]"
+                              dataType="i4"
+                              name="ETHANE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[PROPANE]"
+                              dataType="i4"
+                              name="PROPANE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[BUTANE]"
+                              dataType="i4"
+                              name="BUTANE" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[SULFUR]"
+                              dataType="i4"
+                              name="SULFUR" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[USR1]"
+                              dataType="i4"
+                              name="USR1" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[USR2]"
+                              dataType="i4"
+                              name="USR2" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[USR3]"
+                              dataType="i4"
+                              name="USR3" />
+                            <externalMetadataColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output].ExternalColumns[USR4]"
+                              dataType="i4"
+                              name="USR4" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error]"
+                          isErrorOut="true"
+                          name="Error">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[PROPNUM]"
+                              codePage="1252"
+                              dataType="str"
+                              length="30"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[PROPNUM]"
+                              name="PROPNUM" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[P_DATE]"
+                              dataType="dbDate"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[P_DATE]"
+                              name="P_DATE" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[OIL]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[OIL]"
+                              name="OIL" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[GAS]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[GAS]"
+                              name="GAS" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[WATER]"
+                              dataType="r8"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[WATER]"
+                              name="WATER" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[DAYS_ON]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[DAYS_ON]"
+                              name="DAYS_ON" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[WELLS]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[WELLS]"
+                              name="WELLS" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[NGL]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[NGL]"
+                              name="NGL" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[CON]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[CON]"
+                              name="CON" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[ETHANE]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[ETHANE]"
+                              name="ETHANE" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[PROPANE]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[PROPANE]"
+                              name="PROPANE" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[BUTANE]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[BUTANE]"
+                              name="BUTANE" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[SULFUR]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[SULFUR]"
+                              name="SULFUR" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[USR1]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[USR1]"
+                              name="USR1" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[USR2]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[USR2]"
+                              name="USR2" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[USR3]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[USR3]"
+                              name="USR3" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[USR4]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[USR4]"
+                              name="USR4" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Error].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP.Paths[PEAK_Output_ARIES]"
+                      endId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\ARIES.Inputs[PEAK_Output_ARIES]"
+                      name="PEAK_Output_ARIES"
+                      startId="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP\PEAK.Outputs[Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Update_All_Tables\Update_AC_PRODUCT\TruncateTbl"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DTSID="{BF8ABF9D-6AB1-4A00-A1D1-E1CFE64EBD71}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="TruncateTbl"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{CA4028AB-228D-4752-A64A-2C058AF1196F}"
+                  SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.AC_PRODUCT_TMP" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Update_All_Tables\Update_AC_PRODUCT.PrecedenceConstraints[Constraint_TruncateTbl_To_AC_PRODUCT_TMP]"
+              DTS:CreationName=""
+              DTS:DTSID="{EDBFBB09-6574-4FB4-970E-A5AF411161CD}"
+              DTS:From="Package\Update_All_Tables\Update_AC_PRODUCT\TruncateTbl"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint_TruncateTbl_To_AC_PRODUCT_TMP"
+              DTS:To="Package\Update_All_Tables\Update_AC_PRODUCT\AC_PRODUCT_TMP" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "WorkedHoursReport", "WorkedHoursReport\WorkedHoursReport.dtproj", "{DA2078E7-D204-4C6D-8784-A3CC6A608BDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA2078E7-D204-4C6D-8784-A3CC6A608BDD}.Development|Default.ActiveCfg = Development
+		{DA2078E7-D204-4C6D-8784-A3CC6A608BDD}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01C4C86A-1EDD-41DD-AA55-132895B4021E}
+	EndGlobalSection
+EndGlobal
