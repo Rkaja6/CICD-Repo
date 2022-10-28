@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [TLN\jlogbotche]
+    FROM WINDOWS WITH DEFAULT_DATABASE = [Prod_WellEZ], DEFAULT_LANGUAGE = [us_english];
+

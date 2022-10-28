@@ -1,0 +1,10 @@
+10/28/2022 9:56:47 AM	This log contains information about the import schema operation into project 'Prod_zedi_Azure' on computer 'AZU-SQL-02' by user 'aa.rkaja'.
+10/28/2022 9:56:47 AM	Deserializing model
+10/28/2022 9:56:47 AM	Resolving model
+10/28/2022 9:56:47 AM	Visiting imported model for types
+10/28/2022 9:56:47 AM	Scanning project for duplicate elements
+10/28/2022 9:56:47 AM	Finished duplicate element processing
+10/28/2022 9:56:48 AM	Processing extra files
+10/28/2022 9:56:48 AM	Finished importing Data-tier Application file.
+10/28/2022 9:56:48 AM	A summary of the import was saved to the following location: C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Prod_zedi_Azure\Prod_zedi_Azure\Import Schema Logs\Prod_zedi_Azure_20221028025647.log
+10/28/2022 9:56:48 AM	Click Finish to continue...
