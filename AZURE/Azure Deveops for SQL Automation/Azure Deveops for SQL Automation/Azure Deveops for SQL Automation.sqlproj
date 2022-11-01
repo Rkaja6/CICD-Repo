@@ -179,6 +179,6 @@
     <None Include="Post-Deployment\01_Finalize_Deployment.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo.Table1.sql" />
+    <Build Include="dbo.StatusLookUp.sql" />
   </ItemGroup>
 </Project>
