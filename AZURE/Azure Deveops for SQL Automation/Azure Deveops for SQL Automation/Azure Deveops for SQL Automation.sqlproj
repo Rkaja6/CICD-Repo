@@ -35,6 +35,8 @@
     <EvaluateExecutionOrderOnImport>True</EvaluateExecutionOrderOnImport>
     <Provisioner>CustomScripts</Provisioner>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DeployChangesExecutionOrder>7983f4ce-15d8-50c2-bdc3-6ae217b52264|Programmable Objects\dbo\Functions\ufn_ConvertUTCToCT.sql;33839a98-9771-5994-b4ae-1801c847f1ae|Programmable Objects\dbo\Views\vw_ZediDailyAggData.sql;1f7bc702-24e1-519d-84f2-d13d8525d3fa|Programmable Objects\dbo\Views\vw_ZediRawData.sql</DeployChangesExecutionOrder>
+    <DeployChangesInitialImportDone>True</DeployChangesInitialImportDone>
   </PropertyGroup>
   <!-- SQL CHANGE AUTOMATION OFFLINE SCHEMA MODEL OPTIONS -->
   <PropertyGroup>
@@ -167,6 +169,16 @@
     <Folder Include="Pre-Deployment\" />
     <Folder Include="Post-Deployment\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Programmable Objects\" />
+    <Folder Include="Programmable Objects\dbo\" />
+    <Folder Include="Programmable Objects\dbo\Functions\" />
+    <Folder Include="Programmable Objects\dbo\Views\" />
+    <Folder Include="Schema-Model\" />
+    <Folder Include="Schema-Model\dbo\" />
+    <Folder Include="Schema-Model\dbo\Tables\" />
+    <Folder Include="Schema-Model\Security\" />
+    <Folder Include="Schema-Model\Security\Roles\" />
+    <Folder Include="Schema-Model\Security\Users\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Provisioning\CreateDatabase.sql" />
@@ -179,6 +191,17 @@
     <None Include="Post-Deployment\01_Finalize_Deployment.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo.Table1.sql" />
+    <Build Include="dbo.StatusLookUp.sql" />
+    <None Include="Migrations\001_20221101-1030_aa.rkaja.sql" />
+    <None Include="Programmable Objects\dbo\Functions\ufn_ConvertUTCToCT.sql" />
+    <None Include="Programmable Objects\dbo\Views\vw_ZediDailyAggData.sql" />
+    <None Include="Programmable Objects\dbo\Views\vw_ZediRawData.sql" />
+    <None Include="Schema-Model\dbo\Tables\ZediData.sql" />
+    <None Include="Schema-Model\dbo\Tables\ZediDataQTR.sql" />
+    <None Include="Schema-Model\Security\Roles\db_datareader.sql" />
+    <None Include="Schema-Model\Security\Users\TLN_jlogbotche.sql" />
+    <None Include="Schema-Model\Security\Users\TLN_svc-powerbi.sql" />
+    <None Include="Schema-Model\Security\Users\TLN_ttaylor.sql" />
+    <None Include="Schema-Model\Security\Users\TLN_upstream.sql" />
   </ItemGroup>
 </Project>
