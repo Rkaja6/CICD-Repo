@@ -1,0 +1,11 @@
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\bin\Debug\
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\bin\Debug\Test Table_DeployPackage.ps1
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\bin\Debug\Test Table_Provisioning.sql
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\bin\Debug\Test Table.sql
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\bin\Debug\Test_Table.dll
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\bin\Debug\Test_Table.pdb
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\obj\Debug\Test Table.sqlproj.AssemblyReference.cache
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\obj\Debug\Test Table_Provisioning.sql
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\obj\Debug\Test Table.sql
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\obj\Debug\Test_Table.dll
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Test Table\Test Table\obj\Debug\Test_Table.pdb
