@@ -192,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo.StatusLookUp.sql" />
+<<<<<<< HEAD
     <None Include="Migrations\001_20221101-1030_aa.rkaja.sql" />
     <None Include="Programmable Objects\dbo\Functions\ufn_ConvertUTCToCT.sql" />
     <None Include="Programmable Objects\dbo\Views\vw_ZediDailyAggData.sql" />
@@ -203,5 +204,7 @@
     <None Include="Schema-Model\Security\Users\TLN_svc-powerbi.sql" />
     <None Include="Schema-Model\Security\Users\TLN_ttaylor.sql" />
     <None Include="Schema-Model\Security\Users\TLN_upstream.sql" />
+=======
+>>>>>>> 9f2e9921e8826c2a390cc193fd7eb2772c2849a2
   </ItemGroup>
 </Project>
