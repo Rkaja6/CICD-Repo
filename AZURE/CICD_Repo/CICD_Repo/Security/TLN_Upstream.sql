@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [TLN\Upstream]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [us_english];
+

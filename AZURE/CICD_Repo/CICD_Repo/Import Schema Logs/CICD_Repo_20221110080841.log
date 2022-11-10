@@ -1,0 +1,10 @@
+11/10/2022 2:08:41 PM	This log contains information about the import schema operation into project 'CICD_Repo' on computer 'AZU-SQL-02' by user 'aa.rkaja'.
+11/10/2022 2:08:42 PM	Deserializing model
+11/10/2022 2:08:44 PM	Resolving model
+11/10/2022 2:08:44 PM	Visiting imported model for types
+11/10/2022 2:08:44 PM	Scanning project for duplicate elements
+11/10/2022 2:08:44 PM	Finished duplicate element processing
+11/10/2022 2:08:45 PM	Processing extra files
+11/10/2022 2:08:46 PM	Finished importing Data-tier Application file.
+11/10/2022 2:08:46 PM	A summary of the import was saved to the following location: C:\Users\aa.rkaja\source\repos\Application Support\AZURE\CICD_Repo\CICD_Repo\Import Schema Logs\CICD_Repo_20221110080841.log
+11/10/2022 2:08:46 PM	Click Finish to continue...
