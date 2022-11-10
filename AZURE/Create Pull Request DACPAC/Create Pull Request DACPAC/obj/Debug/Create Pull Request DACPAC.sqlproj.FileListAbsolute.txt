@@ -1,0 +1,15 @@
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\obj\Debug\Create Pull Request DACPAC.sqlproj.AssemblyReference.cache
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\obj\Debug\Model.xml
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\obj\Debug\refactor.xml
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\obj\Debug\postdeploy.sql
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\obj\Debug\predeploy.sql
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\obj\Debug\Create_Pull_Request_DACPAC.dll
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\obj\Debug\Create_Pull_Request_DACPAC.pdb
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\Create Pull Request DACPAC.dacpac
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\predeploy.sql
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\postdeploy.sql
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\Create_Pull_Request_DACPAC.dll
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\Create_Pull_Request_DACPAC.pdb
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\DACPAC\Create Pull Request DACPAC.dacpac
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\DACPAC\Create_Pull_Request_DACPAC.dll
+C:\Users\aa.rkaja\source\repos\Application Support\AZURE\Create Pull Request DACPAC\Create Pull Request DACPAC\DACPAC\Create_Pull_Request_DACPAC.pdb

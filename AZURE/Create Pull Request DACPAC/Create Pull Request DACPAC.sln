@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Create Pull Request DACPAC", "Create Pull Request DACPAC\Create Pull Request DACPAC.sqlproj", "{456B4630-AD38-49C9-B0DF-84599C58A193}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{456B4630-AD38-49C9-B0DF-84599C58A193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456B4630-AD38-49C9-B0DF-84599C58A193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456B4630-AD38-49C9-B0DF-84599C58A193}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{456B4630-AD38-49C9-B0DF-84599C58A193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{456B4630-AD38-49C9-B0DF-84599C58A193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{456B4630-AD38-49C9-B0DF-84599C58A193}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {68B3477F-B024-4D6F-B065-74A1FAF64F68}
+	EndGlobalSection
+EndGlobal
